@@ -1,0 +1,33 @@
+\documentclass[12pt, a4paper, onecolumn, oneside, final]{report}
+
+\input{config/identitas}
+\input{config/preamble.sty}
+
+\begin{document}
+\include{sections/pages/sampul}
+\pagenumbering{roman}
+\include{sections/pages/sampuldalam}
+\include{sections/pages/pengesahan}
+%\include{sections/persetujuan}
+\include{sections/pages/pernyataan}
+\include{sections/pages/motto}
+\include{sections/pages/katapengantar}
+\include{sections/tableof/daftarisi}
+\include{sections/tableof/daftargambar}
+\include{sections/tableof/daftartabel}
+\include{sections/tableof/daftarkode}
+% \include{sections/tableof/daftarsingkatan}
+\include{sections/pages/abstrak}
+\include{sections/pages/abstract}
+\include{sections/daftarlampiran}
+
+\pagenumbering{arabic}
+\include{sections/chapters/1/_index}
+\include{sections/bab2}
+\include{sections/bab3}
+\include{sections/bab4}
+\include{sections/bab5}
+\input{sections/tableof/daftarpustaka}
+\input{sections/pages/lampiran1}
+\input{sections/pages/lampiran2}
+\end{document}

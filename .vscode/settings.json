@@ -1,0 +1,71 @@
+{
+  // 🌟 Pengalaman Editor Lebih Nyaman
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+
+  // 🔄 Auto Build dan SyncTeX
+  "latex-workshop.synctex.afterBuild.enabled": true,
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  // ✅ Linting dengan chktex
+  "latex-workshop.chktex.enabled": true,
+
+  // 🧹 Auto Clean setelah Build
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.fileTypes": [
+      "*.aux",
+      "*.bbl",
+      "*.blg",
+      "*.idx",
+      "*.ind",
+      "*.lof",
+      "*.lot",
+      "*.out",
+      "*.toc",
+      "*.acn",
+      "*.acr",
+      "*.alg",
+      "*.glg",
+      "*.glo",
+      "*.gls",
+      "*.ist",
+      "*.fls",
+      "*.log",
+      "*.fdb_latexmk"
+  ],
+
+  // 📂 Direktori Output Build
+  "latex-workshop.latex.outDir": "./build",
+
+  // 🛠️ Tools untuk Kompilasi LaTeX
+  "latex-workshop.latex.tools": [
+      {
+          "name": "latexmk",
+          "command": "latexmk",
+          "args": [
+              "-shell-escape",
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-pdf",
+              "-outdir=build", // Semua file output ke folder build
+              "%DOC%"
+          ],
+          "env": {}
+      }
+  ],
+
+  // 🍳 Resep Build LaTeX
+  "latex-workshop.latex.recipes": [
+      {
+          "name": "Build using latexmk 🌵",
+          "tools": ["latexmk"]
+      }
+  ],
+
+  // 🗂️ Asosiasi File
+  "files.associations": {
+      "*.lbx": "latex"
+  }
+}

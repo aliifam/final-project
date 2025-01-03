@@ -1,0 +1,256 @@
+%\usepackage{caption}
+%\usepackage{subcaption}
+
+\usepackage{courier}
+
+% Diagram tikz
+\usepackage{tikz-cd}
+
+% Color
+\usepackage{color}
+
+% Mengatur bahasa latex
+\usepackage[indonesian]{babel}
+\usepackage[utf8]{inputenc}
+
+% Untuk pengaturan spacing
+\usepackage{setspace}
+\onehalfspacing
+
+% Untuk mengatur level section 
+\setcounter{secnumdepth}{6}
+
+% Digunakan untuk memasukan gambar ke laporan. 
+\usepackage{graphicx}
+\graphicspath{{resources/images/}}
+\usepackage{float}
+\usepackage[hang,centerlast, nooneline ,small,md]{subfigure}
+\usepackage[subfigure]{tocloft}
+
+% Untuk mengatur spacing antara paragraf
+\usepackage{parskip}
+
+% Membuat indent
+\usepackage{indentfirst}
+\setlength\parindent{1cm}
+
+% Untuk mengkustomisasi margin
+\usepackage{scrextend}
+
+% Untuk mengatur header dan footer
+\usepackage{fancyhdr}
+
+% Membuat seluruh tulisan menjadi Times New Roman. 
+% \usepackage{pslatex}
+
+% Merubah numbering chapter dan section untuk judul setiap bab menggunakan romawi dan judul anak bab menggunakan arabic
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}\hspace{0.05cm}}
+\renewcommand{\thesubsection}{\arabic{chapter}.\arabic{section}.\arabic{subsection}\hspace{-0.25cm}}
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}.\hspace{-0,25cm}}
+\renewcommand{\theparagraph}{\arabic{paragraph}.\hspace{-0,25cm}}
+
+% Mengatur identasi judul section dan subsection
+%\titleformat{\section}[block]{\bfseries}{\thesection.}{1em}{}
+%\titleformat{\subsection}[block]{\hspace{2em}}{\thesubsection}{1em}{}
+
+% Merubah huruf kapital pada judul daftar isi, daftar gambar, dan daftar table
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hfil\large\bfseries\MakeUppercase}
+\renewcommand{\cftloftitlefont}{\hfil\large\bfseries\MakeUppercase}
+\renewcommand{\cftlottitlefont}{\hfil\large\bfseries\MakeUppercase}
+
+\renewcommand\cftchappresnum{BAB }
+\renewcommand\cftchapaftersnum{}
+\newlength\mylen
+\settowidth\mylen{\bfseries BAB 1 :\ } % if more than 9 chapters, use "Chapter 10"
+\cftsetindents{chap}{0pt}{\mylen}
+
+% Mengatur font section
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{14}\selectfont}
+\subsectionfont{\fontsize{12}{14}\selectfont}
+\subsubsectionfont{\fontsize{12}{14}\selectfont}
+\paragraphfont{\normalfont\fontsize{12}{14}\selectfont}
+
+% Untuk merupakan format penulisan BAB
+\usepackage{titlesec}
+%\titleformat*{\paragraph}{\normalfont\fontsize{12}{14}\selectfont}
+
+\titleformat{\chapter}
+{\doublespacing\fontsize{14pt}{16pt}\bfseries}
+{\MakeUppercase{\chaptertitlename\ \Roman{chapter}}\filcenter}
+{0.15cm}{\centering\uppercase}
+\titlespacing*{\chapter}{0pt}{-1cm}{20pt}
+
+% Mengatur spacing section
+\titlespacing*{\section}
+{0pt}{10pt}{0cm}
+\titlespacing*{\subsection}
+{0pt}{10pt}{0cm}
+\titlespacing*{\subsubsection}
+{0pt}{10pt}{0cm}
+\titlespacing*{\paragraph}
+{0pt}{10pt}{0cm}
+
+% Digunakan untuk mengatur caption dalam dokumen.
+\usepackage[font=footnotesize,format=plain,labelfont=bf,up,textfont=up]{caption}
+
+% Untuk menghapus titik dua (colon)
+\captionsetup[figure]{labelsep=space}
+\captionsetup[table]{labelsep=space}
+
+% Mengatur nomor caption gambar
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+
+% Mengatur nomor caption table
+\renewcommand{\thetable}{\arabic{chapter}.\arabic{table}}
+
+% Mengatur Hyphenation pada latex
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Untuk mengatur setting indent
+\setlength\parindent{1cm}
+
+% Untuk memasukkan table
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% Untuk mengatur width
+\usepackage{changepage}
+
+% Menggatur setting halaman 
+\usepackage{geometry}
+\geometry{
+    left=2.5cm,            % <-- you want to adjust this
+    top=2.5cm,
+    right=2.5cm,
+    bottom=2.5cm,
+}
+
+% Teks testing
+\usepackage{blindtext}
+\usepackage{lipsum}
+
+% Untuk mengatur subscript supscript
+\usepackage{fixltx2e}
+
+% Untuk formatting quote pada halaman motto
+\usepackage{epigraph}
+
+% Untuk mengatur wrap picture
+\usepackage{wrapfig}
+
+% Untuk notasi matematika
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{mathtools}
+
+
+
+% untuk mengatur label nomor pada rumus
+\renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
+
+% Untuk mengatur spacing daftar gambar
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+
+%Menambahkan sumber gambar
+\usepackage{url}
+\newcommand*{\putsource}[1]{%
+	\textbf{\small{Sumber: }} \small{\url{#1}}
+}
+
+%untuk mengatur package include table in excel
+% \usepackage{pgfplotstable}
+
+% untuk mengatur landscape page
+\usepackage{rotating}
+
+%untuk mengubah page menjadi landscape
+\usepackage{pdflscape}
+
+% untuk list
+\usepackage{enumitem}
+\newenvironment{packed_enum}{
+    \begin{enumerate}[leftmargin=1.5\parindent]
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{\end{enumerate}}
+
+\newenvironment{packed_item}{
+    \begin{itemize}[leftmargin=1.5\parindent]
+        \setlength{\itemsep}{0pt}
+        \setlength{\parskip}{0pt}
+        \setlength{\parsep}{0pt}
+        }{\end{itemize}}
+
+%paket untuk bibTex
+\usepackage{cite}
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{apalike}
+
+%paket untuk mengembed kode dalam LaTeX
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Pengaturan untuk daftar kode
+\renewcommand{\lstlistingname}{Kode} % Mengubah nama default 'Listing' menjadi 'Kode'
+
+% Bahasa TypeScript
+\lstdefinelanguage{TypeScript}{
+    keywords={function, return, let, const, var, if, else, for, while, switch, case, break, default, true, false, null, undefined, class, extends, implements, interface, public, private, protected, static, readonly, as, async, await},
+    keywordstyle=\color{blue}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{orange},
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% Bahasa TSX
+\lstdefinelanguage{TSX}[]{TypeScript}{
+    morekeywords={jsx, render, React, Component},
+    morecomment=[s]{/**}{*/}
+}
+
+% Konfigurasi Umum untuk Listings
+\lstset{
+    basicstyle=\ttfamily\scriptsize,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{orange},
+	backgroundcolor=\color{gray!10},
+    numbers=none,
+    numberstyle=\tiny,
+    stepnumber=1,
+    numbersep=5pt,
+    breaklines=true,
+    showspaces=false,
+    showstringspaces=false,
+    frame=single,
+    captionpos=b, % Caption di bawah
+    escapeinside={(*@}{@*)}, % Abaikan parsing karakter tertentu
+}
+
+
+%paket untuk tabel
+\usepackage{longtable}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+%paket untuk url
+\usepackage{varioref}
+% \usepackage{hyperref}
+\usepackage[hidelinks]{hyperref} %remove red boxes
+\usepackage{cleveref}
+
+
+\usepackage{array}
