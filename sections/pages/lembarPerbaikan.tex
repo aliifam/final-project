@@ -1,15 +1,16 @@
 % Bagian Header
 \noindent
 
-
-
 \begin{table}[H]
-    \begin{tabular}{lll}
-       Nama  & : \penulis & \\
-       NIM   & : \nim & \\
-       Prodi   & : \prodi & \\
-       Judul PA   & : \judulid & \\
-       Waktu Pendadaran   & : Tanggal/bulan/tahun & \\
+    \setlength{\arrayrulewidth}{0.5mm} % Ketebalan garis tabel
+    \setlength{\tabcolsep}{10pt} % Jarak antar kolom
+    \renewcommand{\arraystretch}{1} % Tinggi baris
+    \begin{tabular}{@{}llp{10cm}@{}}
+       \textbf{Nama}               & : & \penulis \\
+       \textbf{NIM}                & : & \nim \\
+       \textbf{Prodi}              & : & \prodi \\
+       \textbf{Judul PA}           & : & \judulid \\
+       \textbf{Waktu Pendadaran}   & : & Tanggal/Bulan/Tahun \\
     \end{tabular}
 \end{table}
 
