@@ -2,9 +2,12 @@
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{DAFTAR ISI}
-%\renewcommand{\cftdotsep}{\cftnodots}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 \setlength{\cftbeforetoctitleskip}{-0.5cm}
 \renewcommand{\cfttoctitlefont}{\hfill\large\bfseries}
 \renewcommand{\cftaftertoctitle}{\hfill\hfill}
 \renewcommand\contentsname{DAFTAR ISI}
+
+% agar titik nya banyak
+\renewcommand{\cftdotsep}{1}
 \tableofcontents
