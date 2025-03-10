@@ -17,16 +17,18 @@ Mirip seperti penelitian dengan IoT sebelumnya, pada penelitian ini \cite{assidi
 Penelitian berkaitan dengan payment gateway tripay juga dilakukan \cite{Rachman_Rusdianto_Wihandika_2023} dengan judul \textit{Pembangunan Sistem Transaksi Penjualan Barang dan Jasa (Studi Kasus: Startup Botanis Kota)} yang membuat website untuk mendigitalisasi UMKM dalam proses operasinya dengan konsep MVC (model, view, controller) menggunakan YII Framework, MySQL, dan Payment Gateway Tripay, metode pengembangan dilakukan secara \textit{Waterfall}. hasil penelitian menunjukkan bahwa pemb
 angunan sistem transaksi penjualan barang dan jasa pada startup Botanis Kota dapat meningkatkan efektifitas dan efisiensi dalam operasionalnya ditunjukkan dengan pegujian unit menggunakan cyclomatic complexitypaling tinggi bernilai 10dan uji fungsi terhadap 3 sampel komponen dan integrasi perangkat  lunak  bernilai  100\%  valid.
 
-Dengan merujuk pada penelitian-penelitian tersebut, laporan ini bertujuan mengembangkan sistem penjualan tiket berbasis web yang tidak hanya efisien tetapi juga aman serta memberikan pengalaman pengguna yang lebih baik.
+Penelitian \cite{Alma_Prihanto_2024} juga dilakukan dengan judul \textit{Implementasi Backend System Untuk Integrasi Payment Gateway Pada Sistem Pembayaran Kost Menggunakan Express.js} yang bertujuan untuk mempermudah proses pembayaran kost dengan menggunakan Express.js sebagai backend system, MySQL sebagai database, dan Payment Gateway Midtrans, yang menarik dari penelitian ini adalah fokusnya yang ada pada membandingkan keamanaan dari sisi integrasi payment gateway khususnya midtrans yaitu via \textit{snap} tanpa backend dan \textit{core API} pakai backend. Hasil penelitian menunjukkan bahwa implementasi backend system untuk integrasi payment gateway pada sistem pembayaran kost menggunakan Express.js dapat meningkatkan keamanan sistem pembayaran kost dibandingkan dengan sistem pembayaran menggunakan midtrans snap tanpa backend, disini secara tidak langsung menyebutkan bahwa sistem dengan backend yang mengimplemenasikan webhook lebih baik dalam hal keamanaan maupun efektifitas dan efisiensi.
 
-Sistem ini mengadopsi pendekatan semi-passwordless dengan memanfaatkan \textbf{OAuth2 Google} sebagai mekanisme utama untuk proses login dan registrasi. OAuth2 adalah protokol otorisasi yang telah banyak digunakan untuk memungkinkan pengguna mengakses aplikasi tanpa perlu membuat dan mengingat kata sandi baru, melainkan menggunakan akun Google yang sudah terdaftar \cite{hardt2012oauth2}. Pendekatan ini mengurangi ketergantungan pada kata sandi tradisional sekaligus menyederhanakan proses autentikasi bagi pengguna. Menurut penelitian oleh \cite{bonneau2012quest}, sistem berbasis OAuth2 seperti ini dapat meningkatkan keamanan dan pengalaman pengguna karena mengurangi risiko serangan seperti phishing dan credential stuffing. Meskipun tidak sepenuhnya passwordless seperti implementasi \textbf{FIDO2} atau \textbf{WebAuthn}, penggunaan OAuth2 Google memberikan keseimbangan antara keamanan dan kemudahan implementasi, terutama untuk aplikasi berbasis web. FIDO2 dan WebAuthn, meskipun menawarkan keamanan yang lebih tinggi dengan autentikasi berbasis kriptografi \cite{balfanz2019webauthn}, memiliki tingkat kompleksitas yang lebih besar dalam implementasinya. Misalnya, penelitian oleh \cite{lindemann2015fido} menunjukkan bahwa integrasi WebAuthn memerlukan dukungan perangkat keras khusus, penanganan kredensial yang rumit, dan pemahaman mendalam tentang protokol kriptografi. Hal ini menjadi tantangan tersendiri, terutama untuk aplikasi web berbasis React.js yang memprioritaskan kemudahan pengembangan dan kompatibilitas lintas platform. Oleh karena itu, OAuth2 Google dipilih sebagai solusi yang lebih praktis dan mudah diintegrasikan, sambil tetap memberikan manfaat semi-passwordless kepada pengguna. 
+Ada juga penelitian \cite{Rahman_Erzed_2024} dengan judul \textit{Sistem Pengesahan Dokumen dengan QR Code dan Memanfaatkan JSON Web Token (JWT) untuk Mengurangi Penyimpanan: Studi Kasus Universitas Esa Unggul Kampus Bekasi} yang bertujuan untuk mempermudah proses pengesahan dokumen dengan menggunakan QR Code dan JSON Web Token (JWT) untuk mengurangi penyimpanan, penelitian ini menggunakan metode Waterfall dengan menggunakan PHP, MySQL,Laragon, Codeigniter, dan JWT. Hasil penelitian menunjukkan bahwa sistem pengesahan dokumen dengan QR Code dan memanfaatkan JSON Web Token (JWT) untuk mengurangi penyimpanan dapat mempermudah proses pengesahan dokumen dan mengurangi penyimpanan data yang tidak perlu dengan kemampuan JWT yang dapat menyimpan data dalam bentuk token stateless yang aman dan dapat diverfikasi keabsahannya tanpa perlu selalu terhubung dengan database.
 
+Terakhir penelitian \cite{2018/11} dengan judul \textit{Student Mobile Attendance Application Using QRCode and Integrated with SSO at Universitas Sebelas Maret} yang bertujuan untuk mempermudah proses absensi mahasiswa oleh dosen via Aplikasi Android yang terintegrasi dengna SSO (Single Sign On) dalam proses autentikasinya, pengembangan aplikasi dilakukan dengan menggunakan metode SDLC dengan bahasa pemrograman Java sedangkan untuk autentikasinya itulah yang mengimplementasikan JWT lalu untuk absensi menggunakan QR Code. Hasil penelitian menunjukkan bahwa aplikasi absensi mahasiswa menggunakan QR Code dan terintegrasi dengan SSO di Universitas Sebelas Maret dapat mempermudah proses absensi mahasiswa oleh dosen dan mempercepat proses autentikasi mahasiswa.
+
+Dengan merujuk pada penelitian-penelitian tersebut, laporan ini bertujuan mengembangkan sistem penjualan tiket berbasis web yang tidak hanya efisien tetapi juga aman serta memberikan pengalaman pengguna yang lebih baik, Sistem ini mengadopsi pendekatan semi-passwordless dengan memanfaatkan \textbf{OAuth2 Google} sebagai mekanisme utama untuk proses login dan registrasi. OAuth2 adalah protokol otorisasi yang telah banyak digunakan untuk memungkinkan pengguna mengakses aplikasi tanpa perlu membuat dan mengingat kata sandi baru, melainkan menggunakan akun Google yang sudah terdaftar \cite{hardt2012oauth2}. Pendekatan ini mengurangi ketergantungan pada kata sandi tradisional sekaligus menyederhanakan proses autentikasi bagi pengguna. Menurut penelitian oleh \cite{bonneau2012quest}, sistem berbasis OAuth2 seperti ini dapat meningkatkan keamanan dan pengalaman pengguna karena mengurangi risiko serangan seperti phishing dan credential stuffing. Meskipun tidak sepenuhnya passwordless seperti implementasi \textbf{FIDO2} atau \textbf{WebAuthn}, penggunaan OAuth2 Google memberikan keseimbangan antara keamanan dan kemudahan implementasi, terutama untuk aplikasi berbasis web. FIDO2 dan WebAuthn, meskipun menawarkan keamanan yang lebih tinggi dengan autentikasi berbasis kriptografi \cite{balfanz2019webauthn}, memiliki tingkat kompleksitas yang lebih besar dalam implementasinya. Misalnya, penelitian oleh \cite{lindemann2015fido} menunjukkan bahwa integrasi WebAuthn memerlukan dukungan perangkat keras khusus, penanganan kredensial yang rumit, dan pemahaman mendalam tentang protokol kriptografi. Hal ini menjadi tantangan tersendiri, terutama untuk aplikasi web berbasis React.js yang memprioritaskan kemudahan pengembangan dan kompatibilitas lintas platform. Oleh karena itu, OAuth2 Google dipilih sebagai solusi yang lebih praktis dan mudah diintegrasikan, sambil tetap memberikan manfaat semi-passwordless kepada pengguna. untuk implementasi WebHook dalam integrasi sistem dipilih menggunakan \textbf{Tripay} dikarenakan Tripay memiliki dokumentasi yang lengkap dan mudah dipahami, selain itu Tripay juga menyediakan berbagai metode pembayaran yang dapat disesuaikan dengan kebutuhan pengguna dan dari sisi pengurusan legalitas Tripay juga jauh lebih mudah diurus dibandingkan dengan payment gateway lainnya.
 
 \subsection{Tabel Perbandingan Studi}
 Berikut adalah tabel perbandingan dari studi pustaka yang telah dibahas:
 
 \begin{longtable}{|p{2cm}|p{4cm}|p{4cm}|p{4cm}|}
-
     \hline
     \textbf{Penelitian} & \textbf{Fokus} & \textbf{Metode} & \textbf{Hasil} \\ \hline
     \endfirsthead 
@@ -36,28 +38,22 @@ Berikut adalah tabel perbandingan dari studi pustaka yang telah dibahas:
     \hline
     \endhead
 
-     
     \hline
     \endfoot
     
     \endlastfoot
 
-    \cite{liu2019qr} & Penggunaan QR Code dalam sistem ticketing & Implementasi validasi tiket berbasis perangkat seluler & Efisiensi check-in meningkat hingga 30\%. \\
-    \hline
-    \cite{johnson2021webhook} & Webhook untuk konfirmasi pembayaran & Validasi payload dan signature & Kecepatan konfirmasi meningkat hingga 40\%. \\
-    \hline
-    \cite{smith2020oauth} & Penggunaan OAuth2 untuk login & Integrasi "Login with Google" menggunakan OAuth2 & Tingkat konversi pengguna meningkat hingga 25\%. \\
-    \hline
-    \cite{lee2020ticketing} & Integrasi sistem ticketing dan pembayaran & API dan webhook untuk sinkronisasi data & Pengalaman pengguna lebih lancar dan otomatisasi lebih baik. \\
-    \hline
-    \cite{brown2022security} & Keamanan sistem web modern & Penggunaan HTTPS, validasi token, dan pengamanan webhook & Ketahanan terhadap ancaman keamanan meningkat hingga 50\%. \\
-    \hline
-    \cite{suharto2021ticketing} & Sistem ticketing berbasis web di Indonesia & Implementasi QR Code untuk validasi tiket & Verifikasi tiket lebih cepat hingga 35\%. \\
-    \hline
-    \cite{hidayat2020ecommerce} & Webhook untuk e-commerce lokal & Integrasi dengan gateway seperti Midtrans & Mengurangi serangan spoofing dan meningkatkan keamanan sistem. \\
-    \hline
-    \cite{pratama2022oauth} & OAuth2 pada aplikasi edukasi di Indonesia & "Login with Google" untuk autentikasi & Adopsi pengguna meningkat hingga 20\%. \\
-    \hline
+    Nugroho (2019) & Penggunaan QR Code untuk pendaftaran seminar & Studi kasus, Blackbox Testing & QR Code meningkatkan efisiensi \& efektivitas pendaftaran seminar (91.74\%) \\ \hline
+    Wibowo (2020) & Digitalisasi tiket bus Damri & Studi kasus & Digitalisasi tiket meningkatkan visibilitas \& efisiensi layanan \\ \hline
+    Akbar (2023) & Penggunaan tiket online untuk pengelolaan pengunjung & Studi kasus & Aplikasi tiket online mempermudah pengelolaan pengunjung \& validasi tiket \\ \hline
+    Almadina (2025) & Penggunaan QR Code dalam e-ticketing event organizer & Usability Testing, Survey, Reliability Test (Cronbach Alpha) & QR Code pada e-ticketing event organizer meningkatkan kepuasan pengguna \\ \hline
+    HanJie \& Alduais (2023) & Integrasi IoT dalam e-ticketing & Pengembangan sistem berbasis IoT & Integrasi IoT dalam e-ticketing memungkinkan otomatisasi lebih lanjut \\ \hline
+    Assidiqie (2022) & Penerapan smart parking berbasis QR Code & Pengujian QoS, Throughput, Packet Loss & QR Code \& otomatisasi smart parking mempercepat pembayaran \& akses \\ \hline
+    Rachman dkk. (2023) & Digitalisasi transaksi UMKM & Waterfall, Uji Unit (Cyclomatic Complexity) & Digitalisasi transaksi UMKM meningkatkan efisiensi operasional \\ \hline
+    Alma \& Prihanto (2024) & Perbandingan integrasi Midtrans (Snap vs Core API) & Perbandingan teknis & Backend webhook lebih aman dibandingkan Snap tanpa backend \\ \hline
+    Rahman \& Erzed (2024) & Verifikasi QR Code menggunakan JWT & Waterfall & QR Code + JWT mengurangi penyimpanan data \& mempermudah verifikasi \\ \hline
+    UNS (2018) & Implementasi SSO dengan QR Code & SDLC, Implementasi SSO & Integrasi QR Code \& SSO mempercepat autentikasi \& absensi mahasiswa \\ \hline
 
-\caption{Perbandingan Penelitian Terkait}
+    \caption{Tabel Perbandingan Studi Pustaka}
+
 \end{longtable}
