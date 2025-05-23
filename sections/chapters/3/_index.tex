@@ -1,6 +1,73 @@
 \chapter[METODE PROYEK AKHIR]{\\ METODE PROYEK AKHIR}
 Metodologi yang diterapkan pada penelitian menjadi pokok bahasan pada bab ini. Alur perencanaan penelitian, pengumpulan dan analisis data, serta hasil penelitian akan dijelaskan secara terperinci. Sebagai tambahan, penjelasan dalam bab ini juga meliputi komponen-komponen lain seperti pendekatan penelitian, teknik pengumpulan data, jenis data yang terkumpul, metode analisis, dan instrumen pendukung yang digunakan.
 
+\begin{longtable}{|m{2cm}|m{3.5cm}|m{4.5cm}|m{4.5cm}|}
+    \caption{Contoh tabel 5} \label{tabel:contoh5}                                                                                                                                                                                                                                                                                                                                                                      \\ % Caption dan label di sini
+    \hline
+    \textbf{Kode Pengujian} & \textbf{Skenario Pengujian}                                                    & \textbf{Langkah Pengujian}                                                                                                                                                        & \textbf{Hasil yang diharapkan}                                                                                       \\
+    \hline
+    \endfirsthead % Header untuk halaman pertama
+
+    \multicolumn{4}{c}%
+    {{\bfseries Tabel \thetable\ lanjut dari halaman sebelumnya}}                                                                                                                                                                                                                                                                                                                                                       \\
+    \hline
+    \textbf{Kode Pengujian} & \textbf{Skenario Pengujian}                                                    & \textbf{Langkah Pengujian}                                                                                                                                                        & \textbf{Hasil yang diharapkan}                                                                                       \\
+    \hline
+    \endhead % Header untuk halaman-halaman berikutnya
+
+    \hline \multicolumn{4}{r}{\textit{Bersambung ke halaman berikutnya}}                                                                                                                                                                                                                                                                                                                                                \\
+    \endfoot % Footer untuk halaman yang bersambung
+
+    \hline
+    \endlastfoot % Footer untuk halaman terakhir tabel
+
+    % --- Konten tabel Anda dimulai di sini ---
+    \multicolumn{4}{|l|}{\textbf{Fitur Login}}                                                                                                                                                                                                                                                                                                                                                                          \\
+    \hline
+    LOG\_001                & Login menggunakan email.                                                       & 1. Navigasikan ke aplikasi \textit{dashboard}. \newline 2. Masukkan email valid. \newline 3. Masukkan kata sandi valid. \newline 4. Klik tombol masuk.                            & - Menampilkan pesan \textit{login} berhasil. \newline - Menampilkan halaman \textit{dashboard} utama.                \\
+    \hline
+    LOG\_002                & Login dengan email salah.                                                      & 1. Navigasikan ke aplikasi \textit{dashboard}. \newline 2. Masukkan email yang tidak terdaftar. \newline 3. Masukkan kata sandi apapun. \newline 4. Klik tombol masuk.            & - Menampilkan pesan error "Email atau kata sandi salah". \newline - Tetap di halaman \textit{login}.                 \\
+    \hline
+    LOG\_003                & Login dengan kata sandi salah.                                                 & 1. Navigasikan ke aplikasi \textit{dashboard}. \newline 2. Masukkan email valid. \newline 3. Masukkan kata sandi yang salah. \newline 4. Klik tombol masuk.                       & - Menampilkan pesan error "Email atau kata sandi salah". \newline - Tetap di halaman \textit{login}.                 \\
+    \hline
+    % ... (baris-baris lain dari tabel Anda) ...
+    % Saya akan tambahkan beberapa baris dummy lagi untuk memastikan cukup panjang
+    \multicolumn{4}{|l|}{\textbf{Fitur Logout}}                                                                                                                                                                                                                                                                                                                                                                         \\
+    \hline
+    OUT\_001                & Logout dari aplikasi setelah login.                                            & 1. Lakukan proses \textit{login} (LOG\_001) terlebih dahulu. \newline 2. Klik ikon profil pengguna pada pojok kanan atas. \newline 3. Klik tombol \textit{logout}.                & - Menampilkan pesan \textit{logout} berhasil. \newline - Menampilkan halaman \textit{login}.                         \\
+    \hline
+    OUT\_002                & Coba akses fitur setelah logout.                                               & 1. Lakukan proses logout (OUT\_001). \newline 2. Coba navigasi ke halaman \textit{dashboard} melalui URL langsung.                                                                & - Redirect ke halaman \textit{login}. \newline - Tidak dapat mengakses fitur yang memerlukan autentikasi.            \\
+    \hline
+    \multicolumn{4}{|l|}{\textbf{Fitur Dashboard}}                                                                                                                                                                                                                                                                                                                                                                      \\
+    \hline
+    DSH\_001                & Lihat informasi ringkasan di dashboard.                                        & 1. Lakukan proses login (LOG\_001). \newline 2. Pastikan halaman \textit{dashboard} utama ditampilkan. \newline 3. Amati bagian ringkasan (misal: jumlah data, notifikasi).       & - Menampilkan halaman \textit{dashboard} yang berisi informasi ringkasan yang akurat dan terkini.                    \\
+    \hline
+    DSH\_002                & Akses menu navigasi dari dashboard.                                            & 1. Lakukan proses login (LOG\_001). \newline 2. Klik salah satu menu navigasi yang tersedia di \textit{dashboard} (misal: "Pengaturan", "Profil").                                & - Berpindah ke halaman yang sesuai dengan menu yang diklik. \newline - Konten halaman yang baru dimuat dengan benar. \\
+    \hline
+    DSH\_003                & Widget A menampilkan data XYZ.                                                 & 1. Login ke aplikasi. \newline 2. Navigasi ke \textit{dashboard}. \newline 3. Periksa Widget A.                                                                                   & - Widget A menampilkan data XYZ dengan benar. \newline - Data sesuai dengan sumber data terkini.                     \\
+    \hline
+    DSH\_004                & Filter data pada Dashboard.                                                    & 1. Login ke aplikasi. \newline 2. Navigasi ke \textit{dashboard}. \newline 3. Terapkan filter tanggal dari X sampai Y. \newline 4. Periksa data yang ditampilkan.                 & - Data pada \textit{dashboard} terfilter sesuai rentang tanggal X-Y. \newline - Hanya data yang relevan yang muncul. \\
+    \hline
+    \multicolumn{4}{|l|}{\textbf{Fitur Dummy Tambahan}}                                                                                                                                                                                                                                                                                                                                                                 \\
+    \hline
+    DUMMY\_001              & Skenario dummy satu.                                                           & 1. Langkah satu dummy. \newline 2. Langkah dua dummy. \newline 3. Langkah tiga dummy panjang sekali sehingga harusnya bisa wrap ke baris berikutnya dengan baik di dalam sel ini. & - Hasil dummy satu diharapkan. \newline - Hasil dummy tambahan.                                                      \\
+    \hline
+    DUMMY\_002              & Skenario dummy dua dengan teks yang juga cukup panjang untuk menguji wrapping. & 1. Langkah awal. \newline 2. Langkah tengah. \newline 3. Langkah akhir dari skenario dummy dua.                                                                                   & - Ekspektasi pertama terpenuhi. \newline - Ekspektasi kedua juga terpenuhi.                                          \\
+    \hline
+    % Tambahkan lebih banyak baris dummy di sini jika masih belum pindah halaman
+    DUMMY\_003              & Skenario dummy tiga yang sangat panjang.                                       & 1. Langkah A. \newline 2. Langkah B. \newline ... (tambahkan banyak langkah) \newline 26. Langkah Z.                                                                              & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_004              & Skenario dummy empat.                                                          & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_005              & Skenario dummy lima.                                                           & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_006              & Skenario dummy enam.                                                           & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_007              & Skenario dummy tujuh.                                                          & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_008              & Skenario dummy delapan.                                                        & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_009              & Skenario dummy sembilan.                                                       & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+    DUMMY\_010              & Skenario dummy sepuluh.                                                        & 1. Langkah A. \newline 2. Langkah B. \newline ... \newline 26. Langkah Z.                                                                                                         & - Hasil A. \newline - Hasil B.                                                                                       \\ \hline
+\end{longtable}
+
+
+sesuai dengan tabel \ref{tabel:contoh5}, pengujian dilakukan dengan langkah-langkah yang terperinci dan hasil yang diharapkan untuk setiap skenario. Tabel ini memberikan gambaran umum tentang pengujian yang dilakukan pada aplikasi, termasuk fitur login, logout, dan dashboard.
+
 \input{sections/chapters/3/bahan.tex}
 \input{sections/chapters/3/peralatan.tex}
 \input{sections/chapters/3/tahapan.tex}
