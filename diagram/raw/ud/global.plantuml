@@ -1,9 +1,9 @@
 @startuml
 left to right direction
 
-skinparam defaultFontSize 8 
-skinparam actorFontSize 8
-skinparam usecaseFontSize 8
+' skinparam defaultFontSize 8 
+' skinparam actorFontSize 8
+' skinparam usecaseFontSize 8
 
 actor "User" as Pengguna
 actor "Admin Cabang" as AdminCabang
