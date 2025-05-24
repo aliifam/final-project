@@ -1,39 +1,99 @@
-\section{Rancangan Alat/Purwarupa}
+\section{Analisis Kebutuhan Sistem}
 
-Pada bagian ini akan dijelaskan rancangan alat atau purwarupa yang akan digunakan dalam pengembangan aplikasi AtleTiket. Rancangan alat ini meliputi kebutuhan fungsional dan non-fungsional yang diperlukan dalam pengembangan aplikasi AtleTiket.
+Pada tahap ini penulismelakukan proses analisis kebutuhan sesuai dengan hasil wawancara dengan \textit{stakeholder}. Tujuan utama dari analisis kebutuhan ini adalah untuk menentukan kebutuhan sistem yang akan dibangun, baik kebutuhan fungsional maupun non-fungsional. Kebutuhan fungsional adalah kebutuhan yang berkaitan dengan fungsi-fungsi yang harus ada dalam sistem, sedangkan kebutuhan non-fungsional adalah kebutuhan yang berkaitan dengan kualitas sistem seperti keamanan, performa, dan lain-lain.
 
-\subsection{Analisis Kebutuhan}
+\subsection{Analisis Pengguna Sistem}
 
-Pada bagian ini akan dijelaskan analisis kebutuhan yang diperlukan dalam pengembangan aplikasi AtleTiket. Analisis kebutuhan ini meliputi kebutuhan fungsional dan non-fungsional yang diperlukan dalam pengembangan aplikasi AtleTiket.
-
-\subsubsection{Analisis Kebutuhan Non-Fungsional}
-
-Analisis non-fungsional yang diperlukan dalam pengembangan aplikasi AtleTiket adalah sebagai berikut:
-
+Pada tahap ini penulis melakukan analisis terkait pegguna sistem dan \textit{role} yang ada dalam sistem. Pengguna sistem Tamu.id terdiri dari beberapa \textit{role} sebagai berikut:
 \begin{enumerate}
-    \item Kebutuhan Keamanan
-    \item Kebutuhan Performa
-    \item Kebutuhan Ketersediaan
-    \item Kebutuhan Skalabilitas
-    \item Kebutuhan Interoperabilitas
-    \item Kebutuhan Keterukuran
+    \item Admin Pusat (SuperAdmin)
+          Superadmin adalah pengguna yang memiliki hak akses penuh terhadap sistem, termasuk mengelola data cabang, admin untuk cabangm, fasiltas, kota, voucher multi cabang, verifikasi identitas pengguna,verifikasi pencairan referral pengguna, dan lain-lain.
+    \item Admin Cabang (Admin)
+          Admin cabang adalah pengguna yang memiliki hak akses untuk mengelola data pada cabang tertentu, seperti mengelola data fasilitas, voucher cabang, jenis pod cabang, pod cabang, dan melakukan aktifitas operasional pada cabang tersebut.
+    \item Pengunjung (User)
+          Pengunjung adalah pengguna yang dapat mendaftar, membuat akun, dan melakukan pemesanan tiket untuk mengunjungi cabang tertentu. Pengunjung juga dapat melakukan identitas untuk mengakses lebih banyak fitur seperti mendapatkan penghasilan dari referral, mengelola data diri, dan melakukan pencairan referral.
 \end{enumerate}
 
-\subsubsection{Analisis Kebutuhan Fungsional}
+\subsection{Analisis Kebutuhan Fungsional}
 
-\subsection{Rancangan Sistem dan Arsitektur Aplikasi \textit{(Design)}}
+Analisis kebutuhan fungsional dilakukan untuk menentukan fungsi-fungsi yang harus ada dalam sistem. Kebutuhan fungsional yang diperlukan dalam pengembangan aplikasi Tamu.id adalah sebagai berikut:
 
-\subsubsection{Use Case Diagram}
+\begin{enumerate}
+    \item Admin Pusat (SuperAdmin)
+          \begin{enumerate}
+              \item SuperAdmin dapat melihat grafik dan statistik global dari seluruh cabang sebagai garis besar informasi keseluruhan sistem Tamu.id untuk membantu pengambilan keputusan.
+              \item Superadmin dapat melakukan \textit{CRUD (Create, Read, Update, Delete)}  pada data master Cabang, Kota, \textit{Online Travel Agent (OTA)}, Staff, fasilitas, dan voucher multi cabang.
+              \item Superadmin dapat meberikan ataupun mengedit hak akses pada admin cabang untuk mengelola satu atau beberapa cabang.
+              \item Superadmin dapat melakukan verifikasi identitas pengguna baik itu menerima ataupun menolak verifikasi identitas pengguna dengan alasan yang jelas serta melihat catatan verifikasi identitas yang telah dilakukan.
+              \item SuperAdmin dapat menolak ataupun menerima permintaan pencairan referral pengguna dengan serta melihat catatan pencairan referral yang telah dilakukan.
+              \item SuperAdmin dapat mengubah data dirinya sendiri seperti nama, email, dan password.
+          \end{enumerate}
+    \item Admin Cabang (Admin)
+          \begin{enumerate}
+              \item Admin dapat melihat grafik dan statistik cabang untuk membantu pengambilan keputusan.
+              \item Admin dapat mengelola data cabangnya sendiri seperti mengubah gambar, nama, alamat, dan informasi lainnya.
+              \item Admin dapat mengelola data admin untuk cabang tersebut, termasuk menambah, mengubah, dan menghapus admin cabang.
+              \item Admin dapat mengaktifkan atau menonaktifkan \textit{Online Travel Agent (OTA)} yang bekerja sama dengan cabang tersebut.
+              \item Admin dapat melakukan \textit{CRUD (Create, Read, Update, Delete)} pada data master jenis pod cabang, pod cabang, voucher cabang.
+              \item Admin dapat melihat dan mengelola review dari pengguna yang telah mengunjungi cabang tersebut.
+              \item Admin dapat melakukan \textit{CRUD (Create, Read, Update, Delete)} pada pengaturan harga dinamis untuk jenis pod pada cabang tersebut dengan rentang waktu tertentu.
+              \item Admin dapat menginputkan data Transaksi Reservasi via \textit{Online Travel Agent (OTA)} yang bekerja sama dengan cabang tersebut untuk kemudian nantinya diclaim oleh pengguna yang bersangkutan.
+              \item Admin dapat memindahkan pengunjung\textit{(User)} yang sedang checkin pada pod ke pod lain yang tersedia jika terjadi masalah pada pod yang sedang digunakan serta melihat catatan pemindahan pod yang telah dilakukan.
+              \item Admin dapat melakukan pembersihan pada pod yang telah digunakan oleh pengunjung untuk memastikan kebersihan dan kenyamanan pod serta melihat catatan pembersihan pod yang telah dilakukan.
+              \item Admin dapat melakukan \textit{{monitoring dan controlling}} pada pod cabangnya, termasuk melihat status pod dan mengubah status pod jika diperlukan.
+              \item Admin dapat mengubah data dirinya sendiri seperti nama, email, dan password.
+          \end{enumerate}
 
-\begin{figure}[H]
+    \item Pengunjung \textit{(User)}
+          \begin{enumerate}
+              \item Pengunjung dapat mendaftar dan membuat akun untuk mengakses fitur-fitur yang ada di aplikasi Tamu.id via Email atau Google OAuth2.
+              \item Pengunjung dapat melakukan verifikasi identitas untuk mendapatkan akses lebih banyak fitur seperti referral, pencairan referral, dan lain-lain.
+              \item Pengunjung dapat melakukan pencairan referral yang telah didapatkan dari pengguna lain dengan minimal saldo referral yang telah ditentukan.
+              \item Pengunjung dapat melakukan pencarian dengan memilih cabang dan menetapkan tanggal checkin dan checkout untuk melihat ketersediaan pod pada cabang tersebut.
+              \item Pengunjung dapat melihat detail cabang, jenis pod, dan fasilitas yang tersedia pada cabang tersebut.
+              \item Pengunjung dapat melakukan pemesanan tiket dengan memilih jenis pod, tanggal checkin, dan checkout, serta melakukan pembayaran melalui QRIS.
+              \item Pengunjung dapat memasukkan kode voucher yang valid dan juga kode referral yang valid untuk mendapatkan potongan harga pada pemesanan tiket.
+              \item Pengunjung yang telah melakukan reservasi via \textit{Online Travel Agent (OTA)} dapat mengsinkronisasi data reservasi tersebut dengan memasukkan kode reservasi yang diberikan oleh OTA.
+              \item Pengunjung dapat melakukan checkin pada tanggal dan waktu yang telah ditentukan dan memilih pod yang tersedia untuk digunakan sesuai dengan jenis pod yang telah dipesan.
+              \item Pengunjung yang telah melakukan checkin dapat mengakses pod dengan menggunakan QR Code yang dihasilkan oleh sistem.
+              \item Pengunjung dapat melakukan checkout pada pod yang telah digunakan dan sistem akan otomatis mengubah status pod menjadi dalam pembersihan.
+              \item Pengunjung dapat melihat riwayat transaksi dan detail transaksi yang telah dilakukan,
+              \item Pengunjung dapat memberikan ulasan dan rating terhadap cabang yang telah dikunjungi.
+              \item Pengunjung dapat mengelola data diri seperti nama, username, email, nomor telepon, dan password.
+              \item Pengunjung dapat melihat dan mengelola saldo referral yang dimiliki, termasuk melakukan permintaan pencairan saldo referral.
+              \item Pengunjung dapat melihat promo yang sedang berlaku.
+          \end{enumerate}
+\end{enumerate}
+
+\subsection{Analisis Kebutuhan Non-Fungsional}
+
+Pada bagian ini analisis kebutuhan Non Fungsional dilakukan untuk menentukan kebutuhan sistem yang berkaitan dengan kualitas sistem seperti keamanan, performa, dan lain-lain. Kebutuhan non-fungsional yang diperlukan dalam pengembangan aplikasi Tamu.id adalah sebagai berikut:
+\begin{enumerate}
+    \item Sistem dapat menangani 10 pengguna secara bersamaan dengan waktu respons kurang dari 2 detik pada halaman detail kunci pod sisi pengguna.
+    \item Sistem dapat menangani 30 request secara bersamaan dengan waktu respons kurang dari 2 detik untuk endpoint API Hardware IoT pintu Pod.
+    \item Walaupun pod dalam keadaan offline sementara ataupun dalam interval belum mengambil data kunci valid terbaru, pengguna yang baru checkin harus dapat langsung mengakses pod dengan QR Code yang telah dihasilkan sebelumnya.
+    \item Sistem dapat mengamankan pesanan pengguna yang masih dalam proses pembayaran sehingga tidak terjadinya \textit{double booking} pada pod yang sama serta dapat otomatis menghapus pesanan yang tidak dibayar dalam waktu satu jam untuk menghindari pemborosan kapasitas pod serta sistem harus dapat otomatis mencheckout pengguna yang tidak melakuakn checkout sesuai waktu yang telah ditentukan.
+    \item Sistem dapat berjalan pada peramban \textit{(browser)} modern seperti Google Chrome, Mozilla Firefox, Microsoft Edge, dan Safari serta memiliki tampilan yang responsif pada perangkat seluler dan desktop.
+\end{enumerate}
+
+\section{Rancangan Sistem}
+
+Pada tahap ini penulis melakukan proses perancangan sistem berdasarkan kebutuhan fungsional dan non-fungsional yang telah dianalisis sebelumnya. Rancangan sistem ini mencakup arsitektur sistem, desain basis data, \textit{Unified Modeling Language (UML)} diagram yang mencakup beberapa diagram, desain antarmuka pengguna, rancangan alur kerja, dan lain-lain yang diperlukan untuk membangun sistem Tamu.id.
+
+\subsection{Use Case Diagram}
+
+Use Case Diagram adalah diagram yang digunakan untuk menggambarkan interaksi antara pengguna (aktor) dan sistem. Diagram ini membantu dalam memahami kebutuhan fungsional sistem dengan cara menunjukkan apa yang dapat dilakukan oleh pengguna terhadap sistem, \ref{fig:ucd_tamu}.
+
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
-    \includegraphics[
-        width=\textwidth,
-        height=\textheight,
-        keepaspectratio
-    ]{images/ucd/atletiket/ucd.png}
-    \caption{Use Case Diagram Aplikasi AtleTiket}
-    \label{fig:ucd_atletiket}
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        % height=\textheight, % HINDARI ini, biarkan aspek rasio yang mengatur tinggi
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+        % Untuk \includesvg, seringkali cukup width saja.
+    ]{out/diagram/raw/ud/global/global.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Use Case Diagram Aplikasi Tamu.id (dari SVG)}
+    \label{fig:ucd_tamu} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
 \subsubsection{Activity Diagram}
@@ -47,7 +107,7 @@ Analisis non-fungsional yang diperlukan dalam pengembangan aplikasi AtleTiket ad
 \subsubsection{Pengujian Beban \textit{(Load Testing)}}
 \subsubsection{User Acceptance Testing}
 
-\subsection{Ilustrasi Sistem Peringatan \textit{Cut off time}}
+\subsection{Ilustrasi Implementasi  \textit{Cut off time}}
 \subsection{Ilustrasi Integrasi WebHook Payment Gateway}
 \subsection{Ilustrasi Integrasi OAuth2 Google}
 \subsection{Peluncuran Aplikasi \textit{(Deployment)}}

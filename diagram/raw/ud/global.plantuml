@@ -1,0 +1,74 @@
+@startuml
+left to right direction
+
+skinparam defaultFontSize 8 
+skinparam actorFontSize 8
+skinparam usecaseFontSize 8
+
+actor "User" as Pengguna
+actor "Admin Cabang" as AdminCabang
+actor "SuperAdmin" as SuperAdmin
+
+package "Sistem Tamu.id (Garis Besar)" {
+  ' Use Case Inti / Pendukung
+  usecase UC_Login as "Login Sistem"
+  usecase UC_Pembayaran as "Proses Pembayaran"
+  usecase UC_VerifikasiKYC as "Verifikasi Identitas (KYC)"
+  usecase UC_ApprovalPayout as "Approval Payout Referral"
+
+  ' Use Case Utama
+  usecase UC1 as "Manajemen Akun & Profil"
+  usecase UC2 as "Pencarian & Pemesanan Pod"
+  usecase UC3 as "Layanan & Operasional Menginap"
+  usecase UC4 as "Pengelolaan Operasional Cabang"
+  usecase UC5 as "Administrasi Sistem & Approval Global"
+  usecase UC6 as "Pengelolaan & Penggunaan Referral"
+  usecase UC7 as "Manajemen Ulasan & Feedback"
+  usecase UC8 as "Akses Dashboard & Laporan"
+
+  ' Relasi untuk Manajemen Akun & Profil (UC1)
+  UC1 ..> UC_Login : <<include>>
+  UC1 ..> UC_VerifikasiKYC : <<extend>> 
+
+  ' Relasi untuk Pencarian & Pemesanan Pod (UC2)
+  UC2 ..> UC_Pembayaran : <<include>>
+  UC2 <.. (Gunakan Voucher/Promo) : <<extend>>
+  UC2 <.. (Gunakan Kode Referral Saat Booking) : <<extend>>
+
+  ' Relasi untuk Layanan & Operasional Menginap (UC3)
+  UC3 ..> (Proses Check-in/Check-out) : <<include>>
+  (Proses Check-in/Check-out) ..> (Akses Pod via QR) : <<include>>
+
+  ' Relasi untuk Administrasi Sistem & Approval Global (UC5)
+  UC5 ..> UC_VerifikasiKYC : <<include>> 
+  UC5 ..> UC_ApprovalPayout : <<include>>
+  UC5 ..> (Manajemen Staff & Hak Akses) : <<include>>
+  UC5 ..> (Manajemen Data Master Global) : <<include>>
+
+  ' Relasi untuk Pengelolaan & Penggunaan Referral (UC6)
+  UC6 ..> (Ajukan Payout Referral) : <<include>>
+  (Ajukan Payout Referral) ..> UC_ApprovalPayout : <<include>> 
+
+  ' Relasi untuk Manajemen Ulasan & Notifikasi (UC7)
+  UC7 <.. (Moderasi Ulasan) : <<extend>> 
+
+}
+Pengguna --|> UC1
+Pengguna --|> UC2
+Pengguna --|> UC3
+Pengguna --|> UC6
+Pengguna --|> UC7
+
+AdminCabang --|> UC_Login
+AdminCabang --|> UC3 
+AdminCabang --|> UC4
+AdminCabang --|> UC7 
+AdminCabang --|> UC8
+AdminCabang --|> (Manajemen Staff & Hak Akses) 
+
+SuperAdmin --|> UC_Login
+SuperAdmin --|> UC4
+SuperAdmin --|> UC5
+SuperAdmin --|> UC8
+
+@enduml

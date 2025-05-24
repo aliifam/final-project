@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+actor User
+
+package "Interaksi Pasca-Booking & Fitur Pengguna" {
+  User --|> (Lihat Detail Booking)
+  (Lihat Detail Booking) ..> (Lihat QR Code Check-in) : <<include>>
+
+  User --|> (Berikan Review & Rating)
+  (Berikan Review & Rating) ..> (Pilih Hotel/Pod yang Direview) : <<include>>
+  (Berikan Review & Rating) ..> (Tulis Komentar) : <<include>>
+
+  User --|> (Lihat Notifikasi)
+  (Lihat Notifikasi) ..> (Tandai Notifikasi Telah Dibaca) : <<include>>
+
+  User --|> (Lihat Pendapatan Referral)
+  User --|> (Ajukan Payout Referral)
+  (Ajukan Payout Referral) ..> (Input Detail Rekening Bank/E-wallet) : <<include>>
+
+  User --|> (Lihat Voucher Tersedia)
+  User --|> (Bagikan Kode Referral)
+}
+@enduml

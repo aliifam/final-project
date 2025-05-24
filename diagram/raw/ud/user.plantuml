@@ -1,0 +1,82 @@
+@startuml
+left to right direction
+actor "Pengunjung (User)" as User
+
+package "Manajemen Akun Pengguna" {
+  User --|> (Registrasi Akun)
+  note left of (Registrasi Akun) : Pendaftaran standar via email
+  (Registrasi Akun) ..> (Verifikasi Email) : <<include>>
+  (Registrasi Akun) <.. (Registrasi via Google OAuth2) : <<extend>>
+
+  User --|> (Login)
+  (Login) <.. (Login via Google OAuth2) : <<extend>>
+
+  User --|> (Kelola Profil Pengguna)
+  note right of (Kelola Profil Pengguna)
+    Mengelola nama, username, email,
+    nomor telepon, dan password.
+  end note
+
+  User --|> (Lakukan Verifikasi Identitas KYC)
+  note bottom of (Lakukan Verifikasi Identitas KYC)
+    Untuk akses fitur referral,
+    pencairan, dll.
+  end note
+}
+
+package "Referral & Keuangan Pengguna" {
+  User --|> (Lihat Saldo Referral)
+  User --|> (Ajukan Pencairan Saldo Referral)
+  (Ajukan Pencairan Saldo Referral) ..> (Input no HP yang tersambung Gopay) : <<include>>
+  note bottom of (Ajukan Pencairan Saldo Referral)
+    Dengan minimal saldo tertentu.
+  end note
+}
+
+package "Proses Booking & Interaksi Cabang" {
+  User --|> (Cari Ketersediaan Pod)
+  (Cari Ketersediaan Pod) ..> (Pilih Cabang) : <<include>>
+  (Cari Ketersediaan Pod) ..> (Tetapkan Tanggal Check-in & Check-out) : <<include>>
+
+  User --|> (Lihat Detail Cabang)
+  User --|> (Lihat Detail Jenis Pod)
+  User --|> (Lihat Fasilitas Cabang)
+  User --|> (Lihat Promo & Voucher Berlaku)
+
+  User --|> (Lakukan Pemesanan Tiket)
+  (Lakukan Pemesanan Tiket) ..> (Pilih Jenis Pod) : <<include>>
+  (Lakukan Pemesanan Tiket) ..> (Konfirmasi Tanggal Check-in & Check-out) : <<include>>
+  (Lakukan Pemesanan Tiket) ..> (Lakukan Pembayaran via QRIS) : <<include>>
+  (Lakukan Pemesanan Tiket) <.. (Gunakan Kode Voucher Valid) : <<extend>>
+  (Lakukan Pemesanan Tiket) <.. (Gunakan Kode Referral Valid) : <<extend>>
+
+  User --|> (Sinkronisasi Reservasi OTA)
+  (Sinkronisasi Reservasi OTA) ..> (Masukkan Kode Reservasi OTA) : <<include>>
+  note right of (Sinkronisasi Reservasi OTA)
+    Untuk reservasi OTA yang datanya
+    sudah diinput Admin Cabang.
+  end note
+
+  User --|> (Lakukan Check-in)
+  (Lakukan Check-in) ..> (Pilih Pod Tersedia sesuai jenis) : <<include>>
+  note bottom of (Lakukan Check-in)
+    Pada tanggal dan waktu yang ditentukan.
+  end note
+
+  User --|> (Akses Pod dengan QR Code)
+  note bottom of (Akses Pod dengan QR Code)
+    QR Code dihasilkan sistem setelah check-in.
+  end note
+
+  User --|> (Lakukan Checkout)
+  note bottom of (Lakukan Checkout)
+    Sistem otomatis ubah status pod.
+  end note
+}
+
+package "Riwayat & Ulasan" {
+  User --|> (Lihat Riwayat Transaksi)
+  User --|> (Lihat Detail Transaksi)
+  User --|> (Berikan Ulasan dan Rating Cabang)
+}
+@enduml

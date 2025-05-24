@@ -1,0 +1,50 @@
+@startuml
+left to right direction
+actor "Admin Pusat (SuperAdmin)" as SuperAdmin
+
+package "Manajemen Akun & Dashboard Global" {
+  SuperAdmin --|> (Login SuperAdmin)
+  SuperAdmin --|> (Kelola Profil SuperAdmin)
+  note right of (Kelola Profil SuperAdmin)
+    Mengubah nama, email, password diri sendiri.
+  end note
+  SuperAdmin --|> (Lihat Dashboard Global & Statistik Sistem)
+  note bottom of (Lihat Dashboard Global & Statistik Sistem) 
+    Grafik dan statistik seluruh cabang
+    untuk pengambilan keputusan.
+  end note
+}
+
+package "Manajemen Data Master Global" {
+  SuperAdmin --|> (Kelola Data Master Cabang CRUD)
+  SuperAdmin --|> (Kelola Data Master Kota CRUD)
+  SuperAdmin --|> (Kelola Data Master OTA Global CRUD)
+  SuperAdmin --|> (Kelola Data Master Staff Semua Role CRUD)
+  (Kelola Data Master Staff Semua Role CRUD) ..> (Berikan/Edit Hak Akses Admin Cabang) : <<include>>
+  note right of (Berikan/Edit Hak Akses Admin Cabang) 
+    Mengatur Admin Cabang bisa mengelola
+    satu atau beberapa cabang.
+  end note
+
+  SuperAdmin --|> (Kelola Data Master Fasilitas Global CRUD)
+  SuperAdmin --|> (Kelola Data Master Voucher Multi Cabang CRUD)
+}
+
+package "Verifikasi & Approval Sistem" {
+  SuperAdmin --|> (Verifikasi Identitas Pengguna KYC)
+  (Verifikasi Identitas Pengguna KYC) ..> (Terima Verifikasi KYC) : <<include>>
+  (Verifikasi Identitas Pengguna KYC) ..> (Tolak Verifikasi KYC dengan Alasan) : <<include>>
+  (Verifikasi Identitas Pengguna KYC) ..> (Lihat Catatan Verifikasi Identitas) : <<include>>
+  note left of (Verifikasi Identitas Pengguna KYC)
+    Dilakukan jika Pengguna mengirimkan KYC.
+  end note
+
+  SuperAdmin --|> (Proses Permintaan Pencairan Referral)
+  (Proses Permintaan Pencairan Referral) ..> (Terima Permintaan Pencairan) : <<include>>
+  (Proses Permintaan Pencairan Referral) ..> (Tolak Permintaan Pencairan dengan Alasan) : <<include>>
+  (Proses Permintaan Pencairan Referral) ..> (Lihat Catatan Pencairan Referral) : <<include>>
+  note left of (Proses Permintaan Pencairan Referral)
+    Dilakukan jika Pengguna mengajukan pencairan.
+  end note
+}
+@enduml
