@@ -1,0 +1,32 @@
+@startuml
+title Superadmin - Memverifikasi Pengajuan KYC
+
+|Superadmin|
+start
+:Akses Menu Verifikasi KYC;
+|System|
+:Tampilkan Daftar Pengajuan KYC (status PENDING);
+|Superadmin|
+if (Ada Pengajuan?) then (Ya)
+    :Pilih Pengajuan KYC;
+    |System|
+    :Tampilkan Detail Pengajuan (Data User, Foto ID, Foto Selfie);
+    |Superadmin|
+    :Tinjau Dokumen;
+    if (Setujui?) then (Setuju)
+        |System|
+        :Update Status KYC (APPROVED);
+        :Update Status User (kyc_verified = true);
+        :Tampilkan Pesan Sukses;
+    else (Tolak)
+        |Superadmin|
+        :Input Alasan Penolakan;
+        |System|
+        :Update Status KYC (REJECTED beserta catatan);
+        :Tampilkan Pesan Sukses;
+    endif
+else (Tidak Ada)
+    :Tampilkan Pesan "Tidak ada pengajuan baru";
+endif
+stop
+@enduml

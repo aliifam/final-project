@@ -1,0 +1,46 @@
+@startuml
+title Admin Hotel - Manajemen Voucher (Ringkas)
+
+|AdminHotel|
+start
+:Akses Menu Manajemen Voucher Hotel;
+|System|
+:Ambil & Tampilkan Daftar Voucher untuk hotel Admin ini;
+|AdminHotel|
+if (Tambah Voucher Baru?) then (Ya)
+  :Isi Form Voucher;
+  :Simpan;
+  |System|
+  :Validasi & Simpan ke DB;
+  :Tampilkan Pesan Sukses;
+elseif (Edit Voucher?) then (Ya)
+  :Pilih Voucher dari daftar;
+  |System|
+  :Tampilkan Detail Voucher;
+  |AdminHotel|
+  :Ubah Detail Voucher;
+  :Simpan Perubahan;
+  |System|
+  :Validasi & Update DB;
+  :Tampilkan Pesan Sukses;
+elseif (Ubah Status Aktif?) then (Ya)
+  :Pilih Voucher;
+  :Pilih Aktifkan/Nonaktifkan;
+  |System|
+  :Update status 'is_active';
+  :Tampilkan Pesan Sukses;
+elseif (Hapus Voucher?) then (Ya)
+  :Pilih Voucher;
+  |System|
+  :Cek status voucher;
+  if (Boleh dihapus & eksklusif?) then (Ya)
+    :Hapus voucher dari DB;
+    :Tampilkan Pesan Sukses;
+  else (Tidak)
+    :Tampilkan Pesan Error / Saran Nonaktifkan;
+  endif
+else
+  stop
+endif
+stop
+@enduml

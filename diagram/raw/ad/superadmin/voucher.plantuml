@@ -1,0 +1,35 @@
+@startuml
+title Superadmin - Mengelola Voucher
+
+|Superadmin|
+start
+:Akses Menu Voucher;
+|System|
+:Tampilkan Daftar Voucher;
+|Superadmin|
+
+if (Tambah Voucher?) then (Ya)
+  :Isi Form (Kode, Tipe, Nominal, Kuota, Periode, Hotel, dll);
+  :Simpan;
+  |System|
+  :Validasi & Simpan;
+  :Tampilkan Pesan Sukses;
+
+elseif (Edit Voucher?) then (Ya)
+  :Pilih Voucher;
+  :Edit Detail;
+  :Simpan;
+  |System|
+  :Validasi & Update;
+  :Tampilkan Pesan Sukses;
+
+elseif (Ubah Status Aktif?) then (Ya)
+  :Pilih Voucher;
+  :Aktif/Nonaktifkan;
+  |System|
+  :Update Status;
+  :Tampilkan Pesan Sukses;
+endif
+
+stop
+@enduml

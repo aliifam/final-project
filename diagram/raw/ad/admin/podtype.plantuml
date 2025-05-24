@@ -1,0 +1,28 @@
+@startuml
+title Admin Hotel - Mengelola Tipe Pod
+
+|AdminHotel|
+start
+:Akses Menu Tipe Pod;
+if (Pilih Tambah Tipe Pod?) then (Tambah)
+    :Isi Form Detail Tipe Pod (Nama, Harga, Kapasitas, Deskripsi, Foto, Fasilitas Pod);
+    :Simpan;
+    |System|
+    :Validasi & Buat Tipe Pod Baru;
+    :Tampilkan Pesan Sukses;
+elseif (Pilih Edit Tipe Pod?) then (Edit)
+    :Pilih Tipe Pod dari Daftar;
+    :Ubah Detail pada Form;
+    :Simpan;
+    |System|
+    :Validasi & Update Tipe Pod;
+    :Tampilkan Pesan Sukses;
+elseif (Pilih Hapus Tipe Pod?) then (Hapus)
+    :Pilih Tipe Pod dari Daftar;
+    :Konfirmasi Hapus;
+    |System|
+    :Hapus Tipe Pod (jika tidak ada booking aktif terkait);
+    :Tampilkan Pesan Sukses/Gagal;
+endif
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title Superadmin - Mengelola Hotel
+
+|Superadmin|
+start
+:Akses Menu Manajemen Hotel;
+|System|
+:Tampilkan Daftar Hotel;
+
+|Superadmin|
+if (Tambah Hotel?) then (Ya)
+  :Isi Form Hotel (Gambar, Nama, Alamat, Kota, etc);
+  :Simpan;
+  |System|
+  :Validasi & Simpan;
+  :Tampilkan Pesan Sukses;
+elseif (Edit Hotel?) then (Ya)
+  :Pilih Hotel;
+  :Edit Detail;
+  :Simpan;
+  |System|
+  :Validasi & Update;
+  :Tampilkan Pesan Sukses;
+endif
+
+stop
+@enduml

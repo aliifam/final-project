@@ -1,0 +1,23 @@
+@startuml
+title User - Mengajukan Payout Saldo Referral
+
+|User|
+start
+:Akses Menu Saldo Referral;
+
+|System|
+:Tampilkan Saldo Referral Tersedia;
+
+|User|
+if (Saldo > Minimum Payout?) then (Ya)
+    :Klik Ajukan Payout (semua saldo);
+
+    |System|
+    :Simpan Permintaan Payout (jumlah = saldo, status PENDING);
+    :Tampilkan Pesan Permintaan Terkirim;
+else (Tidak)
+    :Tampilkan Info Saldo Tidak Cukup;
+endif
+
+stop
+@enduml

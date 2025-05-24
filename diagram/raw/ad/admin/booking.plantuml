@@ -1,0 +1,64 @@
+@startuml
+title Admin Hotel - Kelola Booking Aktif, Pindah Pod & Riwayat
+
+|AdminHotel|
+start
+:Akses Menu Booking Aktif;
+:Filter Booking (CHECKED_IN/CONFIRMED);
+
+|System|
+:Tampilkan Daftar Booking;
+
+|AdminHotel|
+:Pilih Booking;
+
+|System|
+:Tampilkan Detail Booking & Pod;
+
+|AdminHotel|
+if (Check-in?) then (Ya)
+    |System|
+    if (Valid untuk Check-in?) then (Ya)
+        :Update Status (CHECKED_IN);
+        :Update Status Pod (BOOKED);
+        :Tampil Pesan Sukses;
+    else (Tidak)
+        :Tampil Pesan Error;
+    endif
+
+elseif (Check-out?) then (Ya)
+    |System|
+    :Update Status Booking (CHECKED_OUT);
+    :Update Status Pod (CLEANING);
+    :Tampil Pesan Sukses;
+
+elseif (Pindah Pod?) then (Ya)
+    |System|
+    :Tampilkan Pod Tersedia;
+    |AdminHotel|
+    :Pilih Pod Baru;
+    |System|
+    if (Pod Baru Tersedia?) then (Ya)
+        :Update Booking Pod;
+        :Update Status Pod Lama & Baru;
+        :Catat Log Pindah Pod;
+        :Tampil Pesan Sukses;
+    else (Tidak)
+        :Tampil Pesan Gagal;
+    endif
+
+elseif (Lihat Riwayat Pindah Pod?) then (Ya)
+    |AdminHotel|
+    :Akses Menu Riwayat Pindah Pod;
+    |System|
+    :Ambil Data 'log_switch_pod';
+    :Tampilkan Daftar Riwayat (Booking ID, Pod Lama, Pod Baru, Waktu, Admin);
+    |AdminHotel|
+    :Lihat Detail Riwayat (Opsional);
+
+else
+    stop
+endif
+
+stop
+@enduml

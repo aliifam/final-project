@@ -1,0 +1,33 @@
+@startuml
+title User - Pengajuan KYC 
+
+|User|
+start
+:Akses Menu KYC;
+
+|System|
+:Check Status;
+
+if (Belum Pernah?) then (Ya)
+  |User|
+  :Isi Form & Submit;
+  |System|
+  :Simpan (PENDING);
+  :Tampil "Pengajuan Terkirim";
+elseif (PENDING) then (Ya)
+  |System|
+  :Tampil "Menunggu Verifikasi";
+elseif (REJECTED) then (Ya)
+  |User|
+  :Tampil "Ditolak & Form Ulang";
+  :Submit Ulang;
+  |System|
+  :Update (PENDING);
+  :Tampil "Pengajuan Terkirim";
+else (APPROVED)
+  |System|
+  :Tampil "KYC Disetujui";
+endif
+
+stop
+@enduml

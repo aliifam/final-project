@@ -1,0 +1,23 @@
+@startuml
+title Admin Hotel - Moderasi Review Hotel
+
+|AdminHotel|
+start
+:Akses Menu "Review Hotel";
+|System|
+:Tampilkan Daftar Review untuk hotel terkait (beserta status 'showed_in_customer');
+|AdminHotel|
+:Pilih Review yang Akan Dimoderasi;
+|System|
+:Tampilkan Detail Review;
+|AdminHotel|
+if (Ubah Status Tampil ke Customer?) then (Ubah Tampil)
+    :Pilih Tampilkan / Sembunyikan Review;
+    |System|
+    :Update field 'showed_in_customer' pada Review;
+    :Tampilkan Pesan Sukses Perubahan Status Tampil;
+else (Hanya Melihat)
+    stop
+endif
+stop
+@enduml

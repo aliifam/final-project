@@ -1,0 +1,32 @@
+@startuml
+title Superadmin - Mengelola Data Master
+
+|Superadmin|
+start
+:Akses Menu Data Master;
+:Pilih Jenis Data Master (Kota / Fasilitas / OTA);
+|System|
+:Tampilkan Daftar Item Master Terpilih;
+|Superadmin|
+if (Pilih Tambah Item?) then (Tambah)
+    :Isi Form Detail Item Master (misal: Nama Kota, Nama & Ikon Fasilitas, Nama & Logo OTA);
+    :Simpan;
+    |System|
+    :Validasi & Tambah Item Master Baru;
+    :Tampilkan Pesan Sukses;
+elseif (Pilih Edit Item?) then (Edit)
+    :Pilih Item dari Daftar;
+    :Ubah Detail pada Form;
+    :Simpan;
+    |System|
+    :Validasi & Update Item Master;
+    :Tampilkan Pesan Sukses;
+elseif (Pilih Hapus Item?) then (Hapus)
+    :Pilih Item dari Daftar;
+    :Konfirmasi Hapus;
+    |System|
+    :Hapus Item Master (dengan pertimbangan relasi);
+    :Tampilkan Pesan Sukses/Gagal;
+endif
+stop
+@enduml

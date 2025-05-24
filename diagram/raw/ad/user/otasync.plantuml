@@ -1,0 +1,26 @@
+@startuml
+title User - Sinkronisasi Transaksi OTA dengan Login Sederhana
+
+|User|
+start
+:Akses Menu Sinkronisasi OTA;
+:Pilih OTA & Input Detail Transaksi (ID Order OTA, Hotel, Upload Bukti);
+:Klik Sinkronkan;
+
+|System|
+if (User Sudah Login?) then (Ya)
+  :Verifikasi ID Order OTA;
+  if (ID Order valid?) then (Ya)
+    :Sinkron Data Booking ke Akun;
+    :Simpan Klaim (status SUCCESS);
+    :Tampilkan Pesan Klaim Berhasil;
+  else (Tidak)
+    :Tampilkan Pesan Klaim Gagal (ID Order salah);
+  endif
+  stop
+else (Tidak)
+  :Tampilkan Form Login;
+  :User Login (proses terpisah);
+  stop
+endif
+@enduml

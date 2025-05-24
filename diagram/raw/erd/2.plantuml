@@ -1,0 +1,142 @@
+@startchen
+entity HOTEL { 
+' Also known as Cabang
+  id <<key>>
+  is_active
+  name
+  slug 
+  ' (unique constraint)
+  description
+  address
+  phone
+  email
+  latitude
+  longitude
+  ' city_id implied by LOCATED_IN_CITY
+  checkin_time
+  checkout_time
+  timezone
+  gmaps_url
+  created_at
+  updated_at
+}
+
+entity CITY {
+  id <<key>>
+  name
+  created_at
+  updated_at
+}
+
+entity POD_TYPE {
+  id <<key>>
+  ' hotel_id implied by HOTEL_HAS_POD_TYPE
+  name
+  description
+  price
+  capacity
+  dewasa
+  anak
+  image 
+  ' Main image for pod type
+  breakfast
+  created_at
+  updated_at
+}
+
+entity POD {
+  id <<key>>
+  ' pod_type_id implied by POD_BELONGS_TO_POD_TYPE
+  ' hotel_id implied by HOTEL_CONTAINS_POD
+  name
+  status 
+  ' (PodStatusEnum)
+  order 
+  ' for display
+  device_code
+  last_online
+  created_at
+  updated_at
+}
+
+entity FACILITY {
+  id <<key>>
+  name
+  icon
+  created_at
+  updated_at
+}
+
+entity IMAGE { 
+' General image store for hotels, etc.
+  id <<key>>
+  image 
+  ' URL/path
+  caption
+  order
+  created_at
+  updated_at
+}
+
+' Placeholder for Admin from Diag 1
+entity ADMIN_D2 { 
+    id <<key>> 
+    role 
+}
+
+relationship ADMIN_MANAGES_HOTEL { 
+' Represents AdminHotel table
+  ' id (PK of AdminHotel) is not typically an attribute of Chen relationship
+  created_at
+  updated_at
+}
+ADMIN_MANAGES_HOTEL -N- ADMIN_D2 
+' Many admins can be associated with hotels (e.g. SA multiple, AC specific)
+ADMIN_MANAGES_HOTEL -N- HOTEL  
+' A hotel can have multiple admins assigned (e.g. multiple ACs, or SA oversight)
+' This relationship enables SA to assign AC to Hotel, and AC to manage their specific Hotel.
+
+relationship LOCATED_IN_CITY {
+}
+LOCATED_IN_CITY =1= CITY
+LOCATED_IN_CITY -N- HOTEL
+
+relationship HOTEL_HAS_POD_TYPE {
+}
+HOTEL_HAS_POD_TYPE =1= HOTEL
+HOTEL_HAS_POD_TYPE -N- POD_TYPE
+
+relationship HOTEL_CONTAINS_POD {
+} 
+' Direct link from Hotel to Pod for convenience/queries
+HOTEL_CONTAINS_POD =1= HOTEL
+HOTEL_CONTAINS_POD -N- POD
+
+relationship POD_BELONGS_TO_POD_TYPE {
+}
+POD_BELONGS_TO_POD_TYPE =1= POD_TYPE
+POD_BELONGS_TO_POD_TYPE -N- POD
+
+relationship HOTEL_PROVIDES_FACILITY { 
+' Represents HotelFacility table
+  created_at
+  updated_at
+}
+HOTEL_PROVIDES_FACILITY -M- HOTEL
+HOTEL_PROVIDES_FACILITY -N- FACILITY
+
+relationship HOTEL_HAS_IMAGE_GALLERY { 
+' Represents HotelImage table
+  ' Any attributes from HotelImage other than FKs would go here
+}
+HOTEL_HAS_IMAGE_GALLERY -M- HOTEL
+HOTEL_HAS_IMAGE_GALLERY -N- IMAGE
+
+relationship POD_TYPE_USES_FACILITY { 
+' Represents PodTypeFacility table
+  created_at
+  updated_at
+}
+POD_TYPE_USES_FACILITY -M- POD_TYPE
+POD_TYPE_USES_FACILITY -N- FACILITY
+@endchen

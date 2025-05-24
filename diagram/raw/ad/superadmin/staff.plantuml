@@ -1,0 +1,42 @@
+@startuml
+title Superadmin - Mengelola Akun Admin
+
+|Superadmin|
+start
+:Akses Menu Manajemen Admin;
+|System|
+:Tampilkan Daftar Akun Admin;
+|Superadmin|
+
+if (Tambah Admin?) then (Ya)
+  :Isi Form (Nama, Email, Role, Password);
+  :Simpan;
+  |System|
+  :Validasi & Simpan Admin Baru;
+  :Tampilkan Pesan Sukses;
+
+elseif (Edit Admin?) then (Ya)
+  :Pilih Admin;
+  :Edit Data;
+  :Simpan;
+  |System|
+  :Validasi & Update;
+  :Tampilkan Pesan Sukses;
+
+elseif (Assign Hotel ke Admin?) then (Ya)
+  :Pilih Hotel;
+  :Simpan Relasi;
+  |System|
+  :Buat/Update Relasi Admin ↔ Hotel;
+  :Tampilkan Pesan Sukses;
+
+elseif (Hapus Admin?) then (Ya)
+  :Pilih Admin;
+  :Konfirmasi;
+  |System|
+  :Hapus Admin (jika aman);
+  :Tampilkan Pesan Sukses/Gagal;
+endif
+
+stop
+@enduml

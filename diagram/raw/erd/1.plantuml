@@ -1,33 +1,97 @@
-@startchen movies
-
-entity DIRECTOR {
-  key attribute Number
-  attr Name {
-    Fname
-    attribute Lname
-  }
-  attribute Born
-  attribute Died
-  attribute Age
+@startchen
+left to right direction
+entity USER {
+  id <<key>>
+  google_id
+  avatar
+  username
+  ' (unique constraint handled by application/db)
+  name
+  email 
+  ' (unique constraint handled by application/db)
+  password
+  kyc_verified
+  is_verified
+  gender
+  phone
+  address
+  birthday
+  created_at
+  updated_at
 }
 
-entity CUSTOMER {
-  key attribute Number
-  derived attribute Bonus
-  multi attribute Name
+entity ADMIN { 
+' Covers SuperAdmin and Admin Cabang
+  id <<key>>
+  avatar
+  name
+  email 
+  ' (unique constraint handled by application/db)
+  password
+  role 
+  ' (RoleEnum: SUPERADMIN, ADMIN_CABANG, etc.)
+  created_at
+  updated_at
 }
 
-entity DVD {
-  key attribute Code
+entity TOKEN { 
+' For password reset, email verification tokens
+  token <<key>>
+  email 
+  ' email of user or admin this token is for
 }
 
-relationship RENTED_TO {
-  -1 CUSTOMER
-  -N DVD
-
-  -(N,M) DIRECTOR
-
-  attribute Date
+entity KYC {
+  id <<key>>
+  ' user_id implied by USER_SUBMITS_KYC
+  ' approved_by (admin_id) implied by ADMIN_VERIFIES_KYC
+  id_type 
+  ' (IDTypeEnum)
+  id_number
+  id_image
+  selfie_image
+  status 
+  ' (KYCStatusEnum)
+  note 
+  ' reason for approval/rejection
+  created_at
+  updated_at
 }
 
+entity NOTIFICATION {
+  id <<key>>
+  ' user_id implied by USER_RECEIVES_NOTIFICATION
+  title
+  message
+  read
+  created_at
+  updated_at
+}
+
+relationship USER_SUBMITS_KYC {
+  ' Submission timestamp is KYC.created_at
+}
+USER_SUBMITS_KYC =1= USER
+USER_SUBMITS_KYC -N- KYC 
+' User might have multiple KYC attempts/records over time
+
+relationship ADMIN_VERIFIES_KYC {
+  ' Verification timestamp is KYC.updated_at (when status changes)
+  ' Note for verification is KYC.note
+}
+ADMIN_VERIFIES_KYC =1= ADMIN 
+' Admin (SA) verifying
+ADMIN_VERIFIES_KYC -N- KYC 
+' Admin can verify many KYCs
+
+relationship USER_RECEIVES_NOTIFICATION {
+}
+USER_RECEIVES_NOTIFICATION =1= USER
+USER_RECEIVES_NOTIFICATION -N- NOTIFICATION
+
+' Token is typically related to User or Admin via email for a specific process,
+' not usually a persistent ERD relationship unless it's an API token.
+' For password reset, it's temporary.
+' relationship USER_USES_TOKEN {}
+' relationship ADMIN_USES_TOKEN {}
 @endchen

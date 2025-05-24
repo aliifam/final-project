@@ -1,0 +1,39 @@
+@startuml
+title User - Pencarian & Pemesanan Pod via QRIS
+
+|User|
+start
+:Akses Fitur Pencarian;
+:Input Cabang & Tanggal Check-in/Check-out;
+|System|
+:Tampilkan Hasil Hotel & Tipe Pod (dengan harga dinamis);
+|User|
+:Pilih Hotel, Tipe Pod, dan Jumlah;
+|System|
+:Tampilkan Ringkasan & Total Harga;
+
+|User|
+if (Gunakan Voucher/Referral?) then (Ya)
+  :Input Kode Voucher/Referral;
+  |System|
+  :Validasi & Update Total Harga;
+endif
+
+|User|
+:Konfirmasi & Bayar via QRIS;
+|System|
+:Buat Transaksi (PENDING) & Generate QRIS;
+:Tampilkan QRIS Code;
+
+|User|
+:Scan & Bayar QRIS;
+
+|Midtrans|
+:Kirim Notifikasi Pembayaran Sukses;
+|System|
+:Update Status Transaksi & Permanenkan Booking;
+
+|User|
+:Terima Konfirmasi & Detail Booking;
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+title User - Memberikan Review
+
+|User|
+start
+
+if (Akses setelah checkout?) then (Ya)
+  :Checkout Selesai;
+  |System|
+  :Tampilkan Form Review;
+else (Tidak)
+  :Akses Riwayat Booking;
+  :Pilih Booking yang Sudah Selesai;
+  |System|
+  :Tampilkan Form Review;
+endif
+
+|User|
+:Isi Rating & Komentar;
+:Submit Review;
+
+|System|
+:Simpan Review ke Database;
+:Tampilkan Pesan Terima Kasih;
+
+stop
+@enduml

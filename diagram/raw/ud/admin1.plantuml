@@ -19,10 +19,6 @@ package "Manajemen Operasional Cabang" {
   end note
 
   AdminCabang --|> (Kelola Staff Admin untuk Cabang)
-  note right of (Kelola Staff Admin untuk Cabang)
-    CRUD admin lain dalam satu cabang.
-    (Membutuhkan hak akses dari SuperAdmin).
-  end note
 
   AdminCabang --|> (Kelola OTA Bekerjasama dengan Cabang)
   (Kelola OTA Bekerjasama dengan Cabang) ..> (Aktifkan OTA untuk Cabang) : <<include>>
@@ -39,28 +35,5 @@ package "Manajemen Operasional Cabang" {
     Untuk jenis pod pada cabang
     dengan rentang waktu tertentu.
   end note
-}
-
-package "Manajemen Reservasi & Pengunjung Cabang" {
-  AdminCabang --|> (Input Transaksi Reservasi via OTA Manual)
-  note bottom of (Input Transaksi Reservasi via OTA Manual)
-    Agar dapat disinkronisasi oleh Pengguna.
-  end note
-
-  AdminCabang --|> (Pindahkan Pengunjung Check-in ke Pod Lain)
-  (Pindahkan Pengunjung Check-in ke Pod Lain) ..> (Pilih Pod Pengganti Tersedia) : <<include>>
-  (Pindahkan Pengunjung Check-in ke Pod Lain) ..> (Catat Log Pemindahan Pod) : <<include>>
-  AdminCabang --|> (Lihat Catatan Pemindahan Pod)
-
-  AdminCabang --|> (Lakukan Pembersihan Pod)
-  (Lakukan Pembersihan Pod) ..> (Update Status Pod menjadi Dibersihkan/Tersedia) : <<include>>
-  (Lakukan Pembersihan Pod) ..> (Catat Log Pembersihan) : <<include>>
-  AdminCabang --|> (Lihat Catatan Pembersihan Pod)
-}
-
-package "Interaksi Pengguna & Review Cabang" {
-  AdminCabang --|> (Lihat & Kelola Review Pengguna Cabang)
-  (Lihat & Kelola Review Pengguna Cabang) <.. (Setujui Tampilkan Review ke Publik) : <<extend>>
-  (Lihat & Kelola Review Pengguna Cabang) <.. (Sembunyikan Review dari Publik) : <<extend>>
 }
 @enduml

@@ -1,0 +1,49 @@
+@startuml
+title Admin Hotel - Login & Pilih Cabang
+
+|AdminHotel|
+start
+:Akses Halaman Login Admin;
+
+if (Login via Email?) then (Ya)
+    :Input Email & Password;
+    :Submit;
+    |System|
+    :Validasi Kredensial;
+    if (Login Berhasil?) then (Ya)
+        :Minta Pilih Cabang;
+        |AdminHotel|
+        :Pilih Cabang;
+        |System|
+        :Redirect ke Dashboard Admin Hotel;
+    else (Tidak)
+        :Tampilkan Pesan Error Login;
+        stop
+    endif
+
+elseif (Login via Google?) then (Ya)
+    |System|
+    :Redirect ke Google Auth;
+    |AdminHotel|
+    :(Interaksi Google);
+    |Google|
+    :Callback ke Sistem;
+    |System|
+    :Validasi Akun;
+    if (Login Berhasil?) then (Ya)
+        :Minta Pilih Cabang;
+        |AdminHotel|
+        :Pilih Cabang;
+        |System|
+        :Redirect ke Dashboard Admin Hotel;
+    else (Tidak)
+        :Tampilkan Pesan Error;
+        stop
+    endif
+
+else (Pilihan Lain)
+    stop
+endif
+
+stop
+@enduml

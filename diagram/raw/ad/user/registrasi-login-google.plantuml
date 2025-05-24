@@ -1,24 +1,34 @@
-@startuml registrasi_login_user_google
-    title Registrasi/Login User dengan Google OAuth
+@startuml
+title User - Login (Email & Google)
 
-    actor User
-    participant "Sistem" as App
-    participant "Google" as GoogleServer
-
-    User -->> App : Klik Tombol "Login dengan Google"
-    App -->> GoogleServer : Redirect User ke Halaman Otorisasi Google
-    User -->> GoogleServer : Login Akun Google & Beri Izin Akses
-    GoogleServer -->> App : Redirect kembali ke Aplikasi dengan Authorization Code
-    App -->> GoogleServer : Tukar Authorization Code dengan Access Token & ID Token
-    GoogleServer -->> App : Kirim Access Token & ID Token
-    App -->> App : Validasi ID Token & Ambil Info User (Google ID, email, nama, avatar)
-    alt User dengan Google ID sudah ada (tabel 'users')
-        App -->> App : Perbarui data User (jika ada perubahan avatar/nama)
-        App -->> App : Buat Sesi Login
-        App -->> User : Redirect ke Dashboard
-    else User dengan Google ID belum ada (User Baru)
-        App -->> App : Buat Akun User Baru di tabel 'users' (google_id, name, email, avatar, is_verified=True)
-        App -->> App : Buat Sesi Login
-        App -->> User : Redirect ke Dashboard
-    end
+|User|
+start
+:Akses Halaman Login;
+if (Pilih Login Email?) then (Login Email)
+    :Input Email & Password;
+    :Submit;
+    |System|
+    :Validasi Kredensial;
+    if (Valid & Terverifikasi?) then (Ya)
+        :Buat Sesi Login;
+        :Redirect ke Dashboard;
+    else (Tidak)
+        :Tampilkan Pesan Error Login;
+    endif
+elseif (Pilih Login Google?) then (Login Google)
+    |System|
+    :Redirect ke Google Authentication;
+    |User|
+    :(Interaksi dengan Google: Autentikasi & Otorisasi);
+    |Google|
+    :Callback ke Sistem dengan Auth Code/Token;
+    |System|
+    :Validasi Token Google & Ambil Info User;
+    :Cek/Buat Akun User di Sistem;
+    :Buat Sesi Login;
+    :Redirect ke Dashboard;
+else (Pilihan Lain)
+    stop
+endif
+stop
 @enduml

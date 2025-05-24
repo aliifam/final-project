@@ -1,0 +1,58 @@
+@startuml
+title Admin Hotel - Kelola Data & Status Pod
+
+|AdminHotel|
+start
+:Akses Menu Manajemen Pod;
+
+|System|
+:Tampilkan Daftar Pod;
+
+|AdminHotel|
+if (Tambah Pod?) then (Ya)
+    :Isi Form Pod;
+    :Simpan;
+    |System|
+    :Validasi & Simpan Pod Baru;
+    :Generate QR Code Awal;
+    :Tampilkan Pesan Sukses;
+
+elseif (Edit Pod?) then (Ya)
+    :Pilih Pod;
+    |System|
+    :Tampilkan Form Terisi;
+    |AdminHotel|
+    :Edit Data;
+    :Simpan;
+    |System|
+    :Validasi & Update Data;
+    :Tampilkan Pesan Sukses;
+
+elseif (Ubah Status?) then (Ya)
+    :Pilih Pod;
+    :Pilih Status Baru;
+    :Simpan;
+    |System|
+    :Validasi & Update Status;
+    :Tampilkan Pesan Sukses;
+
+elseif (Hapus Pod?) then (Ya)
+    :Pilih Pod;
+    |System|
+    :Tampilkan Peringatan;
+    |AdminHotel|
+    :Konfirmasi Hapus;
+    |System|
+    if (Aman?) then (Ya)
+        :Hapus Pod & QR Code (jika perlu);
+        :Tampilkan Pesan Sukses;
+    else (Tidak)
+        :Tampilkan Error;
+    endif
+
+else (Lihat Daftar Saja)
+    stop
+endif
+
+stop
+@enduml

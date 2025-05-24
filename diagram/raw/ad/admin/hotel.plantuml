@@ -1,0 +1,14 @@
+@startuml
+title Admin Hotel - Mengelola Detail Hotel
+
+|AdminHotel|
+start
+:Akses Menu Pengaturan Hotel;
+:Edit Informasi Umum Hotel (Nama, Alamat, Deskripsi, Kontak, Foto);
+:Pilih Fasilitas Hotel dari Daftar Master;
+:Simpan Perubahan;
+|System|
+:Validasi & Update Data Hotel & Fasilitas Hotel;
+:Tampilkan Pesan Sukses;
+stop
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+title User - Verifikasi Email
+
+|User|
+start
+:Buka Email Verifikasi;
+:Klik Link Verifikasi;
+|System|
+:Validasi Token Verifikasi;
+if (Token Valid?) then (Ya)
+    :Update Status User menjadi Terverifikasi;
+    :Tampilkan Pesan Verifikasi Berhasil;
+else (Tidak)
+    :Tampilkan Pesan Token Tidak Valid/Kadaluarsa;
+endif
+stop
+@enduml

@@ -1,0 +1,24 @@
+@startuml
+title User - Check-in Pod & Lihat QR Code
+
+|User|
+start
+:Akses Menu "Stays";
+:Pilih Tab "Current";
+:Pilih Booking Aktif;
+|System|
+:Tampilkan Detail Booking & List Pod;
+
+|User|
+:Pilih Pod Tersedia;
+:Klik Tombol "Check-in";
+|System|
+if (Pod tersedia) then (Ya)
+  :Proses Check-in;
+  :Generate & Tampilkan QR Code Kunci;
+else (Tidak)
+  :Tampilkan Pesan Error (Pod tidak tersedia);
+endif
+
+stop
+@enduml

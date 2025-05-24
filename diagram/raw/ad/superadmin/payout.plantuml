@@ -1,0 +1,38 @@
+@startuml
+title Superadmin - Memproses Payout Request
+
+|Superadmin|
+start
+:Akses Menu Payout Request;
+|System|
+:Tampilkan Daftar Payout Request (PENDING);
+
+|Superadmin|
+if (Ada Request?) then (Ya)
+  :Pilih Request;
+  |System|
+  :Tampilkan Detail (User, Jumlah, Info Bank);
+  |Superadmin|
+  :(Transfer Manual di luar sistem);
+
+  if (Transfer Berhasil?) then (Ya)
+    :Upload Bukti Transfer;
+    |System|
+    :Update Status: COMPLETED;
+    :Update Tabel Referral;
+    :Kirim Notifikasi;
+    :Tampilkan Pesan Sukses;
+  else (Tidak)
+    :Input Alasan Penolakan;
+    |System|
+    :Update Status: REJECTED;
+    :Kirim Notifikasi;
+    :Tampilkan Pesan Sukses;
+  endif
+
+else (Tidak)
+  :Tampilkan Pesan "Tidak ada request payout baru";
+endif
+
+stop
+@enduml

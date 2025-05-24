@@ -1,0 +1,33 @@
+@startuml
+title Superadmin - Login (Email / Google)
+
+|Superadmin|
+start
+:Akses Halaman Login Admin;
+
+if (Login via Email?) then (Ya)
+  :Input Email & Password;
+  :Submit;
+  |System|
+  :Validasi Email, Password, dan Role SUPER_ADMIN;
+elseif (Login via Google?) then (Ya)
+  |System|
+  :Redirect ke Google;
+  |Google|
+  :Autentikasi Akun;
+  :Callback ke Sistem;
+  |System|
+  :Validasi Akun Google & Role SUPER_ADMIN;
+endif
+
+if (Login Valid?) then (Ya)
+  |System|
+  :Buat Sesi Login;
+  :Redirect ke Dashboard Superadmin;
+else (Tidak)
+  |System|
+  :Tampilkan Pesan Error Login;
+endif
+
+stop
+@enduml

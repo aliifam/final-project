@@ -1,0 +1,31 @@
+@startuml
+title Admin Hotel - Mengelola Tugas Cleaning (Revisi)
+
+|AdminHotel|
+start
+:Akses Menu Tugas Cleaning;
+
+|System|
+:Tampilkan Daftar Pod (Perlu/Sedang Dibersihkan);
+
+|AdminHotel|
+:Pilih Pod;
+
+if (Status Pod == NEEDS CLEANING?) then (Ya)
+    :Mulai Cleaning;
+    |System|
+    :Generate QR Code (2-3 jam akses);
+
+elseif (Status Pod == CLEANING?) then (Ya)
+    :Submit Bukti Foto & Catatan;
+    |System|
+    :Update Status Pod (AVAILABLE);
+    :Simpan Data Cleaning (foto, catatan, petugas, waktu);
+
+endif
+
+|AdminHotel|
+:Melihat Histori Cleaning;
+
+stop
+@enduml
