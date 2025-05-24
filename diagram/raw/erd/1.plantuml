@@ -1,0 +1,33 @@
+@startchen movies
+
+entity DIRECTOR {
+  key attribute Number
+  attr Name {
+    Fname
+    attribute Lname
+  }
+  attribute Born
+  attribute Died
+  attribute Age
+}
+
+entity CUSTOMER {
+  key attribute Number
+  derived attribute Bonus
+  multi attribute Name
+}
+
+entity DVD {
+  key attribute Code
+}
+
+relationship RENTED_TO {
+  -1 CUSTOMER
+  -N DVD
+
+  -(N,M) DIRECTOR
+
+  attribute Date
+}
+
+@endchen
