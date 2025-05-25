@@ -1,0 +1,151 @@
+@startchen
+entity TRANSACTION {
+  id <<key>> 
+  ' order_id (koenji)
+  ' user_id implied by USER_INITIATES_TRANSACTION
+  ' hotel_id implied by TRANSACTION_AT_HOTEL
+  amount 
+  ' total amount after discount
+  gross_amount 
+  ' before discount
+  status 
+  ' (TransactionStatusEnum)
+  payment_method 
+  ' (PaymentMethodEnum)
+  payment_code 
+  ' QRIS URL or VA number
+  midtrans_payload 
+  ' JSON
+  created_at
+  updated_at
+  expired_at
+  paid_at
+}
+
+entity TRANSACTION_ITEM { 
+' Snapshot of what was bought
+  id <<key>>
+  ' transaction_id implied by TRANSACTION_HAS_ITEMS
+  ' pod_type_id refers to POD_TYPE (snapshot name/price stored here)
+  ' hotel_id refers to HOTEL (snapshot name stored here)
+  pod_type_name
+  pod_type_price
+  hotel_name
+  quantity
+  checkin
+  checkout
+  created_at
+  updated_at
+}
+
+entity BOOKING {
+  id <<key>>
+  ' user_id implied by USER_HOLDS_BOOKING
+  ' pod_id implied by BOOKING_FOR_POD (can be null until check-in)
+  ' pod_type_id implied by BOOKING_OF_POD_TYPE
+  ' transaction_id implied by TRANSACTION_LEADS_TO_BOOKING
+  check_in
+  check_out
+  status 
+  ' (BookingStatusEnum: PENDING, CONFIRMED, CHECKED_IN, CHECKED_OUT, CANCELED)
+  created_at
+  updated_at
+}
+
+entity QR_CODE {
+  id <<key>>
+  ' booking_id implied by BOOKING_GENERATES_QR_CODE (main access for user)
+  ' cleaning_id implied by CLEANING_TASK_USES_QR_CODE (Diag 6, for staff)
+  ' pod_id implied by QR_CODE_CONTROLS_POD
+  current_code
+  current_code_image
+  next_code 
+  ' For offline tolerance
+  next_code_image 
+  ' For offline tolerance
+  current_expired 
+  ' Expiry of current_code
+  created_at
+  updated_at
+}
+
+' Placeholder entities
+entity USER_D3 { 
+id <<key>> 
+}
+entity HOTEL_D3 { 
+id <<key>> 
+}
+entity POD_TYPE_D3 { 
+id <<key>>
+}
+entity POD_D3 { 
+id <<key>>
+}
+' entity CLEANING_TASK_D3 { id <<key>> } ' from Diag 6
+
+relationship USER_INITIATES_TRANSACTION {
+}
+USER_INITIATES_TRANSACTION =1= USER_D3
+USER_INITIATES_TRANSACTION -N- TRANSACTION
+
+relationship TRANSACTION_AT_HOTEL {
+}
+TRANSACTION_AT_HOTEL =1= HOTEL_D3
+TRANSACTION_AT_HOTEL -N- TRANSACTION
+
+relationship TRANSACTION_HAS_ITEMS {
+}
+TRANSACTION_HAS_ITEMS =1= TRANSACTION
+TRANSACTION_HAS_ITEMS -N- TRANSACTION_ITEM
+
+relationship ITEM_REFERENCES_POD_TYPE {
+} 
+' TransactionItem references a PodType
+ITEM_REFERENCES_POD_TYPE =1= POD_TYPE_D3
+ITEM_REFERENCES_POD_TYPE -N- TRANSACTION_ITEM
+
+relationship TRANSACTION_LEADS_TO_BOOKING {
+}
+TRANSACTION_LEADS_TO_BOOKING =1= TRANSACTION
+TRANSACTION_LEADS_TO_BOOKING -N- BOOKING 
+' One tx can have multiple bookings (e.g., multiple rooms/pods)
+
+relationship USER_HOLDS_BOOKING {
+} 
+' User associated with the booking
+USER_HOLDS_BOOKING =1= USER_D3
+USER_HOLDS_BOOKING -N- BOOKING
+
+relationship BOOKING_OF_POD_TYPE {
+} 
+' Booking is for a certain type of pod
+BOOKING_OF_POD_TYPE =1= POD_TYPE_D3
+BOOKING_OF_POD_TYPE -N- BOOKING
+
+relationship BOOKING_FOR_POD {
+} 
+' Booking is eventually assigned to a specific Pod
+' A Pod can be part of N bookings (over time)
+' A Booking is for 1 Pod (once assigned)
+' This can be 0..1 for Pod if booking not yet assigned.
+BOOKING_FOR_POD =1= POD_D3
+BOOKING_FOR_POD -N- BOOKING 
+' Changed to N for pod side assuming pod has many bookings over time. Booking is for 1 pod.
+
+relationship BOOKING_GENERATES_QR_CODE {
+}
+BOOKING_GENERATES_QR_CODE =1= BOOKING
+BOOKING_GENERATES_QR_CODE =1= QR_CODE 
+' One active QR code per booking for user
+
+relationship QR_CODE_CONTROLS_POD {
+}
+QR_CODE_CONTROLS_POD =1= POD_D3
+QR_CODE_CONTROLS_POD -N- QR_CODE 
+' A pod is controlled by many QRCodes over time
+
+' relationship CLEANING_TASK_USES_QR_CODE {} ' Defined in Diag 6
+' CLEANING_TASK_USES_QR_CODE =1= CLEANING_TASK_D3
+' CLEANING_TASK_USES_QR_CODE =1= QR_CODE
+@endchen

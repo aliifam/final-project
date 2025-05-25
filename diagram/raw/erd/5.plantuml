@@ -1,0 +1,144 @@
+@startchen
+entity OTA_PLATFORM { 
+' Renamed from OTA to distinguish from relationship
+  id <<key>>
+  image 
+  ' ota logo
+  name
+  guide 
+  ' ota guide image
+  guide_url
+  is_active 
+  ' Global active status by SA
+  created_at
+  updated_at
+}
+
+entity OTA_TRANSACTION { 
+' Data from OTA booking, to be claimed
+  id <<key>>
+  ' ota_id implied by SYNCED_FROM_OTA_PLATFORM
+  ota_order_id
+  ' transaction_id implied by LINKS_TO_INTERNAL_TRANSACTION (after sync/claim)
+  ' user_id implied by CLAIMED_BY_USER (after claim)
+  ' hotel_id implied by OCCURRED_AT_HOTEL
+  claimed
+  proof 
+  ' if needed for manual claim by user
+  claimed_at
+  created_at
+  updated_at
+}
+
+relationship HOTEL_WORKS_WITH_OTA { 
+' Represents HotelOta table
+  is_active 
+  ' AC can activate/deactivate this link for their hotel
+  created_at
+  updated_at
+}
+
+entity REVIEW {
+  id <<key>>
+  ' hotel_id implied by REVIEW_FOR_HOTEL
+  ' user_id implied by USER_SUBMITS_REVIEW
+  ' transaction_id implied by REVIEW_ABOUT_TRANSACTION
+  ' booking_id implied by REVIEW_ABOUT_BOOKING
+  ' pod_type_id implied by REVIEW_ABOUT_POD_TYPE
+  ' pod_id implied by REVIEW_ABOUT_POD
+  rating 
+  ' 1-5
+  comment
+  showed_in_customer
+  created_at
+  updated_at
+}
+
+' Placeholder entities
+entity HOTEL_D5 {
+id <<key>>
+}
+entity USER_D5 { 
+id <<key>>
+}
+entity TRANSACTION_D5 { 
+id <<key>> 
+}
+entity BOOKING_D5 { 
+id <<key>> 
+}
+entity POD_TYPE_D5 {
+id <<key>> 
+}
+entity POD_D5 { 
+id <<key>> 
+}
+
+HOTEL_WORKS_WITH_OTA -M- HOTEL_D5 
+' Hotel can work with Many OTAs
+HOTEL_WORKS_WITH_OTA -N- OTA_PLATFORM 
+' OTA Platform can work with Many Hotels
+
+relationship SYNCED_FROM_OTA_PLATFORM {
+}
+SYNCED_FROM_OTA_PLATFORM =1= OTA_PLATFORM
+SYNCED_FROM_OTA_PLATFORM -N- OTA_TRANSACTION 
+' OTA Platform has many transactions
+
+relationship OCCURRED_AT_HOTEL {
+}
+' OTA Transaction occurred at a specific Hotel
+OCCURRED_AT_HOTEL =1= HOTEL_D5
+OCCURRED_AT_HOTEL -N- OTA_TRANSACTION
+
+relationship CLAIMED_BY_USER {
+}
+' User claims an OTA Transaction
+' An OTA Transaction is claimed by 0 or 1 User
+' A User can claim N OTA Transactions
+CLAIMED_BY_USER =1= USER_D5 
+' This should be 0..1 on USER side from OTA_TRANSACTION perspective
+CLAIMED_BY_USER -N- OTA_TRANSACTION 
+' User can claim many, OTA Transaction claimed by one. So: USER_D5 -N- (Rel) -1- OTA_TRANSACTION
+
+relationship LINKS_TO_INTERNAL_TRANSACTION {
+}
+' After claim, OTA Transaction links to an internal Transaction
+LINKS_TO_INTERNAL_TRANSACTION =1= OTA_TRANSACTION
+LINKS_TO_INTERNAL_TRANSACTION =1= TRANSACTION_D5
+' One to one link
+
+relationship USER_SUBMITS_REVIEW {
+}
+USER_SUBMITS_REVIEW =1= USER_D5
+USER_SUBMITS_REVIEW -N- REVIEW
+
+relationship REVIEW_FOR_HOTEL {
+}
+REVIEW_FOR_HOTEL =1= HOTEL_D5
+REVIEW_FOR_HOTEL -N- REVIEW
+
+relationship REVIEW_ABOUT_TRANSACTION {
+}
+REVIEW_ABOUT_TRANSACTION =1= TRANSACTION_D5
+REVIEW_ABOUT_TRANSACTION -1- REVIEW 
+' Typically one review per transaction overall
+
+relationship REVIEW_ABOUT_BOOKING {
+}
+REVIEW_ABOUT_BOOKING =1= BOOKING_D5
+REVIEW_ABOUT_BOOKING -1- REVIEW 
+' Or per booking
+
+relationship REVIEW_ABOUT_POD_TYPE {
+}
+REVIEW_ABOUT_POD_TYPE =1= POD_TYPE_D5
+REVIEW_ABOUT_POD_TYPE -N- REVIEW 
+' Many reviews can be about a specific pod type
+
+relationship REVIEW_ABOUT_POD {
+}
+REVIEW_ABOUT_POD =1= POD_D5
+REVIEW_ABOUT_POD -N- REVIEW 
+' Many reviews can be about a specific pod
+@endchen

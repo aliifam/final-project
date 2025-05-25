@@ -1,0 +1,131 @@
+@startchen
+entity VOUCHER {
+  id <<key>>
+  name
+  description
+  image
+  code 
+  ' (unique constraint)
+  type 
+  ' (VoucherTypeEnum: NOMINAL, PERCENTAGE)
+  discount_max
+  discount_amount 
+  ' if type is NOMINAL, or percentage value if type is PERCENTAGE
+  discount_percentage 
+  ' if type is PERCENTAGE
+  min_transaction
+  max_usage
+  current_usage
+  max_budget
+  current_budget
+  start_at
+  end_at
+  checkin_at 
+  ' Rule for booking's check-in date
+  checkout_at 
+  ' Rule for booking's check-out date
+  showed_in_customer
+  is_active
+  created_at
+  updated_at
+}
+
+entity REFERRAL { 
+  id <<key>>
+  referral_code 
+  ' Snapshot of the code used (which is a User.username)
+  discount_amount 
+  ' Discount given to the referred user
+  referrer_income 
+  ' Income for the referrer
+  disbursement_status 
+  ' For tracking payout of referrer_income
+  created_at
+  updated_at
+}
+
+entity PAYOUT_REQUEST {
+  id <<key>>
+  proof_image 
+  ' Screenshot of transfer by admin
+  amount
+  status 
+  ' (PayoutRequestStatusEnum)
+  bank_account_name
+  bank_account_number
+  disbursement_at
+  note
+  created_at
+  updated_at
+}
+
+entity TRANSACTION_USES_VOUCHER { 
+  voucher_code
+  voucher_name
+  voucher_type
+  discount_percentage
+  ' Applied
+  discount_amount 
+  ' Applied
+  created_at
+  updated_at
+}
+
+entity VOUCHER_FOR_HOTEL { 
+  created_at
+  updated_at
+}
+
+entity TRANSACTION_D4 { 
+  id <<key>>
+}
+
+entity HOTEL_D4 { 
+  id <<key>> 
+}
+
+entity USER_D4_referrer { 
+  id <<key>> 
+}    
+
+entity USER_D4_referred { 
+  id <<key>> 
+}   
+
+entity USER_D4_payout { 
+  id <<key>> 
+}      
+
+entity ADMIN_D4 { 
+  id <<key>> 
+}           
+
+' ====================
+' Relationships
+' ====================
+
+' Voucher - Hotel (many-to-many)
+VOUCHER_FOR_HOTEL -M- VOUCHER 
+VOUCHER_FOR_HOTEL -N- HOTEL_D4
+' SA creates VOUCHER and can link to many hotels. AC links VOUCHER to their hotel.
+
+' Voucher usage by a transaction (1-to-1)
+TRANSACTION_USES_VOUCHER =1= TRANSACTION_D4 
+TRANSACTION_USES_VOUCHER =1= VOUCHER       
+
+' Referral discount usage (1-to-1)
+TRANSACTION_D4 =1= REFERRAL
+
+' Referrer earns from referral (1-to-1)
+USER_D4_referrer =1= REFERRAL
+
+' Referred user associated to referral (1-to-1)
+USER_D4_referred =1= REFERRAL
+
+' Payout request by user (1-to-many)
+USER_D4_payout -N- PAYOUT_REQUEST
+
+' Payout request processed by admin (1-to-many)
+ADMIN_D4 -N- PAYOUT_REQUEST
+
+@endchen

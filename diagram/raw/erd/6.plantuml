@@ -1,0 +1,125 @@
+@startchen
+entity CLEANING_TASK { 
+' Renamed from Cleaning
+  id <<key>>
+  ' admin_id implied by ADMIN_PERFORMS_CLEANING
+  ' pod_id implied by CLEANING_FOR_POD
+  ' booking_id implied by CLEANING_RELATED_TO_BOOKING
+  proof_image
+  description
+  cleaned_at
+}
+
+entity LOG_SWITCH_POD {
+  id <<key>>
+  ' old_pod_id implied by SWITCH_FROM_POD
+  ' new_pod_id implied by SWITCH_TO_POD
+  ' booking_id implied by SWITCH_FOR_BOOKING
+  ' transaction_id implied by SWITCH_UNDER_TRANSACTION
+  ' processed_by (admin_id) implied by ADMIN_PROCESSES_SWITCH
+  switch_at
+}
+
+entity DYNAMIC_PRICING_RULE {
+' Renamed from DynamicPricing
+  id <<key>>
+  ' pod_type_id implied by RULE_FOR_POD_TYPE
+  date
+  active
+  price
+  note
+  created_at
+  updated_at
+}
+
+' Placeholder entities
+entity ADMIN_D6 { 
+id <<key>>
+}
+entity POD_D6_target { 
+id <<key>>
+}
+' Pod being cleaned, or switched from/to
+entity BOOKING_D6_affected {
+id <<key>>
+} 
+' Booking related to cleaning or switch
+entity TRANSACTION_D6_original { 
+id <<key>> 
+} 
+' Original transaction for a switch
+entity POD_TYPE_D6 { 
+id <<key>> 
+}
+entity QR_CODE_D6 { 
+id <<key>>
+}
+' From Diag 3, used for cleaning staff access
+
+relationship ADMIN_PERFORMS_CLEANING {
+}
+ADMIN_PERFORMS_CLEANING =1= ADMIN_D6
+' An Admin (AC)
+ADMIN_PERFORMS_CLEANING -N- CLEANING_TASK 
+' performs N cleaning tasks
+
+relationship CLEANING_FOR_POD {
+}
+CLEANING_FOR_POD =1= POD_D6_target 
+' A specific Pod
+CLEANING_FOR_POD -N- CLEANING_TASK 
+' is cleaned N times
+
+relationship CLEANING_RELATED_TO_BOOKING {
+}
+CLEANING_RELATED_TO_BOOKING =1= BOOKING_D6_affected 
+' A Booking
+CLEANING_RELATED_TO_BOOKING -1- CLEANING_TASK 
+' might have one cleaning task post-checkout
+
+relationship ADMIN_PROCESSES_SWITCH {
+}
+ADMIN_PROCESSES_SWITCH =1= ADMIN_D6
+ADMIN_PROCESSES_SWITCH -N- LOG_SWITCH_POD
+
+relationship SWITCH_FOR_BOOKING {
+}
+SWITCH_FOR_BOOKING =1= BOOKING_D6_affected
+SWITCH_FOR_BOOKING -N- LOG_SWITCH_POD 
+' A booking might have multiple switches logged
+
+relationship SWITCH_FROM_POD {
+} 
+' Log entry indicates the old pod
+SWITCH_FROM_POD =1= POD_D6_target
+' Referring to the "old_pod_id" concept
+SWITCH_FROM_POD -N- LOG_SWITCH_POD 
+' A pod might be an "old_pod" in N switch events
+
+relationship SWITCH_TO_POD {
+}
+' Log entry indicates the new pod
+SWITCH_TO_POD =1= POD_D6_target 
+' Referring to the "new_pod_id" concept
+SWITCH_TO_POD -N- LOG_SWITCH_POD 
+' A pod might be a "new_pod" in N switch events
+
+relationship SWITCH_UNDER_TRANSACTION {
+}
+SWITCH_UNDER_TRANSACTION =1= TRANSACTION_D6_original
+SWITCH_UNDER_TRANSACTION -N- LOG_SWITCH_POD
+
+relationship RULE_FOR_POD_TYPE {
+}
+RULE_FOR_POD_TYPE =1= POD_TYPE_D6
+RULE_FOR_POD_TYPE -N- DYNAMIC_PRICING_RULE 
+' A pod type can have N dynamic pricing rules
+
+relationship CLEANING_TASK_USES_QR_CODE {
+}
+' Staff might use a QR for specific cleaning tasks/master access
+CLEANING_TASK_USES_QR_CODE =1= CLEANING_TASK
+' One cleaning task
+CLEANING_TASK_USES_QR_CODE =1= QR_CODE_D6 
+' might use one specific QR code (or 0..1)
+@endchen
