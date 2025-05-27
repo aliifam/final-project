@@ -16,8 +16,6 @@ if (Ubah Status Tampil ke Customer?) then (Ubah Tampil)
     |System|
     :Update field 'showed_in_customer' pada Review;
     :Tampilkan Pesan Sukses Perubahan Status Tampil;
-else (Hanya Melihat)
-    stop
 endif
 stop
 @enduml

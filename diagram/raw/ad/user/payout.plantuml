@@ -6,7 +6,7 @@ start
 :Akses Menu Saldo Referral;
 
 |System|
-:Tampilkan Saldo Referral Tersedia;
+:Tampilkan Saldo Referral Tersedia dan History Payout;
 
 |User|
 if (Saldo > Minimum Payout?) then (Ya)
@@ -14,7 +14,7 @@ if (Saldo > Minimum Payout?) then (Ya)
 
     |System|
     :Simpan Permintaan Payout (jumlah = saldo, status PENDING);
-    :Tampilkan Pesan Permintaan Terkirim;
+    :Tampilkan Pesan Pending Payout;
 else (Tidak)
     :Tampilkan Info Saldo Tidak Cukup;
 endif

@@ -1,5 +1,6 @@
 @startuml
-title Superadmin - Mengelola Hotel
+
+title Superadmin - Mengelola Hotel (Branch)
 
 |Superadmin|
 start

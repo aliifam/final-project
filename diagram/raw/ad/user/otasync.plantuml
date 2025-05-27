@@ -11,8 +11,8 @@ start
 if (User Sudah Login?) then (Ya)
   :Verifikasi ID Order OTA;
   if (ID Order valid?) then (Ya)
-    :Sinkron Data Booking ke Akun;
-    :Simpan Klaim (status SUCCESS);
+    :Sinkron Data Booking dan Transaksi ke Akun;
+    :Simpan Klaim (status claimed);
     :Tampilkan Pesan Klaim Berhasil;
   else (Tidak)
     :Tampilkan Pesan Klaim Gagal (ID Order salah);

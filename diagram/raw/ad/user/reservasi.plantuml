@@ -34,6 +34,6 @@ endif
 :Update Status Transaksi & Permanenkan Booking;
 
 |User|
-:Terima Konfirmasi & Detail Booking;
+:Terima Konfirmasi & Detail Booking serta Transaksi;
 stop
 @enduml

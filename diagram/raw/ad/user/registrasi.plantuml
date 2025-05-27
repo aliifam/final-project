@@ -6,7 +6,7 @@ start
 :Akses Halaman Registrasi;
 :Mengisi Form Registrasi (Nama, Email, Password);
 :Submit Form;
-|System|
+|Sistem|
 :Validasi Data Registrasi;
 if (Data Valid?) then (Ya)
     :Buat Akun User Baru (status belum terverifikasi);
