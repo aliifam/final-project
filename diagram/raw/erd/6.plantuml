@@ -1,4 +1,8 @@
 @startchen
+
+left to right direction
+
+
 entity CLEANING_TASK { 
 ' Renamed from Cleaning
   id <<key>>

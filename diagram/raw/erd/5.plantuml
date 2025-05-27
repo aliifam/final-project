@@ -1,4 +1,8 @@
 @startchen
+
+left to right direction
+
+
 entity OTA_PLATFORM { 
 ' Renamed from OTA to distinguish from relationship
   id <<key>>

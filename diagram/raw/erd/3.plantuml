@@ -1,4 +1,8 @@
 @startchen
+
+left to right direction
+
+
 entity TRANSACTION {
   id <<key>> 
   ' order_id (koenji)

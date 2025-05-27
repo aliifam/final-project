@@ -1,4 +1,7 @@
 @startchen
+
+left to right direction
+
 entity HOTEL { 
 ' Also known as Cabang
   id <<key>>

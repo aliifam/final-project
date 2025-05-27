@@ -147,6 +147,26 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
 
 \subsubsection{Entity Relationship Diagram}
 
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/erd/1.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{ERD User, Verikasi Identitas, Admin, dan Token Verifikasi Global}
+    \label{fig:erd_1} % Gunakan label yang berbeda jika perlu
+\end{figure}
+
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/erd/2.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{ERD Kota, Cabang(Hotel), Fasilitas, Jenis Pod, Pod, Fasilitas, Staff (Admin), dan Gambar}
+    \label{fig:erd_1} % Gunakan label yang berbeda jika perlu
+\end{figure}
+
 \subsection{Pengembangan Sistem}
 
 \subsection{Pengujian Sistem}
@@ -155,7 +175,7 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
 \subsubsection{Pengujian Beban \textit{(Load Testing)}}
 \subsubsection{User Acceptance Testing}
 
-\subsection{Ilustrasi Implementasi  \textit{Cut off time}}
-\subsection{Ilustrasi Integrasi WebHook Payment Gateway}
-\subsection{Ilustrasi Integrasi OAuth2 Google}
+\subsection{Ilustrasi Implementasi  \textit{Offline Fault Tolerance} pada rotasi Kunci Pod}
+\subsection{Ilustrasi Integrasi \textit{WebHook Payment Gateway}}
+\subsection{Ilustrasi Integrasi \textit{Passwordless} dengan OAuth2 Google}
 \subsection{Peluncuran Aplikasi \textit{(Deployment)}}

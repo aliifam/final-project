@@ -1,4 +1,8 @@
 @startchen
+
+left to right direction
+
+
 entity VOUCHER {
   id <<key>>
   name
