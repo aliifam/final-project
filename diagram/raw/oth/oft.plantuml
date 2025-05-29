@@ -1,0 +1,51 @@
+@startuml
+title Diagram Sekuens QR Code IoT (Sinkronisasi Berkala & Validasi Offline)
+
+actor "Pengguna" as User
+participant "Frontend Tamu.id" as Frontend
+participant "Backend Tamu.id" as Backend
+participant "Perangkat IoT @ Pod" as IoTPod
+
+== Fase Sinkronisasi Data QR Berkala (IoT ke Backend) ==
+loop Sinkronisasi Setiap X Menit/Jam
+    IoTPod -> Backend: Request Data QR Valid \n(Query Param: device_code iot)
+    Backend -> Backend: Ambil Daftar QR Aktif & Masa Berlakunya untuk Device Code tsb.
+    Backend -> IoTPod: Response: Daftar QR & Timestamp 'until' \n (Contoh JSON: {"qr": [{"until": "...", "value": "..."}, ...]})
+    IoTPod -> IoTPod: Simpan/Update Daftar QR Valid Lokal
+end
+
+== Fase Pengguna Mendapatkan QR Code (Setelah Check-in Online) ==
+User -> Frontend: Proses Check-in Online Selesai
+Frontend -> Backend: Minta QR Code untuk Booking Terkonfirmasi
+Backend -> Backend: Generate QR Code Sesuai Logika Sistem \n(Mungkin termasuk 'next_code' yang akan disinkronkan ke IoT)
+Backend -> Frontend: Kirim QR Code
+Frontend -> User: Tampilkan QR Code
+
+== Fase Akses Pod (Validasi Offline di IoT) ==
+User -> IoTPod: Hadapkan QR Code ke Scanner IoT
+IoTPod -> IoTPod: Pindai & Ekstrak Data QR Code ("value")
+IoTPod -> IoTPod: Validasi Lokal: \n 1. Cocokkan "value" QR dengan daftar lokal. \n 2. Jika cocok, cek timestamp "until". \n 3. (Logika khusus untuk 'next_code' atau 'tamuidsupsecrekey')
+
+alt Akses Diberikan (QR Valid & Belum Kedaluwarsa/Sesuai Logika)
+    IoTPod -> IoTPod: Buka Kunci Pintu Pod
+    IoTPod -> User: Indikasi Pintu Terbuka
+else Akses Ditolak
+    IoTPod -> User: Indikasi Gagal Akses
+end
+
+IoTPod -> IoTPod: Catat Log Akses (Lokal)
+
+opt IoT Device Online (Pada Interval Tertentu atau Saat Terhubung Kembali)
+    IoTPod -> Backend: Kirim Log Akses yang Tersimpan
+end
+
+note right of Backend
+  Logika backend memastikan bahwa QR Code
+  yang diberikan ke pengguna saat check-in
+  (termasuk kemungkinan penggunaan 'next_code'
+  dari booking sebelumnya yang sudah ada di IoT
+  atau akan segera disinkronisasi) akan dikenali
+  oleh IoT pada sinkronisasi berikutnya atau
+  sudah ada dalam daftar lokal IoT.
+endnote
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+!theme plain
+title Diagram Sekuens Integrasi Google OAuth (dengan One-Time Token)
+
+actor "Pengguna" as User
+participant "Browser Pengguna" as Browser
+participant "Frontend Tamu.id" as Frontend
+participant "Backend Tamu.id" as Backend
+participant "Google OAuth Server" as GoogleServer
+
+User -> Browser: Klik "Login/Daftar dengan Google" di Frontend
+Browser -> GoogleServer: Redirect ke Halaman Login Google
+User -> GoogleServer: Input Kredensial Google & Beri Izin Akses
+GoogleServer -> Browser: Redirect kembali ke Callback URL Frontend Tamu.id \n(misal: /auth/google/callback?code=[AuthorizationCode])
+
+Browser -> Frontend: Load halaman /auth/google/callback dengan Authorization Code
+Frontend -> Backend: Kirim Authorization Code
+Backend -> GoogleServer: Validasi Auth Code & Minta Access Token/User Info \n(dengan Client ID & Secret)
+GoogleServer -> Backend: Kirim Access Token & User Info (Nama, Email, dll.)
+
+Backend -> Backend: Proses User Info (Cari/Buat Akun di DB Tamu.id)
+Backend -> Backend: **Generate One-Time Token (OTT) yang aman**
+Backend -> Backend: **Simpan OTT di DB** (terkait User, dengan waktu kedaluwarsa singkat)
+Backend -> Frontend: Respon Sukses dengan instruksi untuk redirect ke URL Frontend \n yang membawa OTT sebagai query parameter \n (misal: `https://tamu.id/login/google/finalize?token=[OTT_Value]`)
+' Atau Backend langsung mengirim HTTP 302 Redirect ke URL tersebut
+
+Frontend -> Browser: (Mengikuti instruksi redirect dari Backend atau Frontend melakukan redirect) \n Redirect ke `https://tamu.id/login/google/finalize?ott=[OTT_Value]`
+
+Browser -> Frontend: Load halaman /login/google/finalize dengan OTT di query param
+Frontend -> Frontend: Ekstrak OTT dari query parameter
+Frontend -> Backend: Kirim OTT untuk validasi & pembuatan sesi (Auto-Login)
+
+Backend -> Backend: Validasi OTT: \n 1. Cek di DB. \n 2. Pastikan belum digunakan & belum kedaluwarsa.
+alt OTT Valid
+    Backend -> Backend: **Tandai OTT sebagai sudah digunakan/Hapus dari DB**
+    Backend -> Backend: Buat Sesi Login Lokal / JWT Token reguler
+    Backend -> Frontend: Kirim Sesi Token / Konfirmasi Login Sukses
+    Frontend -> User: Tampilkan Halaman Dashboard / Status Login
+else OTT Tidak Valid atau Sudah Digunakan/Kedaluwarsa
+    Backend -> Frontend: Kirim Respon Error (misal: Token tidak valid)
+    Frontend -> User: Tampilkan Pesan Error / Redirect ke Halaman Login Biasa
+end
+
+@enduml
