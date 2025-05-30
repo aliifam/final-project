@@ -1,8 +1,8 @@
 @startuml
-
+!theme plain
 top to bottom direction
 
-title Diagram Arsitektur Deploy Aplikasi Tamu.id
+title Diagram Arsitektur Deploy Aplikasi Tamu.id (Layout Ditingkatkan - Revisi Grup)
 
 ' Aktor
 actor "Pengguna Aplikasi" as User
@@ -10,11 +10,6 @@ actor "Admin" as AdminUser
 
 ' Internet sebagai media akses dan koneksi ke layanan eksternal
 cloud "Internet" as Internet
-
-' Layanan Eksternal
-node "Google OAuth Server" as GoogleOAuthServer
-node "Midtrans API Server" as MidtransAPIServer
-node "Perangkat IoT Tamu.id\n(di setiap Pod)" as IoTDevice
 
 ' Infrastruktur Frontend di Cloudflare
 node "Cloudflare" as CloudflarePlatform {
@@ -24,8 +19,7 @@ node "Cloudflare" as CloudflarePlatform {
     }
     note right of CFPages
         Menyajikan Frontend (Static Hosting).
-        Juga berfungsi sebagai CDN untuk aset statis
-        termasuk yang dari Google Cloud Storage.
+        Menyediakan CDN untuk aset frontend.
     end note
 }
 
@@ -34,9 +28,8 @@ cloud "Google Cloud Platform (GCP)" as GCP {
     node "Google Cloud Run" as CloudRunService {
         artifact "Backend API Tamu.id" as BackendAPI
         note as BackendApiNote
-            Menangani logika bisnis utama,
-            termasuk integrasi ke layanan
-            eksternal, database, dan GCS.
+            Logika bisnis, integrasi layanan,
+            database, & manajemen akses GCS.
         end note
         BackendAPI .. BackendApiNote
     }
@@ -44,50 +37,56 @@ cloud "Google Cloud Platform (GCP)" as GCP {
         database "PostgreSQL Database Tamu.id" as PostgresDB
     }
     storage "Google Cloud Storage (GCS)" as GCS {
-        note top of GCS 
-            Penyimpanan file dan aset:
-            - Gambar KYC
-            - Avatar pengguna
-            - Gambar pod & fasilitas
-            - Gambar voucher, dll.
+        note top of GCS
+            Penyimpanan file & aset:
+            KYC, Avatar, Gambar Pod,
+            Fasilitas, Voucher, dll.
         end note
     }
 }
 
-' Alur Akses Pengguna dan Admin ke Frontend via Internet
+' Layanan Eksternal (dikelompokkan untuk kerapian)
+package "Layanan Eksternal via Internet" { 
+    node "Google OAuth Server" as GoogleOAuthServer
+    node "Midtrans API Server" as MidtransAPIServer
+}
+
+node "Perangkat IoT Tamu.id\n(di setiap Pod)" as IoTDevice
+
+
+' === Alur Utama Aplikasi ===
 User -up-> Internet
 AdminUser -up-> Internet
-Internet -down-> CFPages : Akses HTTPS ke Aplikasi Frontend
+Internet -down-> CFPages : Akses HTTPS ke Frontend
 
 CFPages -down-> UserFE
 CFPages -down-> AdminFE
 
-' Interaksi Frontend dengan Backend via Internet
-UserFE -right-> Internet : Permintaan API (JSON)
-AdminFE -right-> Internet : Permintaan API (JSON)
+' Interaksi Frontend dengan Backend
+UserFE -down-> Internet : Permintaan API (JSON)
+AdminFE -down-> Internet : Permintaan API (JSON)
 Internet -down-> BackendAPI : (Endpoint HTTPS Cloud Run)
 
-' Interaksi Backend dengan Database (dalam jaringan aman GCP)
+' Interaksi Backend dengan GCP Services
 BackendAPI -down-> PostgresDB : Koneksi Database
+BackendAPI -- GCS : Upload/Download File, \nGenerate URL Akses
 
-' Interaksi Backend dengan Google Cloud Storage (dalam jaringan GCP)
-BackendAPI -- GCS : Upload/Download File, \nManajemen URL Akses (misal: Signed URLs)
+' Interaksi Frontend untuk mengakses Aset dari GCS
+UserFE .down.> Internet : Permintaan Aset GCS (via URL)
+AdminFE .down.> Internet : Permintaan Aset GCS (via URL)
+Internet .down.> GCS : Ambil Aset dari GCS
 
-' Interaksi Frontend untuk mengakses Aset dari GCS (melalui Cloudflare sebagai CDN)
-UserFE .right.> CloudflarePlatform : Permintaan Aset Gambar/File
-AdminFE .right.> CloudflarePlatform : Permintaan Aset Gambar/File
-CloudflarePlatform .down.> GCS : Ambil Aset dari GCS (jika belum di-cache oleh Cloudflare)
 
-' === Integrasi dengan Layanan Eksternal Lainnya ===
+' === Integrasi dengan Layanan Eksternal ===
 
-' 1. Google OAuth (via Internet)
-UserFE <-up-> GoogleOAuthServer : Alur Autentikasi OAuth2 \n (Redirect via Browser Pengguna)
-BackendAPI <-up-> GoogleOAuthServer : Validasi Kode & Pengambilan Token/Info User
+' 1. Google OAuth
+UserFE <-left- GoogleOAuthServer : Alur Auth OAuth2 (Redirect Browser)
+BackendAPI <-up- GoogleOAuthServer : Validasi Kode & Ambil Token/Info
 
-' 2. Midtrans (via Internet)
-BackendAPI <-up-> MidtransAPIServer : Pembuatan Transaksi QRIS & Notifikasi Pembayaran (Webhook)
+' 2. Midtrans
+BackendAPI <-up- MidtransAPIServer : Buat Transaksi QRIS & Terima Webhook
 
-' 3. Perangkat IoT (bisa via Internet atau jaringan khusus)
-BackendAPI <-down-> IoTDevice : Sinkronisasi Data QR Valid, \nPerintah, & Pengambilan Log Akses
+' 3. Perangkat IoT
+BackendAPI <-down- IoTDevice : Sinkronisasi Data QR, Perintah, Log
 
 @enduml
