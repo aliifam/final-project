@@ -1,6 +1,6 @@
 @startuml
 !theme plain
-title Diagram Sekuens Integrasi QRIS Midtrans (dengan Timer & Status Pending)
+title Diagram Sekuens Integrasi QRIS Midtrans
 
 actor "Pengguna" as User
 participant "Frontend Tamu.id" as Frontend

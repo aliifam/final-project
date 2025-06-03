@@ -2,7 +2,7 @@
 !theme plain
 top to bottom direction
 
-title Diagram Arsitektur Deploy Aplikasi Tamu.id (Layout Ditingkatkan - Revisi Grup)
+title Diagram Arsitektur Deploy Aplikasi Tamu.id
 
 ' Aktor
 actor "Pengguna Aplikasi" as User

@@ -103,6 +103,21 @@ Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi k
 
 \subsection{Ilustrasi Implementasi  \textit{Offline Fault Tolerance} pada rotasi Kunci Pod}
 
+anjay mantap
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/oth/oft.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram Sekuensial Implementasi \textit{Offline Fault Tolerance} pada Rotasi Kunci Pod}
+    \label{fig:oth_oft} % Gunakan label yang berbeda jika perlu
+\end{figure}
+
+\lstinputlisting[language=JSON, caption={Struktur Data dalam Pertukaran kunci \textit{Backend} dan \textit{Hardware IOT}}]{codes/iot.json}
+
+
 Ilustrasi implementasi \textit{offline fault tolerance} pada rotasi kunci pod dilakukan untuk memastikan bahwa sistem tetap dapat berfungsi dengan baik meskipun terjadi gangguan pada koneksi internet atau perangkat IoT. Hal ini penting untuk menjaga pengalaman pengguna yang baik dan memastikan bahwa pengguna dapat mengakses pod yang telah mereka pesan tanpa masalah.
 
 \subsection{Ilustrasi Integrasi \textit{WebHook Payment Gateway}}
@@ -115,5 +130,17 @@ Ilustrasi integrasi \textit{WebHook Payment Gateway} dilakukan untuk memastikan 
 Ilustrasi integrasi \textit{passwordless} dengan OAuth2 Google dilakukan untuk memberikan kemudahan bagi pengguna dalam melakukan pendaftaran dan masuk ke dalam sistem. Dengan menggunakan OAuth2 Google, pengguna dapat masuk ke dalam sistem Tamu.id tanpa perlu mengingat password, sehingga meningkatkan pengalaman pengguna dan keamanan sistem.
 
 \subsection{Peluncuran Aplikasi \textit{(Deployment)}}
+
+\begin{landscape}
+    \begin{figure}[H]
+        \centering
+        \includesvg[
+            width=1.5\textheight, % Karena orientasi landscape, gunakan textheight sebagai acuan
+            keepaspectratio
+        ]{diagram/img/oth/deploy.svg}
+        \caption{Diagram Arsitektur Peluncuran Aplikasi Tamu.id}
+        \label{fig:oth_deploy}
+    \end{figure}
+\end{landscape}
 
 Peluncuran aplikasi Tamu.id dilakukan setelah semua tahap pengembangan, pengujian, dan perbaikan bug selesai. Aplikasi ini diluncurkan ke lingkungan produksi dengan menggunakan layanan cloud seperti Google Cloud Platform (GCP) untuk memastikan ketersediaan, skalabilitas, dan keamanan sistem. Proses peluncuran meliputi konfigurasi server, pengaturan basis data, dan pengaturan keamanan untuk memastikan bahwa aplikasi dapat berjalan dengan baik di lingkungan produksi.
