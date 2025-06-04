@@ -103,7 +103,7 @@ Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi k
 
 \subsection{Ilustrasi Implementasi  \textit{Offline Fault Tolerance} pada rotasi Kunci Pod}
 
-anjay mantap
+Salah satu fitur penting dalam sistem Tamu.id adalah kemampuan untuk menangani situasi di mana koneksi internet tidak tersedia atau terputus, terutama saat pengguna melakukan checkin pada pod. Untuk mengatasi masalah ini, sistem dirancang dengan fitur \textit{offline fault tolerance} yang memungkinkan pengguna tetap dapat mengakses pod meskipun koneksi internet tidak tersedia pada tenggang waktu tertentu di suatu cabang, dengan struktur data dan mekanisme seperti ini juga yang membuat ketika user melakukan checkin danmendapatkan QR Code, QR Code tersebut langsung dapat digunakan untuk membuka pintu pod tanpa delay menunggu fetching data dari pod ke \textit{backend}.
 
 \begin{figure}[H]
     \centering
@@ -124,10 +124,30 @@ Ilustrasi implementasi \textit{offline fault tolerance} pada rotasi kunci pod di
 
 Ilustrasi integrasi \textit{WebHook Payment Gateway} dilakukan untuk memastikan bahwa sistem dapat menerima notifikasi pembayaran secara real-time dari penyedia layanan pembayaran. Hal ini penting untuk memastikan bahwa status pembayaran pengguna dapat diperbarui secara otomatis dan pengguna dapat melanjutkan proses checkin setelah pembayaran berhasil dilakukan.
 
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/oth/midtrans.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram Sekuensial Integrasi \textit{WebHook Payment Gateway}}
+    \label{fig:oth_midtrans} % Gunakan label yang berbeda jika perlu
+\end{figure}
+
 
 \subsection{Ilustrasi Integrasi \textit{Passwordless} dengan OAuth2 Google}
 
 Ilustrasi integrasi \textit{passwordless} dengan OAuth2 Google dilakukan untuk memberikan kemudahan bagi pengguna dalam melakukan pendaftaran dan masuk ke dalam sistem. Dengan menggunakan OAuth2 Google, pengguna dapat masuk ke dalam sistem Tamu.id tanpa perlu mengingat password, sehingga meningkatkan pengalaman pengguna dan keamanan sistem.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/oth/oauth.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram Sekuensial Integrasi \textit{Passwordless} dengan OAuth2 Google}
+    \label{fig:oth_oauth} % Gunakan label yang berbeda jika perlu
+\end{figure}
 
 \subsection{Peluncuran Aplikasi \textit{(Deployment)}}
 
