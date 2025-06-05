@@ -76,6 +76,10 @@ Pada bagian ini analisis kebutuhan Non Fungsional dilakukan untuk menentukan keb
     \item Sistem dapat berjalan pada peramban \textit{(browser)} modern seperti Google Chrome, Mozilla Firefox, Microsoft Edge, dan Safari serta memiliki tampilan yang responsif pada perangkat seluler dan desktop.
 \end{enumerate}
 
+\subsection{Pengembangan Sistem}
+
+Pengambangan sistem Tamu.id dilakukan dengan menggunakan pendekatan \textit{Agile} dengan metode \textit{Kanban}. Pendekatan ini dipilih karena memungkinkan penulis untuk melakukan pengembangan sistem secara iteratif dan inkremental, sehingga dapat dengan cepat menyesuaikan diri dengan perubahan kebutuhan yang mungkin terjadi selama proses pengembangan. Pengembangan sistem dilakukan dalam beberapa tahap, yaitu perencanaan, pengembangan, pengujian, dan peluncuran.
+
 \section{Rancangan Sistem}
 
 Pada tahap ini penulis melakukan proses perancangan sistem berdasarkan kebutuhan fungsional dan non-fungsional yang telah dianalisis sebelumnya. Rancangan sistem ini mencakup arsitektur sistem, desain basis data, \textit{Unified Modeling Language (UML)} diagram yang mencakup beberapa diagram, desain antarmuka pengguna, rancangan alur kerja, dan lain-lain yang diperlukan untuk membangun sistem Tamu.id.
@@ -85,11 +89,15 @@ Pada tahap ini penulis melakukan proses perancangan sistem berdasarkan kebutuhan
 \input{sections/chapters/3/diagram/erd.tex}
 
 
-\subsection{Pengembangan Sistem}
-
 \subsection{Pengujian Sistem}
 
-\input{sections/chapters/3/sections/bb.tex}
+Pengujian sistem dilakukan untuk memastikan bahwa sistem Tamu.id berfungsi sesuai dengan kebutuhan yang telah ditentukan. Pengujian ini mencakup beberapa jenis pengujian, yaitu pengujian fungsional, pengujian keamanan, pengujian performa, dan pengujian penerimaan pengguna.
+
+\subsubsection{Pengujian Black Box}
+
+Pengujian black box dilakukan untuk menguji fungsionalitas sistem tanpa memperhatikan struktur internalnya. Pengujian ini dilakukan dengan menggunakan skenario pengujian yang telah disusun berdasarkan kebutuhan fungsional yang telah dianalisis sebelumnya. Pengujian ini mencakup pengujian pada setiap fitur yang ada dalam sistem, seperti pendaftaran pengguna, pemesanan tiket, checkin, checkout, dan lain-lain.
+
+\input{sections/chapters/3/tables/bb.tex}
 
 \subsubsection{Pengujian Beban \textit{(Load Testing)}}
 
@@ -99,7 +107,7 @@ Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tin
 
 Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi kebutuhan dan harapan pengguna. Pengujian ini melibatkan pengguna akhir yang akan menggunakan sistem Tamu.id untuk melakukan berbagai aktivitas seperti pemesanan tiket, checkin, checkout, dan lain-lain. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna. Penilaian dilakukan berdasarkan  lima parameter yaitu Sangat Tidak Setuju(STS), Tidak Setuju (TS), Netral (N), Setuju (S), dan Sangat Setuju (SS).
 
-% tabel uat 
+\input{sections/chapters/3/tables/uat.tex}
 
 \subsection{Ilustrasi Implementasi  \textit{Offline Fault Tolerance} pada rotasi Kunci Pod}
 
