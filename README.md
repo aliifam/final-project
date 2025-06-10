@@ -9,4 +9,3 @@ Prodi: D4 Teknologi Rekayasa Perangkat Lunak
 Template by [Dr. Fahmizal, S.T., M.Sc. dan Tim](https://github.com/fahmizal/LaTex_Laporan_PA_DTEDI_SV_UGM/), modified by me.
 
 Survey using google form for UAT Testing
-
