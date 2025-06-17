@@ -1,6 +1,6 @@
 \subsection{Use Case Diagram}
 
-Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi antara pengguna sistem dan sistem itu sendiri. Use Case Diagram ini mencakup aktor-aktor yang terlibat, seperti SuperAdmin, Admin Cabang, dan Pengunjung, serta use case yang menggambarkan fungsi-fungsi yang dapat dilakukan oleh masing-masing aktor. \textit{Use Case Diagram} ini akan membantu dalam memahami kebutuhan sistem dan bagaimana pengguna akan berinteraksi dengan sistem sesuai pada gambar \ref{fig:ucd_global} hingga \ref{fig:ucd_user}.
+Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi antara pengguna sistem dan sistem itu sendiri. Use Case Diagram ini mencakup aktor-aktor yang terlibat, seperti SuperAdmin, Admin Cabang, dan Pengunjung, serta use case yang menggambarkan fungsi-fungsi yang dapat dilakukan oleh masing-masing aktor. \textit{Use Case Diagram} ini akan membantu dalam memahami kebutuhan sistem dan bagaimana pengguna akan berinteraksi dengan sistem sesuai pada gambar \ref{fig:ucd_integrasi} hingga \ref{fig:ucd_user}.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -14,6 +14,8 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
     \label{fig:ucd_integrasi} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ucd_integrasi} di atas merupakan gambaran kasar namun keseluruhan dari sistem yang akan dibangun. Terdapat beberapa aktor yang berinteraksi dengan sistem, yaitu SuperAdmin, Admin Cabang, dan User. SuperAdmin bertanggung jawab untuk mengelola seluruh sistem, termasuk pengelolaan Admin Cabang, sedangkan Admin Cabang memiliki tanggung jawab terbatas pada cabang mereka masing-masing. Pengguna atau User dapat melakukan reservasi kamar, memberikan ulasan, dan berpartisipasi dalam program loyalitas.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -25,6 +27,8 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
     \caption{Use Case Diagram SuperAdmin (Admin Pusat)}
     \label{fig:ucd_sa} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ucd_sa}, ditampilkan use case diagram untuk SuperAdmin (Admin Pusat). SuperAdmin memiliki akses penuh untuk mengelola seluruh sistem, termasuk pengelolaan Admin Cabang, pengaturan data - dat master, dasbor global, serta verisikasi dan sistem persetujuan.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -38,6 +42,8 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
     \label{fig:ucd_admin1} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ucd_admin1}, ditampilkan use case diagram untuk Admin Cabang. Admin Cabang memiliki tanggung jawab untuk mengelola data cabang mereka, termasuk pengelolaan kamar, fasilitas, dan layanan yang tersedia di cabang tersebut. Admin Cabang juga dapat mengelola reservasi yang dilakukan oleh pengguna di cabang mereka.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -45,10 +51,12 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
         % height=\textheight, % HINDARI ini, biarkan aspek rasio yang mengatur tinggi
         keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
         % Untuk \includesvg, seringkali cukup width saja.
-    ]{diagram/img/ud/admin1.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    ]{diagram/img/ud/admin2.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
     \caption{Use Case Diagram Admin (Admin Cabang) 2}
     \label{fig:ucd_admin2} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ucd_admin2}, ditampilkan use case diagram tambahan untuk Admin Cabang. Diagram ini mencakup fungsi-fungsi tambahan yang mungkin tidak tercakup dalam diagram sebelumnya, seperti manajemen operasional harian, input data via \textit{Online Travel Agent (OTA)}, dan sistem manajemen \textit{Review} dan \textit{Rating}.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -59,3 +67,5 @@ Pada tahap ini \textit{Use Case Diagram} dibuat untuk menggambarkan interaksi an
     \caption{Use Case Diagram User (Pengunjung)}
     \label{fig:ucd_user} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ucd_user}, ditampilkan use case diagram untuk User (Pengunjung). Pengguna dapat melakukan reservasi kamar, memberikan ulasan, dan berpartisipasi dalam program loyalitas. Diagram ini mencakup fungsi-fungsi yang dapat diakses oleh pengguna, seperti pencarian kamar, pemesanan, dan manajemen akun pengguna.
