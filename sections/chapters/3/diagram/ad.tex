@@ -1,6 +1,10 @@
 \subsection{Activity Diagram}
 
+Pada tahap ini, \textit{Activity Diagram} dibuat untuk menggambarkan alur kerja dari berbagai aktivitas yang dilakukan oleh pengguna dalam sistem, Berikut adalah beberapa diagram aktivitas yang telah dibuat beserta gambar dan penjelsaannya untuk tiap proses yang ada dalam sistem.
+
 \subsubsection{Diagram Aktivitas Pengguna}
+
+Pada gambar \ref{fig:ad_user_registration} hingga \ref{fig:ad_user_payout}, ditampilkan diagram aktivitas yang menggambarkan berbagai proses yang dilakukan oleh pengguna dalam sistem. Diagram ini mencakup proses registrasi, verifikasi email, reservasi kamar, check-in, stay, checkout, verifikasi identitas (KYC), dan payout referral. Setiap diagram memberikan gambaran yang jelas tentang langkah-langkah yang harus diikuti oleh pengguna dalam setiap proses.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -22,6 +26,8 @@
     \label{fig:ad_user_email_verif} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_user_registration} dan \ref{fig:ad_user_email_verif}, ditampilkan proses registrasi pengguna dan verifikasi email. Proses ini dimulai dengan pengguna mengisi formulir registrasi, kemudian sistem mengirimkan email verifikasi. Pengguna harus mengklik tautan verifikasi dalam email untuk menyelesaikan proses registrasi.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -31,6 +37,8 @@
     \caption{Diagram Aktivitas Pengguna: Registrasi dan Login dengan Google OAuth2}
     \label{fig:ad_user_registration_google} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_user_registration_google}, ditampilkan proses registrasi dan login menggunakan Google OAuth2. Pengguna dapat memilih untuk mendaftar atau masuk ke sistem menggunakan akun Google mereka, yang memudahkan proses autentikasi.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -42,6 +50,8 @@
     \label{fig:ad_user_reservation} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_user_reservation}, ditampilkan proses reservasi kamar oleh pengguna. Pengguna dapat memilih kamar atau pod yang tersedia, menentukan tanggal check-in dan check-out, serta melakukan pembayaran untuk reservasi tersebut.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -51,6 +61,8 @@
     \caption{Diagram Aktivitas Pengguna: Checkin dan Stay}
     \label{fig:ad_user_stay} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_user_stay}, ditampilkan proses check-in dan stay. Setelah reservasi berhasil, pengguna dapat melakukan check-in ke kamar atau pod yang telah dipesan untuk mendapatkan kunci akses yang berupa kode QR untuk discan pada pintu masuk kamar atau pod agar dapat masuk ke dalamnya.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -62,6 +74,8 @@
     \label{fig:ad_user_checkout} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_user_checkout}, ditampilkan proses checkout dan review. Setelah masa tinggal selesai, pengguna dapat melakukan checkout dari kamar atau pod yang telah dipesan. Pengguna juga dapat memberikan ulasan tentang pengalaman mereka selama menginap.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -71,6 +85,8 @@
     \caption{Diagram Aktivitas Pengguna: Verifikasi Identitas (KYC)}
     \label{fig:ad_user_kyc} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_user_kyc}, ditampilkan proses verifikasi identitas (KYC) yang dilakukan oleh pengguna. Proses ini penting untuk memastikan keamanan dan keaslian identitas pengguna dalam sistem. Pengguna diminta untuk mengunggah dokumen identitas yang diperlukan, yang kemudian akan diverifikasi oleh SuperAdmin.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -82,6 +98,8 @@
     \label{fig:ad_user_payout} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_user_payout}, ditampilkan proses payout referral. Pengguna yang berhasil mereferensikan teman atau orang lain untuk menggunakan layanan dapat menerima payout sebagai imbalan. Proses ini melibatkan verifikasi referral dan pemrosesan pembayaran oleh SuperAdmin.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -92,8 +110,11 @@
     \label{fig:ad_user_otasync} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_user_otasync}, ditampilkan proses sinkronisasi data reservasi dengan \textit{Online Travel Agent (OTA)}. Proses ini memungkinkan pengguna untuk mengklaim reservasi yang dibuat melalui OTA, sehingga data reservasi dapat terintegrasi dengan sistem utama.
+
 \subsubsection{Diagram Aktivitas Admin Cabang}
 
+Pada gambar \ref{fig:ad_admin_login} hingga \ref{fig:ad_admin_cleaning}, ditampilkan diagram aktivitas yang menggambarkan berbagai proses yang dilakukan oleh Admin Cabang dalam sistem. Diagram ini mencakup proses login, pengelolaan cabang (hotel), jenis pod, pod, moderasi review, pengelolaan voucher cabang, pengelolaan pindah pod, dan pengelolaan pembersihan pod.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -105,6 +126,8 @@
     \label{fig:ad_admin_login} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_admin_login}, ditampilkan proses login Admin Cabang menggunakan email dan Google OAuth2. Admin Cabang dapat masuk ke sistem untuk mengakses fitur-fitur yang tersedia bagi mereka.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -114,6 +137,8 @@
     \caption{Diagram Aktivitas Admin: Kelola Cabang (Hotel)}
     \label{fig:ad_admin_hotel} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_admin_hotel}, ditampilkan proses pengelolaan cabang (hotel) oleh Admin Cabang. Admin Cabang dapat menambahkan, mengedit, atau menghapus informasi tentang cabang mereka, termasuk fasilitas yang tersedia.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -125,6 +150,8 @@
     \label{fig:ad_admin_podtype} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_admin_podtype}, ditampilkan proses pengelolaan jenis pod oleh Admin Cabang. Admin Cabang dapat menambahkan, mengedit, atau menghapus jenis pod yang tersedia di cabang mereka, termasuk informasi tentang fasilitas dan harga.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -134,6 +161,8 @@
     \caption{Diagram Aktivitas Admin: Kelola Pod}
     \label{fig:ad_admin_pod} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Setelah menambahkan jenis pod, Admin Cabang dapat mengelola pod yang tersedia di cabang mereka. Pada gambar \ref{fig:ad_admin_pod}, ditampilkan proses pengelolaan pod, termasuk penambahan, pengeditan, dan penghapusan pod yang tersedia untuk reservasi.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -145,6 +174,8 @@
     \label{fig:ad_admin_review} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_admin_review}, ditampilkan proses moderasi review oleh Admin Cabang. Admin Cabang dapat meninjau, menyetujui, atau menolak ulasan yang diberikan oleh pengguna tentang pod atau cabang mereka.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -154,6 +185,8 @@
     \caption{Diagram Aktivitas Admin: Kelola Voucher Cabang}
     \label{fig:ad_admin_voucher} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_admin_voucher}, ditampilkan proses pengelolaan voucher cabang oleh Admin Cabang. Admin Cabang dapat membuat, mengedit, atau menghapus voucher yang dapat digunakan oleh pengguna untuk mendapatkan diskon atau penawaran khusus di cabang mereka.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -165,6 +198,8 @@
     \label{fig:ad_admin_booking} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_admin_booking}, ditampilkan proses pengelolaan pindah pod oleh Admin Cabang. Admin Cabang dapat mengelola permintaan pindah pod dari pengguna, termasuk memproses permintaan dan memastikan ketersediaan pod yang diminta.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -175,8 +210,11 @@
     \label{fig:ad_admin_cleaning} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_admin_cleaning}, ditampilkan proses pengelolaan pembersihan pod oleh Admin Cabang. Admin Cabang dapat melakukan pembersihan pod setelah pengguna check-out, memastikan bahwa pod siap digunakan oleh pengguna berikutnya.
 
 \subsubsection{Diagram Aktivitas SuperAdmin}
+
+Pada gambar \ref{fig:ad_superadmin_login} hingga \ref{fig:ad_superadmin_payout}, ditampilkan diagram aktivitas yang menggambarkan berbagai proses yang dilakukan oleh SuperAdmin dalam sistem. Diagram ini mencakup proses login, pengelolaan data master, cabang (hotel), staff, verifikasi identitas (KYC), voucher, dan payout request.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -188,6 +226,8 @@
     \label{fig:ad_superadmin_login} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_superadmin_login}, ditampilkan proses login SuperAdmin menggunakan email dan Google OAuth2. SuperAdmin dapat masuk ke sistem untuk mengakses fitur-fitur yang tersedia bagi mereka.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -197,6 +237,8 @@
     \caption{Diagram Aktivitas SuperAdmin: Kelola Data Master}
     \label{fig:ad_superadmin_master} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_superadmin_master}, ditampilkan proses pengelolaan data master oleh SuperAdmin. SuperAdmin dapat mengelola data master yang mencakup informasi dasar sistem seperti fasilitas, Kota, Cabang, dan Karyawan.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -208,6 +250,8 @@
     \label{fig:ad_superadmin_branch} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_superadmin_branch}, ditampilkan proses pengelolaan data cabang (hotel) oleh SuperAdmin. SuperAdmin dapat menambahkan, mengedit, atau menghapus informasi tentang cabang yang ada dalam sistem.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -217,6 +261,8 @@
     \caption{Diagram Aktivitas SuperAdmin: Kelola Data Staff}
     \label{fig:ad_superadmin_staff} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_superadmin_staff}, ditampilkan proses pengelolaan data staff oleh SuperAdmin. SuperAdmin dapat menambahkan, mengedit, atau menghapus informasi tentang staff yang bekerja di cabang-cabang yang ada dalam sistem.
 
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
@@ -229,6 +275,8 @@
     \label{fig:ad_superadmin_kyc} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_superadmin_kyc}, ditampilkan proses pengelolaan data verifikasi identitas (KYC) oleh SuperAdmin. SuperAdmin dapat mengelola proses verifikasi identitas pengguna, termasuk persetujuan atau penolakan dokumen yang diunggah oleh pengguna.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -239,6 +287,8 @@
     \label{fig:ad_superadmin_voucher} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:ad_superadmin_voucher}, ditampilkan proses pengelolaan data voucher oleh SuperAdmin. SuperAdmin dapat membuat, mengedit, atau menghapus voucher yang dapat digunakan oleh pengguna untuk mendapatkan diskon atau penawaran khusus baik itu secara global maupun cabang tertentu.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -248,3 +298,5 @@
     \caption{Diagram Aktivitas SuperAdmin: Kelola Payout Request}
     \label{fig:ad_superadmin_payout} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:ad_superadmin_payout}, ditampilkan proses pengelolaan payout request oleh SuperAdmin. SuperAdmin dapat memproses permintaan payout dari pengguna yang telah mengajukan payout referral. Proses ini melibatkan verifikasi dan persetujuan payout sebelum dana dikirim ke pengguna.
