@@ -69,8 +69,6 @@ Analisis kebutuhan fungsional dilakukan untuk menentukan fungsi-fungsi yang haru
 
 Pada bagian ini analisis kebutuhan Non Fungsional dilakukan untuk menentukan kebutuhan sistem yang berkaitan dengan kualitas sistem seperti keamanan, performa, dan lain-lain. Kebutuhan non-fungsional yang diperlukan dalam pengembangan aplikasi Tamu.id adalah sebagai berikut:
 \begin{enumerate}
-    \item Sistem dapat menangani 10 pengguna secara bersamaan dengan waktu respons kurang dari 2 detik pada halaman detail kunci pod sisi pengguna.
-    \item Sistem dapat menangani 30 request secara bersamaan dengan waktu respons kurang dari 2 detik untuk endpoint API Hardware IoT pintu Pod.
     \item Walaupun pod dalam keadaan offline sementara ataupun dalam interval belum mengambil data kunci valid terbaru, pengguna yang baru checkin harus dapat langsung mengakses pod dengan QR Code yang telah dihasilkan sebelumnya.
     \item Sistem dapat mengamankan pesanan pengguna yang masih dalam proses pembayaran sehingga tidak terjadinya \textit{double booking} pada pod yang sama serta dapat otomatis menghapus pesanan yang tidak dibayar dalam waktu satu jam untuk menghindari pemborosan kapasitas pod serta sistem harus dapat otomatis mencheckout pengguna yang tidak melakuakn checkout sesuai waktu yang telah ditentukan.
     \item Sistem dapat berjalan pada peramban \textit{(browser)} modern seperti Google Chrome, Mozilla Firefox, Microsoft Edge, dan Safari serta memiliki tampilan yang responsif pada perangkat seluler dan desktop.
@@ -99,9 +97,9 @@ Pengujian black box dilakukan untuk menguji fungsionalitas sistem tanpa memperha
 
 \input{sections/chapters/3/tables/bb.tex}
 
-\subsubsection{Pengujian Beban \textit{(Load Testing)}}
+% \subsubsection{Pengujian Beban \textit{(Load Testing)}}
 
-Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6 untuk mensimulasikan sejumlah besar pengguna yang mengakses sistem secara bersamaan. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem dapat menangani jumlah pengguna yang diharapkan tanpa mengalami penurunan performa yang signifikan. Pengujian ini juga bertujuan untuk mengidentifikasi potensi bottleneck dalam sistem yang dapat mempengaruhi kinerja aplikasi.
+% Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6 untuk mensimulasikan sejumlah besar pengguna yang mengakses sistem secara bersamaan. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem dapat menangani jumlah pengguna yang diharapkan tanpa mengalami penurunan performa yang signifikan. Pengujian ini juga bertujuan untuk mengidentifikasi potensi bottleneck dalam sistem yang dapat mempengaruhi kinerja aplikasi. sistem akan di
 
 \subsubsection{User Acceptance Testing}
 
@@ -123,7 +121,7 @@ Salah satu fitur penting dalam sistem Tamu.id adalah kemampuan untuk menangani s
     \label{fig:oth_oft} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
-\lstinputlisting[language=JSON, caption={Struktur Data dalam Pertukaran kunci \textit{Backend} dan \textit{Hardware IOT}}]{codes/iot.json}
+% \lstinputlisting[language=JSON, caption={Struktur Data dalam Pertukaran kunci \textit{Backend} dan \textit{Hardware IOT}}]{codes/iot.json}
 
 
 Ilustrasi implementasi \textit{offline fault tolerance} pada rotasi kunci pod dilakukan untuk memastikan bahwa sistem tetap dapat berfungsi dengan baik meskipun terjadi gangguan pada koneksi internet atau perangkat IoT. Hal ini penting untuk menjaga pengalaman pengguna yang baik dan memastikan bahwa pengguna dapat mengakses pod yang telah mereka pesan tanpa masalah.

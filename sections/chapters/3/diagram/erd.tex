@@ -1,5 +1,7 @@
 \subsection{Entity Relationship Diagram}
 
+Pada tahap ini, \textit{Entity Relationship Diagram} (ERD) dibuat untuk menggambarkan struktur basis data yang akan digunakan dalam sistem. ERD ini mencakup entitas-entitas utama, atribut-atributnya, serta hubungan antar entitas. ERD ini akan membantu dalam merancang basis data yang efisien dan sesuai dengan kebutuhan sistem.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -9,6 +11,8 @@
     \caption{ERD User, Verikasi Identitas, Admin, dan Token Verifikasi Global}
     \label{fig:erd_1} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:erd_1}, ditampilkan ERD yang mencakup entitas-entitas utama seperti User, Verifikasi Identitas, Admin, dan Token Verifikasi Global. Entitas User menyimpan informasi pengguna, sedangkan Verifikasi Identitas menyimpan data terkait verifikasi identitas pengguna. Entitas Admin menyimpan informasi tentang admin yang mengelola sistem, dan Token Verifikasi Global digunakan untuk mengelola proses verifikasi dan otentikasi pengguna dengan strategi \textit{One Time Token}.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -20,6 +24,8 @@
     \label{fig:erd_2} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:erd_2}, ditampilkan ERD yang mencakup entitas Kota, Cabang (Hotel), Fasilitas, Jenis Pod, Pod, Fasilitas, Staff (Admin), dan Gambar. Entitas Kota menyimpan informasi tentang lokasi cabang, sedangkan Cabang menyimpan data terkait hotel yang dikelola. Fasilitas dan Jenis Pod menyimpan informasi tentang fasilitas yang tersedia di setiap cabang dan jenis pod yang ditawarkan. Entitas Pod menyimpan data terkait pod yang tersedia, dan Staff (Admin) menyimpan informasi tentang admin yang mengelola cabang tersebut. Gambar digunakan untuk menyimpan representasi visual dari entitas lainnya.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -29,6 +35,8 @@
     \caption{ERD Transaksi, Item Transaksi, Booking, dan QR Code}
     \label{fig:erd_3} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:erd_3}, ditampilkan ERD yang mencakup entitas Transaksi, Item Transaksi, Booking, dan QR Code. Entitas Transaksi menyimpan informasi tentang transaksi yang dilakukan oleh pengguna, sedangkan Item Transaksi menyimpan data terkait item yang dibeli dalam transaksi tersebut. Entitas Booking menyimpan informasi tentang reservasi yang dilakukan oleh pengguna, dan QR Code digunakan untuk mengelola kode unik yang terkait dengan setiap transaksi atau reservasi.
 
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
@@ -40,6 +48,8 @@
     \label{fig:erd_4} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:erd_4}, ditampilkan ERD yang mencakup entitas Voucher, Referral, dan Payout Request. Entitas Voucher menyimpan informasi tentang voucher yang digunakan oleh pengguna, sedangkan Referral menyimpan data terkait program referral yang memungkinkan pengguna untuk mengajak orang lain bergabung. Entitas Payout Request digunakan untuk mengelola permintaan pembayaran yang diajukan oleh pengguna yang berpartisipasi dalam program referral.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -50,6 +60,8 @@
     \label{fig:erd_5} % Gunakan label yang berbeda jika perlu
 \end{figure}
 
+Pada gambar \ref{fig:erd_5}, ditampilkan ERD yang mencakup entitas OTA Platform, OTA Transaction, dan Review. Entitas OTA Platform menyimpan informasi tentang platform \textit{Online Travel Agent} yang digunakan untuk integrasi, sedangkan OTA Transaction menyimpan data terkait transaksi yang dilakukan melalui platform tersebut. Entitas Review digunakan untuk mengelola ulasan dan penilaian yang diberikan oleh pengguna terhadap layanan yang mereka terima.
+
 \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
     \centering
     \includesvg[
@@ -59,3 +71,5 @@
     \caption{ERD Dyanmic Pricing, Pod Cleaning, dan Switch Pod }
     \label{fig:erd_6} % Gunakan label yang berbeda jika perlu
 \end{figure}
+
+Pada gambar \ref{fig:erd_6}, ditampilkan ERD yang mencakup entitas Dynamic Pricing, Pod Cleaning, dan Switch Pod. Entitas Dynamic Pricing menyimpan informasi tentang penetapan harga dinamis berdasarkan permintaan dan ketersediaan, sedangkan Pod Cleaning menyimpan data terkait proses pembersihan pod. Entitas Switch Pod digunakan untuk mengelola proses pindah pod yang dilakukan oleh admin cabang.
