@@ -17,6 +17,6 @@ tekankan pada sistem rekomendasi berbasis, filter based dan alerting ketika pb n
 
 # 17 juni 2025
 
-- tambahkan sistem reservasi di bab 1 dan 2
-- tujuan dan manfaat dipisah, tujuan menjawab rumusan masalah, manfaat di dteialkan tidak apa apa,
-- bab 2 tambahkan penelitian sistem reservasi hotel jangan cuma qrcode nya aja, minimal 2 lalu kurangi 2 juga, dan ditabel rangkuman tambahin tech stack tipa penelitian
+- tambahkan sistem reservasi di bab 1 dan 2 (done)
+- tujuan dan manfaat dipisah, tujuan menjawab rumusan masalah, manfaat di dteialkan tidak apa apa,  (done)
+- bab 2 tambahkan penelitian sistem reservasi hotel jangan cuma qrcode nya aja, minimal 2 lalu kurangi 2 juga, dan ditabel rangkuman tambahin tech stack tipa penelitian (done)

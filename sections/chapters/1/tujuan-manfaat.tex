@@ -1,19 +1,34 @@
 \section{Tujuan dan Manfaat Proyek Akhir}
 
-Tujuan dari proyek akhir ini sesuai dengan uruaian dan pada latar belakang, rumusan, serta penyelesaian maasalah adalah:
-
+\subsection{Tujuan Proyek Akhir}
+Berdasarkan rumusan masalah yang telah ditetapkan, tujuan dari proyek akhir ini adalah sebagai berikut:
 \begin{enumerate}
-    \item Meningkatkan reservasi hotel kapsul Tamu.id via web app yang lebih user friendly, responsive, dan kaya fitur yang sesuai dengan kebutuhan sehingga memudahkan pengguna dalam melakukan reservasi dan saat menginap dihotel kapsul Tamu.id dan meningkatkan revenue hotel kapsul Tamu.id karena lebih banyak pengguna yang melakukan reservasi melalui platform sendiri serta mengurangi ketergantungan pada platform pihak ketiga dengan mengimplementasikan fitur voucher multi jenis dengan flexibility rule.
-    
-    \item Meningkatkan promosi dan pemasaran hotel kapsul Tamu.id berbasis komunitas dan mulut kemulut dengan mengimplementasikan fitur referral dan affiliate marketing yang memungkinkan pengguna untuk mendapatkan komisi dari setiap transaksi yang dilakukan oleh orang yang mereka referensikan dan untuk yang direferensikan juga mendapatkan diskon dari transaksi yang dilakukan.
-    
-    \item Meningkatkan kualitas layanan hotel kapsul Tamu.id dengan adanya rating dan review dari pengguna yang sudah menginap di hotel kapsul Tamu.id.
-    
-    \item Mengimplementasikan passwordless authentication menggunakan OAuth Google pada aplikasi e-ticketing dengan mengimplementasikan protokol OAuth 2.0 dan JSON Web Token (JWT) sebagai mekanisme autentikasi dan otorisasi sehingga memungkinkan pengguna untuk login tanpa menggunakan kata sandi.
-    
-    \item Mengintegrasikan webhook untuk  pembayaran pada aplikasi tamu.id dengan 3rd party payment gateway Midtrans sehingga memungkinkan pembeli tiket untuk melakukan pembayaran dengan QRIS.
-    
-    \item Meningkatkan pengalaman pengguna khususnya pada saat checkin sekaligus meningkatkan efisiensi dan efektifitas integrasi server backend dan IoT pada kunci kamar yang berbasis QRCode dengan mengimplementasikan konsep LinkedList yang dikombinasikan dengan Unix Timestap sebagai keamanannya. 
-    
-    \item Meningkatkan efektifitas dan efisiensi dalam pengelolaan operasional hotel kapsul Tamu.id dari terutama mengintegrasikan sumber data terpusat untuk reservasi dari platform Tamu.id, reservasi dari pihak ketiga, pengelolaan pindah kamar, pengelolaan pembersihan kamar, dan pengelolaan harga dinamis berdasarkan waktu.
+    \item Merancang dan membangun sebuah sistem manajemen hotel kapsul berbasis web yang terintegrasi, mulai dari pengelolaan operasional terpusat (ketersediaan kamar, kebersihan, dan harga dinamis) hingga pengalaman pengguna yang \textit{seamless} melalui autentikasi \textit{passwordless} (OAuth2) dan sistem kunci digital berbasis QR Code yang andal bahkan saat \textit{offline} (dengan implementasi \textit{LinkedList}).
+    \item Mengintegrasikan sistem pembayaran digital yang aman dan mudah melalui \textit{payment gateway} Midtrans, dengan memanfaatkan \textit{webhook} untuk notifikasi transaksi \textit{real-time} dan menyediakan QRIS sebagai metode pembayaran utama yang universal bagi pengguna.
+    \item Mengembangkan fitur-fitur yang dirancang untuk meningkatkan penerimaan dan kepuasan pengguna, yang mencakup antarmuka yang ramah pengguna (\textit{user-friendly}), sistem ulasan dan peringkat (\textit{rating and review}), serta program loyalitas seperti \textit{voucher} dan \textit{affiliate marketing} yang memberikan keuntungan finansial bagi tamu.
 \end{enumerate}
+
+% Manfaat sekarang menjadi subsection
+\subsection{Manfaat Proyek Akhir}
+Penyelesaian proyek akhir ini diharapkan dapat memberikan manfaat yang signifikan bagi berbagai pihak terkait, yang dapat dirincikan sebagai berikut:
+
+% Sub-manfaat sekarang menjadi subsubsection
+\subsubsection{Manfaat bagi Pengelola Hotel (Tamu.id)}
+\begin{itemize}
+    \item \textbf{Peningkatan Efisiensi Operasional:} Sistem terpusat memungkinkan pengelolaan data reservasi dari berbagai sumber (termasuk OTA), status kebersihan kamar, proses pindah kamar, dan penerapan harga dinamis secara otomatis. Hal ini mengurangi pekerjaan manual, meminimalkan \textit{human error}, dan mempercepat alur kerja harian.
+    \item \textbf{Peningkatan Pendapatan dan Profitabilitas:} Dengan platform reservasi mandiri yang kaya fitur (seperti \textit{voucher} dan promosi), ketergantungan pada Online Travel Agency (OTA) yang membebankan komisi tinggi dapat dikurangi. Fitur \textit{affiliate marketing} dengan kode \textit{referral} juga membuka kanal pemasaran baru yang berpotensi meningkatkan okupansi.
+    \item \textbf{Pengambilan Keputusan Berbasis Data:} Adanya fitur \textit{rating} dan ulasan dari tamu memberikan masukan langsung yang berharga untuk perbaikan kualitas layanan. Data operasional yang terkumpul juga dapat dianalisis untuk membuat keputusan bisnis yang lebih strategis.
+\end{itemize}
+
+\subsubsection{Manfaat bagi Tamu (Pengguna Akhir)}
+\begin{itemize}
+    \item \textbf{Pengalaman Pengguna yang Lebih Baik:} Proses dari pemesanan hingga \textit{check-in} menjadi lebih mudah dan cepat. Pengguna dapat melakukan reservasi melalui antarmuka yang responsif, \textit{login} tanpa kata sandi menggunakan akun Google, melakukan pembayaran dengan QRIS, dan masuk ke kamar hanya dengan memindai QR Code dari ponsel mereka.
+    \item \textbf{Keamanan dan Kepercayaan:} Integrasi dengan \textit{payment gateway} terpercaya dan mekanisme autentikasi modern (OAuth2, JWT) memberikan jaminan keamanan data dan transaksi. Sistem ulasan yang transparan juga membantu calon tamu dalam membuat keputusan yang lebih baik.
+    \item \textbf{Keuntungan Tambahan:} Tamu dapat memperoleh keuntungan finansial melalui diskon yang didapat dari kode \textit{referral} atau bahkan mendapatkan komisi dengan berpartisipasi dalam program afiliasi, memberikan nilai lebih dari sekadar menginap.
+\end{itemize}
+
+\subsubsection{Manfaat dari Sisi Pengembangan Teknologi}
+\begin{itemize}
+    \item \textbf{Implementasi Arsitektur Modern:} Proyek ini menjadi studi kasus penerapan arsitektur sistem berbasis web modern yang menggabungkan \textit{backend} (Node.js/Express.js), \textit{payment gateway} (Midtrans), protokol otentikasi (OAuth2, JWT), dan integrasi dengan perangkat IoT (\textit{smart lock}) secara efisien dan aman.
+    \item \textbf{Solusi Inovatif untuk Masalah Offline:} Penggunaan struktur data \textit{LinkedList} untuk sinkronisasi kredensial QR Code ke perangkat IoT merupakan sebuah solusi konkret dan inovatif untuk mengatasi potensi masalah konektivitas internet pada sistem kontrol akses.
+\end{itemize}
