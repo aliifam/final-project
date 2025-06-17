@@ -13,3 +13,10 @@ program penting tapi laporan juga penting, jangan sampai telat.
 lingkurangan itu bener 2 mempengaruhi, cari teman yang saling memotivasi
 
 tekankan pada sistem rekomendasi berbasis, filter based dan alerting ketika pb nya kurang
+
+
+# 17 juni 2025
+
+- tambahkan sistem reservasi di bab 1 dan 2
+- tujuan dan manfaat dipisah, tujuan menjawab rumusan masalah, manfaat di dteialkan tidak apa apa,
+- bab 2 tambahkan penelitian sistem reservasi hotel jangan cuma qrcode nya aja, minimal 2 lalu kurangi 2 juga, dan ditabel rangkuman tambahin tech stack tipa penelitian
