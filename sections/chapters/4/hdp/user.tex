@@ -2,16 +2,33 @@
 
 Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
 
-\subsubsection{Halaman Daftar User}
+\subsubsection{Registrasi dan Login User}
 
 Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua metode yaitu dengan mengunakan email atau menggunakan akun google langsung yang jaduh lebih instan dan mudah. Tampilan halaman pendaftaran user dapat dilihat pada Gambar \ref{fig:halaman-daftar-user}.
 
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+\begin{figure}[H]
     \centering
-    \includesvg[
-        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{diagram/img/ad/superadmin/payout.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
-    \caption{Diagram Aktivitas SuperAdmin: Kelola Payout Request}
+    \includegraphics[width=\textwidth]{images/halaman-user/signup.png}
+    \caption{Tampilan Halaman Pendaftaran User}
     \label{fig:halaman-daftar-user}
 \end{figure}
+
+Setelah pengguna melakukan pendaftaran, pengguna dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login user dapat dilihat pada Gambar \ref{fig:halaman-login-user}.
+
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+    \centering
+    \includegraphics[
+        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{images/halaman-user/login.png} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Tampilan Halaman Login User}
+    \label{fig:halaman-login-user}
+\end{figure}
+
+Pada kode \ref{lst:simple-react-button} berikut adalah contoh komponen tombol sederhana yang dibuat dengan React TSX. Komponen ini dapat digunakan untuk berbagai keperluan dalam aplikasi web, seperti tombol untuk mengirim formulir atau tombol navigasi.
+
+\lstinputlisting[
+    language=TSX,
+    caption={Komponen tombol sederhana dalam React TSX},
+    label={lst:simple-react-button}
+]{codes/cd.tsx}
