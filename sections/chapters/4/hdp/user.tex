@@ -2,7 +2,7 @@
 
 Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
 
-\subsubsection{Registrasi dan Login User}
+\subsubsection{Registrasi, Login dan kelola Data User}
 
 Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua metode yaitu dengan mengunakan email atau menggunakan akun google langsung yang membuatnya lebih instan dan mudah. Tampilan halaman pendaftaran user dapat dilihat pada Gambar \ref{fig:halaman-daftar-user}.
 
@@ -42,7 +42,9 @@ Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pen
     label={lst:be-google-signin},
 ]{codes/user/login/login-google.py}
 
-\subsubsection{Landing Page User}
+
+
+\subsubsection{Landing Page dan Proses Reservasi User}
 
 Landing page adalah halaman utama yang ditampilkan kepada pengguna dalam sistem. Halaman ini memberikan informasi umum tentang layanan yang tersedia, termasuk fitur-fitur utama, manfaat, dan cara menggunakan aplikasi.
 
@@ -62,8 +64,6 @@ Pada gambar \ref{fig:halaman-landing-user}, terlihat bahwa halaman ini dirancang
 ]{codes/user/landing/landing.vue}
 
 Pada kode \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
-
-\subsubsection{Proses Reservasi User}
 
 Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan pengguna untuk melakukan reservasi Pod yang tersedia secara online.
 
@@ -184,3 +184,23 @@ Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig
 \end{figure}
 
 Setelah pengguna selesai menginap, maka pengguna dapat melakukan checkout dengan menekan tombol \textit{Checkout} pada gambar \ref{fig:tampilan-checkout-user}. Setelah itu pengguna dapat memberikan ulasan terhadap Pod yang telah ditempati. Ulasan ini akan membantu pengguna lain dalam memilih Pod yang sesuai dengan kebutuhan mereka.
+
+\subsubsection{Transaksi User}
+
+Pada gambar \ref{fig:tampilan-list-transaksi-user}, pengguna dapat melihat daftar transaksi yang telah dilakukan. Daftar transaksi ini mencakup semua reservasi yang telah dilakukan oleh pengguna, baik yang sedang berlangsung maupun yang telah selesai.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/transaksi.png}
+    \caption{Tampilan list Transaksi User}
+    \label{fig:tampilan-list-transaksi-user}
+\end{figure}
+
+Lebih detail lagi pada gambar \ref{fig:tampilan-detail-transaksi-user}, pengguna dapat melihat detail dari transaksi yang telah dilakukan. Detail ini mencakup informasi seperti tanggal reservasi, jenis Pod yang dipesan, voucher serta kode referral yang digunakan, dan status pembayaran. Hal ini memberikan transparansi kepada pengguna mengenai transaksi yang telah mereka lakukan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/transaksi-detail.png}
+    \caption{Tampilan detail Transaksi User}
+    \label{fig:tampilan-detail-transaksi-user}
+\end{figure}
