@@ -78,7 +78,109 @@ Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencar
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/home.png}
-    \caption{Tampilan Halaman Landing Page User}
-    \label{fig:halaman-landing-user}
+    \includegraphics[width=\textwidth]{images/halaman-user/sr2.png}
+    \caption{Komponen Pencarian User}
+    \label{fig:komponen-pencarian-user}
 \end{figure}
+
+Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/sr.png}
+    \caption{Tampilan Hasil Pencarian User}
+    \label{fig:hasil-pencarian-user}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/sr3.png}
+    \caption{Tampilan Hasil Pencarian User}
+    \label{fig:komponen-pencarian-user-2}
+\end{figure}
+
+Pada gambar \ref{fig:hasil-pencarian-user} dan \ref{fig:komponen-pencarian-user-2}, terlihat bahwa setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/res1.png}
+    \caption{Tampilan Proses Pembayaran detail Reservasi}
+    \label{fig:tampilan-reservasi-user}
+\end{figure}
+
+Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembayaran yang terdiri dari tiga proses yaitu pada gambar \ref{fig:tampilan-reservasi-user} merupakan proses pertama pengguna dapat melihat detail reservasi yang dia lakukan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/res2.png}
+    \caption{Tampilan Proses Pembayaran Metode Pembayaran}
+    \label{fig:tampilan-reservasi-user-2}
+\end{figure}
+
+Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode pembayaran yang diinginkan yaitu QRIS lalu dalam tahap ini pengguna dapat memasukkan kode voucher dan kode referral untuk mendapatkan potongan harga.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/res3.png}
+    \caption{Tampilan Proses Pembayaran kode QRIS}
+    \label{fig:tampilan-reservasi-user-3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/res4.png}
+    \caption{Tampilan Proses Pembayaran \textit{Pending}}
+    \label{fig:tampilan-reservasi-user-4}
+\end{figure}
+
+Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/res5.png}
+    \caption{Tampilan Proses Pembayaran \textit{Success}}
+    \label{fig:tampilan-reservasi-user-5}
+\end{figure}
+
+Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}.
+
+
+\subsubsection{Proses Menginap User}
+
+Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang telah dipesan, berikut proses yang dilakukan oleh pengguna ketika menginap di Pod yang telah dipesan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/stay1.png}
+    \caption{Tampilan List Reservasi User}
+    \label{fig:tampilan-list-reservasi-user}
+\end{figure}
+
+Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/stay2.png}
+    \caption{Tampilan Proses pilih Pod User}
+    \label{fig:tampilan-pick-a-pod-user}
+\end{figure}
+
+Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{fig:tampilan-pick-a-pod-user} untuk memilih Pod yang akan ditempati. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses check-in.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/stay3.png}
+    \caption{Tampilan Kunci Pod User}
+    \label{fig:tampilan-lock-pod-user}
+\end{figure}
+
+Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-user/stay4.png}
+    \caption{Tampilan Checkout dan Memberikan Ulasan User}
+    \label{fig:tampilan-checkout-user}
+\end{figure}
+
+Setelah pengguna selesai menginap, maka pengguna dapat melakukan checkout dengan menekan tombol \textit{Checkout} pada gambar \ref{fig:tampilan-checkout-user}. Setelah itu pengguna dapat memberikan ulasan terhadap Pod yang telah ditempati. Ulasan ini akan membantu pengguna lain dalam memilih Pod yang sesuai dengan kebutuhan mereka.
