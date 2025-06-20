@@ -1,29 +1,222 @@
 \subsection{Halaman Admin}
 
-Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
+Halaman Admin atau Admin cabang merupakan halaman yang digunakan oleh admin untuk mengelola operasional dan data cabang mereka, berikut implementasi halaman admin yang telah dibuat.
 
-\subsubsection{Registrasi dan Login User}
+\subsubsection{Login, Pilih Cabang, Dashboard, dan Kelola data Admin}
 
-Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua metode yaitu dengan mengunakan email atau menggunakan akun google langsung yang jaduh lebih instan dan mudah. Tampilan halaman pendaftaran user dapat dilihat pada Gambar \ref{fig:halaman-daftar-user}.
+Pada halaman ini, admin dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login admin dapat dilihat pada Gambar \ref{fig:halaman-login-admin}. Admin dapat login dengan menggunakan dua metode  yaitu email dan password ataupun langsung menggunakan akun Google.
 
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+\begin{figure}[H]
     \centering
-    \includegraphics[
-        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{images/halaman-user/signup.png} % Path ke file SVG Anda, TANPA ekstensi .svg
-    \caption{Tampilan Halaman Pendaftaran User}
-    \label{fig:halaman-daftar-user}
+    \includegraphics[width=\textwidth]{images/halaman-sa/login.png}
+    \caption{Tampilan Halaman Login Admin}
+    \label{fig:halaman-login-admin}
 \end{figure}
 
-Setelah pengguna melakukan pendaftaran, pengguna dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login user dapat dilihat pada Gambar \ref{fig:halaman-login-user}.
-
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+\begin{figure}[H]
     \centering
-    \includegraphics[
-        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{images/halaman-user/login.png} % Path ke file SVG Anda, TANPA ekstensi .svg
-    \caption{Tampilan Halaman Login User}
-    \label{fig:halaman-login-user}
+    \includegraphics[width=\textwidth]{images/halaman-admin/pilih-cabang.png}
+    \caption{Tampilan Halaman Pilih Cabang Admin}
+    \label{fig:halaman-pilih-cabang-admin}
 \end{figure}
+
+Setelah Admin berhasil login, admin akan diarahkan ke halaman pilih cabang. Pada halaman ini, admin dapat memilih cabang yang akan dikelola. Admin dapat mengelola lebih dari satu cabang, Tampilan halaman pilih cabang admin dapat dilihat pada Gambar \ref{fig:halaman-pilih-cabang-admin}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/dasbor.png}
+    \caption{Tampilan Halaman Dasbor Admin Cabang}
+    \label{fig:halaman-dasbor-admin}
+\end{figure}
+
+Setelah memilih cabang, admin akan diarahkan ke halaman dasbor admin cabang. Pada halaman ini, admin dapat melihat informasi garis besar mengenai cabang yang dikelola seperti pada Gambar \ref{fig:halaman-dasbor-admin}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/dasbor-okupansi.png}
+    \caption{Tampilan Halaman Dasbor Okupansi Admin Cabang}
+    \label{fig:halaman-dasbor-okupansi-admin}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-dasbor-okupansi-admin} adalah tampilan halaman dasbor okupansi admin cabang. Pada halaman ini, admin dapat melihat informasi okupansi cabang yang dikelola secara real-time, selain itu juga pada halaman ini admin dapat melihat perkiraan tingkat okupansi beberapa hari ke depan dan juga melihat performa okupansi cabang dalam beberapa hari terakhir. Hal ini dapat membantu admin dalam mengelola okupansi cabang dan membuat keputusan yang lebih baik.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/profil.png}
+    \caption{Tampilan Halaman Profil Admin Cabang}
+    \label{fig:halaman-profil-admin}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-profil-admin} adalah tampilan halaman profil admin cabang. Pada halaman ini, admin dapat melihat informasi profil mereka seperti nama, email, dan nomor telepon. Admin juga dapat mengubah informasi profil mereka jika diperlukan.
+
+
+
+\subsubsection{Admin Kelola Data Cabang}
+
+Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data cabang seperti pada gambar \ref{fig:halaman-admin-kelola-cabang} dan \ref{fig:halaman-admin-kelola-cabang-2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang1.png}
+    \caption{Tampilan Admin Kelola Data Cabang}
+    \label{fig:halaman-admin-kelola-cabang}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang2.png}
+    \caption{Tampilan Admin Kelola Data Cabang}
+    \label{fig:halaman-admin-kelola-cabang-2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/jenis-pod.png}
+    \caption{Tampilan Admin Kelola jenis pod cabang}
+    \label{fig:halaman-admin-kelola-jenis-pod}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/pod.png}
+    \caption{Tampilan Admin Kelola jenis pod cabang}
+    \label{fig:halaman-admin-kelola-pod}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/kelola-ota.png}
+    \caption{Tampilan Admin Kelola \textit{OTA} Cabang}
+    \label{fig:halaman-admin-kelola-ota}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/staff.png}
+    \caption{Tampilan Admin Kelola Staff Cabang}
+    \label{fig:halaman-admin-kelola-staff}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/voucher.png}
+    \caption{Tampilan Admin Kelola Voucher Cabang}
+    \label{fig:halaman-admin-kelola-voucher}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/review.png}
+    \caption{Tampilan Admin Kelola Review Cabang}
+    \label{fig:halaman-admin-kelola-review}
+\end{figure}
+
+
+
+
+\subsubsection{Operasional Harian Cabang}
+
+Untuk mempermudah operasional harian cabang pada gambar \ref{fig:halaman-laporan-harian-admin} admin dapat melihat laporan harian cabang yang dikelola seperti siapa saja yang akan check-in, siapa saja yang sudah check-in, dan siapa saja yang sudah check-out. Hal ini dapat membantu admin dalam mengelola operasional harian cabang dan memastikan bahwa semua diketahui lebih awal oleh admin.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/laporan-harian.png}
+    \caption{Tampilan Halaman Laporan Harian Admin Cabang}
+    \label{fig:halaman-laporan-harian-admin}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-daftar-checkedin-admin} adalah tampilan halaman daftar tamu yang sudah check-in. Pada halaman ini, admin dapat melihat daftar tamu yang sudah check-in pada cabang yang dikelola. Admin juga dapat melakukan tindakan seperti memindahkan tamu ke pod lain jika diperlukan. Hal ini dapat membantu admin dalam mengelola tamu yang sudah check-in dan memastikan bahwa semua tamu terlayani dengan baik.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/lis-checkedin.png}
+    \caption{Tampilan Halaman Daftar Tamu Check-in Admin Cabang}
+    \label{fig:halaman-daftar-checkedin-admin}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/proses-pindah-pod.png}
+    \caption{Tampilan Halaman Proses Pindah Pod User oleh Admin Cabang}
+    \label{fig:halaman-proses-pindah-pod-admin}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-proses-pindah-pod-admin} adalah tampilan halaman proses pindah pod user oleh admin cabang. Pada halaman ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/log-pindah-pod.png}
+    \caption{Tampilan Halaman Riwayat Pindah Pod pada Cabang}
+    \label{fig:halaman-riwayat-pindah-pod-admin}
+\end{figure}
+
+Untuk melihat riwayat pindah pod pada cabang, admin dapat mengakses halaman riwayat pindah pod seperti pada gambar \ref{fig:halaman-riwayat-pindah-pod-admin}. Pada halaman ini, admin dapat melihat riwayat pindah pod yang dilakukan oleh admin pada cabang yang dikelola.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/list-harus-dibersihkan.png}
+    \caption{Tampilan Halaman Daftar Pod yang Harus Dibersihkan}
+    \label{fig:halaman-daftar-pod-harus-dibersihkan-admin}
+\end{figure}
+
+Setelah tamu check-out, admin dapat melihat daftar pod yang harus dibersihkan pada halaman daftar pod yang harus dibersihkan seperti pada gambar \ref{fig:halaman-daftar-pod-harus-dibersihkan-admin} dan melakukan tindakan seperti membersihkan pod tersebut.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/proses-pembersihan.png}
+    \caption{Tampilan Halaman Proses Pembersihan Pod oleh Admin Cabang}
+    \label{fig:halaman-proses-pembersihan-admin}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-proses-pembersihan-admin} adalah tampilan halaman proses pembersihan pod oleh admin cabang.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/selesai-pembersihan.png}
+    \caption{Tampilan Halaman Pod Selesai Dibersihkan oleh Admin Cabang}
+    \label{fig:halaman-pod-selesai-dibersihkan-admin}
+\end{figure}
+
+Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pada gambar \ref{fig:halaman-pod-selesai-dibersihkan-admin}.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/hargadinamis.png}
+    \caption{Tampilan Admin Kelola Harga Dinamis Cabang}
+    \label{fig:halaman-admin-kelola-harga-dinamis}
+\end{figure}
+
+Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman admin cabang untuk mengelola harga dinamis. Pada halaman ini, admin dapat mengatur harga dinamis untuk cabang yang dikelola. Harga dinamis ini akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu. Hal ini dapat membantu admin dalam mengelola harga reservasi dan memastikan bahwa harga yang ditawarkan sesuai dengan kondisi pasar.
+
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/transaksi.png}
+    \caption{Tampilan Transaksi pada Cabang}
+    \label{fig:halaman-transaksi-cabang}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota.png}
+    \caption{Tampilan List Input \textit{OTA} pada Cabang}
+    \label{fig:halaman-list-input-ota-admin}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/input-ota.png}
+    \caption{Tampilan Input \textit{OTA} pada Cabang}
+    \label{fig:halaman-input-ota-admin}
+\end{figure}
+
