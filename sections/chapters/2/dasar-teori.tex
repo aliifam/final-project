@@ -58,13 +58,13 @@ Kanban Board adalah pendekatan visual untuk mengatur tugas, yang memanfaatkan pa
     \item Aliran yang Berkesinambungan : Mendukung aliran pekerjaan yang stabil dari satu tahap ke tahap berikutnya dalam SDLC.
     \item Perbaikan Berkesinambungan : Retrospektif dilakukan secara berkala untuk mengevaluasi proses kerja dan mengidentifikasi peluang peningkatan.
     \item Tahapan SDLC dengan Kanban Board : Perencanaan, Pengembangan, Pengujian, Penerapan dan Pemeliharaan.
-    \begin{itemize}
-        \item Perencanaan : Tugas seperti pengumpulan kebutuhan dan perancangan sistem ditambahkan ke kolom To Do.
-        \item Pengembangan : Tugas pengkodean dipindahkan ke kolom In Progress.
-        \item Pengujian : Setelah pengembangan selesai, kartu tugas dipindahkan ke kolom Testing.
-        \item Penerapan dan Pemeliharaan : Setelah lulus pengujian, tugas dipindahkan ke kolom Done.
-        \item Selama fase pemeliharaan, bug atau perubahan baru ditambahkan kembali ke alur kerja.
-    \end{itemize}
+          \begin{itemize}
+              \item Perencanaan : Tugas seperti pengumpulan kebutuhan dan perancangan sistem ditambahkan ke kolom To Do.
+              \item Pengembangan : Tugas pengkodean dipindahkan ke kolom In Progress.
+              \item Pengujian : Setelah pengembangan selesai, kartu tugas dipindahkan ke kolom Testing.
+              \item Penerapan dan Pemeliharaan : Setelah lulus pengujian, tugas dipindahkan ke kolom Done.
+              \item Selama fase pemeliharaan, bug atau perubahan baru ditambahkan kembali ke alur kerja.
+          \end{itemize}
 \end{itemize}
 
 Metode Kanban Board dalam SDLC memberikan fleksibilitas dan visibilitas tinggi terhadap kemajuan proyek, menjadikannya pilihan yang ideal untuk proyek yang dinamis atau berbasis Agile \cite{burrows2014}.
@@ -88,26 +88,26 @@ Unified Modeling Language (UML) merupakan bahasa pemodelan standar yang digunaka
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                      & \textbf{Nama}           & \textbf{Keterangan}                                                                                                                                               \\ \hline
     \endfirsthead
-    
+
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                      & \textbf{Nama}           & \textbf{Keterangan}                                                                                                                                               \\ \hline
     \endhead
-    
+
     \hline
     \endfoot
-    
+
     \endlastfoot
-    
-    \includegraphics[width=0.2\textwidth]{images/ucd/usecase.png} & \textit{Use Case} & Deskripsi serangkaian tindakan yang dilakukan oleh suatu sistem yang menghasilkan efek terukur bagi seorang aktor. \\ \hline
-    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png} & \textit{Actor} & Mendefinisikan serangkaian peran yang dimainkan pengguna saat berinteraksi dengan \textit{use case} \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/association.png} & \textit{Association} & Garis menghubungkan satu objek dengan objek lainnya \textit{use case} \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/include.png} & \textit{Include} & Menjelaskan secara eksplisit bahwa \textit{use case} adalah sumbernya \textit{use case} \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/extend.png} & \textit{Extend} & Pada titik tertentu, \textit{use case} target
-    memperluas perilaku \textit{use case} sumber. \textit{use case} \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/system.png} & \textit{System} & Mendefinisikan paket yang membatasi tampilan sistem dalam konteks tertentu.
-     \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/usecase.png}        & \textit{Use Case}       & Deskripsi serangkaian tindakan yang dilakukan oleh suatu sistem yang menghasilkan efek terukur bagi seorang aktor.                                                \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png}          & \textit{Actor}          & Mendefinisikan serangkaian peran yang dimainkan pengguna saat berinteraksi dengan \textit{use case}                                                               \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ucd/association.png}    & \textit{Association}    & Garis menghubungkan satu objek dengan objek lainnya \textit{use case}                                                                                             \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ucd/include.png}        & \textit{Include}        & Menjelaskan secara eksplisit bahwa \textit{use case} adalah sumbernya \textit{use case}                                                                           \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ucd/extend.png}         & \textit{Extend}         & Pada titik tertentu, \textit{use case} target
+    memperluas perilaku \textit{use case} sumber. \textit{use case}                                                                                                                                                                                                    \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ucd/system.png}         & \textit{System}         & Mendefinisikan paket yang membatasi tampilan sistem dalam konteks tertentu.
+    \\ \hline
     \includegraphics[width=0.2\textwidth]{images/ucd/generalization.png} & \textit{Generalization} & Hubungan antara \textit{use case} yang umum dan \textit{use case} yang khusus, apabila salah satu mempunyai fungsi yang lebih umum dibandingkan dengan yang lain. \\ \hline
 
     \caption{Notasi \textit{Use Case Diagram}}
@@ -119,25 +119,25 @@ Activity diagram digunakan untuk menggambarkan alur kerja atau proses bisnis dal
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama}         & \textbf{Keterangan}                                                            \\ \hline
     \endfirsthead
-    
+
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama}         & \textbf{Keterangan}                                                            \\ \hline
     \endhead
-    
+
     \hline
     \endfoot
-    
+
     \endlastfoot
-    
-    \includegraphics[width=0.1\textwidth]{images/ad/initial-node.png} & \textit{Initial Node} & Menandakan titik awal dari proses atau alur aktivitas. \\ \hline
 
-    \includegraphics[width=0.1\textwidth]{images/ad/final-node.png} & \textit{Final Node} & Menandakan akhir dari proses atau alur aktivitas. \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ad/initial-node.png} & \textit{Initial Node} & Menandakan titik awal dari proses atau alur aktivitas.                         \\ \hline
 
-    \includegraphics[width=0.2\textwidth]{images/ad/activity.png} & \textit{Activity} & Menggambarkan aktivitas tertentu dalam proses atau alur kerja. \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ad/final-node.png}   & \textit{Final Node}   & Menandakan akhir dari proses atau alur aktivitas.                              \\ \hline
 
-    \includegraphics[width=0.2\textwidth]{images/ad/condition.png} & \textit{Condition} & Menunjukkan keputusan atau kondisi yang menentukan percabangan alur aktivitas. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ad/activity.png}     & \textit{Activity}     & Menggambarkan aktivitas tertentu dalam proses atau alur kerja.                 \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ad/condition.png}    & \textit{Condition}    & Menunjukkan keputusan atau kondisi yang menentukan percabangan alur aktivitas. \\ \hline
 
     \caption{Notasi \textit{Activity Diagram}}
 \end{longtable}
@@ -149,25 +149,25 @@ Entity Relationship Diagram (ERD) digunakan untuk memodelkan struktur data dalam
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama}        & \textbf{Keterangan}                                                                  \\ \hline
     \endfirsthead
-    
+
     \hline
-    \textbf{Notasi} & \textbf{Nama} & \textbf{Keterangan} \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama}        & \textbf{Keterangan}                                                                  \\ \hline
     \endhead
-    
+
     \hline
     \endfoot
-    
+
     \endlastfoot
-    
-    \includegraphics[width=0.2\textwidth]{images/erd/association.png} & \textit{Association} & Menggambarkan hubungan antara dua entitas dalam model data. \\ \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/entity.png} & \textit{Entity} & Merepresentasikan objek atau konsep yang memiliki data yang disimpan dalam sistem. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/association.png} & \textit{Association} & Menggambarkan hubungan antara dua entitas dalam model data.                          \\ \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/attribute.png} & \textit{Attribute} & Menunjukkan informasi atau properti yang dimiliki oleh sebuah entitas atau hubungan. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/entity.png}      & \textit{Entity}      & Merepresentasikan objek atau konsep yang memiliki data yang disimpan dalam sistem.   \\ \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/relation.png} & \textit{Relation} & Menjelaskan hubungan antara dua atau lebih entitas, termasuk kardinalitasnya. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/attribute.png}   & \textit{Attribute}   & Menunjukkan informasi atau properti yang dimiliki oleh sebuah entitas atau hubungan. \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/erd/relation.png}    & \textit{Relation}    & Menjelaskan hubungan antara dua atau lebih entitas, termasuk kardinalitasnya.        \\ \hline
 
     \caption{Notasi \textit{Entity Relationship Diagram}}
 \end{longtable}
@@ -178,33 +178,33 @@ Dalam pengembangan proyek akhir ini, penulis menggunakan beberapa teknologi dan 
 
 \begin{itemize}
     \item \textbf{VueJS}: VueJS adalah pustaka JavaScript yang digunakan untuk membangun antarmuka pengguna yang interaktif dan responsif. VueJS menggunakan konsep komponen yang dapat digunakan kembali untuk memisahkan tampilan dari logika aplikasi, memungkinkan pengembangan yang lebih efisien dan mudah diatur \cite{vuedocs}.
-    
+
     \item \textbf{Python}: Python adalah bahasa pemrograman tingkat tinggi yang digunakan untuk pengembangan aplikasi web, analisis data, dan kecerdasan buatan. Python memiliki sintaks yang sederhana dan mudah dipahami, serta mendukung berbagai pustaka dan kerangka kerja yang mempermudah pengembangan perangkat lunak \cite{python}.
-    
+
     \item \textbf{Flask}: Flask adalah kerangka kerja web berbasis Python yang digunakan untuk membangun aplikasi web dan API. Flask dirancang untuk menjadi ringan dan fleksibel, memungkinkan pengembang untuk memilih komponen yang sesuai dengan kebutuhan proyek mereka. Flask juga mendukung berbagai ekstensi yang mempermudah pengembangan aplikasi web \cite{flask}.
-    
+
     \item \textbf{PostgreSQL}: PostgreSQL adalah sistem manajemen basis data relasional (RDBMS) open-source yang digunakan untuk menyimpan dan mengelola data. PostgreSQL mendukung berbagai fitur seperti transaksi, indeks, dan fungsi yang memungkinkan pengembang untuk membangun aplikasi yang aman dan efisien \cite{postgresql}.
-    
+
     \item \textbf{Git}: Git adalah sistem kontrol versi yang digunakan untuk mengelola perubahan kode sumber dalam pengembangan perangkat lunak. Git memungkinkan pengembang untuk bekerja secara kolaboratif, melacak perubahan kode, dan mengelola versi kode dengan mudah \cite{git}.
-    
+
     \item \textbf{GitLab}: GitLab adalah platform pengembangan perangkat lunak berbasis Git yang menyediakan repositori kode, manajemen proyek, dan alat kolaborasi untuk tim pengembang. GitLab memungkinkan pengembang untuk menyimpan kode sumber, melacak masalah, dan berkolaborasi dalam proyek secara efisien \cite{gitlab}.
-    
+
     \item \textbf{Visual Studio Code}: Visual Studio Code adalah editor kode sumber ringan dan kuat yang dikembangkan oleh Microsoft. Visual Studio Code menyediakan berbagai fitur seperti penyorotan sintaks, debugging, dan ekstensi yang mempermudah pengembangan perangkat lunak \cite{vscode}.
-    
+
     \item \textbf{Google Cloud Run}: Google Cloud Run adalah layanan komputasi tanpa server yang memungkinkan pengembang untuk menjalankan aplikasi kontainer di infrastruktur Google Cloud. Cloud Run secara otomatis mengelola skala dan sumber daya yang dibutuhkan untuk menjalankan aplikasi, memungkinkan pengembang untuk fokus pada pengembangan tanpa perlu khawatir tentang manajemen infrastruktur \cite{cloudrun}.
-    
+
     \item \textbf{Hoppscotch}: hoppscotch adalah aplikasi web open-source yang digunakan untuk menguji dan mengelola API. hoppscotch menyediakan antarmuka yang intuitif dan mudah digunakan untuk membuat dan mengirim permintaan HTTP ke API, serta melihat respons yang dihasilkan \cite{hoppscotch}.
-    
+
     \item \textbf{JSON Web Token (JWT)}: JSON Web Token (JWT) adalah standar terbuka yang digunakan untuk membuat token akses yang aman dan dapat diverifikasi. JWT digunakan dalam aplikasi web modern untuk otentikasi dan otorisasi pengguna, serta pertukaran informasi yang aman antara klien dan server \cite{jwt}.
-    
+
     \item \textbf{SQLAlchemy}: SQLAlchemy adalah ORM (Object-Relational Mapping) yang digunakan untuk menghubungkan aplikasi Backend python yang mengunakan Flask dengan basis data. SQLAlchemy menyediakan API yang intuitif dan deklaratif untuk berinteraksi dengan basis data, memungkinkan pengembang untuk fokus pada logika aplikasi tanpa perlu menulis query SQL secara manual \cite{sqlaclhemy}.
-    
+
     \item \textbf{Google Cloud Storage}: Google Cloud Storage adalah server penyimpanan objek (object storage) yang merupakan salah satu lini produk dari google cloud \cite{gcs}.
-    
+
     \item \textbf{Docker}: Docker adalah platform open-source yang digunakan untuk mengemas, mengirim, dan menjalankan aplikasi dalam kontainer. Docker memungkinkan pengembang untuk membuat lingkungan yang konsisten dan portabel untuk aplikasi, serta mempercepat siklus pengembangan dan penyebaran aplikasi \cite{docker}.
-    
+
     \item \textbf{K6}: K6 adalah alat pengujian beban open-source yang digunakan untuk menguji kinerja aplikasi web dan API. K6 menyediakan skrip pengujian yang mudah digunakan dan hasil pengujian yang terperinci, memungkinkan pengembang untuk mengidentifikasi dan memperbaiki masalah kinerja dengan cepat \cite{k6}.
-    
+
     \item \textbf{Latex}: Latex adalah sistem penyiapan dokumen yang digunakan untuk membuat dokumen yang berkualitas tinggi, seperti artikel ilmiah, laporan, dan buku. Latex menggunakan sintaks markup untuk mengatur struktur dokumen, memungkinkan pengembang untuk fokus pada konten tanpa perlu khawatir tentang tata letak \cite{latex}.
 \end{itemize}
 
@@ -214,61 +214,54 @@ Setelah pengembangan sistem selesai, langkah selanjutnya adalah melakukan penguj
 
 \begin{enumerate}
     \item  \textbf{Pengujian Black Box}: Pengujian ini berfokus pada validasi fungsionalitas sistem tanpa memperhatikan struktur internal atau kode sumbernya. Tujuan utama dari pengujian ini adalah untuk memastikan bahwa masukan (input) menghasilkan keluaran (output) yang sesuai dengan spesifikasi \cite{pressman2014}.
-    
-    \item \textbf{Pengujian Beban} : Pengujian beban dilakukan untuk mengevaluasi kinerja sistem di bawah kondisi beban tertentu, seperti jumlah pengguna atau permintaan data yang tinggi. Tujuannya adalah untuk memastikan sistem dapat menangani beban kerja yang diharapkan tanpa mengalami penurunan performa secara signifikan \cite{patton2006}.  
+
+    \item \textbf{Pengujian Beban} : Pengujian beban dilakukan untuk mengevaluasi kinerja sistem di bawah kondisi beban tertentu, seperti jumlah pengguna atau permintaan data yang tinggi. Tujuannya adalah untuk memastikan sistem dapat menangani beban kerja yang diharapkan tanpa mengalami penurunan performa secara signifikan \cite{patton2006}.
 
     \item \textbf{User Acceptance Testing (UAT)} : UAT adalah tahap akhir pengujian yang melibatkan pengguna akhir untuk memastikan bahwa sistem memenuhi kebutuhan bisnis dan dapat digunakan sebagaimana mestinya. Pada UAT, setiap fungsi sistem diuji berdasarkan skenario yang dirancang sesuai dengan kebutuhan pengguna \cite{mathur2017}. Tingkat keberhasilan UAT dapat dihitung dengan rumus berikut:
-    
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|c|c|}
-            \hline
-            \textbf{Jawaban} & \textbf{Bobot} \\ \hline
-            Sangat Setuju(SS) & 5 \\ \hline
-            Setuju(S) & 4 \\ \hline
-            Cukup Setuju(CS) & 3 \\ \hline
-            Tidak Setuju(TS) & 2 \\ \hline
-            Sangat Tidak Setuju(STS) & 1 \\ \hline
-        \end{tabular}
-        \caption{Bobot Jawaban UAT}
-        \label{tabel:bobot-jawaban-uat}
-    \end{table}
 
-    Penentuan skor UAT dihitung menggunakan rumus pada Persamaan (2.4), Persamaan (2.5), dan Persamaan (2.6) dengan acuan bobot jawaban pada Tabel \ref{tabel:bobot-jawaban-uat}.
-    
-    \begin{equation}
-        \text{Skor UAT} = \sum_{n=1}^{5} x_n \tag{2.4}
-    \end{equation}
-    
-    \begin{equation}
-        \text{Rata - rata UAT} = \frac{\text{Skor UAT}}{\text{Jumlah Responden}} \tag{2.5}
-    \end{equation}
-    
-    \begin{equation}
-        \text{Persentase UAT} = \frac{\text{Rata - rata UAT}}{5} \times 100\% \tag{2.6}
-    \end{equation}
+          \begin{table}[H]
+              \centering
+              \begin{tabular}{|c|c|}
+                  \hline
+                  \textbf{Jawaban}         & \textbf{Bobot} \\ \hline
+                  Sangat Setuju(SS)        & 5              \\ \hline
+                  Setuju(S)                & 4              \\ \hline
+                  Cukup Setuju(CS)         & 3              \\ \hline
+                  Tidak Setuju(TS)         & 2              \\ \hline
+                  Sangat Tidak Setuju(STS) & 1              \\ \hline
+              \end{tabular}
+              \caption{Bobot Jawaban UAT}
+              \label{tabel:bobot-jawaban-uat}
+          \end{table}
 
-    Keterangan:
-    \begin{itemize}
-        \item \( x \) : jumlah responden
-        \item \( n \) : bobot jawaban
-    \end{itemize}
+          Penentuan skor UAT dihitung menggunakan rumus pada Persamaan \ref{eq:uat} dan hasil dari kor tersebut akan dibandingkan dengan pengelompokkan pada tabel \ref{tabel:bobot-jawaban-uat}.
 
-    Persentase akhir UAT kemudian dapat dijadikan sebagai indikator kelayakan sesuai kategori yang ditunjukkan pada Tabel \ref{tabel:kategori-kelayakan}.
 
-    \begin{table}[H]
-        \centering
-        \begin{tabular}{|c|c|c|}
-            \hline
-            \textbf{No.} & \textbf{Skor} & \textbf{Kategori Kelayakan} \\ \hline
-            1. & $<$ 21\% & Sangat Tidak Layak \\ \hline
-            2. & 21-40\% & Tidak Layak \\ \hline
-            3. & 41-60\% & Cukup Layak \\ \hline
-            4. & 61-80\% & Layak \\ \hline
-            5. & 81-100\% & Sangat Layak \\ \hline
-        \end{tabular}
-        \caption{Kategori Kelayakan UAT}
-        \label{tabel:kategori-kelayakan}
-    \end{table}
-    
+          \begin{equation}
+              \label{eq:uat}
+              \mathit{Skor \textit{UAT}}(\%) = \left(\frac{A}{B \times N}\right) \times 100\%
+          \end{equation}
+
+          Keterangan: \\
+          A = total skor yang diperoleh dari semua responden \\
+          B = maksimum skor yang dapat diperoleh dari setiap responden \\
+          N = total responden
+
+          Persentase akhir UAT kemudian dapat dijadikan sebagai indikator kelayakan sesuai kategori yang ditunjukkan pada Tabel \ref{tabel:kategori-kelayakan}.
+
+          \begin{table}[H]
+              \centering
+              \begin{tabular}{|c|c|c|}
+                  \hline
+                  \textbf{No.} & \textbf{Skor} & \textbf{Kategori Kelayakan} \\ \hline
+                  1.           & $<$ 21\%      & Sangat Tidak Layak          \\ \hline
+                  2.           & 21-40\%       & Tidak Layak                 \\ \hline
+                  3.           & 41-60\%       & Cukup Layak                 \\ \hline
+                  4.           & 61-80\%       & Layak                       \\ \hline
+                  5.           & 81-100\%      & Sangat Layak                \\ \hline
+              \end{tabular}
+              \caption{Kategori Kelayakan UAT}
+              \label{tabel:kategori-kelayakan}
+          \end{table}
+
 \end{enumerate}
