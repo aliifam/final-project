@@ -2,14 +2,26 @@
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{\textit{ABSTRACT}}
-\begin{center}
-    \textbf{\large{\judulen}}\\[0.5cm]
-    by:\\
-    \penulis\\
-    \nim\\[2em]
-    \textbf{ABSTRACT}\\[0.5cm]
-\end{center}
 
-Digitalization has become a driving force behind fundamental transformation in the hospitality industry, necessitating management systems that are not only efficient but also digitally integrated. This phenomenon is equally relevant to capsule hotels—a rapidly growing accommodation segment known for space and cost efficiency. However, these physical advantages are often not matched by robust digital operational systems. In response to this challenge, this study focuses on the design and development of Tamu.id, a comprehensive web-based management application for capsule hotels. The application is built with a multi-user architecture (franchise superadmin, hotel admin, and guest) to support centralized and integrated operational management. From the management side, the system includes features such as booking synchronization with Online Travel Agencies (OTAs), dynamic time-based pricing (temporal pricing), and a Content Management System (CMS) for property information. To support business growth, a flexible promotional scheme is also implemented through referrals and discount vouchers. From the guest experience perspective, the system prioritizes ease and security at every stage. The process begins with seamless authentication via Google OAuth2 (passwordless login). To prevent race conditions during booking, an optimistic locking mechanism is employed. Real-time and universal payment is facilitated using QRIS, integrated via Midtrans webhooks. The highlight of innovation lies in the digital room key system based on chained QR codes—a code regeneration method that ensures reliable key functionality with IoT devices, even in offline conditions. The entire system development process adopts the Agile methodology with a Kanban approach to ensure flexibility and result accuracy. The final outcome of this research is a ready-to-use capsule hotel management platform that significantly enhances operational efficiency for hotel operators while delivering a modern and seamless stay experience for guests.
+\begin{adjustwidth}{-1em}{-1em} % kiri dan kanan dimampetin
+    \begin{spacing}{0.98} % rapetin line spacing
+        \begingroup
+        \spaceskip=0.35em plus 0.1em minus 0.1em % atur spasi antar kata
+        \setlength{\parindent}{0pt} % opsional biar rata kiri
+        \setlength{\parskip}{0.5em} % opsional: jarak antar paragraf
 
-\noindent Keywords: \keywords
+        \begin{center}
+            \textbf{\large{\judulen}}\\[0.5cm]
+            by:\\
+            \penulis\\
+            \nim\\[2em]
+            \textbf{ABSTRACT}\\[0.5cm]
+        \end{center}
+
+        Digitalization has driven significant transformation within the hospitality industry, including the capsule hotel segment, which emphasizes spatial and cost efficiency. However, these physical advantages are often not accompanied by equally efficient digital systems. This study focuses on the design and development of Tamu.id, a comprehensive and integrated web-based capsule hotel management platform. The system is built using a multi-user architecture (franchise superadmin, hotel admin, and guest) to support centralized operational management. Key features include booking synchronization with Online Travel Agents (OTAs), time-based dynamic pricing, and a Content Management System (CMS) for property information management. To support business growth, the application provides promotional tools such as referral programs and configurable discount vouchers. From the user side, the system emphasizes ease and security, starting with a fast and passwordless login process through Google OAuth2 integration. To prevent race conditions during booking, an optimistic locking mechanism is implemented. Payments are processed in real-time via QRIS integrated with the Midtrans service using webhooks. A major innovation in the system is the implementation of Chained QR Code Rotation for regenerating digital room keys, which remain functional even in offline IoT environments, ensuring reliable and secure access. The system was developed using the Agile methodology with a Kanban approach to ensure flexible and adaptive iteration cycles. System evaluation included functional testing using the blackbox method, which confirmed that all features worked as intended. In addition, user acceptance testing was conducted using questionnaires with a Likert scale, indicating a very high level of feasibility: 94.6\% for user role, 96\% for superadmin, and 100\% for admin. The outcome of this study is a ready-to-use capsule hotel management platform that significantly enhances operational efficiency while delivering a modern and seamless digital experience for both hotel operators and guests.
+
+        \noindent Keywords: \keywords
+
+        \endgroup
+    \end{spacing}
+\end{adjustwidth}

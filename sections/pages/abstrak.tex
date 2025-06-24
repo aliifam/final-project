@@ -2,14 +2,27 @@
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{INTISARI}
-\begin{center}
-    \textbf{\large{\judulid}}\\[0.5cm]
-    Oleh :\\
-    \penulis\\
-    \nim\\[2em]
-    \textbf{INTISARI}\\[0.5cm]
-\end{center}
 
-Digitalisasi telah menjadi pendorong transformasi fundamental dalam industri perhotelan, menuntut adanya sistem manajemen yang tidak hanya efisien tetapi juga terintegrasi secara digital. Fenomena ini juga relevan bagi hotel kapsul, sebuah segmen akomodasi yang berkembang pesat berkat konsep efisiensi ruang dan biaya. Namun, keunggulan fisik tersebut seringkali belum diimbangi oleh sistem operasional digital yang mumpuni. Menjawab tantangan tersebut, penelitian ini berfokus pada perancangan dan pengembangan Tamu.id, sebuah aplikasi manajemen hotel kapsul berbasis web yang komprehensif. Aplikasi ini dirancang dengan arsitektur multi-pengguna (superadmin waralaba, admin hotel, dan tamu) untuk mendukung pengelolaan operasional yang terpusat dan terpadu. Dari sisi manajemen, sistem ini dilengkapi fitur sinkronisasi pemesanan dari Online Travel Agency (OTA), pengaturan harga dinamis berbasis waktu (temporal pricing), serta Content Management System (CMS) untuk kebutuhan informasi properti. Untuk mendorong pertumbuhan bisnis, diimplementasikan pula skema promosi melalui referral dan voucher diskon dengan sistem aturan yang fleksibel. Dari perspektif pengalaman tamu, sistem ini mengedepankan kemudahan dan keamanan di setiap tahap. Proses diawali dengan autentikasi yang mudah melalui integrasi Google OAuth2 (passwordless login). Untuk mencegah race condition saat pemesanan, diterapkan mekanisme optimistic locking. Proses pembayaran dibuat real-time dan universal menggunakan QRIS yang terhubung via webhook Midtrans. Puncak inovasinya terletak pada sistem kunci kamar digital berbasis chained QR, sebuah metode regenerasi kode yang memastikan kunci dapat berfungsi andal dengan perangkat IoT bahkan dalam kondisi offline. Seluruh proses pengembangan sistem ini mengadopsi metodologi Agile dengan pendekatan Kanban untuk memastikan fleksibilitas dan ketepatan hasil. Luaran dari penelitian ini adalah sebuah platform manajemen hotel kapsul yang siap pakai, yang secara signifikan meningkatkan efisiensi operasional bagi pengelola sekaligus memberikan pengalaman menginap yang modern dan seamless bagi para tamu.
+\begin{adjustwidth}{-1em}{-1em} % kiri dan kanan dimampetin
+    \begin{spacing}{0.98} % rapetin line spacing
+        \begingroup
+        \spaceskip=0.35em plus 0.1em minus 0.1em % atur spasi antar kata
+        \setlength{\parindent}{0pt} % opsional biar rata kiri
+        \setlength{\parskip}{0.5em} % opsional: jarak antar paragraf
 
-\noindent Kata kunci: \katakunci
+        \begin{center}
+            \textbf{\large{\judulid}}\\[0.5cm]
+            Oleh :\\
+            \penulis\\
+            \nim\\[2em]
+            \textbf{INTISARI}\\[0.5cm]
+        \end{center}
+
+        Digitalisasi mendorong transformasi signifikan dalam industri perhotelan, termasuk pada segmen hotel kapsul yang menonjolkan efisiensi ruang dan biaya. Sayangnya, keunggulan fisik tersebut belum selalu diiringi sistem digital yang efisien. Penelitian ini berfokus pada perancangan dan pengembangan Tamu.id, sebuah platform manajemen hotel kapsul berbasis web yang komprehensif dan terintegrasi. Sistem ini dibangun dengan arsitektur multi-pengguna (superadmin waralaba, admin hotel, dan tamu) guna mendukung pengelolaan operasional secara terpusat. Fitur utama mencakup sinkronisasi pemesanan dari Online Travel Agent (OTA), pengaturan harga dinamis berbasis waktu, dan Content Management System (CMS) untuk mengelola informasi properti. Untuk menunjang pertumbuhan bisnis, aplikasi menyediakan fitur promosi berupa referral dan voucher diskon yang dapat dikonfigurasi secara fleksibel. Dari sisi pengguna, sistem dirancang mengutamakan kemudahan dan keamanan, dimulai dari proses login yang cepat melalui integrasi Google OAuth2 tanpa password. Untuk mencegah terjadinya race condition dalam pemesanan, diterapkan mekanisme optimistic locking. Proses pembayaran berlangsung secara real-time melalui QRIS yang diintegrasikan dengan layanan Midtrans menggunakan webhook. Inovasi utama dari sistem ini adalah implementasi \textit{chained QR Code Rotation} untuk regenerasi kunci kamar digital yang dapat bekerja bahkan dalam kondisi perangkat IoT offline, memastikan akses yang aman dan andal. Pengembangan sistem dilakukan menggunakan metodologi Agile dengan pendekatan Kanban agar proses iterasi berjalan fleksibel dan adaptif terhadap perubahan. Evaluasi sistem mencakup pengujian fungsional melalui metode blackbox yang menunjukkan seluruh fitur berfungsi sesuai perancangan awal. Selain itu, dilakukan uji penerimaan pengguna menggunakan kuesioner dengan skala Likert yang menunjukkan tingkat kelayakan sangat tinggi: 94,6\% untuk role user, 96\% untuk superadmin, dan 100\% untuk admin. Hasil dari penelitian ini adalah sebuah sistem yang tidak hanya meningkatkan efisiensi operasional hotel kapsul, tetapi juga memberikan pengalaman digital yang modern dan seamless bagi pengguna, baik dari sisi pengelola maupun tamu.
+
+
+        \noindent Kata kunci: \katakunci
+
+        \endgroup
+    \end{spacing}
+\end{adjustwidth}
