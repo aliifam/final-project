@@ -81,7 +81,7 @@ Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan
     label={lst:fe-reservasi-user-search},
 ]{codes/user/reservation/search.vue}
 
-Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari keterseiaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
+Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari ketersediaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
 
 
 \begin{figure}[H]
@@ -93,12 +93,32 @@ Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencar
 
 Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
 
+Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada kode \ref{lst:be-reservasi-user-search}.
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Backend Pencarian Pod untuk Reservasi User},
+    label={lst:be-reservasi-user-search},
+]{codes/user/reservation/search.py}
+
+Selanjutnya kode backend akan mengolah permintaan pencarian Pod yang telah dilakukan oleh pengguna. Kode ini akan memeriksa ketersediaan Pod pada tanggal dan cabang yang diminta, dan mengembalikan daftar Pod yang tersedia untuk reservasi, setelah itu data dikirimkan ke frontend untuk ditampilkan kepada pengguna.
+
+\lstinputlisting[
+    language=VUE,
+    caption={Implementasi Tampilan Hasil Pencarian User},
+    label={lst:=fe-reservasi-user-search}
+]{codes/user/reservation/hasil.vue}
+
+Pada kode \ref{lst:fe-reservasi-user-search}, implementasi frontend untuk halaman pencarian Pod yang tersedia ditampilkan. pada halaman ini \textit{Frontend} akan menampilkan detail cabang, tanggal, dan daftar Pod yang tersedia untuk di reservasi dengan berinteraksi via API yang telah dibuat pada kode backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi seperti pada gambar \ref{fig:hasil-pencarian-user}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/sr.png}
     \caption{Tampilan Hasil Pencarian User}
     \label{fig:hasil-pencarian-user}
 \end{figure}
+
+Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian dapat dilihat pada gambar \ref{fig:hasil-pencarian-user}..
 
 \begin{figure}[H]
     \centering
