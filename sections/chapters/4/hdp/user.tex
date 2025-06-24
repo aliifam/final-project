@@ -73,8 +73,6 @@ Pada gambar \ref{fig:halaman-landing-user}, terlihat bahwa halaman ini dirancang
 
 Pada kode \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
 
-Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan pengguna untuk melakukan reservasi Pod yang tersedia secara online.
-
 \lstinputlisting[
     language=VUE,
     caption={Implementasi Komponen Pencarian untuk Reservasi},
@@ -82,6 +80,8 @@ Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan
 ]{codes/user/reservation/search.vue}
 
 Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari ketersediaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
+
+Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan pengguna untuk melakukan reservasi Pod yang tersedia secara online.
 
 
 \begin{figure}[H]
@@ -92,6 +92,8 @@ Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencar
 \end{figure}
 
 Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
+
+
 
 Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada kode \ref{lst:be-reservasi-user-search}.
 
@@ -109,7 +111,7 @@ Selanjutnya kode backend akan mengolah permintaan pencarian Pod yang telah dilak
     label={lst:=fe-reservasi-user-search}
 ]{codes/user/reservation/hasil.vue}
 
-Pada kode \ref{lst:fe-reservasi-user-search}, implementasi frontend untuk halaman pencarian Pod yang tersedia ditampilkan. pada halaman ini \textit{Frontend} akan menampilkan detail cabang, tanggal, dan daftar Pod yang tersedia untuk di reservasi dengan berinteraksi via API yang telah dibuat pada kode backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi seperti pada gambar \ref{fig:hasil-pencarian-user}.
+Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pada halaman ini, frontend akan menampilkan detail cabang, tanggal, serta daftar Pod yang dapat dipesan, dengan berinteraksi langsung melalui API yang telah diimplementasikan pada bagian backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian ditunjukkan pada gambar \ref{fig:hasil-pencarian-user} dan gambar \ref{fig:hasil-pencarian-user-2}, sementara implementasi antarmuka frontend untuk halaman ini ditampilkan pada kode \ref{lst:fe-reservasi-user-search}.
 
 \begin{figure}[H]
     \centering
@@ -118,16 +120,17 @@ Pada kode \ref{lst:fe-reservasi-user-search}, implementasi frontend untuk halama
     \label{fig:hasil-pencarian-user}
 \end{figure}
 
-Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian dapat dilihat pada gambar \ref{fig:hasil-pencarian-user}..
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/sr3.png}
     \caption{Tampilan Hasil Pencarian User}
-    \label{fig:komponen-pencarian-user-2}
+    \label{fig:hasil-pencarian-user-2}
 \end{figure}
 
-Pada gambar \ref{fig:hasil-pencarian-user} dan \ref{fig:komponen-pencarian-user-2}, terlihat bahwa setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi.
+
+Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembayaran yang terdiri dari tiga proses yaitu pada gambar \ref{fig:tampilan-reservasi-user} merupakan proses pertama pengguna dapat melihat detail reservasi yang dia lakukan.
+
 
 \begin{figure}[H]
     \centering
@@ -136,7 +139,7 @@ Pada gambar \ref{fig:hasil-pencarian-user} dan \ref{fig:komponen-pencarian-user-
     \label{fig:tampilan-reservasi-user}
 \end{figure}
 
-Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembayaran yang terdiri dari tiga proses yaitu pada gambar \ref{fig:tampilan-reservasi-user} merupakan proses pertama pengguna dapat melihat detail reservasi yang dia lakukan.
+Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode pembayaran yang diinginkan yaitu QRIS lalu dalam tahap ini pengguna dapat memasukkan kode voucher dan kode referral untuk mendapatkan potongan harga.
 
 \begin{figure}[H]
     \centering
@@ -145,7 +148,6 @@ Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembay
     \label{fig:tampilan-reservasi-user-2}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode pembayaran yang diinginkan yaitu QRIS lalu dalam tahap ini pengguna dapat memasukkan kode voucher dan kode referral untuk mendapatkan potongan harga.
 
 \begin{figure}[H]
     \centering
@@ -154,6 +156,8 @@ Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode p
     \label{fig:tampilan-reservasi-user-3}
 \end{figure}
 
+Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran, untuk implementasi integrasinya ada pada kode \ref{lst:be-mindtrans-charge}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/res4.png}
@@ -161,7 +165,13 @@ Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode p
     \label{fig:tampilan-reservasi-user-4}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran.
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Integrasi Core API QRIS Midtrans Saat Checkout},
+    label={lst:be-mindtrans-charge}
+]{codes/user/reservation/midtrans-charge.py}
+
+Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan secara \textit{Realtime}. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}. proses \textit{Realtime} dapat berjalan dengan peran integrasi antara sistem \textit{Backend} dan Midtrans dengan metode \textit{Webhook} yang ada pada kode \ref{lst:be-midtrans-webhook}
 
 \begin{figure}[H]
     \centering
@@ -170,8 +180,11 @@ Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-
     \label{fig:tampilan-reservasi-user-5}
 \end{figure}
 
-Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}.
-
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Integrasi Webhook Midtrans di \textit{Backend}},
+    label={lst:be-midtrans-webhook}
+]{codes/user/reservation/midtrans-charge.py}
 
 \subsubsection{Proses Menginap User}
 
@@ -184,7 +197,13 @@ Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang te
     \label{fig:tampilan-list-reservasi-user}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}.
+Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}. Dapat dilihat pada kode \ref{lst:be-get-stays} yang mendapatkan list stays untuk pengguna dengan cara mengekstrak kode \textit{}{JWT} dan melakukan otomasi misal ada yang sudah waktunya checkout maka otomatis akan tercheckout sehingga meminimalkan kesalahan dan proses manual.
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}},
+    label={lst:be-get-stays}
+]{codes/user/stay/get_stays.py}
 
 \begin{figure}[H]
     \centering
@@ -202,7 +221,13 @@ Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{f
     \label{fig:tampilan-lock-pod-user}
 \end{figure}
 
-Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih.
+Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih, dapat dilihat pada kode \ref{lst:be-qr-generation} merupakan implementasi regenerasi kunci Pod yang mengimplementasikan \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} untuk keamanannya.
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Rotasi dan Regenerasi Kunci Pod},
+    label={lst:be-qr-generation}
+]{codes/user/stay/qrcode_generation.py}
 
 \begin{figure}[H]
     \centering
@@ -263,6 +288,3 @@ Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melakukan penarikan u
 \end{figure}
 
 Sebelum mengikuti sistem loyalitas, pengguna harus melakukan verifikasi identitas terlebih dahulu. Hal ini dilakukan untuk memastikan bahwa pengguna yang mengikuti sistem loyalitas adalah pengguna yang sah dan tidak melakukan kecurangan. Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melihat halaman verifikasi identitas yang harus diisi sebelum mengikuti sistem loyalitas.
-
-
-

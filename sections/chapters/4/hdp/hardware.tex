@@ -9,9 +9,23 @@ Halaman simulasi hardware adalah halaman yang ditujukan untuk mensimulasikan bag
     \label{fig:halaman-hardware-list}
 \end{figure}
 
+Padaha gambar \ref{fig:halaman-hardware-list} dapat terlihat ada beberapa pod yang sudah dibuat dengan menginputkan device code untuk masing - masing pod nya sebagai identifikasi untuk pod saat terhubung dengan
+\textit{Backend}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-hardware/berhasil.png}
     \caption{Tampilan QR Code Berhasil}
     \label{fig:halaman-hardware-berhasil}
 \end{figure}
+
+Maka selanjutnya pada gambar \ref{fig:halaman-hardware-berhasil} adalah tampilan setelah pengguna \textit{Checkin} dan mendapatkan kunci berupa kode QR maka dapat discan ke pod yang ia pilih dan pod tersebut akan terbuka, namun bila pengguna salah pod maka pod tidak akan terbuka.
+
+
+\lstinputlisting[
+    language=JSON,
+    caption={Implementasi \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} pada \textit{Hardware IoT}},
+    label={lst:hardware-strukdat}
+]{codes/hardware/iot.json}
+
+Pada kode \ref{lst:hardware-strukdat} merupakan imlpementasi dari struktur data \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} pada \textit{Hardware IoT} yang dapat membuat integrasi saat pengguna melakukan \textit{Checkin} dan langsung menggunakan \textit{QRCode} yang ia dapatkan secara \textit{Seamless} tanpa delay dan walaupun Pod dalam kondisi \textit{Offline} sesaat.
