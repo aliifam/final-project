@@ -1,6 +1,6 @@
 \subsection{Halaman Superadmin}
 
-Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
+Halaman \textit{SuperAdmin} merupakan halaman yang digunakan oleh pemiliki waralaba untuk mengelola operasional Tamu.id secara terpusat dan global, berikut implementasi halaman \textit{SuperAdmin} yang telah dibuat.
 
 \subsubsection{Login, Dashboard, dan Pengaturan Akun}
 
@@ -11,6 +11,8 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-login}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-login} diperlihatkan antarmuka halaman login untuk Superadmin. Halaman ini berfungsi sebagai gerbang utama bagi Superadmin untuk mengakses sistem. Di sini, Superadmin akan diminta untuk memasukkan kredensialnya, seperti nama pengguna dan kata sandi, sebelum dapat melanjutkan ke dasbor atau fitur lainnya, SuperAdmin juga dapat melakukan autentikasi dengan Google.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/dasbor.png}
@@ -18,12 +20,16 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-dasbor}
 \end{figure}
 
+Gambar \ref{fig:halaman-sa-dasbor} menampilkan halaman dasbor Superadmin, yang merupakan pusat kendali utama setelah berhasil login. Dasbor ini menyajikan gambaran global dari tiap cabang yang beroperasi sehingga setiap keputusan pusat dapat diambil berdasarkan data yang tersaji dengan benar.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/profil.png}
     \caption{Tampilan Halaman Pengaturan Akun Superadmin}
     \label{fig:halaman-sa-profil}
 \end{figure}
+
+Pada Gambar \ref{fig:halaman-sa-profil} terlihat halaman pengaturan akun Superadmin. Halaman ini memungkinkan Superadmin untuk mengelola dan memperbarui informasi profilnya, seperti mengubah kata sandi atau detail pribadi lainnya. Fitur ini penting untuk menjaga keamanan akun dan memastikan bahwa informasi Superadmin selalu terkini, memberikan fleksibilitas dan kendali penuh kepada Superadmin atas akunnya.
 
 \subsubsection{Kelola Data Master}
 
@@ -34,6 +40,8 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-kota}
 \end{figure}
 
+Gambar \ref{fig:halaman-sa-kota} menampilkan antarmuka halaman pengaturan kota untuk Superadmin. Halaman ini berfungsi sebagai pusat kontrol di mana Superadmin dapat mengelola data kota, termasuk menambahkan kota baru, mengedit informasi kota yang sudah ada, atau menghapus data kota yang tidak relevan. Fitur ini penting untuk memastikan bahwa cakupan operasional sistem selalu akurat dan terbarui sesuai dengan wilayah geografis yang dilayani.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/fasilitas.png}
@@ -41,12 +49,7 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-fasilitas}
 \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-sa/ota.png}
-    \caption{Tampilan Halaman Pengaturan OTA Superadmin}
-    \label{fig:halaman-sa-ota}
-\end{figure}
+Pada Gambar \ref{fig:halaman-sa-fasilitas} terlihat tampilan halaman pengaturan fasilitas Superadmin. Di sini, Superadmin memiliki kemampuan untuk menambah, mengubah, dan menghapus daftar fasilitas yang tersedia dalam sistem. Pengelolaan fasilitas ini krusial untuk memastikan bahwa informasi mengenai sarana dan prasarana yang ditawarkan kepada pengguna selalu lengkap dan akurat, mendukung kelancaran operasional dan kepuasan pengguna.
 
 \begin{figure}[H]
     \centering
@@ -54,6 +57,8 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \caption{Tampilan Halaman Pengaturan OTA Superadmin}
     \label{fig:halaman-sa-ota}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-ota} menunjukkan tampilan halaman pengaturan OTA (Online Travel Agent) untuk Superadmin. Halaman ini memungkinkan Superadmin untuk mengelola integrasi dan konfigurasi dengan berbagai platform OTA. Pengaturan ini mencakup penambahan, pengeditan, atau penghapusan detail OTA, memastikan bahwa sistem dapat berinteraksi secara efektif dengan mitra eksternal untuk pemasaran dan penjualan.
 
 \begin{figure}[H]
     \centering
@@ -62,12 +67,16 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-cabang}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-cabang} diperlihatkan halaman pengaturan cabang Superadmin. Halaman ini memberikan akses kepada Superadmin untuk mengelola informasi terkait setiap cabang operasional. Ini termasuk menambahkan cabang baru, memperbarui detail lokasi, kontak, atau informasi spesifik lainnya untuk setiap cabang. Fitur ini sangat penting untuk pengelolaan multi-lokasi yang terorganisir dan efisien.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/staff.png}
     \caption{Tampilan Halaman Pengaturan Staff Superadmin}
     \label{fig:halaman-sa-staff}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-staff} menampilkan antarmuka halaman pengaturan staf untuk Superadmin. Di halaman ini, Superadmin dapat mengelola akun dan informasi semua staf yang terdaftar dalam sistem. Ini mencakup penambahan staf baru, pengaturan peran staff, penugasan staff ke cabang, serta pembaruan atau penonaktifan akun staf, memastikan manajemen sumber daya manusia yang terstruktur dan aman.
 
 \begin{figure}[H]
     \centering
@@ -76,12 +85,16 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-users}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-users} terlihat tampilan halaman pengaturan pengguna (user) untuk Superadmin. Halaman ini dirancang untuk memungkinkan Superadmin mengelola semua akun pengguna akhir yang terdaftar di sistem. Superadmin dapat memantau, mengaktifkan, menonaktifkan pengguna, memastikan integritas dan keamanan data pengguna serta memberikan dukungan yang diperlukan.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/transaksi.png}
     \caption{Tampilan Halaman List Transaksi Superadmin}
     \label{fig:halaman-sa-transaksi}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-transaksi} menunjukkan halaman daftar transaksi untuk Superadmin. Halaman ini menyajikan ringkasan komprehensif dari semua transaksi yang telah terjadi dalam sistem. Superadmin dapat melihat daftar transaksi, memfilter berdasarkan kriteria tertentu seperti tanggal atau status, dan mendapatkan gambaran umum aktivitas finansial, yang esensial untuk pemantauan dan audit.
 
 \begin{figure}[H]
     \centering
@@ -90,12 +103,16 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-transaksi-detail}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-transaksi-detail} diperlihatkan tampilan halaman detail transaksi untuk Superadmin. Setelah memilih transaksi dari daftar, Superadmin dapat mengakses halaman ini untuk melihat informasi lengkap dan mendetail mengenai transaksi tersebut. Ini mencakup rincian produk/layanan, jumlah pembayaran, metode pembayaran, status transaksi, dan informasi terkait lainnya, memungkinkan investigasi atau verifikasi transaksi secara mendalam.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/voucher.png}
     \caption{Tampilan Halaman Pengaturan Voucher Superadmin}
     \label{fig:halaman-sa-voucher}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-voucher} menampilkan antarmuka halaman pengaturan voucher untuk Superadmin. Halaman ini berfungsi sebagai alat bagi Superadmin untuk membuat, mengelola, dan mendistribusikan voucher diskon atau promosi. Superadmin dapat menentukan kode voucher, nilai diskon, tanggal berlaku, dan kondisi penggunaan, yang merupakan alat penting untuk strategi pemasaran dan retensi pelanggan.
 
 \subsubsection{Proses dan Verifikasi Permintaan oleh Superadmin}
 
@@ -106,12 +123,16 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-kyc}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-kyc} ditampilkan halaman daftar permintaan KYC (Know Your Customer) untuk pengguna di panel Superadmin. Halaman ini berfungsi sebagai pusat bagi Superadmin untuk meninjau dan mengelola semua pengajuan verifikasi identitas dari pengguna. Di sini, Superadmin dapat melihat daftar permintaan yang masuk, statusnya, dan informasi awal yang diberikan pengguna, yang merupakan langkah krusial dalam memastikan keamanan dan kepatuhan regulasi.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/kyc-proses.png}
     \caption{Tampilan Halaman Proses KYC User di Superadmin}
     \label{fig:halaman-sa-kyc-proses}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-kyc-proses} menyajikan tampilan halaman proses KYC pengguna di Superadmin. Setelah memilih permintaan dari daftar KYC, Superadmin akan diarahkan ke halaman ini untuk melakukan verifikasi secara mendalam. Halaman ini memungkinkan Superadmin untuk melihat detail dokumen identitas yang diunggah, membandingkannya dengan data pengguna, dan kemudian memutuskan apakah pengajuan KYC diterima atau ditolak. Proses ini memastikan bahwa setiap pengguna terverifikasi sesuai standar yang ditetapkan.
 
 \begin{figure}[H]
     \centering
@@ -120,9 +141,13 @@ Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan r
     \label{fig:halaman-sa-payout}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-sa-payout} diperlihatkan halaman daftar permintaan payout atau penarikan dana dari pengguna di panel Superadmin. Halaman ini memberikan gambaran umum tentang semua permintaan penarikan dana yang diajukan oleh pengguna. Superadmin dapat melihat daftar permintaan, jumlah yang diminta, status, dan informasi relevan lainnya, yang membantu dalam memantau dan memproses pembayaran secara efisien.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-sa/payoutproses.png}
     \caption{Tampilan Halaman Proses Payout Referral User di Superadmin}
     \label{fig:halaman-sa-payoutproses}
 \end{figure}
+
+Gambar \ref{fig:halaman-sa-payoutproses} menampilkan tampilan halaman proses payout referral pengguna di Superadmin. Halaman ini dikhususkan untuk memproses permintaan penarikan dana yang berasal dari program referral pengguna. Superadmin dapat meninjau detail komisi referral yang akan dicairkan, memverifikasi informasi sumber dananya, memutuskan untuk diterima ataupun tidak serta bila diterima maka superadmin melakukan transfer ke rekening pengguna lalu mengunggah bukti serta mengubah statusnya menjadi diterima namun b ila menolaknya maka sertakan alasan penolakannya.

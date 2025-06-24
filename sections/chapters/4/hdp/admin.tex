@@ -72,6 +72,8 @@ Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data ca
     \label{fig:halaman-admin-kelola-cabang-2}
 \end{figure}
 
+Yang paling utama dari sebuah cabang adalah tiap cabang memiliki jenis pod yang dapat dipesan oleh \textit{User}, oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-jenis-pod} \textit{Admin} dapat mengelola jenis pod yang ada pada cabang yang ia kelola.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/jenis-pod.png}
@@ -80,6 +82,8 @@ Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data ca
 \end{figure}
 
 
+Setelah memiliki jenis pod maka selanjutnya untuk masing - masing jenis pod tentunya memiliki anggota yaitu entitas Pod, oleh karena itu \textit{Admin} dapat mengelola Pod yang ada pada cabangnya dari mulai membuat, mengedit, dan menghapusnya sesuai pada gambar \ref{fig:halaman-admin-kelola-pod}.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/pod.png}
@@ -87,6 +91,7 @@ Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data ca
     \label{fig:halaman-admin-kelola-pod}
 \end{figure}
 
+Untuk tiap cabang memiliki kebebasan untuk melakukan integrasi dengan \textit{Online Travel Agency} lain misal Traveloka, Tiket.com, Booking.com, dll. ataupun tidak sama sekali oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-ota} \textit{Admin} dapat mengelola \textit{Online Travel Agency} mana yang aktif pada cabang yang ia kelola.
 
 \begin{figure}[H]
     \centering
@@ -95,6 +100,7 @@ Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data ca
     \label{fig:halaman-admin-kelola-ota}
 \end{figure}
 
+Setiap cabang dapat dikelola oleh lebih dari satu Admin atau Staff oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-staff} Staff dengan peran Admin dapat melakukan pengaturan untuk staff pada cabang yang ia kelola.
 
 \begin{figure}[H]
     \centering
@@ -103,12 +109,16 @@ Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data ca
     \label{fig:halaman-admin-kelola-staff}
 \end{figure}
 
+Untuk setiap cabang dapat mengadakan promo mandiri yaitu seperti pada gambar \ref{fig:halaman-admin-kelola-voucher}, Admin dapat membuat Voucher promo khusus untuk cabang yang ia kelolal.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/voucher.png}
     \caption{Tampilan Admin Kelola Voucher Cabang}
     \label{fig:halaman-admin-kelola-voucher}
 \end{figure}
+
+Setelah \textit{User} menginap pada suatu Pod maka selanjutnya \textit{User} akan melakukan \textit{Checkout} dan meninggalkan \textit{Review} dan \textit{Review} tentang pengalamannya selama menggunakan layanan, oleh karena itu untuk menghindari \textit{Spam} pada gambar \ref{fig:halaman-admin-kelola-review}, Admind dapat mengelola dan mengontrolnya.
 
 \begin{figure}[H]
     \centering
@@ -196,8 +206,6 @@ Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pa
 
 Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman admin cabang untuk mengelola harga dinamis. Pada halaman ini, admin dapat mengatur harga dinamis untuk cabang yang dikelola. Harga dinamis ini akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu. Hal ini dapat membantu admin dalam mengelola harga reservasi dan memastikan bahwa harga yang ditawarkan sesuai dengan kondisi pasar.
 
-
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/transaksi.png}
@@ -205,15 +213,7 @@ Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman
     \label{fig:halaman-transaksi-cabang}
 \end{figure}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota.png}
-    \caption{Tampilan List Input \textit{OTA} pada Cabang}
-    \label{fig:halaman-list-input-ota-admin}
-\end{figure}
-
-
+Pada gambar \ref{Tampilan Transaksi pada Cabang} adalah tampilan dimana Admin dapat melihat list dan detail transaksi yang terjadi untuk pod pada cabang yang ia kelola untuk visibilitas operasional yang lebih baik.
 
 \begin{figure}[H]
     \centering
@@ -223,5 +223,14 @@ Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman
 \end{figure}
 
 
-Pada gambar \ref{fig:halaman-input-ota-admin} adalah tampilan halaman input \textit{OTA} pada cabang. Pada halaman ini, admin dapat memasukkan data \textit{OTA} yang digunakan oleh cabang. Data \textit{OTA} ini akan digunakan untuk mengelola reservasi yang dilakukan melalui \textit{OTA}.
+Integrasi antara \textit{Online Travel Agency} dan sistem Tamu.id belum berjalan secara otomatis sehingga ketika ada yang melakukan reservasi via \textit{Online Travel Agency} maka Admin harus menginputkan data reservasinya secara manual seperti pada gambar \ref{fig:halaman-input-ota-admin}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota.png}
+    \caption{Tampilan List Input \textit{OTA} pada Cabang}
+    \label{fig:halaman-list-input-ota-admin}
+\end{figure}
+
+
+Pada gambar \ref{fig:halaman-list-input-ota-admin} merupakan halaman list data untuk reservasi \textit{User} yang dilakukan diluar platform yaitu dari \textit{Online Travel Agency}, untuk visibilitas dan kontrol yang lebih baik tentunya data - data yang sudah dimasukkan harus dapat terlihat dengan detail.
