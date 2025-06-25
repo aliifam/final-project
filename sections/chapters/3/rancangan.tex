@@ -99,11 +99,11 @@ Pengujian black box dilakukan untuk menguji fungsionalitas sistem tanpa memperha
 
 % \subsubsection{Pengujian Beban \textit{(Load Testing)}}
 
-% Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6 untuk mensimulasikan sejumlah besar pengguna yang mengakses sistem secara bersamaan. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem dapat menangani jumlah pengguna yang diharapkan tanpa mengalami penurunan performa yang signifikan. Pengujian ini juga bertujuan untuk mengidentifikasi potensi bottleneck dalam sistem yang dapat mempengaruhi kinerja aplikasi. sistem akan di
+% Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi yang realistis dalam skenario pada tahap produksi aplikasi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6, sebuah tool uji beban \textit{open-source}, untuk mensimulasikan aktivitas sejumlah besar pengguna secara bersamaan, Tujuan utama dari pengujian ini adalah untuk mengukur waktu respons sistem \textit{(response time)}, throughput, dan tingkat kegagalan \textit{(failure rate)}. Skenario pengujian akan berfokus pada endpoint-endpoint kritis aplikasi yang diharapkan menerima beban paling tinggi. Untuk studi ini, akan disimulasikan skenario di mana pengguna melakukan permintaan data cabang dan melakukan pencarian ketersediaan jenis pod pada cabang tertentu.
 
 \subsubsection{User Acceptance Testing}
 
-Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi kebutuhan dan harapan pengguna. Pengujian ini melibatkan pengguna akhir yang akan menggunakan sistem Tamu.id untuk melakukan berbagai aktivitas seperti pemesanan tiket, checkin, checkout, dan lain-lain. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna. Penilaian dilakukan berdasarkan  lima parameter yaitu Sangat Tidak Setuju(STS), Tidak Setuju (TS), Netral (N), Setuju (S), dan Sangat Setuju (SS).
+Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi kebutuhan dan harapan pengguna. Pengujian ini melibatkan pengguna akhir yang akan menggunakan sistem Tamu.id untuk melakukan berbagai aktivitas seperti pemesanan tiket, checkin, checkout, dan lain-lain. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna. Penilaian dilakukan berdasarkan  lima parameter dalam skala \textit{Likert} yaitu Sangat Tidak Setuju(STS), Tidak Setuju (TS), Netral (N), Setuju (S), dan Sangat Setuju (SS).
 
 \input{sections/chapters/3/tables/uat.tex}
 
