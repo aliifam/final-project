@@ -238,6 +238,14 @@ Pada gambar \ref{fig:halaman-proses-pindah-pod-admin} adalah tampilan halaman pr
 
 Untuk melihat riwayat pindah pod pada cabang, admin dapat mengakses halaman riwayat pindah pod seperti pada gambar \ref{fig:halaman-riwayat-pindah-pod-admin}. Pada halaman ini, admin dapat melihat riwayat pindah pod yang dilakukan oleh admin pada cabang yang dikelola.
 
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Pindah Pod \textit{User} oleh Admin},
+    label={lst:be-pindah-pod-admin},
+]{codes/admin/pindahpod.py}
+
+Kode \ref{lst:be-pindah-pod-admin} adalah potongan implementasi kode untuk memproses pindah pod yang dilakukan oleh admin pada cabang yang dikelola. Pada kode ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. Status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
+
 
 \begin{figure}[H]
     \centering
@@ -266,6 +274,14 @@ Pada gambar \ref{fig:halaman-proses-pembersihan-admin} adalah tampilan halaman p
 
 Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pada gambar \ref{fig:halaman-pod-selesai-dibersihkan-admin}.
 
+Saat proses pembersihan dimulai maka Admin akan mendapatkan kunci pod yang sedang dibersihkan, sehingga admin dapat mengakses pod tersebut untuk melakukan pembersihan, kunci tersebut hanya berlaku selama tiga jam dan bila lebih dari itu maka kunci harus diperbarui kembali, berikut potongan implementasi kode untuk mendapatkan kunci pod yang sedang dibersihkan oleh admin pada kode \ref{lst:be-generate-kunci-pod-admin}.
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Generate Kunci Pod Admin},
+    label={lst:be-generate-kunci-pod-admin},
+]{codes/admin/bersih.py}
+
 
 \begin{figure}[H]
     \centering
@@ -275,6 +291,14 @@ Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pa
 \end{figure}
 
 Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman admin cabang untuk mengelola harga dinamis. Pada halaman ini, admin dapat mengatur harga dinamis untuk cabang yang dikelola. Harga dinamis ini akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu. Hal ini dapat membantu admin dalam mengelola harga reservasi dan memastikan bahwa harga yang ditawarkan sesuai dengan kondisi pasar.
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Harga Dinamis berdasarkan Tanggal},
+    label={lst:be-harga-dinamis-admin},
+]{codes/admin/pricing.py}
+
+Setelah Admin memasukkan harga dinamis maka harga tersebut akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu, berikut potongan implementasi kode untuk mendapatkan harga dinamis berdasarkan tanggal pada kode \ref{lst:be-harga-dinamis-admin}.
 
 \begin{figure}[H]
     \centering

@@ -29,3 +29,12 @@ Maka selanjutnya pada gambar \ref{fig:halaman-hardware-berhasil} adalah tampilan
 ]{codes/hardware/iot.json}
 
 Pada kode \ref{lst:hardware-strukdat} merupakan imlpementasi dari struktur data \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} pada \textit{Hardware IoT} yang dapat membuat integrasi saat pengguna melakukan \textit{Checkin} dan langsung menggunakan \textit{QRCode} yang ia dapatkan secara \textit{Seamless} tanpa delay dan walaupun Pod dalam kondisi \textit{Offline} sesaat.
+
+
+\lstinputlisting[
+    language=Python,
+    caption={Implementasi Integrasi \textit{Backend} dengan \textit{Hardware IoT}},
+    label={lst:hardware-handler}
+]{codes/hardware/handler.py}
+
+Kode \ref{lst:hardware-handler} merupakan implementasi dari integrasi \textit{Backend} dengan \textit{Hardware IoT} yang dapat menghubungkan antara \textit{Backend} dan \textit{Hardware IoT} dengan baik, sehingga \textit{Hardware IoT} selalu dapat terhubung dengan \textit{Backend} dan \textit{User} dapat masuk ke dalam Pod menggunakan kunci Pod yang telah didapatkan saat \textit{Checkin}.
