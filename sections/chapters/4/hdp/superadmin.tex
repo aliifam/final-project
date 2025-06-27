@@ -125,11 +125,18 @@ Gambar \ref{fig:halaman-sa-voucher} menampilkan antarmuka halaman pengaturan vou
 
 Pada Gambar \ref{fig:halaman-sa-kyc} ditampilkan halaman daftar permintaan KYC (Know Your Customer) untuk pengguna di panel Superadmin. Halaman ini berfungsi sebagai pusat bagi Superadmin untuk meninjau dan mengelola semua pengajuan verifikasi identitas dari pengguna. Di sini, Superadmin dapat melihat daftar permintaan yang masuk, statusnya, dan informasi awal yang diberikan pengguna, yang merupakan langkah krusial dalam memastikan keamanan dan kepatuhan regulasi.
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Validasi ketika \textit{Redeem} kode Referral},
-    label={lst:sa-referralvalidation}
-]{codes/sa/validateref.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Validasi ketika \textit{Redeem} kode Referral},
+%     label={lst:sa-referralvalidation}
+% ]{codes/sa/validateref.py}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/sa/validateref.png}
+    \caption{Kode Implementasi Validasi ketika \textit{Redeem} kode Referral}
+    \label{lst:sa-referralvalidation}
+\end{figure}
 
 Kode \ref{lst:sa-referralvalidation} menunjukkan implementasi validasi ketika pengguna melakukan \textit{Redeem} kode referral, dengan peraturan ini diharapkan dapat memancing pengguna untuk melakukan verifikasi identitasnya karena untuk mendapatkan komisi referral pengguna harus terverifikasi terlebih dahulu. Hal ini juga untuk memastikan bahwa pengguna yang melakukan \textit{Redeem} kode referral adalah pengguna yang sah dan telah melalui proses \textit{Know Your Customer} (KYC) yang benar.
 
@@ -160,11 +167,18 @@ Pada Gambar \ref{fig:halaman-sa-payout} diperlihatkan halaman daftar permintaan 
 
 Gambar \ref{fig:halaman-sa-payoutproses} menampilkan tampilan halaman proses payout referral pengguna di Superadmin. Halaman ini dikhususkan untuk memproses permintaan penarikan dana yang berasal dari program referral pengguna. Superadmin dapat meninjau detail komisi referral yang akan dicairkan, memverifikasi informasi sumber dananya, memutuskan untuk diterima ataupun tidak serta bila diterima maka superadmin melakukan transfer ke rekening pengguna lalu mengunggah bukti serta mengubah statusnya menjadi diterima namun bila menolaknya maka sertakan alasan penolakannya.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/sa/redeemref.png}
+    \caption{Kode Implementasi Perhitungan Komisi dan Diskon Referral}
+    \label{lst:sa-referralcalculation}
+\end{figure}
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Perhitungan Komisi dan Diskon Referral},
-    label={lst:sa-referralcalculation}
-]{codes/sa/redeemref.py}
+
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Perhitungan Komisi dan Diskon Referral},
+%     label={lst:sa-referralcalculation}
+% ]{codes/sa/redeemref.py}
 
 Kode \ref{lst:sa-referralcalculation} menunjukkan implementasi perhitungan komisi referral yang akan diberikan kepada pengguna yang telah berhasil mengajak pengguna baru untuk melakukan reservasi, selain mendapatkan komisi referral sebesar 7\% dari total transaksi yang menggunakan kodenya, transaksi yang dilakukan juga akan mendapatkan diskon sebesar 7\% dari total transaksi, sehingga pengguna yang diajak merasa diuntungkan dengan adanya diskon tersebut. Hal ini diharapkan dapat meningkatkan partisipasi pengguna dalam program referral Tamu.id.

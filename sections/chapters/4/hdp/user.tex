@@ -25,22 +25,42 @@ Setelah pengguna melakukan pendaftaran, pengguna dapat melakukan login ke dalam 
     \label{fig:halaman-login-user}
 \end{figure}
 
-Pada kode \ref{lst:fe-login-user} berikut adalah implementasi frontend untuk halaman login dan pendaftaran user. Kode ini mengatur tampilan dan interaksi pengguna untuk proses login dan pendaftaran.
+Pada gambar \ref{lst:fe-login-user} berikut adalah implementasi frontend untuk halaman login dan pendaftaran user. Kode ini mengatur tampilan dan interaksi pengguna untuk proses login dan pendaftaran.
 
-\lstinputlisting[
-    language=VUE,
-    caption={Implementasi Frontend Login User},
-    label={lst:fe-login-user},
-]{codes/user/login/login.vue}
+% \lstinputlisting[
+%     language=VUE,
+%     caption={Implementasi Frontend Login User},
+%     label={lst:fe-login-user},
+% ]{codes/user/login/login.vue}
+
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+    \centering
+    \includegraphics[
+        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{codes/user/login/login.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Kode Implementasi Frontend Login User}
+    \label{lst:fe-login-user}
+\end{figure}
 
 
-Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pengguna untuk masuk ke aplikasi menggunakan akun Google mereka. Hal ini memberikan kemudahan bagi pengguna yang tidak ingin mengingat password tambahan. Implementasi fitur ini dapat dilihat pada kode \ref{lst:be-google-signin}.
+Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pengguna untuk masuk ke aplikasi menggunakan akun Google mereka. Hal ini memberikan kemudahan bagi pengguna yang tidak ingin mengingat password tambahan. Implementasi fitur ini dapat dilihat pada gambar \ref{lst:be-google-signin}.
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna},
-    label={lst:be-google-signin},
-]{codes/user/login/login-google.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna},
+%     label={lst:be-google-signin},
+% ]{codes/user/login/login-google.py}
+
+\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+    \centering
+    \includegraphics[
+        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{codes/user/login/login-google.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Kode Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna}
+    \label{lst:be-google-signin}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -65,19 +85,36 @@ Landing page adalah halaman utama yang ditampilkan kepada pengguna dalam sistem.
 
 Pada gambar \ref{fig:halaman-landing-user}, terlihat bahwa halaman ini dirancang untuk memberikan pengalaman pengguna yang intuitif dan menarik. Halaman ini dapat diakses oleh pengguna yang telah melakukan login maupun yang belum, sehingga memberikan fleksibilitas dalam penggunaan aplikasi.
 
-\lstinputlisting[
-    language=VUE,
-    caption={Implementasi \textit{Landing Page User}},
-    label={lst:fe-landing-user},
-]{codes/user/landing/landing.vue}
+% \lstinputlisting[
+%     language=VUE,
+%     caption={Implementasi \textit{Landing Page User}},
+%     label={lst:fe-landing-user},
+% ]{codes/user/landing/landing.vue}
 
-Pada kode \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
+\begin{figure}[H]
+    \centering
+    \includegraphics[
+        width=0.3\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{codes/user/landing/landing.png}
+    \caption{Kode implementasi \textit{Landing Page User}}
+    \label{lst:fe-landing-user}
+\end{figure}
 
-\lstinputlisting[
-    language=VUE,
-    caption={Implementasi Komponen Pencarian untuk Reservasi},
-    label={lst:fe-reservasi-user-search},
-]{codes/user/reservation/search.vue}
+pada gambar \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
+
+% \lstinputlisting[
+%     language=VUE,
+%     caption={Implementasi Komponen Pencarian untuk Reservasi},
+%     label={lst:fe-reservasi-user-search},
+% ]{codes/user/reservation/search.vue}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/reservation/search-vue.png}
+    \caption{Kode implementasi Komponen Pencarian untuk Reservasi}
+    \label{lst:fe-reservasi-user-search}
+\end{figure}
 
 Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari ketersediaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
 
@@ -93,25 +130,37 @@ Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan
 
 Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
 
+Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada gambar \ref{lst:be-reservasi-user-search}.
 
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Backend Pencarian Pod untuk Reservasi User},
+%     label={lst:be-reservasi-user-search},
+% ]{codes/user/reservation/search.py}
 
-Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada kode \ref{lst:be-reservasi-user-search}.
-
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Backend Pencarian Pod untuk Reservasi User},
-    label={lst:be-reservasi-user-search},
-]{codes/user/reservation/search.py}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/reservation/search-py.png}
+    \caption{Kode implementasi Backend Pencarian Pod untuk Reservasi User}
+    \label{lst:be-reservasi-user-search}
+\end{figure}
 
 Selanjutnya kode backend akan mengolah permintaan pencarian Pod yang telah dilakukan oleh pengguna. Kode ini akan memeriksa ketersediaan Pod pada tanggal dan cabang yang diminta, dan mengembalikan daftar Pod yang tersedia untuk reservasi, setelah itu data dikirimkan ke frontend untuk ditampilkan kepada pengguna.
 
-\lstinputlisting[
-    language=VUE,
-    caption={Implementasi Tampilan Hasil Pencarian User},
-    label={lst:=fe-reservasi-user-search}
-]{codes/user/reservation/hasil.vue}
+% \lstinputlisting[
+%     language=VUE,
+%     caption={Implementasi Tampilan Hasil Pencarian User},
+%     label={lst:fe-reservasi-user-search}
+% ]{codes/user/reservation/hasil.vue}
 
-Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pada halaman ini, frontend akan menampilkan detail cabang, tanggal, serta daftar Pod yang dapat dipesan, dengan berinteraksi langsung melalui API yang telah diimplementasikan pada bagian backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian ditunjukkan pada gambar \ref{fig:hasil-pencarian-user} dan gambar \ref{fig:hasil-pencarian-user-2}, sementara implementasi antarmuka frontend untuk halaman ini ditampilkan pada kode \ref{lst:fe-reservasi-user-search}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/reservation/hasil.png}
+    \caption{Kode implementasi Tampilan Hasil Pencarian User}
+    \label{lst:fe-reservasi-user-search}
+\end{figure}
+
+Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pada halaman ini, frontend akan menampilkan detail cabang, tanggal, serta daftar Pod yang dapat dipesan, dengan berinteraksi langsung melalui API yang telah diimplementasikan pada bagian backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian ditunjukkan pada gambar \ref{fig:hasil-pencarian-user} dan gambar \ref{fig:hasil-pencarian-user-2}, sementara implementasi antarmuka frontend untuk halaman ini ditampilkan pada gambar \ref{lst:fe-reservasi-user-search}.
 
 \begin{figure}[H]
     \centering
@@ -156,7 +205,7 @@ Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode p
     \label{fig:tampilan-reservasi-user-3}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran, untuk implementasi integrasinya ada pada kode \ref{lst:be-mindtrans-charge}.
+Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran, untuk implementasi integrasinya ada pada gambar \ref{lst:be-mindtrans-charge}.
 
 \begin{figure}[H]
     \centering
@@ -165,13 +214,20 @@ Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-
     \label{fig:tampilan-reservasi-user-4}
 \end{figure}
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Integrasi Core API QRIS Midtrans Saat Checkout},
-    label={lst:be-mindtrans-charge}
-]{codes/user/reservation/midtrans-charge.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Integrasi Core API QRIS Midtrans Saat Checkout},
+%     label={lst:be-mindtrans-charge}
+% ]{codes/user/reservation/midtrans-charge.py}
 
-Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan secara \textit{Realtime}. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}. proses \textit{Realtime} dapat berjalan dengan peran integrasi antara sistem \textit{Backend} dan Midtrans dengan metode \textit{Webhook} yang ada pada kode \ref{lst:be-midtrans-webhook}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
+    \caption{Implementasi Integrasi Core API QRIS Midtrans Saat Checkout}
+    \label{lst:be-mindtrans-charge}
+\end{figure}
+
+Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan secara \textit{Realtime}. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}. proses \textit{Realtime} dapat berjalan dengan peran integrasi antara sistem \textit{Backend} dan Midtrans dengan metode \textit{Webhook} yang ada pada gambar \ref{lst:be-midtrans-webhook}
 
 \begin{figure}[H]
     \centering
@@ -180,11 +236,18 @@ Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa
     \label{fig:tampilan-reservasi-user-5}
 \end{figure}
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}},
-    label={lst:be-midtrans-webhook}
-]{codes/user/reservation/midtrans-charge.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}},
+%     label={lst:be-midtrans-webhook}
+% ]{codes/user/reservation/midtrans-charge.py}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
+    \caption{Kode implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}}
+    \label{lst:be-midtrans-webhook}
+\end{figure}
 
 \subsubsection{Proses Menginap User}
 
@@ -197,13 +260,20 @@ Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang te
     \label{fig:tampilan-list-reservasi-user}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}. Dapat dilihat pada kode \ref{lst:be-get-stays} yang mendapatkan list stays untuk pengguna dengan cara mengekstrak kode \textit{}{JWT} dan melakukan otomasi misal ada yang sudah waktunya checkout maka otomatis akan tercheckout sehingga meminimalkan kesalahan dan proses manual.
+Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}. Dapat dilihat pada gambar \ref{lst:be-get-stays} yang mendapatkan list stays untuk pengguna dengan cara mengekstrak kode \textit{}{JWT} dan melakukan otomasi misal ada yang sudah waktunya checkout maka otomatis akan tercheckout sehingga meminimalkan kesalahan dan proses manual.
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}},
-    label={lst:be-get-stays}
-]{codes/user/stay/get_stays.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}},
+%     label={lst:be-get-stays}
+% ]{codes/user/stay/get_stays.py}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/stay/get_stays.png}
+    \caption{Kode implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}}
+    \label{lst:be-get-stays}
+\end{figure}
 
 \begin{figure}[H]
     \centering
@@ -221,13 +291,20 @@ Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{f
     \label{fig:tampilan-lock-pod-user}
 \end{figure}
 
-Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih, dapat dilihat pada kode \ref{lst:be-qr-generation} merupakan implementasi regenerasi kunci Pod yang mengimplementasikan \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} untuk keamanannya.
+Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih, dapat dilihat pada gambar \ref{lst:be-qr-generation} merupakan implementasi regenerasi kunci Pod yang mengimplementasikan \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} untuk keamanannya.
 
-\lstinputlisting[
-    language=Python,
-    caption={Implementasi Rotasi dan Regenerasi Kunci Pod},
-    label={lst:be-qr-generation}
-]{codes/user/stay/qrcode_generation.py}
+% \lstinputlisting[
+%     language=Python,
+%     caption={Implementasi Rotasi dan Regenerasi Kunci Pod},
+%     label={lst:be-qr-generation}
+% ]{codes/user/stay/qrcode_generation.py}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{codes/user/stay/qrcode_generation.png}
+    \caption{Kode implementasi rotasi dan regenerasi kunci pod}
+    \label{lst:be-qr-generation}
+\end{figure}
 
 \begin{figure}[H]
     \centering
