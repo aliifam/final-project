@@ -1,0 +1,39 @@
+@startuml
+!theme plain
+title Diagram Sekuens Login Google dengan (OTT)
+hide footbox
+
+actor "Pengguna" as User
+participant "Frontend" as FE
+participant "Backend" as BE
+participant "Google OAuth Server" as Google
+database "DB" as DB
+
+User -> FE: Klik Login dengan Google
+FE -> Google: Redirect ke Login Google
+User -> Google: Login dan Beri Izin
+Google -> FE: Redirect balik + Auth Code
+FE -> BE: Kirim Auth Code
+BE -> Google: Tukar Auth Code ke Access Token
+Google --> BE: Kirim Token + User Info
+
+BE -> DB: Cari/Buat User
+BE -> BE: Generate OTT Sesi
+BE -> DB: Simpan OTT
+BE --> FE: Redirect ke Finalisasi Login (dengan OTT)
+FE -> User: Redirect ke URL OTT
+User -> FE: Load halaman OTT
+FE -> BE: Kirim OTT ke Backend
+BE -> DB: Validasi OTT
+alt OTT Valid
+    DB --> BE: OTT Valid
+    BE -> DB: Tandai OTT digunakan
+    BE -> BE: Generate JWT Token
+    BE --> FE: Kirim JWT Token
+    FE --> User: Login Berhasil (akses dashboard)
+else OTT Invalid/Kedaluwarsa
+    DB --> BE: OTT Tidak Valid
+    BE --> FE: Error "Token tidak valid"
+    FE --> User: Pesan Gagal
+end
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+!theme plain
+title Diagram Sekuens Reset Password dengan OTT
+hide footbox
+
+actor "Pengguna" as User
+participant "Frontend" as FE
+participant "Backend" as BE
+participant "Layanan Email" as Email
+database "DB" as DB
+
+User -> FE: Klik "Lupa Password"
+FE -> BE: Kirim Email
+BE -> DB: Cek Email Terdaftar?
+alt Email Valid
+    DB --> BE: Email Ditemukan
+    BE -> BE: Generate OTT Reset
+    BE -> DB: Simpan OTT Reset
+    BE -> Email: Kirim Link Reset
+    Email --> BE: Konfirmasi
+    BE --> FE: Instruksi "Cek email"
+    FE --> User: Tampilkan Pesan
+else Email Tidak Ditemukan
+    DB --> BE: Tidak Ada
+    BE --> FE: Tampilkan Error
+    FE --> User: Pesan Gagal
+end
+
+User -> Email: Klik Link Reset (dengan OTT)
+User -> FE: Redirect ke Form Reset
+FE -> BE: Kirim OTT
+BE -> DB: Validasi OTT
+alt OTT Valid
+    DB --> BE: OTT Valid
+    BE -> DB: Hapus OTT
+    BE --> FE: Izinkan Input Password Baru
+    FE --> User: Form Ubah Password
+
+    User -> FE: Kirim Password Baru
+    FE -> BE: Update Password
+    BE -> DB: Simpan Password Baru
+    DB --> BE: OK
+    BE --> FE: Reset Sukses
+    FE --> User: Pesan Berhasil
+else OTT Invalid
+    DB --> BE: OTT Tidak Valid
+    BE --> FE: Tampilkan Error
+    FE --> User: Pesan Gagal
+end
+@enduml

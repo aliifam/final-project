@@ -1,0 +1,44 @@
+@startuml
+title Diagram Sekuens QR Code IoT (Sinkronisasi Berkala & Validasi Offline)
+
+actor "Pengguna" as User
+participant "Frontend Tamu.id" as Frontend
+participant "Backend Tamu.id" as Backend
+participant "Perangkat IoT @ Pod" as IoTPod
+
+== Fase Sinkronisasi Data QR Berkala (Backend <=> IoT) ==
+loop Sinkronisasi Setiap X Menit/Jam
+    IoTPod -> Backend: Request Data QR Valid & Latest Codes\n(Query Param: device_code)
+    Backend -> Backend: Ambil Daftar QR Aktif & Masa Berlakunya untuk Device Code
+    Backend -> Backend: **Update/Generate 'next_code' untuk pod ini** \n**(Berdasarkan checkin setelahnya, atau default)**
+    Backend -> IoTPod: Response: Daftar QR & Timestamp 'until' \n (Termasuk 'next_code' terbaru untuk pod)\n (Contoh JSON: {"qr": [{"until": "...", "value": "current_code"}, {"until": "...", "value": "next_code"}])
+    IoTPod -> IoTPod: Simpan/Update Daftar QR Valid Lokal
+end
+
+== Fase Pengguna Mendapatkan QR Code (Setelah Check-in Online) ==
+User -> Frontend: Proses Check-in Online Selesai
+Frontend -> Backend: Minta QR Code untuk checkin Terkonfirmasi
+Backend -> Backend: **Identifikasi 'next_code' dari checkin sebelumnya**
+Backend -> Backend: **Generate QR Code untuk Pengguna Ini** \n**(Menggunakan 'next_code' dari checkin sebelumnya**
+Backend -> Backend: **Generate 'next_code' untuk Pengguna Selanjutnya** \n**(Disiapkan untuk checkin setelahnya, akan disinkronisasi ke IoT)**
+Backend -> Frontend: Kirim QR Code (untuk Pengguna saat ini)
+Frontend -> User: Tampilkan QR Code
+
+== Fase Akses Pod (Validasi Offline di IoT) ==
+User -> IoTPod: Hadapkan QR Code ke Scanner IoT
+IoTPod -> IoTPod: Pindai & Ekstrak Data QR Code ("value")
+IoTPod -> IoTPod: Validasi Lokal: \n 1. Cocokkan "value" QR dengan daftar lokal. \n 2. Jika cocok, cek timestamp "until". \n 3. **(Logika: Jika "value" adalah 'next_code' lokal, validasi)**
+
+alt Akses Diberikan (QR Valid & Belum Kedaluwarsa/Sesuai Logika)
+    IoTPod -> IoTPod: Buka Kunci Pintu Pod
+    IoTPod -> User: Indikasi Pintu Terbuka
+else Akses Ditolak
+    IoTPod -> User: Indikasi Gagal Akses
+end
+
+IoTPod -> IoTPod: Catat Log Akses (Lokal)
+
+opt IoT Device Online (Pada Interval Tertentu atau Saat Terhubung Kembali)
+    IoTPod -> Backend: Kirim Log Akses yang Tersimpan
+end
+@enduml

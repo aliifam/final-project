@@ -1,7 +1,71 @@
-\subsection{Analisis Implementasi Oauth2 Google dengan One Time Token (OTT)}
+\subsection{Analisis Implementasi OAuth2 Google dengan One Time Token (OTT)}
 
+Sistem autentikasi dan otorisasi modern harus menghadapi tantangan memastikan keaslian pengguna sekaligus menyediakan pengalaman yang mulus. Menggunakan sistem konvensional seperti email dan kata sandi seringkali menimbulkan hambatan, seperti pengguna harus mengingat kata sandi baru dan menunggu email verifikasi yang berpotensi masuk ke folder spam. Selain itu, pendekatan ini memakan biaya untuk layanan email dan memerlukan strategi terpisah untuk fitur lupa atau ganti kata sandi. Untuk mengatasi isu-isu ini, penulis menganalisis implementasi OAuth2 Google sebagai alternatif, namun tetap mempertahankan opsi autentikasi konvensional untuk mengakomodasi pengguna tanpa akun Google.
 
+Oleh karena itu, penulis memadukan strategi One Time Token (OTT) untuk menjembatani kedua sistem autentikasi ini ke dalam satu alur yang kohesif. Pendekatan ini memungkinkan pengguna untuk mendaftar atau masuk menggunakan sistem konvensional maupun langsung dengan akun Google mereka secara seamless. Diagram implementasi OAuth2 Google dengan One Time Token (OTT), yang menunjukkan alur otorisasi dan penggunaan OTT untuk finalisasi sesi, dapat dilihat pada Gambar \ref{fig:diagram_oauth_ott}.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab4/oauth.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram implementasi OAuth2 Google dengan One Time Token (OTT)}
+    \label{fig:diagram_oauth_ott}
+\end{figure}
+
+Implementasi One Time Token (OTT) pada pendaftaran pengguna konvensional diilustrasikan secara detail pada Gambar \ref{fig:diagram_signup_ott}. Diagram ini secara spesifik menampilkan proses verifikasi email yang mengandalkan OTT untuk mengaktifkan akun pengguna baru, memberikan pengalaman registrasi yang lebih efisien dan aman.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab4/signup.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram implementasi One Time Token (OTT) pada pendaftaran pengguna}
+    \label{fig:diagram_signup_ott}
+\end{figure}
+
+OTT ini selanjutnya dipadukan dengan JWT (\textit{JSON Web Token}), yang berfungsi sebagai produk akhir dari proses autentikasi dan menjadi kunci utama untuk otorisasi setelah pengguna berhasil masuk. Fleksibilitas OTT juga diperluas untuk mengatasi masalah lupa kata sandi. Diagram implementasi Lupa Kata Sandi dengan One Time Token (OTT) disajikan pada Gambar \ref{fig:diagram_fp_ott}. Diagram ini menguraikan langkah-langkah pengguna dalam mereset kata sandi dengan aman menggunakan mekanisme OTT, memastikan keamanan dan kenyamanan di seluruh siklus hidup autentikasi.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab4/fp.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram implementasi Lupa Kata Sandi dengan One Time Token (OTT)}
+    \label{fig:diagram_fp_ott}
+\end{figure}
 
 \subsection{Analisis Integrasi QRIS dengan Backend Sistem}
 
+QRIS dipilih sebagai metode pembayaran utama karena menawarkan biaya transaksi terendah (hanya 0,7\% tanpa minimal transaksi) di antara semua platform pembayaran yang terintegrasi dengan payment gateway Midtrans. Keunggulan ini secara otomatis meningkatkan profitabilitas bagi bisnis dan efisiensi bagi pengguna. Selain itu, QRIS telah mencakup hampir semua kanal pembayaran di Indonesia, menghemat waktu dan sumber daya dalam proses pengembangan. Tantangan utama setelah pembayaran berhasil adalah bagaimana sistem backend dapat menerima notifikasi dan memperbarui status transaksi secara otomatis, mengingat hanya server QRIS yang pertama kali mengetahui keberhasilan pembayaran.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab4/midtrans.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram implementasi Webhook pada Midtrans}
+    \label{fig:midtrans_bab4}
+\end{figure}
+
+Untuk mengatasi hal tersebut, implementasi \textit{Webhook} menjadi solusi krusial. \textit{Webhook} akan secara otomatis mengirimkan notifikasi \textit{real-time} ke sistem backend segera setelah pembayaran berhasil. Ini memungkinkan sistem backend untuk langsung memperbarui status pembayaran tanpa intervensi manual, sehingga pengguna tidak perlu menunggu lama untuk mendapatkan konfirmasi. Pendekatan berbasis \textit{Webhook} ini secara signifikan meningkatkan efisiensi dan otomatisasi keseluruhan proses pembayaran, baik dari sisi operasional backend maupun pengalaman pengguna. Diagram teknis sekuensial implementasi \textit{Webhook} dapat dilihat pada Gambar \ref{fig:midtrans_bab4}.
+
 \subsection{Analisis \textit{Offline Fault Tolerance} pada \textit{Hardware IoT}}
+
+Ketika pengguna melakukan \textit{Check-in}, sistem akan mengirimkan QR Code yang berfungsi sebagai kunci digital untuk membuka pintu Pod. Tantangan muncul ketika hardware IoT pada pintu Pod harus tetap berfungsi optimal bahkan saat koneksi internet terputus sesaat. Jika hardware IoT selalu bergantung pada koneksi online untuk memvalidasi setiap kunci baru, ini akan menciptakan kerentanan terhadap \textit{offline fault tolerance} dan dapat menyebabkan keterlambatan atau kegagalan akses. Oleh karena itu, analisis mendalam terhadap integrasi ini diperlukan untuk memastikan reliabilitas kunci digital dalam kondisi offline.
+
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab4/oft.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Diagram implementasi Webhook pada Midtrans}
+    \label{fig:oft_bab4}
+\end{figure}
+
+Untuk mencapai sifat \textit{Offline Fault Tolerance} tersebut, penulis mengimplementasikan struktur data \textit{Customized LinkedList} dengan \textit{Unix Timestamp} langsung pada hardware IoT. Desain ini memungkinkan hardware untuk menyimpan dan memvalidasi daftar QR Code kunci yang valid secara lokal, lengkap dengan batas waktu berlakunya yang presisi. Dengan demikian, ketika pengguna melakukan \textit{Check-in} dan menerima QR Code, mereka dapat segera menggunakannya untuk membuka pintu Pod secara \textit{seamless} tanpa penundaan, bahkan jika Pod sedang dalam kondisi offline sesaat. Mekanisme teknis integrasi backend dengan hardware IoT, serta alur yang terjadi ketika pengguna melakukan \textit{Check-in}, dijelaskan lebih lanjut dalam diagram sekuensial pada Gambar \ref{fig:oft_bab4}. Gambaran struktur data ini dapat dilihat pada Gambar \ref{lst:hardware-strukdat}.

@@ -1,0 +1,39 @@
+@startuml
+!theme plain
+title Diagram Sekuens Integrasi QRIS Midtrans
+
+actor "Pengguna" as User
+participant "Frontend Tamu.id" as Frontend
+participant "Backend Tamu.id" as Backend
+participant "Midtrans API Server" as MidtransServer
+actor "Aplikasi Pembayaran User" as UserPaymentApp
+
+User -> Frontend: Selesaikan Booking & Pilih Pembayaran QRIS
+Frontend -> Backend: Request Pembuatan Transaksi Pembayaran
+Backend -> Backend: Buat Booking di DB (Status: "Pending Pembayaran") \n //Optimistic Locking, Pod ditahan sementara//
+Backend -> MidtransServer: Buat Transaksi QRIS (Order ID, Amount, \nExpiry: 60 Menit)
+MidtransServer -> Backend: Kirim Data QRIS (QR String/URL, ID Transaksi, \nInfo Waktu Kedaluwarsa)
+Backend -> Frontend: Teruskan Data QRIS & Info Waktu Kedaluwarsa
+
+Frontend -> User: Tampilkan Kode QRIS & Timer Pembayaran (60 Menit)
+User -> UserPaymentApp: Pindai Kode QRIS & Konfirmasi Pembayaran
+
+alt Pembayaran Berhasil (dalam 60 Menit)
+    UserPaymentApp -> MidtransServer: (Melalui Jaringan QRIS) Proses Pembayaran
+    ' Asumsi proses di jaringan QRIS dan notifikasi ke Midtrans berhasil
+    MidtransServer -> Backend: Kirim Notifikasi Pembayaran Sukses (HTTP Webhook)
+    Backend -> Backend: Verifikasi Notifikasi & Update Status Transaksi di DB
+    Backend -> Backend: Update Status Booking di DB menjadi "Terkonfirmasi"
+    opt Notifikasi Tambahan
+        Backend -> Frontend: Update Status Pembayaran di UI
+    end
+else Pembayaran Gagal atau Waktu Habis (setelah 60 Menit)
+    MidtransServer -> Backend: Kirim Notifikasi Pembayaran Gagal/Kedaluwarsa (Webhook) \n //Atau Backend Cek Status Periodik//
+    Backend -> Backend: Verifikasi Notifikasi & Update Status Transaksi di DB
+    Backend -> Backend: Update Status Booking di DB menjadi "Dibatalkan" / "Kedaluwarsa" \n //Pod dilepaskan kembali//
+    opt Notifikasi Tambahan
+        Backend -> Frontend: Update Status Pembayaran di UI
+    end
+end
+
+@enduml

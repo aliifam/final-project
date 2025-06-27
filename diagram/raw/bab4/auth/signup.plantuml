@@ -1,0 +1,43 @@
+@startuml
+!theme plain
+title Diagram Sekuens Registrasi dengan Verifikasi Email (OTT)
+hide footbox
+
+actor "Pengguna" as User
+participant "Frontend" as FE
+participant "Backend" as BE
+database "DB" as DB
+participant "Layanan Email" as Email
+
+User -> FE: Isi Form Registrasi
+FE -> BE: Kirim Data Registrasi
+BE -> DB: Cek Email Sudah Terdaftar?
+alt Email Belum Terdaftar
+    DB --> BE: Email Tersedia
+    BE -> DB: Simpan Data User (status: belum aktif)
+    BE -> BE: Generate OTT
+    BE -> DB: Simpan OTT (tertaut ke user, expired)
+    BE -> Email: Kirim Email Verifikasi
+    Email --> BE: Konfirmasi Email Terkirim
+    BE --> FE: Respon "Cek email untuk verifikasi"
+    FE --> User: Tampilkan pesan sukses
+else Email Sudah Terdaftar
+    DB --> BE: Email Sudah Ada
+    BE --> FE: Tampilkan pesan error
+end
+
+User -> Email: Buka Email dan Klik Link Verifikasi (dengan OTT)
+User -> FE: Redirect ke halaman verifikasi dengan OTT
+FE -> BE: Kirim OTT Verifikasi
+BE -> DB: Validasi OTT
+alt OTT Valid & Aktif
+    DB --> BE: OTT Valid
+    BE -> DB: Aktivasi Akun / Hapus OTT
+    BE --> FE: Respon Sukses
+    FE --> User: Akun Aktif, Silakan Login
+else OTT Invalid/Kedaluwarsa
+    DB --> BE: OTT Tidak Valid
+    BE --> FE: Tampilkan Error
+    FE --> User: Pesan Gagal
+end
+@enduml
