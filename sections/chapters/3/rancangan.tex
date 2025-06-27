@@ -76,7 +76,7 @@ Pada bagian ini analisis kebutuhan Non Fungsional dilakukan untuk menentukan keb
 
 \subsection{Pengembangan Sistem}
 
-Pengambangan sistem Tamu.id dilakukan dengan menggunakan pendekatan \textit{Agile} dengan metode \textit{Kanban}. Pendekatan ini dipilih karena memungkinkan penulis untuk melakukan pengembangan sistem secara iteratif dan inkremental, sehingga dapat dengan cepat menyesuaikan diri dengan perubahan kebutuhan yang mungkin terjadi selama proses pengembangan. Pengembangan sistem dilakukan dalam beberapa tahap, yaitu perencanaan, pengembangan, pengujian, dan peluncuran.
+Pengambangan sistem Tamu.id dilakukan dengan menggunakan filosofi \textit{Agile} dengan metode \textit{Kanban}. Pendekatan ini dipilih karena memungkinkan penulis untuk melakukan pengembangan sistem secara iteratif dan inkremental, sehingga dapat dengan cepat menyesuaikan diri dengan perubahan kebutuhan yang mungkin terjadi selama proses pengembangan. Pengembangan sistem dilakukan dalam beberapa tahap, yaitu perencanaan, pengembangan, pengujian, dan peluncuran.
 
 \section{Rancangan Sistem}
 
@@ -85,27 +85,6 @@ Pada tahap ini penulis melakukan proses perancangan sistem berdasarkan kebutuhan
 \input{sections/chapters/3/diagram/ucd.tex}
 \input{sections/chapters/3/diagram/ad.tex}
 \input{sections/chapters/3/diagram/erd.tex}
-
-
-\subsection{Pengujian Sistem}
-
-Pengujian sistem dilakukan untuk memastikan bahwa sistem Tamu.id berfungsi sesuai dengan kebutuhan yang telah ditentukan. Pengujian ini mencakup beberapa jenis pengujian, yaitu pengujian fungsional, pengujian keamanan, pengujian performa, dan pengujian penerimaan pengguna.
-
-\subsubsection{Pengujian Black Box}
-
-Pengujian black box dilakukan untuk menguji fungsionalitas sistem tanpa memperhatikan struktur internalnya. Pengujian ini dilakukan dengan menggunakan skenario pengujian yang telah disusun berdasarkan kebutuhan fungsional yang telah dianalisis sebelumnya. Pengujian ini mencakup pengujian pada setiap fitur yang ada dalam sistem, seperti pendaftaran pengguna, pemesanan tiket, checkin, checkout, dan lain-lain.
-
-\input{sections/chapters/3/tables/bb.tex}
-
-% \subsubsection{Pengujian Beban \textit{(Load Testing)}}
-
-% Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi yang realistis dalam skenario pada tahap produksi aplikasi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6, sebuah tool uji beban \textit{open-source}, untuk mensimulasikan aktivitas sejumlah besar pengguna secara bersamaan, Tujuan utama dari pengujian ini adalah untuk mengukur waktu respons sistem \textit{(response time)}, throughput, dan tingkat kegagalan \textit{(failure rate)}. Skenario pengujian akan berfokus pada endpoint-endpoint kritis aplikasi yang diharapkan menerima beban paling tinggi. Untuk studi ini, akan disimulasikan skenario di mana pengguna melakukan permintaan data cabang dan melakukan pencarian ketersediaan jenis pod pada cabang tertentu.
-
-\subsubsection{User Acceptance Testing}
-
-Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi kebutuhan dan harapan pengguna. Pengujian ini melibatkan pengguna akhir yang akan menggunakan sistem Tamu.id untuk melakukan berbagai aktivitas seperti pemesanan tiket, checkin, checkout, dan lain-lain. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna. Penilaian dilakukan berdasarkan  lima parameter dalam skala \textit{Likert} yaitu Sangat Tidak Setuju(STS), Tidak Setuju (TS), Netral (N), Setuju (S), dan Sangat Setuju (SS).
-
-\input{sections/chapters/3/tables/uat.tex}
 
 \subsection{Ilustrasi Implementasi  \textit{Offline Fault Tolerance} pada rotasi Kunci Pod}
 
@@ -157,6 +136,8 @@ Ilustrasi integrasi \textit{passwordless} dengan OAuth2 Google dilakukan untuk m
 
 \subsection{Peluncuran Aplikasi \textit{(Deployment)}}
 
+Peluncuran aplikasi Tamu.id dilakukan setelah semua tahap pengembangan, pengujian, dan perbaikan bug selesai. Aplikasi ini diluncurkan ke lingkungan produksi dengan menggunakan layanan cloud seperti Google Cloud Platform (GCP) untuk memastikan ketersediaan, skalabilitas, dan keamanan sistem. Proses peluncuran meliputi konfigurasi server, pengaturan basis data, dan pengaturan keamanan untuk memastikan bahwa aplikasi dapat berjalan dengan baik di lingkungan produksi. Pada gambar \ref{fig:oth_deploy} dapat dilihat arsitektur peluncuran aplikasi Tamu.id yang mencakup berbagai komponen seperti server, basis data, dan layanan cloud yang digunakan untuk mendukung operasional aplikasi.
+
 \begin{landscape}
     \begin{figure}[H]
         \centering
@@ -169,4 +150,22 @@ Ilustrasi integrasi \textit{passwordless} dengan OAuth2 Google dilakukan untuk m
     \end{figure}
 \end{landscape}
 
-Peluncuran aplikasi Tamu.id dilakukan setelah semua tahap pengembangan, pengujian, dan perbaikan bug selesai. Aplikasi ini diluncurkan ke lingkungan produksi dengan menggunakan layanan cloud seperti Google Cloud Platform (GCP) untuk memastikan ketersediaan, skalabilitas, dan keamanan sistem. Proses peluncuran meliputi konfigurasi server, pengaturan basis data, dan pengaturan keamanan untuk memastikan bahwa aplikasi dapat berjalan dengan baik di lingkungan produksi. Pada gambar \ref{fig:oth_deploy} dapat dilihat arsitektur peluncuran aplikasi Tamu.id yang mencakup berbagai komponen seperti server, basis data, dan layanan cloud yang digunakan untuk mendukung operasional aplikasi.
+\subsection{Pengujian Sistem}
+
+Pengujian sistem dilakukan untuk memastikan bahwa sistem Tamu.id berfungsi sesuai dengan kebutuhan yang telah ditentukan. Pengujian ini mencakup beberapa jenis pengujian, yaitu pengujian fungsional, pengujian keamanan, pengujian performa, dan pengujian penerimaan pengguna.
+
+\subsubsection{Pengujian Black Box}
+
+Pengujian black box dilakukan untuk menguji fungsionalitas sistem tanpa memperhatikan struktur internalnya. Pengujian ini dilakukan dengan menggunakan skenario pengujian yang telah disusun berdasarkan kebutuhan fungsional yang telah dianalisis sebelumnya. Pengujian ini mencakup pengujian pada setiap fitur yang ada dalam sistem, seperti pendaftaran pengguna, pemesanan tiket, checkin, checkout, dan lain-lain, pengujian dilakuakn untuk tiga peran pengguna yaitu pada tabel \ref{tabel:rancangan_bb_user} untuk pengguna, tabel \ref{tabel:rancangan_bb_admin} untuk admin cabang, dan tabel \ref{tabel:rancangan_bb_superadmin} untuk superadmin. Pengujian ini dilakukan untuk memastikan bahwa setiap fitur berfungsi sesuai dengan yang diharapkan dan tidak ada bug yang ditemukan.
+
+\input{sections/chapters/3/tables/bb.tex}
+
+% \subsubsection{Pengujian Beban \textit{(Load Testing)}}
+
+% Pengujian beban dilakukan untuk mengukur performa sistem dalam kondisi beban tinggi yang realistis dalam skenario pada tahap produksi aplikasi. Pengujian ini dilakukan dengan menggunakan alat pengujian beban K6, sebuah tool uji beban \textit{open-source}, untuk mensimulasikan aktivitas sejumlah besar pengguna secara bersamaan, Tujuan utama dari pengujian ini adalah untuk mengukur waktu respons sistem \textit{(response time)}, throughput, dan tingkat kegagalan \textit{(failure rate)}. Skenario pengujian akan berfokus pada endpoint-endpoint kritis aplikasi yang diharapkan menerima beban paling tinggi. Untuk studi ini, akan disimulasikan skenario di mana pengguna melakukan permintaan data cabang dan melakukan pencarian ketersediaan jenis pod pada cabang tertentu.
+
+\subsubsection{User Acceptance Testing}
+
+Pengujian penerimaan pengguna dilakukan untuk memastikan bahwa sistem memenuhi kebutuhan dan harapan pengguna. Pengujian ini melibatkan pengguna akhir yang akan menggunakan sistem Tamu.id untuk melakukan berbagai aktivitas seperti pemesanan tiket, checkin, checkout, dan lain-lain. Tujuan dari pengujian ini adalah untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna. Penilaian dilakukan berdasarkan  lima parameter dalam skala \textit{Likert} yaitu Sangat Tidak Setuju(STS), Tidak Setuju (TS), Netral (N), Setuju (S), dan Sangat Setuju (SS), pengujian ini dilakukan untuk tiga peran pengguna yaitu pada tabel \ref{tabel:uat_user} untuk pengguna, tabel \ref{tabel:uat_admin_cabang} untuk admin cabang, dan tabel \ref{tabel:uat_superadmin} untuk superadmin. Pengujian ini dilakukan untuk memastikan bahwa sistem mudah digunakan, intuitif, dan memenuhi kebutuhan pengguna.
+
+\input{sections/chapters/3/tables/uat.tex}

@@ -1,0 +1,43 @@
+@startuml
+skinparam style strictuml
+
+actor User as user
+participant "Browser" as browser
+participant "Client Application\n(Backend)" as client_backend
+participant "Google OAuth 2.0\nAuthorization Server" as google_auth
+participant "Google Resource Server\n(e.g., Google People API)" as google_resource
+
+title OAuth 2.0 Login with Google (Standard Authorization Code Flow)
+
+user -> browser: 1. Mengakses halaman login aplikasi
+
+browser -> client_backend: 2. Meminta URL otorisasi Google
+note right of client_backend: Backend membuat URL otorisasi\ndengan parameter seperti client_id,\nredirect_uri, scope, response_type=code,\nstate, dan code_challenge (PKCE)
+
+client_backend --> browser: 3. Mengarahkan ke URL otorisasi Google
+
+browser -> google_auth: 4. Pengguna diarahkan ke Google\nuntuk otentikasi dan otorisasi
+note right of google_auth: Pengguna login ke akun Google mereka\ndan memberikan izin kepada aplikasi.
+
+google_auth --> browser: 5. Mengarahkan kembali ke redirect_uri\ndengan authorization_code dan state
+
+browser -> client_backend: 6. Mengirim authorization_code dan state
+
+client_backend -> google_auth: 7. Menukarkan authorization_code\ndengan access_token dan id_token\n(menggunakan code_verifier jika PKCE digunakan)
+note right of google_auth: Verifikasi authorization_code dan\nparameter lainnya. Jika valid, berikan token.
+
+google_auth --> client_backend: 8. Mengirim access_token, id_token,\ndan refresh_token (opsional)
+
+client_backend -> client_backend: 9. Memvalidasi id_token dan\nmembuat/mengidentifikasi pengguna lokal
+
+client_backend -> google_resource: 10. (Opsional) Menggunakan access_token\nuntuk mengambil data pengguna tambahan dari Google API
+
+google_resource --> client_backend: 11. (Opsional) Mengirim data pengguna tambahan
+
+client_backend -> client_backend: 12. Membuat sesi pengguna di aplikasi
+
+client_backend --> browser: 13. Mengarahkan pengguna ke halaman utama aplikasi\n(atau mengirim token sesi ke browser)
+
+browser -> user: 14. Pengguna berhasil login ke aplikasi
+
+@enduml

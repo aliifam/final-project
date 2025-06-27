@@ -20,11 +20,21 @@ Perkembangan teknologi web, seperti HTML5, CSS3, dan JavaScript, telah memungkin
 \subsection{OAuth 2.0}
 OAuth 2.0 adalah protokol otorisasi yang dirancang untuk memberikan akses terbatas ke sumber daya pengguna di server tanpa perlu membagikan kredensial mereka secara langsung \cite{hardt2012}. Protokol ini biasanya digunakan dalam aplikasi web, perangkat mobile, dan layanan pihak ketiga lainnya.
 
-Prinsip kerja OAuth 2.0 melibatkan beberapa entitas, yaitu resource owner (pemilik sumber daya), client (aplikasi pihak ketiga), authorization server (server otorisasi), dan resource server (server sumber daya). Dalam skenario OAuth 2.0, pengguna memberikan izin kepada aplikasi pihak ketiga untuk mengakses data mereka melalui token akses yang diterbitkan oleh server otorisasi.
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab2/oauth.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Ilustrasi Protokol OAuth 2.0}
+    \label{fig:oauth}
+\end{figure}
+
+Seperti pada gambar \ref{fig:oauth}, prinsip kerja OAuth 2.0 melibatkan beberapa entitas, yaitu resource owner (pemilik sumber daya), client (aplikasi pihak ketiga), authorization server (server otorisasi), dan resource server (server sumber daya). Dalam skenario OAuth 2.0, pengguna memberikan izin kepada aplikasi pihak ketiga untuk mengakses data mereka melalui token akses yang diterbitkan oleh server otorisasi.
 
 OAuth 2.0 sering digunakan oleh platform besar seperti Google, Facebook, dan GitHub untuk memungkinkan integrasi dengan layanan mereka. Keamanan dalam OAuth 2.0 sangat bergantung pada implementasi yang benar, termasuk penggunaan HTTPS, pengelolaan token dengan benar, dan mitigasi serangan seperti CSRF.
 
-\subsection{Webhook}
+\subsection{\textit{Webhook}}
 Webhook adalah mekanisme komunikasi antara server yang memungkinkan pemberitahuan secara real-time melalui HTTP POST ketika suatu peristiwa tertentu terjadi \cite{jain2021}. Webhook sering digunakan dalam pengintegrasian aplikasi untuk memastikan data tetap sinkron tanpa perlu polling terus-menerus.
 
 Dalam praktiknya, webhook bekerja dengan cara mengirimkan payload berupa data JSON atau XML ke URL tertentu yang telah ditentukan oleh pengguna. Misalnya, layanan pembayaran online dapat menggunakan webhook untuk memberi tahu merchant ketika pembayaran berhasil dilakukan.
@@ -35,7 +45,17 @@ Keuntungan utama webhook adalah efisiensi karena server hanya mengirimkan data s
 
 REST API (Representational State Transfer Application Programming Interface) adalah arsitektur layanan web yang dirancang untuk mendukung komunikasi antara klien dan server melalui protokol HTTP. REST diperkenalkan oleh Roy Fielding dalam disertasinya pada tahun 2000, dengan prinsip utama bahwa setiap sumber daya pada server diidentifikasi melalui URI (Uniform Resource Identifier) \cite{fielding2000}.
 
-REST API memanfaatkan metode HTTP seperti GET, POST, PUT, dan DELETE untuk melakukan operasi pada sumber daya. Pendekatan ini memungkinkan pengembangan layanan web yang skalabel, sederhana, dan mudah diintegrasikan dengan berbagai platform. REST API banyak digunakan dalam pengembangan aplikasi modern karena sifatnya yang ringan dan kompatibel dengan format data seperti JSON dan XML \cite{richardson2007}, Beberapa karakteristik utama REST API meliputi:
+\begin{figure}[H]
+    \centering
+    \includesvg[
+        width=0.9\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+    ]{diagram/img/bab2/rest.svg} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \caption{Ilustrasi REST API}
+    \label{fig:rest}
+\end{figure}
+
+Seperti pada gambar \ref{fig:rest}, REST API memanfaatkan metode HTTP seperti GET, POST, PUT, dan DELETE untuk melakukan operasi pada sumber daya. Pendekatan ini memungkinkan pengembangan layanan web yang skalabel, sederhana, dan mudah diintegrasikan dengan berbagai platform. REST API banyak digunakan dalam pengembangan aplikasi modern karena sifatnya yang ringan dan kompatibel dengan format data seperti JSON dan XML \cite{richardson2007}, Beberapa karakteristik utama REST API meliputi:
 
 \begin{enumerate}
     \item Client-Server: Memisahkan antara klien dan server, memungkinkan evolusi independen dari kedua komponen.
@@ -46,37 +66,14 @@ REST API memanfaatkan metode HTTP seperti GET, POST, PUT, dan DELETE untuk melak
 
 REST API telah menjadi standar de facto untuk menghubungkan berbagai aplikasi, terutama dalam ekosistem aplikasi berbasis cloud dan microservices \cite{tilkov2010}.
 
-\subsection{SDLC dengan Metode Kanban Board}
+\subsection{\textit{Software Development Life Cycle} dengan Metode \textit{Kanban Board}}
 
-Software Development Life Cycle (SDLC) adalah kerangka kerja sistematis yang digunakan untuk merencanakan, mengembangkan, menguji, dan memelihara perangkat lunak. Dalam konteks ini, metode Kanban Board digunakan sebagai alat untuk mengelola alur kerja dalam setiap tahap SDLC.
+\textit{Software Development Life Cycle} (SDLC) adalah kerangka kerja sistematis untuk merencanakan, membangun, menguji, dan memelihara perangkat lunak. Dalam penelitian ini, alur kerja pengembangan dikelola menggunakan metode \textit{Kanban Board}, yang merupakan bagian dari pendekatan \textit{Agile}. Dengan demikian, proses pengembangan mengikuti prinsip \textit{Agile}, terutama dalam hal fleksibilitas, visibilitas progres, dan perbaikan berkelanjutan.
 
-Kanban Board adalah pendekatan visual untuk mengatur tugas, yang memanfaatkan papan dengan kolom-kolom yang merepresentasikan status pekerjaan, seperti To Do, In Progress, dan Done. Metode ini bertujuan untuk meningkatkan efisiensi, mengurangi pemborosan, dan memberikan visibilitas yang lebih baik terhadap pekerjaan yang sedang berlangsung \cite{anderson2010}, Elemen Kunci Kanban Board dalam SDLC meliputi:
+\textit{Kanban Board} menyediakan pendekatan visual dalam mengelola tugas melalui tiga kolom utama: \textit{To Do}, \textit{In Progress}, dan \textit{Complete}. Setiap tugas direpresentasikan sebagai kartu yang berpindah antar kolom sesuai dengan statusnya. Pendekatan ini membantu membatasi pekerjaan yang berjalan sekaligus (\textit{Work In Progress/WIP}), menjaga aliran kerja yang berkelanjutan, serta memberikan transparansi terhadap progres proyek \cite{anderson2010}.
 
-\begin{itemize}
-    \item Visualisasi Alur Kerja : Setiap tugas direpresentasikan sebagai kartu yang bergerak melintasi kolom sesuai dengan statusnya.
-    \item Limitasi Work In Progress (WIP) : Membatasi jumlah pekerjaan yang dapat dikerjakan secara bersamaan untuk menghindari multitasking berlebihan.
-    \item Aliran yang Berkesinambungan : Mendukung aliran pekerjaan yang stabil dari satu tahap ke tahap berikutnya dalam SDLC.
-    \item Perbaikan Berkesinambungan : Retrospektif dilakukan secara berkala untuk mengevaluasi proses kerja dan mengidentifikasi peluang peningkatan.
-    \item Tahapan SDLC dengan Kanban Board : Perencanaan, Pengembangan, Pengujian, Penerapan dan Pemeliharaan.
-          \begin{itemize}
-              \item Perencanaan : Tugas seperti pengumpulan kebutuhan dan perancangan sistem ditambahkan ke kolom To Do.
-              \item Pengembangan : Tugas pengkodean dipindahkan ke kolom In Progress.
-              \item Pengujian : Setelah pengembangan selesai, kartu tugas dipindahkan ke kolom Testing.
-              \item Penerapan dan Pemeliharaan : Setelah lulus pengujian, tugas dipindahkan ke kolom Done.
-              \item Selama fase pemeliharaan, bug atau perubahan baru ditambahkan kembali ke alur kerja.
-          \end{itemize}
-\end{itemize}
+Penerapan \textit{Kanban Board} dalam SDLC dilakukan secara bertahap, dimulai dari penempatan aktivitas seperti analisis kebutuhan dan perancangan sistem pada kolom \textit{To Do}, pengembangan fitur pada \textit{In Progress}, hingga penyelesaian tugas yang dipindahkan ke kolom \textit{Complete}. Skema ini mendukung iterasi yang adaptif serta memudahkan pemantauan dan pengendalian proyek \textit{Agile} secara sederhana namun efektif \cite{burrows2014}.
 
-Metode Kanban Board dalam SDLC memberikan fleksibilitas dan visibilitas tinggi terhadap kemajuan proyek, menjadikannya pilihan yang ideal untuk proyek yang dinamis atau berbasis Agile \cite{burrows2014}.
-
-
-\subsection{Latex Workshop (VSCode Extension)}
-
-Penulis menggunakan Latex Workshop di VSCode untuk membuat dokumen proyek akhir ini. Latex Workshop adalah ekstensi Visual Studio Code yang memungkinkan pengguna untuk menulis dan mengelola dokumen Latex dengan mudah. Ekstensi ini menyediakan berbagai fitur seperti penyorotan sintaks, kompilasi otomatis, dan tampilan pratinjau yang mempermudah pengguna dalam menulis dokumen Latex.
-
-\subsection{Draw.io (VSCode Extension)}
-
-Karena penulis menggunakan Latex Workshop di VSCode untuk membuat dokumen proyek akhir ini, penulis menggunakan ekstensi Draw.io pada Visual Studio Code untuk membuat diagram alur. Draw.io adalah aplikasi web open-source yang memungkinkan pengguna untuk membuat diagram secara bebas dan mudah. Ekstensi Draw.io pada Visual Studio Code memungkinkan pengguna untuk membuat dan mengedit diagram alur langsung dari editor kode sumber.
 
 \subsection{Unified Modeling Language (UML)}
 

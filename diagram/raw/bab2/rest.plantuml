@@ -1,0 +1,37 @@
+@startuml
+skinparam style strictuml
+
+actor User as user
+participant "Frontend Client\n(Web Browser / Mobile App)" as fe_client
+box "Backend Infrastructure" #LightBlue
+    participant "REST API Service" as backend
+    database "Database" as db
+end box
+
+title Sequential Flow of a REST API Request
+
+user -> fe_client: 1. Berinteraksi dengan UI (mis. Klik tombol "Lihat Produk")
+
+fe_client -> backend: 2. Permintaan HTTP (GET /products)\n<size:12><i>(Melalui Internet)</i></size>
+note right of fe_client: Frontend membuat dan mengirimkan\npermintaan RESTful ke backend.
+
+backend -> backend: 3. Validasi Permintaan & Logika Bisnis
+note right of backend: Memastikan permintaan valid dan menentukan\noperasi yang diperlukan.
+
+backend -> db: 4. Query Database (SELECT * FROM products)
+note right of db: Backend mengambil data yang relevan dari database.
+
+db --> backend: 5. Hasil Query (Data Produk)
+
+backend -> backend: 6. Proses Data & Format Respons
+note left of backend: Mengubah data menjadi format yang sesuai\n(mis. JSON) dan menyiapkan respons HTTP.
+
+backend --> fe_client: 7. Respons HTTP (200 OK, JSON Data)\n<size:12><i>(Melalui Internet)</i></size>
+note left of fe_client: Frontend menerima respons dari backend.
+
+fe_client -> fe_client: 8. Render UI dengan Data
+note right of fe_client: Frontend menampilkan data produk kepada pengguna.
+
+fe_client --> user: 9. Menampilkan Informasi (Daftar Produk)
+
+@enduml

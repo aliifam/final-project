@@ -13,7 +13,6 @@ if admin.role != RoleEnum.SUPERADMIN:
         ]}
         for hotel in hotels
     ]
-
 access_token = create_access_token(identity=admin.id, additional_claims={"role": admin.role.value})
 refresh_token = create_refresh_token(identity=admin.id, additional_claims={"role": admin.role.value})
 # returning all admin data
