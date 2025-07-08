@@ -169,6 +169,45 @@ Entity Relationship Diagram (ERD) digunakan untuk memodelkan struktur data dalam
     \caption{Notasi \textit{Entity Relationship Diagram}}
 \end{longtable}
 
+\subsection{\textit{Deployment Diagram}}
+
+Deployment Diagram digunakan untuk menggambarkan bagaimana perangkat lunak di-deploy pada infrastruktur fisik. Diagram ini menunjukkan node (server, perangkat, atau komponen) dan hubungan antar node tersebut. Setiap node dapat memiliki komponen perangkat lunak yang berjalan di atasnya, serta koneksi jaringan yang menghubungkan berbagai node. Deployment Diagram membantu dalam memahami arsitektur sistem dan bagaimana komponen-komponen perangkat lunak berinteraksi dalam lingkungan produksi.
+
+\begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
+    \hline
+    \textbf{Notasi}                                               & \textbf{Nama}     & \textbf{Keterangan}                                                                                               \\ \hline
+    \endfirsthead
+
+    \hline
+    \textbf{Notasi}                                               & \textbf{Nama}     & \textbf{Keterangan}                                                                                               \\ \hline
+    \endhead
+
+    \hline
+    \endfoot
+
+    \endlastfoot
+
+    \includegraphics[width=0.2\textwidth]{images/dd/node.png}     & \textit{Node}     & Komponen perangkat lunak atau infrastruktur tempat proses aplikasi berjalan \textit{(server, platform, service)}. \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/package.png}  & \textit{Package}  & Digunakan untuk mengelompokkan node/layanan secara logis.                                                         \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/cloud.png}    & \textit{Cloud}    & Representasi layanan berbasis cloud seperti Google Cloud Platform, Internet, dll.                                 \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+
+    \caption{Notasi \textit{Deployment Diagram}}
+\end{longtable}
+
+\subsection{\textit{Sequence Diagram}}
+
+Sequence Diagram digunakan untuk menggambarkan interaksi antar objek dalam suatu sistem berdasarkan urutan waktu. Diagram ini menampilkan objek-objek yang terlibat, pesan yang dikirim antar objek, dan urutan eksekusi pesan tersebut. Sequence Diagram membantu dalam memahami bagaimana objek berinteraksi satu sama lain untuk menyelesaikan suatu fungsi atau skenario tertentu.
+
+
+
 \subsection{Teknologi dan Kakas Pengembangan}
 
 Dalam pengembangan proyek akhir ini, penulis menggunakan beberapa teknologi dan kakas pengembangan yang mendukung proses pengembangan. Beberapa teknologi dan kakas pengembangan yang digunakan antara lain:
