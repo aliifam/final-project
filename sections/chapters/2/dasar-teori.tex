@@ -81,130 +81,257 @@ Unified Modeling Language (UML) merupakan bahasa pemodelan standar yang digunaka
 
 \subsection{\textit{Use Case Diagram}}
 
-\textit{Use case diagram} digunakan untuk memahami interaksi antara sistem dan aktor, yang merupakan entitas eksternal yang berinteraksi dengan sistem tanpa menjadi bagian dari sistem. Diagram ini menggambarkan fungsi-fungsi utama sistem, yang disebut sebagai use case, serta hubungan antara aktor dan use case. Elemen-elemen dalam use case diagram meliputi aktor, use case, dan hubungan yang menghubungkan keduanya, membantu menyederhanakan representasi kebutuhan fungsional sistem \cite{booch2005unified}.
+\textit{Use case diagram} digunakan untuk memahami interaksi antara sistem dan aktor, yang merupakan entitas eksternal yang berinteraksi dengan sistem tanpa menjadi bagian dari sistem. Diagram ini menggambarkan fungsi-fungsi utama sistem, yang disebut sebagai use case, serta hubungan antara aktor dan use case. Elemen-elemen dalam use case diagram meliputi aktor, use case, dan hubungan yang menghubungkan keduanya, membantu menyederhanakan representasi kebutuhan fungsional sistem \cite{booch2005unified}, berikut pada tabel \ref{tab:ucd-diagram} adalah notasi yang digunakan pada use case diagram.
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
+    \caption{Notasi pada \textit{Use Case Diagram}} \label{tab:ucd-diagram}                                                                                                                                \\
     \hline
-    \textbf{Notasi}                                                      & \textbf{Nama}           & \textbf{Keterangan}                                                                                                                                               \\ \hline
+    \textbf{Notasi}                                                      & \textbf{Nama} & \textbf{Keterangan}                                                                                             \\
+    \hline
     \endfirsthead
 
-    \hline
-    \textbf{Notasi}                                                      & \textbf{Nama}           & \textbf{Keterangan}                                                                                                                                               \\ \hline
     \endhead
-
     \hline
     \endfoot
 
     \endlastfoot
 
-    \includegraphics[width=0.2\textwidth]{images/ucd/usecase.png}        & \textit{Use Case}       & Deskripsi serangkaian tindakan yang dilakukan oleh suatu sistem yang menghasilkan efek terukur bagi seorang aktor.                                                \\ \hline
-    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png}          & \textit{Actor}          & Mendefinisikan serangkaian peran yang dimainkan pengguna saat berinteraksi dengan \textit{use case}                                                               \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/association.png}    & \textit{Association}    & Garis menghubungkan satu objek dengan objek lainnya \textit{use case}                                                                                             \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/include.png}        & \textit{Include}        & Menjelaskan secara eksplisit bahwa \textit{use case} adalah sumbernya \textit{use case}                                                                           \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/extend.png}         & \textit{Extend}         & Pada titik tertentu, \textit{use case} target
-    memperluas perilaku \textit{use case} sumber. \textit{use case}                                                                                                                                                                                                    \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/system.png}         & \textit{System}         & Mendefinisikan paket yang membatasi tampilan sistem dalam konteks tertentu.
-    \\ \hline
-    \includegraphics[width=0.2\textwidth]{images/ucd/generalization.png} & \textit{Generalization} & Hubungan antara \textit{use case} yang umum dan \textit{use case} yang khusus, apabila salah satu mempunyai fungsi yang lebih umum dibandingkan dengan yang lain. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ucd/usecase.png}        &
+    \textit{Use Case}                                                    &
+    Mewakili serangkaian langkah atau fungsi yang dijalankan sistem untuk menghasilkan nilai atau hasil yang dirasakan oleh aktor. Digunakan untuk menggambarkan perilaku sistem dari perspektif pengguna. \\
+    \hline
 
-    \caption{Notasi \textit{Use Case Diagram}}
+    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png}          &
+    \textit{Actor}                                                       &
+    Entitas eksternal (manusia atau sistem lain) yang berinteraksi dengan sistem. Aktor menjalankan peran tertentu dalam kaitannya dengan satu atau lebih use case.                                        \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/association.png}    &
+    \textit{Association}                                                 &
+    Garis yang menghubungkan aktor dengan use case untuk menunjukkan adanya interaksi atau komunikasi di antara keduanya.                                                                                  \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/include.png}        &
+    \textit{Include}                                                     &
+    Hubungan yang menunjukkan bahwa suatu use case selalu menyertakan perilaku dari use case lain. Digunakan untuk memecah use case kompleks menjadi bagian yang lebih kecil dan dapat digunakan ulang.    \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/extend.png}         &
+    \textit{Extend}                                                      &
+    Menunjukkan bahwa suatu use case dapat memperluas perilaku use case lain secara opsional, tergantung pada kondisi tertentu. Cocok untuk skenario tambahan atau pengecualian.                           \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/system.png}         &
+    \textit{System Boundary}                                             &
+    Kotak atau bingkai yang membatasi cakupan sistem. Semua use case yang ada di dalamnya merupakan bagian dari sistem yang sedang dimodelkan.                                                             \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/ucd/generalization.png} &
+    \textit{Generalization}                                              &
+    Menggambarkan hubungan pewarisan antar aktor atau use case. Aktor atau use case anak mewarisi perilaku dari induknya, dan dapat menambahkan perilaku khusus.                                           \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/package.png}         &
+    \textit{Package}                                                     &
+    Digunakan untuk mengelompokkan elemen-elemen dalam diagram agar lebih modular, terstruktur, dan mudah dipahami. Cocok saat sistem kompleks dan terdiri dari banyak komponen.                           \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/comment.png}         &
+    \textit{Comment}                                                     &
+    Memberikan penjelasan tambahan atau catatan khusus yang tidak tergambar langsung dari simbol diagram. Membantu dokumentasi dan pemahaman konteks sistem.                                               \\
+    \hline
 \end{longtable}
 
 \subsection{\textit{Activity Diagram}}
 
-Activity diagram digunakan untuk menggambarkan alur kerja atau proses bisnis dalam suatu sistem. Diagram ini menampilkan aktivitas-aktivitas yang dilakukan dan urutan alurnya. Setiap aktivitas merepresentasikan tindakan tertentu yang dilakukan oleh aktor atau sistem. Elemen penting dalam activity diagram meliputi nodes (kegiatan atau tindakan), edges (aliran), decision points, dan forks. Diagram ini sangat bermanfaat untuk menganalisis alur proses dan mengidentifikasi area untuk optimasi \cite{rumbaugh2005uml}.
+Activity diagram digunakan untuk menggambarkan alur kerja atau proses bisnis dalam suatu sistem. Diagram ini menampilkan aktivitas-aktivitas yang dilakukan dan urutan alurnya. Setiap aktivitas merepresentasikan tindakan tertentu yang dilakukan oleh aktor atau sistem. Elemen penting dalam activity diagram meliputi nodes (kegiatan atau tindakan), edges (aliran), decision points, dan forks. Diagram ini sangat bermanfaat untuk menganalisis alur proses dan mengidentifikasi area untuk optimasi \cite{rumbaugh2005uml}, berikut pada tabel \ref{tab:activity-diagram} adalah notasi yang digunakan pada activity diagram.
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
+    \caption{Notasi pada \textit{Activity Diagram}} \label{tab:activity-diagram}                                                                                           \\
     \hline
-    \textbf{Notasi}                                                   & \textbf{Nama}         & \textbf{Keterangan}                                                            \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama} & \textbf{Keterangan}                                                                \\
+    \hline
     \endfirsthead
 
-    \hline
-    \textbf{Notasi}                                                   & \textbf{Nama}         & \textbf{Keterangan}                                                            \\ \hline
     \endhead
-
     \hline
     \endfoot
 
     \endlastfoot
 
-    \includegraphics[width=0.1\textwidth]{images/ad/initial-node.png} & \textit{Initial Node} & Menandakan titik awal dari proses atau alur aktivitas.                         \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ad/initial-node.png} &
+    \textit{Initial Node}                                             &
+    Menandai titik awal dari sebuah proses atau aktivitas dalam diagram. Hanya ada satu initial node dalam satu alur proses.                                               \\
+    \hline
 
-    \includegraphics[width=0.1\textwidth]{images/ad/final-node.png}   & \textit{Final Node}   & Menandakan akhir dari proses atau alur aktivitas.                              \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ad/final-node.png}   &
+    \textit{Final Node}                                               &
+    Menunjukkan titik akhir dari keseluruhan proses. Alur aktivitas berhenti sepenuhnya saat mencapai elemen ini.                                                          \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/ad/activity.png}     & \textit{Activity}     & Menggambarkan aktivitas tertentu dalam proses atau alur kerja.                 \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ad/activity.png}     &
+    \textit{Activity}                                                 &
+    Merepresentasikan satu aksi, langkah, atau tugas spesifik yang dilakukan dalam alur kerja sistem atau pengguna.                                                        \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/ad/condition.png}    & \textit{Condition}    & Menunjukkan keputusan atau kondisi yang menentukan percabangan alur aktivitas. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/ad/condition.png}    &
+    \textit{Decision/Condition}                                       &
+    Menggambarkan percabangan alur berdasarkan kondisi tertentu. Setiap cabang berasal dari keputusan logis (true/false atau pilihan lain).                                \\
+    \hline
 
-    \caption{Notasi \textit{Activity Diagram}}
+    \includegraphics[width=0.2\textwidth]{images/ad/swimlane.png}     &
+    \textit{Swimlane}                                                 &
+    Membagi aktivitas berdasarkan pelaku atau unit yang bertanggung jawab, seperti pengguna, sistem, atau komponen lainnya. Membantu memperjelas siapa yang melakukan apa. \\
+    \hline
 \end{longtable}
+
 
 
 \subsection{\textit{Entities Relationship Diagram (ERD)}}
 
-Entity Relationship Diagram (ERD) digunakan untuk memodelkan struktur data dalam suatu sistem. Diagram ini merepresentasikan entitas, atribut, dan hubungan antar entitas. Entitas biasanya digambarkan sebagai persegi panjang, atribut sebagai elips, dan hubungan sebagai belah ketupat. ERD membantu memvisualisasikan bagaimana data diatur dan dihubungkan, mempermudah perancangan database secara terstruktur \cite{connolly2005database}.
+Entity Relationship Diagram (ERD) digunakan untuk memodelkan struktur data dalam suatu sistem. Diagram ini merepresentasikan entitas, atribut, dan hubungan antar entitas. Entitas biasanya digambarkan sebagai persegi panjang, atribut sebagai elips, dan hubungan sebagai belah ketupat. ERD membantu memvisualisasikan bagaimana data diatur dan dihubungkan, mempermudah perancangan database secara terstruktur \cite{connolly2005database}, berikut pada tabel \ref{tab:erd-diagram} adalah notasi yang digunakan pada ERD.
 
 \begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
+    \caption{Notasi pada \textit{Entity Relationship Diagram (ERD)}} \label{tab:erd-diagram}                                                                                                   \\
     \hline
-    \textbf{Notasi}                                                   & \textbf{Nama}        & \textbf{Keterangan}                                                                  \\ \hline
+    \textbf{Notasi}                                                   & \textbf{Nama} & \textbf{Keterangan}                                                                                    \\
+    \hline
     \endfirsthead
 
-    \hline
-    \textbf{Notasi}                                                   & \textbf{Nama}        & \textbf{Keterangan}                                                                  \\ \hline
     \endhead
-
     \hline
     \endfoot
 
     \endlastfoot
 
-    \includegraphics[width=0.2\textwidth]{images/erd/association.png} & \textit{Association} & Menggambarkan hubungan antara dua entitas dalam model data.                          \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/association.png} &
+    \textit{Association}                                              &
+    Menunjukkan hubungan antara dua entitas dalam sistem. Biasanya digunakan untuk merepresentasikan koneksi logis atau fungsional, seperti "memiliki", "mengelola", atau "terdiri dari".      \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/entity.png}      & \textit{Entity}      & Merepresentasikan objek atau konsep yang memiliki data yang disimpan dalam sistem.   \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/entity.png}      &
+    \textit{Entity}                                                   &
+    Mewakili objek nyata atau abstrak yang memiliki data dan perlu disimpan dalam sistem, seperti pengguna, produk, atau transaksi. Entitas biasanya digambarkan dalam bentuk persegi panjang. \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/attribute.png}   & \textit{Attribute}   & Menunjukkan informasi atau properti yang dimiliki oleh sebuah entitas atau hubungan. \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/erd/attribute.png}   &
+    \textit{Attribute}                                                &
+    Menjelaskan detail atau properti dari suatu entitas atau relasi. Contohnya seperti nama, ID, tanggal, yang semuanya menyimpan nilai spesifik untuk setiap instansi entitas.                \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/erd/relation.png}    & \textit{Relation}    & Menjelaskan hubungan antara dua atau lebih entitas, termasuk kardinalitasnya.        \\ \hline
-
-    \caption{Notasi \textit{Entity Relationship Diagram}}
+    \includegraphics[width=0.2\textwidth]{images/erd/relation.png}    &
+    \textit{Relation}                                                 &
+    Menyatakan hubungan antar entitas, sering kali dilengkapi dengan kardinalitas (1:1, 1:N, N:N) untuk menunjukkan jumlah keterlibatan antar entitas dalam relasi tersebut.                   \\
+    \hline
 \end{longtable}
+
 
 \subsection{\textit{Deployment Diagram}}
 
-Deployment Diagram digunakan untuk menggambarkan bagaimana perangkat lunak di-deploy pada infrastruktur fisik. Diagram ini menunjukkan node (server, perangkat, atau komponen) dan hubungan antar node tersebut. Setiap node dapat memiliki komponen perangkat lunak yang berjalan di atasnya, serta koneksi jaringan yang menghubungkan berbagai node. Deployment Diagram membantu dalam memahami arsitektur sistem dan bagaimana komponen-komponen perangkat lunak berinteraksi dalam lingkungan produksi.
+Deployment Diagram digunakan untuk menggambarkan bagaimana perangkat lunak di-deploy pada infrastruktur fisik. Diagram ini menunjukkan node (server, perangkat, atau komponen) dan hubungan antar node tersebut. Setiap node dapat memiliki komponen perangkat lunak yang berjalan di atasnya, serta koneksi jaringan yang menghubungkan berbagai node. Deployment Diagram membantu dalam memahami arsitektur sistem dan bagaimana komponen-komponen perangkat lunak berinteraksi dalam lingkungan produksi, berikut pada tabel \ref{tab:deployment-diagram} adalah notasi yang digunakan pada deployment diagram.
 
-\begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|>{\centering\arraybackslash}m{0.2\textwidth}|m{0.5\textwidth}|}
+\begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|
+    >{\centering\arraybackslash}m{0.2\textwidth}|
+    m{0.5\textwidth}|}
+    \caption{Notasi pada \textit{Deployment Diagram}} \label{tab:deployment-diagram}                                                                                                                                                                    \\
     \hline
-    \textbf{Notasi}                                               & \textbf{Nama}     & \textbf{Keterangan}                                                                                               \\ \hline
+    \textbf{Notasi}                                               & \textbf{Nama} & \textbf{Keterangan}                                                                                                                                                 \\
+    \hline
     \endfirsthead
-
-    \hline
-    \textbf{Notasi}                                               & \textbf{Nama}     & \textbf{Keterangan}                                                                                               \\ \hline
     \endhead
-
-    \hline
     \endfoot
-
     \endlastfoot
 
-    \includegraphics[width=0.2\textwidth]{images/dd/node.png}     & \textit{Node}     & Komponen perangkat lunak atau infrastruktur tempat proses aplikasi berjalan \textit{(server, platform, service)}. \\ \hline
+    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png}   &
+    \textit{Actor}                                                &
+    Mewakili entitas eksternal, biasanya manusia, yang berinteraksi dengan sistem. Contohnya pengguna, admin, atau operator.                                                                                                                            \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/dd/package.png}  & \textit{Package}  & Digunakan untuk mengelompokkan node/layanan secara logis.                                                         \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/dd/node.png}     &
+    \textit{Node}                                                 &
+    Menunjukkan perangkat keras, layanan, atau komponen logis tempat proses komputasi berjalan, seperti server, container, atau service.                                                                                                                \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/dd/cloud.png}    & \textit{Cloud}    & Representasi layanan berbasis cloud seperti Google Cloud Platform, Internet, dll.                                 \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/dd/package.png}  &
+    \textit{Package}                                              &
+    Mengelompokkan beberapa node atau komponen secara logis untuk menyusun arsitektur sistem secara modular dan terstruktur.                                                                                                                            \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/dd/cloud.png}    &
+    \textit{Cloud}                                                &
+    Representasi abstrak dari layanan berbasis cloud seperti GCP, AWS, Azure, atau Internet yang menjadi penghubung antar layanan.                                                                                                                      \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} &
+    \textit{Artifact}                                             &
+    Hasil build atau unit perangkat lunak yang dideploy, seperti aplikasi frontend, backend, skrip konfigurasi, atau file binary.                                                                                                                       \\
+    \hline
 
-    \includegraphics[width=0.2\textwidth]{images/dd/artifact.png} & \textit{Artifact} & Unit perangkat lunak atau file yang ter-deploy, misalnya \textit{frontend} atau \textit{backend}.                 \\ \hline
+    \includegraphics[width=0.2\textwidth]{images/dd/database.png} &
+    \textit{Database}                                             &
+    Komponen penyimpanan data terstruktur, mewakili sistem manajemen basis data seperti PostgreSQL, MySQL, atau SQLite.                                                                                                                                 \\
+    \hline
 
-    \caption{Notasi \textit{Deployment Diagram}}
+    \includegraphics[width=0.2\textwidth]{images/dd/storage.png}  &
+    \textit{Storage}                                              &
+    Media penyimpanan file atau objek tidak terstruktur, misalnya bucket di Google Cloud Storage, Amazon S3, dan sejenisnya.                                                                                                                            \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/arrow.png}    &
+    \textit{Arrow}                                                &
+    Digunakan untuk menggambarkan hubungan atau komunikasi antar komponen. Panah solid menunjukkan komunikasi langsung (aktif), panah putus-putus untuk akses pasif (misalnya CDN atau asset fetch), dan panah dua arah mewakili interaksi bolak-balik. \\
+    \hline
 \end{longtable}
+
 
 \subsection{\textit{Sequence Diagram}}
 
-Sequence Diagram digunakan untuk menggambarkan interaksi antar objek dalam suatu sistem berdasarkan urutan waktu. Diagram ini menampilkan objek-objek yang terlibat, pesan yang dikirim antar objek, dan urutan eksekusi pesan tersebut. Sequence Diagram membantu dalam memahami bagaimana objek berinteraksi satu sama lain untuk menyelesaikan suatu fungsi atau skenario tertentu.
+Sequence Diagram digunakan untuk menggambarkan interaksi antar objek dalam suatu sistem berdasarkan urutan waktu. Diagram ini menampilkan objek-objek yang terlibat, pesan yang dikirim antar objek, dan urutan eksekusi pesan tersebut. Sequence Diagram membantu dalam memahami bagaimana objek berinteraksi satu sama lain untuk menyelesaikan suatu fungsi atau skenario tertentu, berikut pada tabel \ref{tab:sequence-diagram} adalah notasi yang digunakan pada sequence diagram.
+
+\begin{longtable}{|>{\centering\arraybackslash}m{0.2\textwidth}|
+    >{\centering\arraybackslash}m{0.2\textwidth}|
+    m{0.5\textwidth}|}
+    \caption{Notasi pada \textit{Sequence Diagram}} \label{tab:sequence-diagram}                                                                                                                                                                                       \\
+    \hline
+    \textbf{Notasi}                                                        & \textbf{Nama} & \textbf{Keterangan}                                                                                                                                                       \\
+    \hline
+    \endfirsthead
+    \endhead
+    \endfoot
+    \endlastfoot
+
+    \includegraphics[width=0.1\textwidth]{images/ucd/actor.png}            &
+    \textit{Actor}                                                         &
+    Mewakili entitas eksternal seperti pengguna atau sistem lain yang memicu interaksi dalam proses yang digambarkan.                                                                                                                                                  \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/sd/combined-fragment.png} &
+    \textit{Combined Fragment}                                             &
+    Menyatakan blok kendali alur seperti percabangan, pengulangan, kondisi opsional, dan paralelisme. Label di pojok kiri atas menunjukkan jenis kontrolnya, seperti \textit{opt}, \textit{alt}, \textit{loop}, \textit{par}, dan lainnya.                             \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/sd/lifeline.png}          &
+    \textit{Lifeline/Participant}                                          &
+    Representasi objek atau komponen sistem yang terlibat dalam proses, seperti Frontend, Backend, atau API. Digambarkan sebagai garis vertikal yang menunjukkan eksistensinya sepanjang waktu.                                                                        \\
+    \hline
+
+    \includegraphics[width=0.006\textwidth]{images/sd/activation.png}      &
+    \textit{Activation Bar}                                                &
+    Menunjukkan periode di mana sebuah lifeline sedang menjalankan aktivitas atau metode tertentu. Biasanya digambarkan sebagai kotak vertikal tipis.                                                                                                                  \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/sd/arrow.png}             &
+    \textit{Arrow}                                                         &
+    Menggambarkan komunikasi atau interaksi antar elemen. Panah solid mewakili permintaan (sinkron), panah putus-putus merepresentasikan respons atau hasil (asinkron), dan panah melengkung digunakan untuk pemanggilan metode pada objek itu sendiri (self-message). \\
+    \hline
+
+    \includegraphics[width=0.2\textwidth]{images/dd/comment.png}           &
+    \textit{Comment}                                                       &
+    Menyediakan keterangan tambahan yang tidak direpresentasikan secara eksplisit dalam notasi diagram, guna memperjelas konteks atau penjelasan proses tertentu.                                                                                                      \\
+    \hline
+\end{longtable}
+
+
 
 
 
