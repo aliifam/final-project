@@ -1,10 +1,10 @@
 \subsection{Halaman User}
 
-Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
+Halaman User adalah antarmuka utama yang dirancang untuk pengguna akhir aplikasi Tamu.id. Melalui halaman ini, pengguna dapat melakukan seluruh alur perjalanan pelanggan, mulai dari pendaftaran akun, pencarian dan reservasi pod, proses menginap, hingga memanfaatkan program loyalitas. Setiap fitur dirancang dengan fokus pada kemudahan penggunaan dan pengalaman pengguna yang seamless dan intuitif.
 
 \subsubsection{Registrasi, Login dan kelola Data User}
 
-Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua metode yaitu dengan mengunakan email atau menggunakan akun google langsung yang membuatnya lebih instan dan mudah. Tampilan halaman pendaftaran user dapat dilihat pada Gambar \ref{fig:halaman-daftar-user}.
+Proses autentikasi dan pengelolaan akun merupakan langkah fundamental bagi pengguna untuk dapat berinteraksi secara penuh dengan layanan Tamu.id. Sistem menyediakan alur pendaftaran dan login yang fleksibel serta memberikan kontrol penuh kepada pengguna untuk mengelola data pribadi mereka, demi menciptakan lingkungan yang aman dan terpersonalisasi.
 
 \begin{figure}[H]
     \centering
@@ -13,52 +13,26 @@ Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua m
     \label{fig:halaman-daftar-user}
 \end{figure}
 
-Setelah pengguna melakukan pendaftaran, pengguna dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login user dapat dilihat pada Gambar \ref{fig:halaman-login-user}.
-
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+\begin{figure}[H]
     \centering
-    \includegraphics[
-        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{images/halaman-user/login.png} % Path ke file SVG Anda, TANPA ekstensi .svg
+    \includegraphics[width=\textwidth]{images/halaman-user/login.png}
     \caption{Tampilan Halaman Login User}
     \label{fig:halaman-login-user}
 \end{figure}
 
-Pada gambar \ref{lst:fe-login-user} berikut adalah implementasi frontend untuk halaman login dan pendaftaran user. Kode ini mengatur tampilan dan interaksi pengguna untuk proses login dan pendaftaran.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/login/login.png}
+%     \caption{Kode Implementasi Frontend Login User}
+%     \label{lst:fe-login-user}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Frontend Login User},
-%     label={lst:fe-login-user},
-% ]{codes/user/login/login.vue}
+Pada halaman pendaftaran (Gambar \ref{fig:halaman-daftar-user}) dan login (Gambar \ref{fig:halaman-login-user}), pengguna dapat membuat akun atau masuk menggunakan email dan kata sandi atau memanfaatkan integrasi Google OAuth. Fitur login dengan Google ini sangat penting untuk menyederhanakan proses autentikasi. Seperti yang ditunjukkan pada implementasi backend di Gambar \ref{lst:be-google-signin}, sistem menerima token dari Google, memverifikasinya, lalu secara aman membuat atau mengambil data pengguna dan menghasilkan token sesi JWT. Implementasi ini tidak hanya memberikan kemudahan bagi pengguna tetapi juga meningkatkan keamanan dengan mengandalkan protokol autentikasi yang sudah teruji.
 
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+\begin{figure}[H]
     \centering
-    \includegraphics[
-        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{codes/user/login/login.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
-    \caption{Kode Implementasi Frontend Login User}
-    \label{lst:fe-login-user}
-\end{figure}
-
-
-Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pengguna untuk masuk ke aplikasi menggunakan akun Google mereka. Hal ini memberikan kemudahan bagi pengguna yang tidak ingin mengingat password tambahan. Implementasi fitur ini dapat dilihat pada gambar \ref{lst:be-google-signin}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna},
-%     label={lst:be-google-signin},
-% ]{codes/user/login/login-google.py}
-
-\begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
-    \centering
-    \includegraphics[
-        width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{codes/user/login/login-google.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
-    \caption{Kode Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna}
+    \includegraphics[width=\textwidth]{codes/user/login/login-google.png}
+    \caption{Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi}
     \label{lst:be-google-signin}
 \end{figure}
 
@@ -69,12 +43,11 @@ Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pen
     \label{fig:halaman-profil-user}
 \end{figure}
 
-Setelah pengguna berhasil melakukan login, mereka dapat mengelola data pribadi mereka seperti pada gambar \ref{fig:halaman-profil-user}.
-
+Setelah berhasil login, pengguna dapat mengakses halaman profil mereka (Gambar \ref{fig:halaman-profil-user}) untuk mengelola data pribadi. Halaman ini memberikan pengguna wewenang untuk melihat dan memperbarui informasi seperti nama, foto profil, dan detail kontak lainnya. Fitur pengelolaan profil ini sangat penting untuk menjaga akurasi data pengguna dan memberikan rasa kontrol atas informasi pribadi mereka di dalam platform.
 
 \subsubsection{Landing Page dan Proses Reservasi User}
 
-Landing page adalah halaman utama yang ditampilkan kepada pengguna dalam sistem. Halaman ini memberikan informasi umum tentang layanan yang tersedia, termasuk fitur-fitur utama, manfaat, dan cara menggunakan aplikasi.
+Proses pencarian dan reservasi merupakan jantung dari aplikasi Tamu.id. Alur ini dirancang untuk menjadi lancar dan intuitif, memandu pengguna dari pencarian awal hingga pembayaran yang aman, dengan menyertakan mekanisme teknis untuk menangani potensi konflik data.
 
 \begin{figure}[H]
     \centering
@@ -83,175 +56,62 @@ Landing page adalah halaman utama yang ditampilkan kepada pengguna dalam sistem.
     \label{fig:halaman-landing-user}
 \end{figure}
 
-Pada gambar \ref{fig:halaman-landing-user}, terlihat bahwa halaman ini dirancang untuk memberikan pengalaman pengguna yang intuitif dan menarik. Halaman ini dapat diakses oleh pengguna yang telah melakukan login maupun yang belum, sehingga memberikan fleksibilitas dalam penggunaan aplikasi.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=0.3\textwidth]{codes/user/landing/landing.png}
+%     \caption{Kode implementasi \textit{Landing Page User}}
+%     \label{lst:fe-landing-user}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi \textit{Landing Page User}},
-%     label={lst:fe-landing-user},
-% ]{codes/user/landing/landing.vue}
+\textit{Landing page} (Gambar \ref{fig:halaman-landing-user}) menjadi titik awal proses reservasi, di mana pengguna dapat langsung melakukan pencarian pod berdasarkan kota dan tanggal. Setelah mendapatkan hasil pencarian yang relevan, pengguna dapat memilih jenis pod yang diinginkan dan melanjutkan ke proses pembayaran. Proses ini dirancang sebagai alur multi-langkah yang terstruktur untuk memastikan kejelasan dan keamanan transaksi.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[
-        width=0.3\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
-        keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
-    ]{codes/user/landing/landing.png}
-    \caption{Kode implementasi \textit{Landing Page User}}
-    \label{lst:fe-landing-user}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/sr2.png}
+%     \caption{Komponen Pencarian User}
+%     \label{fig:komponen-pencarian-user}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/sr.png}
+%     \caption{Tampilan Hasil Pencarian User}
+%     \label{fig:hasil-pencarian-user}
+% \end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res2.png}
+%     \caption{Tampilan Proses Pembayaran Metode Pembayaran}
+%     \label{fig:tampilan-reservasi-user-2}
+% \end{figure}
 
-pada gambar \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
-
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Komponen Pencarian untuk Reservasi},
-%     label={lst:fe-reservasi-user-search},
-% ]{codes/user/reservation/search.vue}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/user/reservation/search-vue.png}
-    \caption{Kode implementasi Komponen Pencarian untuk Reservasi}
-    \label{lst:fe-reservasi-user-search}
-\end{figure}
-
-Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari ketersediaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
-
-Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan pengguna untuk melakukan reservasi Pod yang tersedia secara online.
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/sr2.png}
-    \caption{Komponen Pencarian User}
-    \label{fig:komponen-pencarian-user}
-\end{figure}
-
-Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
-
-Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada gambar \ref{lst:be-reservasi-user-search}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Backend Pencarian Pod untuk Reservasi User},
-%     label={lst:be-reservasi-user-search},
-% ]{codes/user/reservation/search.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/user/reservation/search-py.png}
-    \caption{Kode implementasi Backend Pencarian Pod untuk Reservasi User}
-    \label{lst:be-reservasi-user-search}
-\end{figure}
-
-Selanjutnya kode backend akan mengolah permintaan pencarian Pod yang telah dilakukan oleh pengguna. Kode ini akan memeriksa ketersediaan Pod pada tanggal dan cabang yang diminta, dan mengembalikan daftar Pod yang tersedia untuk reservasi, setelah itu data dikirimkan ke frontend untuk ditampilkan kepada pengguna.
-
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Tampilan Hasil Pencarian User},
-%     label={lst:fe-reservasi-user-search-result}
-% ]{codes/user/reservation/hasil.vue}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/user/reservation/hasil.png}
-    \caption{Kode implementasi Tampilan Hasil Pencarian User}
-    \label{lst:fe-reservasi-user-search-result}
-\end{figure}
-
-Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pada halaman ini, frontend akan menampilkan detail cabang, tanggal, serta daftar Pod yang dapat dipesan, dengan berinteraksi langsung melalui API yang telah diimplementasikan pada bagian backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian ditunjukkan pada gambar \ref{fig:hasil-pencarian-user} dan gambar \ref{fig:hasil-pencarian-user-2}, sementara implementasi antarmuka frontend untuk halaman ini ditampilkan pada gambar \ref{lst:fe-reservasi-user-search-result}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/sr.png}
-    \caption{Tampilan Hasil Pencarian User}
-    \label{fig:hasil-pencarian-user}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/sr3.png}
-    \caption{Tampilan Hasil Pencarian User}
-    \label{fig:hasil-pencarian-user-2}
-\end{figure}
-
-
-Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembayaran yang terdiri dari tiga proses yaitu pada gambar \ref{fig:tampilan-reservasi-user} merupakan proses pertama pengguna dapat melihat detail reservasi yang dia lakukan.
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/res1.png}
-    \caption{Tampilan Proses Pembayaran detail Reservasi}
-    \label{fig:tampilan-reservasi-user}
-\end{figure}
-
-Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode pembayaran yang diinginkan yaitu QRIS lalu dalam tahap ini pengguna dapat memasukkan kode voucher dan kode referral untuk mendapatkan potongan harga.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/res2.png}
-    \caption{Tampilan Proses Pembayaran Metode Pembayaran}
-    \label{fig:tampilan-reservasi-user-2}
-\end{figure}
-
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/res3.png}
-    \caption{Tampilan Proses Pembayaran kode QRIS}
-    \label{fig:tampilan-reservasi-user-3}
-\end{figure}
-
-Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran, untuk implementasi integrasinya ada pada gambar \ref{lst:be-mindtrans-charge}.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/res4.png}
-    \caption{Tampilan Proses Pembayaran \textit{Pending}}
-    \label{fig:tampilan-reservasi-user-4}
-\end{figure}
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Integrasi Core API QRIS Midtrans Saat Checkout},
-%     label={lst:be-mindtrans-charge}
-% ]{codes/user/reservation/midtrans-charge.py}
+Pada tahap akhir sebelum pembayaran, sistem melakukan proses krusial di sisi backend seperti yang ditunjukkan pada Gambar \ref{lst:be-midtrans-charge}. Kode ini bertanggung jawab untuk membuat permintaan transaksi ke \textit{payment gateway} Midtrans. Lebih dari itu, di dalam implementasi ini tertanam logika bisnis yang vital, termasuk mekanisme \textit{optimistic locking}. Sebelum menghasilkan kode QRIS, sistem melakukan validasi akhir terhadap ketersediaan pod untuk mencegah kondisi \textit{race condition} atau \textit{double-booking} yang mungkin terjadi jika beberapa pengguna mencoba memesan pod yang sama secara bersamaan.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
-    \caption{Implementasi Integrasi Core API QRIS Midtrans Saat Checkout}
-    \label{lst:be-mindtrans-charge}
+    \caption{Implementasi Integrasi API Midtrans dan \textit{Optimistic Locking}}
+    \label{lst:be-midtrans-charge}
 \end{figure}
 
-Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan secara \textit{Realtime}. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}. proses \textit{Realtime} dapat berjalan dengan peran integrasi antara sistem \textit{Backend} dan Midtrans dengan metode \textit{Webhook} yang ada pada gambar \ref{lst:be-midtrans-webhook}
+Setelah pembayaran berhasil, yang dikonfirmasi melalui \textit{webhook} dari Midtrans, pengguna akan langsung melihat halaman konfirmasi keberhasilan reservasi (Gambar \ref{fig:tampilan-reservasi-user-5}), memberikan kepastian transaksi secara \textit{real-time}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/res5.png}
-    \caption{Tampilan Proses Pembayaran \textit{Success}}
+    \caption{Tampilan Proses Pembayaran Berhasil}
     \label{fig:tampilan-reservasi-user-5}
 \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}},
-%     label={lst:be-midtrans-webhook}
-% ]{codes/user/reservation/midtrans-charge.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
-    \caption{Kode implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}}
-    \label{lst:be-midtrans-webhook}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-webhook.png}
+%     \caption{Kode implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}}
+%     \label{lst:be-midtrans-webhook}
+% \end{figure}
 
 \subsubsection{Proses Menginap User}
 
-Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang telah dipesan, berikut proses yang dilakukan oleh pengguna ketika menginap di Pod yang telah dipesan.
+Setelah reservasi berhasil, aplikasi akan memandu pengguna melalui proses menginap yang sepenuhnya digital. Dari proses \textit{check-in}, pemilihan pod, hingga mendapatkan kunci digital, semuanya dirancang untuk memberikan pengalaman yang modern, mandiri, dan aman kepada pengguna.
 
 \begin{figure}[H]
     \centering
@@ -260,29 +120,14 @@ Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang te
     \label{fig:tampilan-list-reservasi-user}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}. Dapat dilihat pada gambar \ref{lst:be-get-stays} yang mendapatkan list stays untuk pengguna dengan cara mengekstrak kode \textit{}{JWT} dan melakukan otomasi misal ada yang sudah waktunya checkout maka otomatis akan tercheckout sehingga meminimalkan kesalahan dan proses manual.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}},
-%     label={lst:be-get-stays}
-% ]{codes/user/stay/get_stays.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/user/stay/get_stays.png}
-    \caption{Kode implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}}
-    \label{lst:be-get-stays}
-\end{figure}
+Pada halaman daftar reservasi (Gambar \ref{fig:tampilan-list-reservasi-user}), pengguna dapat memulai proses \textit{check-in} saat waktunya tiba. Setelah itu, pengguna akan memilih pod spesifik yang tersedia (Gambar \ref{fig:tampilan-pick-a-pod-user}), sebuah fitur yang memberikan fleksibilitas lebih. Puncak dari proses ini adalah penerbitan kunci pod digital.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/stay2.png}
-    \caption{Tampilan Proses pilih Pod User}
+    \caption{Tampilan Proses Pilih Pod User}
     \label{fig:tampilan-pick-a-pod-user}
 \end{figure}
-
-Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{fig:tampilan-pick-a-pod-user} untuk memilih Pod yang akan ditempati. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses check-in.
 
 \begin{figure}[H]
     \centering
@@ -291,18 +136,12 @@ Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{f
     \label{fig:tampilan-lock-pod-user}
 \end{figure}
 
-Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih, dapat dilihat pada gambar \ref{lst:be-qr-generation} merupakan implementasi regenerasi kunci Pod yang mengimplementasikan \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} untuk keamanannya.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Rotasi dan Regenerasi Kunci Pod},
-%     label={lst:be-qr-generation}
-% ]{codes/user/stay/qrcode_generation.py}
+Kunci pod (Gambar \ref{fig:tampilan-lock-pod-user}) bukanlah kode QR statis, melainkan kunci dinamis yang keamanannya dijaga ketat. Gambar \ref{lst:be-qr-generation} menunjukkan implementasi backend dari sistem regenerasi kunci ini. Sistem ini menggunakan struktur data khusus yang dimodifikasi menyerupai \textit{linked-list} yang dipadukan dengan \textit{Unix timestamp}. Setiap kali kunci diminta, sistem akan menghasilkan nilai baru yang valid hanya untuk periode waktu tertentu, sehingga kunci sebelumnya menjadi tidak valid. Mekanisme rotasi kunci ini secara signifikan meningkatkan keamanan dengan mempersulit duplikasi atau penyalahgunaan akses, di akhir masa menginap, pengguna melakukan \textit{checkout} dan diundang untuk memberikan ulasan (Gambar \ref{fig:tampilan-checkout-user}), melengkapi seluruh siklus pengalaman menginap.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{codes/user/stay/qrcode_generation.png}
-    \caption{Kode implementasi rotasi dan regenerasi kunci pod}
+    \caption{Implementasi Rotasi dan Regenerasi Kunci Pod}
     \label{lst:be-qr-generation}
 \end{figure}
 
@@ -313,11 +152,10 @@ Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig
     \label{fig:tampilan-checkout-user}
 \end{figure}
 
-Setelah pengguna selesai menginap, maka pengguna dapat melakukan checkout dengan menekan tombol \textit{Checkout} pada gambar \ref{fig:tampilan-checkout-user}. Setelah itu pengguna dapat memberikan ulasan terhadap Pod yang telah ditempati. Ulasan ini akan membantu pengguna lain dalam memilih Pod yang sesuai dengan kebutuhan mereka.
 
-\subsubsection{Transaksi User}
+\subsubsection{Transaksi dan Sistem Loyalitas User}
 
-Pada gambar \ref{fig:tampilan-list-transaksi-user}, pengguna dapat melihat daftar transaksi yang telah dilakukan. Daftar transaksi ini mencakup semua reservasi yang telah dilakukan oleh pengguna, baik yang sedang berlangsung maupun yang telah selesai.
+Untuk memberikan transparansi finansial dan mendorong keterlibatan pengguna, Tamu.id menyediakan riwayat transaksi yang detail serta program loyalitas berbasis referral. Fitur ini mewajibkan verifikasi identitas untuk menjaga keamanan dan mencegah penyalahgunaan.
 
 \begin{figure}[H]
     \centering
@@ -326,18 +164,7 @@ Pada gambar \ref{fig:tampilan-list-transaksi-user}, pengguna dapat melihat dafta
     \label{fig:tampilan-list-transaksi-user}
 \end{figure}
 
-Lebih detail lagi pada gambar \ref{fig:tampilan-detail-transaksi-user}, pengguna dapat melihat detail dari transaksi yang telah dilakukan. Detail ini mencakup informasi seperti tanggal reservasi, jenis Pod yang dipesan, voucher serta kode referral yang digunakan, dan status pembayaran. Hal ini memberikan transparansi kepada pengguna mengenai transaksi yang telah mereka lakukan.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-user/transaksi-detail.png}
-    \caption{Tampilan detail Transaksi User}
-    \label{fig:tampilan-detail-transaksi-user}
-\end{figure}
-
-\subsubsection{Sistem Loayalitas User dan Verifikasi Identitas}
-
-Untuk meningkatkan pengalaman pengguna, Tamu.id juga menyediakan sistem loyalitas yang memungkinkan pengguna untuk mendapatkan uang tambahan dengan mereferralkan kode mereka kepada pengguna lain. Pengguna dapat memasukkan kode referral pada saat melakukan reservasi, dan jika kode tersebut valid, pengguna yang mereferralkan akan mendapatkan uang tambahan dan yang direferralkan akan mendapatkan potongan harga.
+Pengguna dapat mengakses riwayat lengkap semua transaksi yang pernah dilakukan melalui halaman daftar transaksi (Gambar \ref{fig:tampilan-list-transaksi-user}). Halaman ini menyajikan ringkasan setiap reservasi, dan pengguna dapat melihat rinciannya untuk memastikan transparansi penuh. Fitur ini penting untuk membangun kepercayaan pengguna terhadap platform.
 
 \begin{figure}[H]
     \centering
@@ -346,8 +173,6 @@ Untuk meningkatkan pengalaman pengguna, Tamu.id juga menyediakan sistem loyalita
     \label{fig:tampilan-referral-user}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-referral-user}, pengguna dapat melihat kode referral mereka yang dapat dibagikan kepada pengguna lain. Pengguna juga dapat melihat jumlah uang tambahan yang telah didapatkan dari sistem loyalitas ini.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/payout.png}
@@ -355,13 +180,381 @@ Pada gambar \ref{fig:tampilan-referral-user}, pengguna dapat melihat kode referr
     \label{fig:tampilan-payout-user}
 \end{figure}
 
-Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melakukan penarikan uang tambahan yang telah didapatkan dari sistem loyalitas. Pengguna dapat memasukkan jumlah uang yang ingin ditarik dan sistem akan memproses permintaan tersebut.
-
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-user/kyc.png}
     \caption{Tampilan Halaman Verifikasi Identitas User}
-    \label{fig:tampilan-payout-user}
+    \label{fig:tampilan-kyc-user}
 \end{figure}
 
-Sebelum mengikuti sistem loyalitas, pengguna harus melakukan verifikasi identitas terlebih dahulu. Hal ini dilakukan untuk memastikan bahwa pengguna yang mengikuti sistem loyalitas adalah pengguna yang sah dan tidak melakukan kecurangan. Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melihat halaman verifikasi identitas yang harus diisi sebelum mengikuti sistem loyalitas.
+Sistem loyalitas memungkinkan pengguna untuk mendapatkan komisi dengan membagikan kode referral mereka (Gambar \ref{fig:tampilan-referral-user}). Namun, untuk dapat menarik komisi yang terkumpul melalui halaman \textit{payout} (Gambar \ref{fig:tampilan-payout-user}), pengguna diwajibkan untuk melakukan verifikasi identitas (KYC) terlebih dahulu (Gambar \ref{fig:tampilan-kyc-user}). Persyaratan KYC ini merupakan langkah keamanan penting untuk memastikan bahwa semua peserta program adalah pengguna yang sah dan untuk mencegah aktivitas penipuan. Dengan demikian, program loyalitas tidak hanya mendorong akuisisi pengguna baru tetapi juga menjaga integritas ekosistem.
+
+% batas sebelum revisi minta dipendekin
+
+% \subsection{Halaman User}
+
+% Halaman user adalah halaman yang ditujukan untuk pengguna yang ingin melakukan reservasi dan menikmati layanan yang tersedia di Tamu.id.
+
+% \subsubsection{Registrasi, Login dan kelola Data User}
+
+% Pada halaman pendaftaran user, pengguna dapat melakukan pendaftaran dengan dua metode yaitu dengan mengunakan email atau menggunakan akun google langsung yang membuatnya lebih instan dan mudah. Tampilan halaman pendaftaran user dapat dilihat pada Gambar \ref{fig:halaman-daftar-user}.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/signup.png}
+%     \caption{Tampilan Halaman Pendaftaran User}
+%     \label{fig:halaman-daftar-user}
+% \end{figure}
+
+% Setelah pengguna melakukan pendaftaran, pengguna dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login user dapat dilihat pada Gambar \ref{fig:halaman-login-user}.
+
+% \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+%     \centering
+%     \includegraphics[
+%         width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+%         keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+%     ]{images/halaman-user/login.png} % Path ke file SVG Anda, TANPA ekstensi .svg
+%     \caption{Tampilan Halaman Login User}
+%     \label{fig:halaman-login-user}
+% \end{figure}
+
+% Pada gambar \ref{lst:fe-login-user} berikut adalah implementasi frontend untuk halaman login dan pendaftaran user. Kode ini mengatur tampilan dan interaksi pengguna untuk proses login dan pendaftaran.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Frontend Login User},
+% %     label={lst:fe-login-user},
+% % ]{codes/user/login/login.vue}
+
+% \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+%     \centering
+%     \includegraphics[
+%         width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+%         keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+%     ]{codes/user/login/login.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
+%     \caption{Kode Implementasi Frontend Login User}
+%     \label{lst:fe-login-user}
+% \end{figure}
+
+
+% Salah satu fitur utama yaitu integrasi dengan Oauth Google yang memungkinkan pengguna untuk masuk ke aplikasi menggunakan akun Google mereka. Hal ini memberikan kemudahan bagi pengguna yang tidak ingin mengingat password tambahan. Implementasi fitur ini dapat dilihat pada gambar \ref{lst:be-google-signin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna},
+% %     label={lst:be-google-signin},
+% % ]{codes/user/login/login-google.py}
+
+% \begin{figure}[H] % Pertimbangkan [htbp] untuk penempatan float yang lebih fleksibel
+%     \centering
+%     \includegraphics[
+%         width=1.0\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+%         keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+%     ]{codes/user/login/login-google.png}, % Path ke file SVG Anda, TANPA ekstensi .svg
+%     \caption{Kode Implementasi Integrasi \textit{Oauth2 Google} pada Sistem Autentikasi Pengguna}
+%     \label{lst:be-google-signin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/profil.png}
+%     \caption{Tampilan Halaman Profil User}
+%     \label{fig:halaman-profil-user}
+% \end{figure}
+
+% Setelah pengguna berhasil melakukan login, mereka dapat mengelola data pribadi mereka seperti pada gambar \ref{fig:halaman-profil-user}.
+
+
+% \subsubsection{Landing Page dan Proses Reservasi User}
+
+% Landing page adalah halaman utama yang ditampilkan kepada pengguna dalam sistem. Halaman ini memberikan informasi umum tentang layanan yang tersedia, termasuk fitur-fitur utama, manfaat, dan cara menggunakan aplikasi.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/home.png}
+%     \caption{Tampilan Halaman Landing Page User}
+%     \label{fig:halaman-landing-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-landing-user}, terlihat bahwa halaman ini dirancang untuk memberikan pengalaman pengguna yang intuitif dan menarik. Halaman ini dapat diakses oleh pengguna yang telah melakukan login maupun yang belum, sehingga memberikan fleksibilitas dalam penggunaan aplikasi.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi \textit{Landing Page User}},
+% %     label={lst:fe-landing-user},
+% % ]{codes/user/landing/landing.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[
+%         width=0.3\textwidth, % Atur lebar sesuai kebutuhan, misal 90% lebar teks
+%         keepaspectratio % Opsi ini biasanya implisit atau dikelola dengan baik oleh width
+%     ]{codes/user/landing/landing.png}
+%     \caption{Kode implementasi \textit{Landing Page User}}
+%     \label{lst:fe-landing-user}
+% \end{figure}
+
+% pada gambar \ref{lst:fe-landing-user}, implementasi frontend untuk landing page user ditampilkan. Dapat terlihat dengan menggunakan Vue.js kita dapat memecah halaman menjadi komponen-komponen yang lebih kecil, sehingga memudahkan pengelolaan dan pengembangan aplikasi.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Komponen Pencarian untuk Reservasi},
+% %     label={lst:fe-reservasi-user-search},
+% % ]{codes/user/reservation/search.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/search-vue.png}
+%     \caption{Kode implementasi Komponen Pencarian untuk Reservasi}
+%     \label{lst:fe-reservasi-user-search}
+% \end{figure}
+
+% Kode \ref{lst:fe-reservasi-user-search} menunjukkan implementasi komponen pencarian untuk reservasi. Komponen ini memungkinkan pengguna untuk mencari ketersediaan Pod pada tanggal dan cabang tertentu. Pengguna dapat memasukkan tanggal dan cabang yang diinginkan, dan sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut.
+
+% Halaman reservasi adalah salah satu fitur utama dalam aplikasi yang memungkinkan pengguna untuk melakukan reservasi Pod yang tersedia secara online.
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/sr2.png}
+%     \caption{Komponen Pencarian User}
+%     \label{fig:komponen-pencarian-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:komponen-pencarian-user}, terlihat bahwa komponen pencarian ini dirancang untuk memberikan kemudahan bagi pengguna dalam mencari Pod yang sesuai dengan kebutuhan mereka. Pengguna dapat memilih tanggal dan cabang yang diinginkan
+
+% Kode implementasi backend untuk proses pencarian Pod yang tersedia pada tanggal tertentu dapat dilihat pada gambar \ref{lst:be-reservasi-user-search}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Backend Pencarian Pod untuk Reservasi User},
+% %     label={lst:be-reservasi-user-search},
+% % ]{codes/user/reservation/search.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/search-py.png}
+%     \caption{Kode implementasi Backend Pencarian Pod untuk Reservasi User}
+%     \label{lst:be-reservasi-user-search}
+% \end{figure}
+
+% Selanjutnya kode backend akan mengolah permintaan pencarian Pod yang telah dilakukan oleh pengguna. Kode ini akan memeriksa ketersediaan Pod pada tanggal dan cabang yang diminta, dan mengembalikan daftar Pod yang tersedia untuk reservasi, setelah itu data dikirimkan ke frontend untuk ditampilkan kepada pengguna.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Tampilan Hasil Pencarian User},
+% %     label={lst:fe-reservasi-user-search-result}
+% % ]{codes/user/reservation/hasil.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/hasil.png}
+%     \caption{Kode implementasi Tampilan Hasil Pencarian User}
+%     \label{lst:fe-reservasi-user-search-result}
+% \end{figure}
+
+% Setelah pengguna memasukkan tanggal dan cabang yang diinginkan, sistem akan menampilkan daftar Pod yang tersedia untuk reservasi pada tanggal tersebut. Pada halaman ini, frontend akan menampilkan detail cabang, tanggal, serta daftar Pod yang dapat dipesan, dengan berinteraksi langsung melalui API yang telah diimplementasikan pada bagian backend sebelumnya. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses reservasi. Tampilan hasil pencarian ditunjukkan pada gambar \ref{fig:hasil-pencarian-user} dan gambar \ref{fig:hasil-pencarian-user-2}, sementara implementasi antarmuka frontend untuk halaman ini ditampilkan pada gambar \ref{lst:fe-reservasi-user-search-result}.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/sr.png}
+%     \caption{Tampilan Hasil Pencarian User}
+%     \label{fig:hasil-pencarian-user}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/sr3.png}
+%     \caption{Tampilan Hasil Pencarian User}
+%     \label{fig:hasil-pencarian-user-2}
+% \end{figure}
+
+
+% Setelah pengguna memilih Pod yang diinginkan, maka akan lanjut ke halaman pembayaran yang terdiri dari tiga proses yaitu pada gambar \ref{fig:tampilan-reservasi-user} merupakan proses pertama pengguna dapat melihat detail reservasi yang dia lakukan.
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res1.png}
+%     \caption{Tampilan Proses Pembayaran detail Reservasi}
+%     \label{fig:tampilan-reservasi-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:tampilan-reservasi-user-2}, pengguna dapat memilih metode pembayaran yang diinginkan yaitu QRIS lalu dalam tahap ini pengguna dapat memasukkan kode voucher dan kode referral untuk mendapatkan potongan harga.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res2.png}
+%     \caption{Tampilan Proses Pembayaran Metode Pembayaran}
+%     \label{fig:tampilan-reservasi-user-2}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res3.png}
+%     \caption{Tampilan Proses Pembayaran kode QRIS}
+%     \label{fig:tampilan-reservasi-user-3}
+% \end{figure}
+
+% Pada gambar \ref{fig:tampilan-reservasi-user-3} dan \ref{fig:tampilan-reservasi-user-4} setelah itu sistem akan terhubung dengan \textit{payment gateway} dan menampilkan kode QRIS yang dapat di scan oleh pengguna untuk melakukan pembayaran, untuk implementasi integrasinya ada pada gambar \ref{lst:be-mindtrans-charge}.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res4.png}
+%     \caption{Tampilan Proses Pembayaran \textit{Pending}}
+%     \label{fig:tampilan-reservasi-user-4}
+% \end{figure}
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Integrasi Core API QRIS Midtrans Saat Checkout},
+% %     label={lst:be-mindtrans-charge}
+% % ]{codes/user/reservation/midtrans-charge.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
+%     \caption{Implementasi Integrasi Core API QRIS Midtrans Saat Checkout}
+%     \label{lst:be-mindtrans-charge}
+% \end{figure}
+
+% Setelah pengguna melakukan pembayaran, maka akan muncul halaman konfirmasi bahwa reservasi berhasil dilakukan secara \textit{Realtime}. Pengguna dapat melihat detail reservasi yang telah dilakukan pada gambar \ref{fig:tampilan-reservasi-user-5}. proses \textit{Realtime} dapat berjalan dengan peran integrasi antara sistem \textit{Backend} dan Midtrans dengan metode \textit{Webhook} yang ada pada gambar \ref{lst:be-midtrans-webhook}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/res5.png}
+%     \caption{Tampilan Proses Pembayaran \textit{Success}}
+%     \label{fig:tampilan-reservasi-user-5}
+% \end{figure}
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}},
+% %     label={lst:be-midtrans-webhook}
+% % ]{codes/user/reservation/midtrans-charge.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/reservation/midtrans-charge.png}
+%     \caption{Kode implementasi Integrasi \textit{Webhook Midtrans} di \textit{Backend}}
+%     \label{lst:be-midtrans-webhook}
+% \end{figure}
+
+% \subsubsection{Proses Menginap User}
+
+% Setelah melakukan reservasi tentunya pengguna akan menginap di jenis Pod yang telah dipesan, berikut proses yang dilakukan oleh pengguna ketika menginap di Pod yang telah dipesan.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/stay1.png}
+%     \caption{Tampilan List Reservasi User}
+%     \label{fig:tampilan-list-reservasi-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:tampilan-list-reservasi-user}, pengguna dapat melihat daftar reservasi yang telah dilakukan, terdiri dari tiga status yaitu \textit{upcoming}, \textit{current}, dan \textit{oldest}. Pengguna dapat melakukan check-in pada reservasi yang berstatus \textit{current} yaitu reservasi yang waktu check-in sudah tiba. Pengguna dapat melakukan check-in dengan menekan tombol \textit{Check In} pada reservasi yang berstatus \textit{current}. Dapat dilihat pada gambar \ref{lst:be-get-stays} yang mendapatkan list stays untuk pengguna dengan cara mengekstrak kode \textit{}{JWT} dan melakukan otomasi misal ada yang sudah waktunya checkout maka otomatis akan tercheckout sehingga meminimalkan kesalahan dan proses manual.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}},
+% %     label={lst:be-get-stays}
+% % ]{codes/user/stay/get_stays.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/stay/get_stays.png}
+%     \caption{Kode implementasi Otomasi \textit{Lifecycle Stays} dan mendapatkan \textit{List Stays}}
+%     \label{lst:be-get-stays}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/stay2.png}
+%     \caption{Tampilan Proses pilih Pod User}
+%     \label{fig:tampilan-pick-a-pod-user}
+% \end{figure}
+
+% Setelah klik tombol \textit{Check In}, pengguna akan diarahkan ke halaman \ref{fig:tampilan-pick-a-pod-user} untuk memilih Pod yang akan ditempati. Pengguna dapat memilih Pod yang diinginkan dan melanjutkan ke proses check-in.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/stay3.png}
+%     \caption{Tampilan Kunci Pod User}
+%     \label{fig:tampilan-lock-pod-user}
+% \end{figure}
+
+% Setelah memilih Pod yang diinginkan, pengguna akan diarahkan ke halaman \ref{fig:tampilan-lock-pod-user} dan mendapatkan kunci Pod yang telah dipilih yang kuncinya merupakan QR Code yang dapat di scan oleh pengguna untuk membuka Pod yang telah dipilih, dapat dilihat pada gambar \ref{lst:be-qr-generation} merupakan implementasi regenerasi kunci Pod yang mengimplementasikan \textit{Customized Linkedlist} dengan \textit{Unix Timestamp} untuk keamanannya.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Rotasi dan Regenerasi Kunci Pod},
+% %     label={lst:be-qr-generation}
+% % ]{codes/user/stay/qrcode_generation.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/user/stay/qrcode_generation.png}
+%     \caption{Kode implementasi rotasi dan regenerasi kunci pod}
+%     \label{lst:be-qr-generation}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/stay4.png}
+%     \caption{Tampilan Checkout dan Memberikan Ulasan User}
+%     \label{fig:tampilan-checkout-user}
+% \end{figure}
+
+% Setelah pengguna selesai menginap, maka pengguna dapat melakukan checkout dengan menekan tombol \textit{Checkout} pada gambar \ref{fig:tampilan-checkout-user}. Setelah itu pengguna dapat memberikan ulasan terhadap Pod yang telah ditempati. Ulasan ini akan membantu pengguna lain dalam memilih Pod yang sesuai dengan kebutuhan mereka.
+
+% \subsubsection{Transaksi User}
+
+% Pada gambar \ref{fig:tampilan-list-transaksi-user}, pengguna dapat melihat daftar transaksi yang telah dilakukan. Daftar transaksi ini mencakup semua reservasi yang telah dilakukan oleh pengguna, baik yang sedang berlangsung maupun yang telah selesai.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/transaksi.png}
+%     \caption{Tampilan list Transaksi User}
+%     \label{fig:tampilan-list-transaksi-user}
+% \end{figure}
+
+% Lebih detail lagi pada gambar \ref{fig:tampilan-detail-transaksi-user}, pengguna dapat melihat detail dari transaksi yang telah dilakukan. Detail ini mencakup informasi seperti tanggal reservasi, jenis Pod yang dipesan, voucher serta kode referral yang digunakan, dan status pembayaran. Hal ini memberikan transparansi kepada pengguna mengenai transaksi yang telah mereka lakukan.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/transaksi-detail.png}
+%     \caption{Tampilan detail Transaksi User}
+%     \label{fig:tampilan-detail-transaksi-user}
+% \end{figure}
+
+% \subsubsection{Sistem Loayalitas User dan Verifikasi Identitas}
+
+% Untuk meningkatkan pengalaman pengguna, Tamu.id juga menyediakan sistem loyalitas yang memungkinkan pengguna untuk mendapatkan uang tambahan dengan mereferralkan kode mereka kepada pengguna lain. Pengguna dapat memasukkan kode referral pada saat melakukan reservasi, dan jika kode tersebut valid, pengguna yang mereferralkan akan mendapatkan uang tambahan dan yang direferralkan akan mendapatkan potongan harga.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/referral.png}
+%     \caption{Tampilan Halaman Referral User}
+%     \label{fig:tampilan-referral-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:tampilan-referral-user}, pengguna dapat melihat kode referral mereka yang dapat dibagikan kepada pengguna lain. Pengguna juga dapat melihat jumlah uang tambahan yang telah didapatkan dari sistem loyalitas ini.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/payout.png}
+%     \caption{Tampilan Halaman Payout User}
+%     \label{fig:tampilan-payout-user}
+% \end{figure}
+
+% Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melakukan penarikan uang tambahan yang telah didapatkan dari sistem loyalitas. Pengguna dapat memasukkan jumlah uang yang ingin ditarik dan sistem akan memproses permintaan tersebut.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-user/kyc.png}
+%     \caption{Tampilan Halaman Verifikasi Identitas User}
+%     \label{fig:tampilan-payout-user}
+% \end{figure}
+
+% Sebelum mengikuti sistem loyalitas, pengguna harus melakukan verifikasi identitas terlebih dahulu. Hal ini dilakukan untuk memastikan bahwa pengguna yang mengikuti sistem loyalitas adalah pengguna yang sah dan tidak melakukan kecurangan. Pada gambar \ref{fig:tampilan-payout-user}, pengguna dapat melihat halaman verifikasi identitas yang harus diisi sebelum mengikuti sistem loyalitas.

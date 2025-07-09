@@ -1,10 +1,10 @@
 \subsection{Halaman Admin}
 
-Halaman Admin atau Admin cabang merupakan halaman yang digunakan oleh admin untuk mengelola operasional dan data cabang mereka, berikut implementasi halaman admin yang telah dibuat.
+Halaman Admin atau Admin Cabang merupakan antarmuka yang dirancang khusus bagi staf administrasi untuk mengelola seluruh data dan operasional pada tingkat cabang secara mandiri. Halaman ini memfasilitasi berbagai tugas, mulai dari autentikasi, manajemen sumber daya spesifik cabang, hingga pengawasan aktivitas harian. Dengan adanya peran Admin Cabang, manajemen operasional dapat didesentralisasi, memungkinkan setiap cabang beroperasi secara lebih lincah dan responsif. Berikut adalah implementasi dari halaman Admin yang telah dikembangkan.
 
 \subsubsection{Login, Pilih Cabang, Dashboard, dan Pengaturan Akun}
 
-Pada halaman ini, admin dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login admin dapat dilihat pada Gambar \ref{fig:halaman-login-admin}. Admin dapat login dengan menggunakan dua metode  yaitu email dan password ataupun langsung menggunakan akun Google.
+Alur kerja awal bagi Admin dirancang untuk memastikan keamanan akses dan ketepatan dalam pengelolaan cabang. Proses ini dimulai dari autentikasi, pemilihan cabang yang akan dikelola, hingga penyajian data performa melalui dasbor. Setiap langkah ini penting untuk memberikan Admin pandangan yang relevan dan data yang akurat sesuai dengan lingkup tanggung jawabnya.
 
 \begin{figure}[H]
     \centering
@@ -13,6 +13,8 @@ Pada halaman ini, admin dapat melakukan login ke dalam aplikasi Tamu.id. Tampila
     \label{fig:halaman-login-admin}
 \end{figure}
 
+Pada Gambar \ref{fig:halaman-login-admin} ditunjukkan halaman login, yang merupakan gerbang akses pertama bagi Admin. Untuk menjamin keamanan, sistem menyediakan dua metode autentikasi yang fleksibel, yaitu kombinasi email dan kata sandi atau melalui akun Google (SSO). Pilihan metode ini memberikan kemudahan sekaligus menjaga standar keamanan yang tinggi untuk melindungi data operasional cabang. Halaman ini menjadi garda terdepan dalam memastikan hanya pengguna terotorisasi yang dapat mengakses sistem.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/pilih-cabang.png}
@@ -20,20 +22,14 @@ Pada halaman ini, admin dapat melakukan login ke dalam aplikasi Tamu.id. Tampila
     \label{fig:halaman-pilih-cabang-admin}
 \end{figure}
 
-Setelah Admin berhasil login, admin akan diarahkan ke halaman pilih cabang. Pada halaman ini, admin dapat memilih cabang yang akan dikelola. Admin dapat mengelola lebih dari satu cabang, Tampilan halaman pilih cabang admin dapat dilihat pada Gambar \ref{fig:halaman-pilih-cabang-admin}, Potongan implementasi kode untuk mendapatkan data cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-pilih-cabang-admin}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/login.png}
+%     \caption{Kode Implementasi Login Admin dan Pilih Cabang}
+%     \label{lst:be-pilih-cabang-admin}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Login Admin dan Pilih Cabang},
-%     label={lst:be-pilih-cabang-admin},
-% ]{codes/admin/login.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/login.png}
-    \caption{Kode Implementasi Login Admin dan Pilih Cabang}
-    \label{lst:be-pilih-cabang-admin}
-\end{figure}
+Setelah berhasil login, Admin diarahkan ke halaman pemilihan cabang seperti terlihat pada Gambar \ref{fig:halaman-pilih-cabang-admin}. Halaman ini muncul karena seorang Admin dapat ditugaskan untuk mengelola lebih dari satu cabang. Sistem secara dinamis akan menampilkan daftar cabang yang sesuai dengan hak akses Admin tersebut. Dengan memilih salah satu cabang, Admin menetapkan konteks kerjanya, sehingga semua data dan fungsionalitas yang diakses selanjutnya akan spesifik untuk cabang yang dipilih.
 
 \begin{figure}[H]
     \centering
@@ -42,44 +38,28 @@ Setelah Admin berhasil login, admin akan diarahkan ke halaman pilih cabang. Pada
     \label{fig:halaman-dasbor-admin}
 \end{figure}
 
-Setelah memilih cabang, admin akan diarahkan ke halaman dasbor admin cabang. Pada halaman ini, admin dapat melihat informasi garis besar mengenai cabang yang dikelola seperti pada Gambar \ref{fig:halaman-dasbor-admin}, Potongan implementasi kode untuk mendapatkan data yang ditampilkan pada dasbor cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-pilih-admin-dasbor}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/dasbor.png}
+%     \caption{Kode Implementasi Dasbor Admin Cabang}
+%     \label{lst:be-pilih-admin-dasbor}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Dasbor Admin Cabang},
-%     label={lst:be-pilih-admin-dasbor},
-% ]{codes/admin/dasbor.py}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/dasbor-okupansi.png}
+%     \caption{Tampilan Halaman Dasbor Okupansi Admin Cabang}
+%     \label{fig:halaman-dasbor-okupansi-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/dasbor.png}
-    \caption{Kode Implementasi Dasbor Admin Cabang}
-    \label{lst:be-pilih-admin-dasbor}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/okupansi.png}
+%     \caption{Kode Implementasi Dasbor Okupansi Admin Cabang}
+%     \label{lst:be-okupansi-admin-dasbor}
+% \end{figure}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/dasbor-okupansi.png}
-    \caption{Tampilan Halaman Dasbor Okupansi Admin Cabang}
-    \label{fig:halaman-dasbor-okupansi-admin}
-\end{figure}
-
-Pada gambar \ref{fig:halaman-dasbor-okupansi-admin} adalah tampilan halaman dasbor okupansi admin cabang. Pada halaman ini, admin dapat melihat informasi okupansi cabang yang dikelola secara real-time, selain itu juga pada halaman ini admin dapat melihat perkiraan tingkat okupansi beberapa hari ke depan dan juga melihat performa okupansi cabang dalam beberapa hari terakhir. Hal ini dapat membantu admin dalam mengelola okupansi cabang dan membuat keputusan yang lebih baik, Potongan implementasi kode untuk mendapatkan data yang ditampilkan pada dasbor okupansi cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-okupansi-admin-dasbor}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Dasbor Okupansi Admin Cabang},
-%     label={lst:be-okupansi-admin-dasbor},
-% ]{codes/admin/okupansi.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/okupansi.png}
-    \caption{Kode Implementasi Dasbor Okupansi Admin Cabang}
-    \label{lst:be-okupansi-admin-dasbor}
-\end{figure}
-
+Dasbor utama cabang (Gambar \ref{fig:halaman-dasbor-admin}) menyajikan informasi garis besar mengenai kondisi cabang yang sedang dikelola. Di halaman ini, Admin dapat memantau metrik kunci seperti ringkasan pendapatan, jumlah tamu yang sedang menginap, dan aktivitas reservasi terbaru. Selain itu, terdapat pula fitur analisis okupansi yang menampilkan data hunian secara *real-time*, perkiraan untuk hari-hari mendatang, serta performa historis, yang sangat membantu Admin dalam membuat keputusan strategis terkait harga dan ketersediaan pod.
 
 \begin{figure}[H]
     \centering
@@ -88,11 +68,11 @@ Pada gambar \ref{fig:halaman-dasbor-okupansi-admin} adalah tampilan halaman dasb
     \label{fig:halaman-profil-admin}
 \end{figure}
 
-Pada gambar \ref{fig:halaman-profil-admin} adalah tampilan halaman profil admin cabang. Pada halaman ini, admin dapat melihat informasi profil mereka seperti nama, email, dan nomor telepon. Admin juga dapat mengubah informasi profil mereka jika diperlukan.
-
-
+Terakhir, pada halaman profil yang ditampilkan di Gambar \ref{fig:halaman-profil-admin}, Admin dapat mengelola informasi akun pribadinya. Fitur ini memungkinkan Admin untuk melihat dan memperbarui data diri seperti nama, email, dan nomor telepon. Kemampuan untuk mengubah informasi profil secara mandiri penting untuk memastikan data kontak Admin selalu akurat dan terkini. Hal ini juga mendukung aspek keamanan akun dengan memungkinkan pembaruan informasi login jika diperlukan.
 
 \subsubsection{Kelola Data Cabang}
+
+Admin memiliki wewenang penuh untuk mengelola semua data master yang terkait dengan cabang yang ditanganinya. Pengelolaan ini mencakup pembaruan informasi umum cabang, pengaturan kamar atau pod, manajemen staf, hingga pembuatan promosi lokal. Kemampuan ini memastikan bahwa setiap cabang dapat menyesuaikan penawarannya dengan kondisi pasar lokal dan menjaga akurasi data yang ditampilkan kepada pengguna.
 
 \begin{figure}[H]
     \centering
@@ -101,94 +81,65 @@ Pada gambar \ref{fig:halaman-profil-admin} adalah tampilan halaman profil admin 
     \label{fig:halaman-admin-kelola-cabang}
 \end{figure}
 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang2.png}
+%     \caption{Tampilan Admin Kelola Data Cabang}
+%     \label{fig:halaman-admin-kelola-cabang-2}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang2.png}
-    \caption{Tampilan Admin Kelola Data Cabang}
-    \label{fig:halaman-admin-kelola-cabang-2}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/hotel.png}
+%     \caption{Kode Implementasi Halaman Kelola Data Cabang}
+%     \label{lst:fe-kelola-cabang-admin}
+% \end{figure}
 
-Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data cabang seperti pada gambar \ref{fig:halaman-admin-kelola-cabang} dan \ref{fig:halaman-admin-kelola-cabang-2}, pada halaman ini, admin dapat mengubah informasi cabang seperti nama, alamat, nomor telepon, dan deskripsi cabang. Hal ini dapat membantu admin dalam mengelola data cabang dan memastikan bahwa informasi yang ditampilkan di aplikasi Tamu.id selalu akurat dan terbaru. Potongan implementasi kode untuk mendapatkan data cabang yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:fe-kelola-cabang-admin}.
-
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Halaman Kelola Data Cabang},
-%     label={lst:fe-kelola-cabang-admin},
-% ]{codes/admin/hotel.vue}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/hotel.png}
-    \caption{Kode Implementasi Halaman Kelola Data Cabang}
-    \label{lst:fe-kelola-cabang-admin}
-\end{figure}
+Pada halaman kelola data cabang (Gambar \ref{fig:halaman-admin-kelola-cabang}), Admin dapat mengubah informasi fundamental seperti nama, alamat, kontak, dan deskripsi cabang. Selain informasi umum, aset utama cabang yaitu pod juga dapat dikelola secara mendetail. Admin dapat mendefinisikan "Jenis Pod" terlebih dahulu (Gambar \ref{fig:halaman-admin-kelola-jenis-pod}), misalnya berdasarkan ukuran atau fasilitas, lalu menambahkan unit-unit "Pod" individual ke dalam setiap jenis tersebut (Gambar \ref{fig:halaman-admin-kelola-pod}). Struktur pengelolaan berjenjang ini memastikan inventaris kamar selalu terorganisir dan akurat.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/jenis-pod.png}
-    \caption{Tampilan Admin Kelola jenis pod cabang}
+    \caption{Tampilan Admin Kelola Jenis Pod Cabang}
     \label{fig:halaman-admin-kelola-jenis-pod}
 \end{figure}
 
-Yang paling utama dari sebuah cabang adalah tiap cabang memiliki jenis pod yang dapat dipesan oleh \textit{User}, oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-jenis-pod} \textit{Admin} dapat mengelola jenis pod yang ada pada cabang yang ia kelola, dari mulai membuat, mengedit, dan menghapusnya. Potongan implementasi kode untuk mendapatkan data jenis pod yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-jenis-pod-admin}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Kelola Jenis Pod Admin},
-%     label={lst:be-kelola-jenis-pod-admin},
-% ]{codes/admin/podtype.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/podtype.png}
-    \caption{Kode implementasi Kelola Jenis Pod Admin}
-    \label{lst:be-kelola-jenis-pod-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/podtype.png}
+%     \caption{Kode implementasi Kelola Jenis Pod Admin}
+%     \label{lst:be-kelola-jenis-pod-admin}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{images/halaman-admin/pod.png}
-    \caption{Tampilan Admin Kelola jenis pod cabang}
+    \caption{Tampilan Admin Kelola Pod Cabang}
     \label{fig:halaman-admin-kelola-pod}
 \end{figure}
 
-Setelah memiliki jenis pod maka selanjutnya untuk masing - masing jenis pod tentunya memiliki anggota yaitu entitas Pod, oleh karena itu \textit{Admin} dapat mengelola Pod yang ada pada cabangnya dari mulai membuat, mengedit, dan menghapusnya sesuai pada gambar \ref{fig:halaman-admin-kelola-pod}, potongan implementasi kode untuk tampilan halaman kelola pod admin dapat dilihat pada gambar \ref{lst:fe-kelola-pod-admin}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pod.png}
+%     \caption{Kode Implementasi Kelola Pod Admin}
+%     \label{lst:fe-kelola-pod-admin}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Kelola Pod Admin},
-%     label={lst:fe-kelola-pod-admin},
-% ]{codes/admin/pod.vue}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/kelola-ota.png}
+%     \caption{Tampilan Admin Kelola \textit{OTA} Cabang}
+%     \label{fig:halaman-admin-kelola-ota}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/pod.png}
-    \caption{Kode Implementasi Kelola Pod Admin}
-    \label{lst:fe-kelola-pod-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/ota.png}
+%     \caption{Kode Implementasi Kelola \textit{OTA} Admin}
+%     \label{lst:fe-kelola-ota-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/kelola-ota.png}
-    \caption{Tampilan Admin Kelola \textit{OTA} Cabang}
-    \label{fig:halaman-admin-kelola-ota}
-\end{figure}
-
-Untuk tiap cabang memiliki kebebasan untuk melakukan integrasi dengan \textit{Online Travel Agency} lain misal Traveloka, Tiket.com, Booking.com, dll. ataupun tidak sama sekali oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-ota} \textit{Admin} dapat mengelola \textit{Online Travel Agency} mana yang aktif pada cabang yang ia kelola, potongan implementasi kode untuk halaman kelola \textit{OTA} admin dapat dilihat pada gambar \ref{lst:fe-kelola-ota-admin}.
-
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Kelola \textit{OTA} Admin},
-%     label={lst:fe-kelola-ota-admin},
-% ]{codes/admin/ota.vue}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/ota.png}
-    \caption{Kode Implementasi Kelola \textit{OTA} Admin}
-    \label{lst:fe-kelola-ota-admin}
-\end{figure}
+Setiap cabang juga diberikan keleluasaan untuk mengelola sumber daya manusianya sendiri, seperti yang ditunjukkan pada Gambar \ref{fig:halaman-admin-kelola-staff}. Seorang Admin dengan peran yang lebih tinggi dapat menambah, mengubah, atau menghapus akun staf lain di dalam cabang yang sama. Selain itu, untuk meningkatkan daya saing lokal, Admin dapat membuat dan mengelola voucher promosi yang hanya berlaku di cabangnya (Gambar \ref{fig:halaman-admin-kelola-voucher}). Fleksibilitas ini memungkinkan setiap cabang untuk merancang strategi pemasaran dan pengelolaan staf yang paling sesuai dengan kebutuhan unik mereka.
 
 \begin{figure}[H]
     \centering
@@ -197,20 +148,12 @@ Untuk tiap cabang memiliki kebebasan untuk melakukan integrasi dengan \textit{On
     \label{fig:halaman-admin-kelola-staff}
 \end{figure}
 
-Setiap cabang dapat dikelola oleh lebih dari satu Admin atau Staff oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-staff} Staff dengan peran Admin dapat melakukan pengaturan untuk staff pada cabang yang ia kelola, dari mulai membuat, mengedit, dan menghapus staff yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola staff yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-staff-admin}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Kelola oleh Staff Admin},
-%     label={lst:be-kelola-staff-admin},
-% ]{codes/admin/staff.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/staff.png}
-    \caption{Kode Implementasi Kelola oleh Staff Admin}
-    \label{lst:be-kelola-staff-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/staff.png}
+%     \caption{Kode Implementasi Kelola oleh Staff Admin}
+%     \label{lst:be-kelola-staff-admin}
+% \end{figure}
 
 \begin{figure}[H]
     \centering
@@ -219,46 +162,31 @@ Setiap cabang dapat dikelola oleh lebih dari satu Admin atau Staff oleh karena i
     \label{fig:halaman-admin-kelola-voucher}
 \end{figure}
 
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/voucher.png}
+%     \caption{Kode Implementasi Kelola Voucher oleh Admin}
+%     \label{lst:be-kelola-voucher-admin}
+% \end{figure}
 
-Untuk setiap cabang dapat mengadakan promo mandiri yaitu seperti pada gambar \ref{fig:halaman-admin-kelola-voucher}, Admin dapat membuat Voucher promo khusus untuk cabang yang ia kelolal, dari mulai membuat, mengedit, dan menghapus voucher yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola voucher yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-voucher-admin}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/review.png}
+%     \caption{Tampilan Admin Kelola Review Cabang}
+%     \label{fig:halaman-admin-kelola-review}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Kelola Voucher oleh Admin},
-%     label={lst:be-kelola-voucher-admin},
-% ]{codes/admin/voucher.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/voucher.png}
-    \caption{Kode Implementasi Kelola Voucher oleh Admin}
-    \label{lst:be-kelola-voucher-admin}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/review.png}
-    \caption{Tampilan Admin Kelola Review Cabang}
-    \label{fig:halaman-admin-kelola-review}
-\end{figure}
-
-Setelah \textit{User} menginap pada suatu Pod maka selanjutnya \textit{User} akan melakukan \textit{Checkout} dan meninggalkan \textit{Review} dan \textit{Review} tentang pengalamannya selama menggunakan layanan, oleh karena itu untuk menghindari \textit{Spam} pada gambar \ref{fig:halaman-admin-kelola-review}, Admin dapat mengelola dan mengontrolnya, dari mulai melihat, menghapus, dan moderasi review yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola review yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:fe-moderasi-review-admin}.
-
-% \lstinputlisting[
-%     language=VUE,
-%     caption={Implementasi Moderasi Review oleh Admin},
-%     label={lst:fe-moderasi-review-admin},
-% ]{codes/admin/review.vue}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/review.png}
-    \caption{Kode Implementasi Moderasi Review oleh Admin}
-    \label{lst:fe-moderasi-review-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/review.png}
+%     \caption{Kode Implementasi Moderasi Review oleh Admin}
+%     \label{lst:fe-moderasi-review-admin}
+% \end{figure}
 
 
 \subsubsection{Operasional Harian Cabang}
+
+Fungsi inti dari halaman Admin adalah untuk mendukung dan mempermudah operasional harian cabang. Fitur-fitur di bagian ini dirancang untuk memberikan visibilitas penuh terhadap pergerakan tamu, status kebersihan kamar, dan manajemen pemesanan, baik yang berasal dari platform Tamu.id maupun dari kanal eksternal.
 
 \begin{figure}[H]
     \centering
@@ -267,64 +195,42 @@ Setelah \textit{User} menginap pada suatu Pod maka selanjutnya \textit{User} aka
     \label{fig:halaman-laporan-harian-admin}
 \end{figure}
 
-Untuk mempermudah operasional harian cabang pada gambar \ref{fig:halaman-laporan-harian-admin} admin dapat melihat laporan harian cabang yang dikelola seperti siapa saja yang akan check-in, siapa saja yang sudah check-in, dan siapa saja yang sudah check-out. Hal ini dapat membantu admin dalam mengelola operasional harian cabang dan memastikan bahwa semua diketahui lebih awal oleh admin, potongan implementasi kode untuk mendapatkan data laporan harian cabang yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:be-laporan-harian-admin}.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/daily-movement.png}
+%     \caption{Kode implementasi Laporan Harian Admin}
+%     \label{lst:be-laporan-harian-admin}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Laporan Harian Admin},
-%     label={lst:be-laporan-harian-admin},
-% ]{codes/admin/daily-movement.py}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/lis-checkedin.png}
+%     \caption{Tampilan Halaman Daftar Tamu Check-in Admin Cabang}
+%     \label{fig:halaman-daftar-checkedin-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/daily-movement.png}
-    \caption{Kode implementasi Laporan Harian Admin}
-    \label{lst:be-laporan-harian-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/proses-pindah-pod.png}
+%     \caption{Tampilan Halaman Proses Pindah Pod User oleh Admin Cabang}
+%     \label{fig:halaman-proses-pindah-pod-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/lis-checkedin.png}
-    \caption{Tampilan Halaman Daftar Tamu Check-in Admin Cabang}
-    \label{fig:halaman-daftar-checkedin-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/log-pindah-pod.png}
+%     \caption{Tampilan Halaman Riwayat Pindah Pod pada Cabang}
+%     \label{fig:halaman-riwayat-pindah-pod-admin}
+% \end{figure}
 
-Pada gambar \ref{fig:halaman-daftar-checkedin-admin} adalah tampilan halaman daftar tamu yang sudah check-in. Pada halaman ini, admin dapat melihat daftar tamu yang sudah check-in pada cabang yang dikelola. Admin juga dapat melakukan tindakan seperti memindahkan tamu ke pod lain jika diperlukan. Hal ini dapat membantu admin dalam mengelola tamu yang sudah check-in dan memastikan bahwa semua tamu terlayani dengan baik.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pindahpod.png}
+%     \caption{Kode implementasi Pindah Pod \textit{User} oleh Admin}
+%     \label{lst:be-pindah-pod-admin}
+% \end{figure}
 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/proses-pindah-pod.png}
-    \caption{Tampilan Halaman Proses Pindah Pod User oleh Admin Cabang}
-    \label{fig:halaman-proses-pindah-pod-admin}
-\end{figure}
-
-Pada gambar \ref{fig:halaman-proses-pindah-pod-admin} adalah tampilan halaman proses pindah pod user oleh admin cabang. Pada halaman ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/log-pindah-pod.png}
-    \caption{Tampilan Halaman Riwayat Pindah Pod pada Cabang}
-    \label{fig:halaman-riwayat-pindah-pod-admin}
-\end{figure}
-
-Untuk melihat riwayat pindah pod pada cabang, admin dapat mengakses halaman riwayat pindah pod seperti pada gambar \ref{fig:halaman-riwayat-pindah-pod-admin}. Pada halaman ini, admin dapat melihat riwayat pindah pod yang dilakukan oleh admin pada cabang yang dikelola.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Pindah Pod \textit{User} oleh Admin},
-%     label={lst:be-pindah-pod-admin},
-% ]{codes/admin/pindahpod.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/pindahpod.png}
-    \caption{Kode implementasi Pindah Pod \textit{User} oleh Admin}
-    \label{lst:be-pindah-pod-admin}
-\end{figure}
-
-Kode \ref{lst:be-pindah-pod-admin} adalah potongan implementasi kode untuk memproses pindah pod yang dilakukan oleh admin pada cabang yang dikelola. pada gambar ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. Status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
-
+Untuk memantau aktivitas tamu, Admin dapat mengakses laporan harian seperti pada Gambar \ref{fig:halaman-laporan-harian-admin}. Laporan ini memberikan informasi penting mengenai daftar tamu yang akan *check-in*, yang sedang menginap, dan yang akan *check-out* pada hari tersebut. Dari daftar tamu yang sedang menginap, Admin memiliki opsi untuk melakukan tindakan operasional seperti memindahkan tamu ke pod lain jika terjadi kendala atau atas permintaan tamu. Seluruh riwayat perpindahan pod ini dicatat oleh sistem untuk keperluan audit dan pelacakan.
 
 \begin{figure}[H]
     \centering
@@ -333,41 +239,28 @@ Kode \ref{lst:be-pindah-pod-admin} adalah potongan implementasi kode untuk mempr
     \label{fig:halaman-daftar-pod-harus-dibersihkan-admin}
 \end{figure}
 
-Setelah tamu check-out, admin dapat melihat daftar pod yang harus dibersihkan pada halaman daftar pod yang harus dibersihkan seperti pada gambar \ref{fig:halaman-daftar-pod-harus-dibersihkan-admin} dan melakukan tindakan seperti membersihkan pod tersebut.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/proses-pembersihan.png}
+%     \caption{Tampilan Halaman Proses Pembersihan Pod oleh Admin Cabang}
+%     \label{fig:halaman-proses-pembersihan-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/proses-pembersihan.png}
-    \caption{Tampilan Halaman Proses Pembersihan Pod oleh Admin Cabang}
-    \label{fig:halaman-proses-pembersihan-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/selesai-pembersihan.png}
+%     \caption{Tampilan Halaman Pod Selesai Dibersihkan oleh Admin Cabang}
+%     \label{fig:halaman-pod-selesai-dibersihkan-admin}
+% \end{figure}
 
-Pada gambar \ref{fig:halaman-proses-pembersihan-admin} adalah tampilan halaman proses pembersihan pod oleh admin cabang.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/bersih.png}
+%     \caption{Kode Implementasi Generate Kunci Pod Admin}
+%     \label{lst:be-generate-kunci-pod-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/selesai-pembersihan.png}
-    \caption{Tampilan Halaman Pod Selesai Dibersihkan oleh Admin Cabang}
-    \label{fig:halaman-pod-selesai-dibersihkan-admin}
-\end{figure}
-
-Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pada gambar \ref{fig:halaman-pod-selesai-dibersihkan-admin}.
-
-Saat proses pembersihan dimulai maka Admin akan mendapatkan kunci pod yang sedang dibersihkan, sehingga admin dapat mengakses pod tersebut untuk melakukan pembersihan, kunci tersebut hanya berlaku selama tiga jam dan bila lebih dari itu maka kunci harus diperbarui kembali, berikut potongan implementasi kode untuk mendapatkan kunci pod yang sedang dibersihkan oleh admin pada gambar \ref{lst:be-generate-kunci-pod-admin}.
-
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Generate Kunci Pod Admin},
-%     label={lst:be-generate-kunci-pod-admin},
-% ]{codes/admin/bersih.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/bersih.png}
-    \caption{Kode Implementasi Generate Kunci Pod Admin}
-    \label{lst:be-generate-kunci-pod-admin}
-\end{figure}
-
+Manajemen kebersihan pod merupakan alur kerja penting lainnya yang difasilitasi oleh sistem. Setelah tamu melakukan *check-out*, pod akan secara otomatis muncul di daftar "Pod yang Harus Dibersihkan" (Gambar \ref{fig:halaman-daftar-pod-harus-dibersihkan-admin}). Admin atau staf kebersihan dapat memulai proses pembersihan, di mana sistem akan menghasilkan kunci digital sementara yang valid selama tiga jam untuk mengakses pod tersebut. Setelah selesai, status pod diperbarui menjadi "Tersedia", memastikan pod siap untuk tamu berikutnya dan menjaga standar kebersihan cabang.
 
 \begin{figure}[H]
     \centering
@@ -376,22 +269,14 @@ Saat proses pembersihan dimulai maka Admin akan mendapatkan kunci pod yang sedan
     \label{fig:halaman-admin-kelola-harga-dinamis}
 \end{figure}
 
-Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman admin cabang untuk mengelola harga dinamis. Pada halaman ini, admin dapat mengatur harga dinamis untuk cabang yang dikelola. Harga dinamis ini akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu. Hal ini dapat membantu admin dalam mengelola harga reservasi dan memastikan bahwa harga yang ditawarkan sesuai dengan kondisi pasar.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pricing.png}
+%     \caption{Kode Implementasi Harga Dinamis berdasarkan Tanggal}
+%     \label{lst:be-harga-dinamis-admin}
+% \end{figure}
 
-% \lstinputlisting[
-%     language=Python,
-%     caption={Implementasi Harga Dinamis berdasarkan Tanggal},
-%     label={lst:be-harga-dinamis-admin},
-% ]{codes/admin/pricing.py}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{codes/admin/pricing.png}
-    \caption{Kode Implementasi Harga Dinamis berdasarkan Tanggal}
-    \label{lst:be-harga-dinamis-admin}
-\end{figure}
-
-Setelah Admin memasukkan harga dinamis maka harga tersebut akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu, berikut potongan implementasi kode untuk mendapatkan harga dinamis berdasarkan tanggal pada gambar \ref{lst:be-harga-dinamis-admin}.
+Untuk mengoptimalkan pendapatan, Admin dapat menerapkan strategi harga dinamis melalui halaman yang ditunjukkan pada Gambar \ref{fig:halaman-admin-kelola-harga-dinamis}. Fitur ini memungkinkan Admin untuk mengatur harga yang berbeda untuk tanggal atau periode tertentu, misalnya menaikkan harga pada akhir pekan atau hari libur. Harga yang telah diatur ini akan secara otomatis diterapkan pada saat pengguna melakukan reservasi. Kemampuan ini memberikan kendali penuh kepada cabang untuk menyesuaikan harga dengan permintaan pasar dan meningkatkan potensi pendapatan.
 
 \begin{figure}[H]
     \centering
@@ -400,22 +285,442 @@ Setelah Admin memasukkan harga dinamis maka harga tersebut akan digunakan untuk 
     \label{fig:halaman-transaksi-cabang}
 \end{figure}
 
-Pada gambar \ref{Tampilan Transaksi pada Cabang} adalah tampilan dimana Admin dapat melihat list dan detail transaksi yang terjadi untuk pod pada cabang yang ia kelola untuk visibilitas operasional yang lebih baik.
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/input-ota.png}
+%     \caption{Tampilan Input \textit{OTA} pada Cabang}
+%     \label{fig:halaman-input-ota-admin}
+% \end{figure}
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/input-ota.png}
-    \caption{Tampilan Input \textit{OTA} pada Cabang}
-    \label{fig:halaman-input-ota-admin}
-\end{figure}
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota-admin.png}
+%     \caption{Tampilan List Input \textit{OTA} pada Cabang}
+%     \label{fig:halaman-list-input-ota-admin}
+% \end{figure}
 
-Integrasi antara \textit{Online Travel Agency} dan sistem Tamu.id belum berjalan secara otomatis sehingga ketika ada yang melakukan reservasi via \textit{Online Travel Agency} maka Admin harus menginputkan data reservasinya secara manual seperti pada gambar \ref{fig:halaman-input-ota-admin}.
+Sebagai pelengkap, Admin dapat memantau seluruh transaksi yang terjadi di cabangnya melalui halaman daftar transaksi (Gambar \ref{fig:halaman-transaksi-cabang}) untuk visibilitas finansial. Selain itu, karena integrasi dengan \textit{Online Travel Agency} (OTA) belum berjalan otomatis, disediakan fitur untuk menginput data reservasi dari kanal OTA secara manual. Admin dapat memasukkan detail pemesanan dari platform seperti Traveloka atau Booking.com ke dalam sistem, yang kemudian akan memblokir ketersediaan pod yang relevan. Data reservasi manual ini juga dapat dilihat kembali dalam sebuah daftar terpisah untuk memastikan tidak ada pemesanan ganda dan semua data hunian tercatat secara terpusat.
 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota.png}
-    \caption{Tampilan List Input \textit{OTA} pada Cabang}
-    \label{fig:halaman-list-input-ota-admin}
-\end{figure}
+% batas sebelum revisi minta dipendekin
 
-Pada gambar \ref{fig:halaman-list-input-ota-admin} merupakan halaman list data untuk reservasi \textit{User} yang dilakukan diluar platform yaitu dari \textit{Online Travel Agency}, untuk visibilitas dan kontrol yang lebih baik tentunya data - data yang sudah dimasukkan harus dapat terlihat dengan detail.
+% \subsection{Halaman Admin}
+
+% Halaman Admin atau Admin cabang merupakan halaman yang digunakan oleh admin untuk mengelola operasional dan data cabang mereka, berikut implementasi halaman admin yang telah dibuat.
+
+% \subsubsection{Login, Pilih Cabang, Dashboard, dan Pengaturan Akun}
+
+% Pada halaman ini, admin dapat melakukan login ke dalam aplikasi Tamu.id. Tampilan halaman login admin dapat dilihat pada Gambar \ref{fig:halaman-login-admin}. Admin dapat login dengan menggunakan dua metode  yaitu email dan password ataupun langsung menggunakan akun Google.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-sa/login.png}
+%     \caption{Tampilan Halaman Login Admin}
+%     \label{fig:halaman-login-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/pilih-cabang.png}
+%     \caption{Tampilan Halaman Pilih Cabang Admin}
+%     \label{fig:halaman-pilih-cabang-admin}
+% \end{figure}
+
+% Setelah Admin berhasil login, admin akan diarahkan ke halaman pilih cabang. Pada halaman ini, admin dapat memilih cabang yang akan dikelola. Admin dapat mengelola lebih dari satu cabang, Tampilan halaman pilih cabang admin dapat dilihat pada Gambar \ref{fig:halaman-pilih-cabang-admin}, Potongan implementasi kode untuk mendapatkan data cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-pilih-cabang-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Login Admin dan Pilih Cabang},
+% %     label={lst:be-pilih-cabang-admin},
+% % ]{codes/admin/login.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/login.png}
+%     \caption{Kode Implementasi Login Admin dan Pilih Cabang}
+%     \label{lst:be-pilih-cabang-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/dasbor.png}
+%     \caption{Tampilan Halaman Dasbor Admin Cabang}
+%     \label{fig:halaman-dasbor-admin}
+% \end{figure}
+
+% Setelah memilih cabang, admin akan diarahkan ke halaman dasbor admin cabang. Pada halaman ini, admin dapat melihat informasi garis besar mengenai cabang yang dikelola seperti pada Gambar \ref{fig:halaman-dasbor-admin}, Potongan implementasi kode untuk mendapatkan data yang ditampilkan pada dasbor cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-pilih-admin-dasbor}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Dasbor Admin Cabang},
+% %     label={lst:be-pilih-admin-dasbor},
+% % ]{codes/admin/dasbor.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/dasbor.png}
+%     \caption{Kode Implementasi Dasbor Admin Cabang}
+%     \label{lst:be-pilih-admin-dasbor}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/dasbor-okupansi.png}
+%     \caption{Tampilan Halaman Dasbor Okupansi Admin Cabang}
+%     \label{fig:halaman-dasbor-okupansi-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-dasbor-okupansi-admin} adalah tampilan halaman dasbor okupansi admin cabang. Pada halaman ini, admin dapat melihat informasi okupansi cabang yang dikelola secara real-time, selain itu juga pada halaman ini admin dapat melihat perkiraan tingkat okupansi beberapa hari ke depan dan juga melihat performa okupansi cabang dalam beberapa hari terakhir. Hal ini dapat membantu admin dalam mengelola okupansi cabang dan membuat keputusan yang lebih baik, Potongan implementasi kode untuk mendapatkan data yang ditampilkan pada dasbor okupansi cabang yang dikelola oleh admin saat setelah login dapat dilihat pada gambar \ref{lst:be-okupansi-admin-dasbor}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Dasbor Okupansi Admin Cabang},
+% %     label={lst:be-okupansi-admin-dasbor},
+% % ]{codes/admin/okupansi.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/okupansi.png}
+%     \caption{Kode Implementasi Dasbor Okupansi Admin Cabang}
+%     \label{lst:be-okupansi-admin-dasbor}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/profil.png}
+%     \caption{Tampilan Halaman Profil Admin Cabang}
+%     \label{fig:halaman-profil-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-profil-admin} adalah tampilan halaman profil admin cabang. Pada halaman ini, admin dapat melihat informasi profil mereka seperti nama, email, dan nomor telepon. Admin juga dapat mengubah informasi profil mereka jika diperlukan.
+
+
+
+% \subsubsection{Kelola Data Cabang}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang1.png}
+%     \caption{Tampilan Admin Kelola Data Cabang}
+%     \label{fig:halaman-admin-kelola-cabang}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/edit-cabang2.png}
+%     \caption{Tampilan Admin Kelola Data Cabang}
+%     \label{fig:halaman-admin-kelola-cabang-2}
+% \end{figure}
+
+% Untuk melakukan update data cabang, admin dapat mengakses halaman kelola data cabang seperti pada gambar \ref{fig:halaman-admin-kelola-cabang} dan \ref{fig:halaman-admin-kelola-cabang-2}, pada halaman ini, admin dapat mengubah informasi cabang seperti nama, alamat, nomor telepon, dan deskripsi cabang. Hal ini dapat membantu admin dalam mengelola data cabang dan memastikan bahwa informasi yang ditampilkan di aplikasi Tamu.id selalu akurat dan terbaru. Potongan implementasi kode untuk mendapatkan data cabang yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:fe-kelola-cabang-admin}.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Halaman Kelola Data Cabang},
+% %     label={lst:fe-kelola-cabang-admin},
+% % ]{codes/admin/hotel.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/hotel.png}
+%     \caption{Kode Implementasi Halaman Kelola Data Cabang}
+%     \label{lst:fe-kelola-cabang-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/jenis-pod.png}
+%     \caption{Tampilan Admin Kelola jenis pod cabang}
+%     \label{fig:halaman-admin-kelola-jenis-pod}
+% \end{figure}
+
+% Yang paling utama dari sebuah cabang adalah tiap cabang memiliki jenis pod yang dapat dipesan oleh \textit{User}, oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-jenis-pod} \textit{Admin} dapat mengelola jenis pod yang ada pada cabang yang ia kelola, dari mulai membuat, mengedit, dan menghapusnya. Potongan implementasi kode untuk mendapatkan data jenis pod yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-jenis-pod-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Kelola Jenis Pod Admin},
+% %     label={lst:be-kelola-jenis-pod-admin},
+% % ]{codes/admin/podtype.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/podtype.png}
+%     \caption{Kode implementasi Kelola Jenis Pod Admin}
+%     \label{lst:be-kelola-jenis-pod-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/pod.png}
+%     \caption{Tampilan Admin Kelola jenis pod cabang}
+%     \label{fig:halaman-admin-kelola-pod}
+% \end{figure}
+
+% Setelah memiliki jenis pod maka selanjutnya untuk masing - masing jenis pod tentunya memiliki anggota yaitu entitas Pod, oleh karena itu \textit{Admin} dapat mengelola Pod yang ada pada cabangnya dari mulai membuat, mengedit, dan menghapusnya sesuai pada gambar \ref{fig:halaman-admin-kelola-pod}, potongan implementasi kode untuk tampilan halaman kelola pod admin dapat dilihat pada gambar \ref{lst:fe-kelola-pod-admin}.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Kelola Pod Admin},
+% %     label={lst:fe-kelola-pod-admin},
+% % ]{codes/admin/pod.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pod.png}
+%     \caption{Kode Implementasi Kelola Pod Admin}
+%     \label{lst:fe-kelola-pod-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/kelola-ota.png}
+%     \caption{Tampilan Admin Kelola \textit{OTA} Cabang}
+%     \label{fig:halaman-admin-kelola-ota}
+% \end{figure}
+
+% Untuk tiap cabang memiliki kebebasan untuk melakukan integrasi dengan \textit{Online Travel Agency} lain misal Traveloka, Tiket.com, Booking.com, dll. ataupun tidak sama sekali oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-ota} \textit{Admin} dapat mengelola \textit{Online Travel Agency} mana yang aktif pada cabang yang ia kelola, potongan implementasi kode untuk halaman kelola \textit{OTA} admin dapat dilihat pada gambar \ref{lst:fe-kelola-ota-admin}.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Kelola \textit{OTA} Admin},
+% %     label={lst:fe-kelola-ota-admin},
+% % ]{codes/admin/ota.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/ota.png}
+%     \caption{Kode Implementasi Kelola \textit{OTA} Admin}
+%     \label{lst:fe-kelola-ota-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/staff.png}
+%     \caption{Tampilan Admin Kelola Staff Cabang}
+%     \label{fig:halaman-admin-kelola-staff}
+% \end{figure}
+
+% Setiap cabang dapat dikelola oleh lebih dari satu Admin atau Staff oleh karena itu pada gambar \ref{fig:halaman-admin-kelola-staff} Staff dengan peran Admin dapat melakukan pengaturan untuk staff pada cabang yang ia kelola, dari mulai membuat, mengedit, dan menghapus staff yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola staff yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-staff-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Kelola oleh Staff Admin},
+% %     label={lst:be-kelola-staff-admin},
+% % ]{codes/admin/staff.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/staff.png}
+%     \caption{Kode Implementasi Kelola oleh Staff Admin}
+%     \label{lst:be-kelola-staff-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/voucher.png}
+%     \caption{Tampilan Admin Kelola Voucher Cabang}
+%     \label{fig:halaman-admin-kelola-voucher}
+% \end{figure}
+
+
+% Untuk setiap cabang dapat mengadakan promo mandiri yaitu seperti pada gambar \ref{fig:halaman-admin-kelola-voucher}, Admin dapat membuat Voucher promo khusus untuk cabang yang ia kelolal, dari mulai membuat, mengedit, dan menghapus voucher yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola voucher yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:be-kelola-voucher-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Kelola Voucher oleh Admin},
+% %     label={lst:be-kelola-voucher-admin},
+% % ]{codes/admin/voucher.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/voucher.png}
+%     \caption{Kode Implementasi Kelola Voucher oleh Admin}
+%     \label{lst:be-kelola-voucher-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/review.png}
+%     \caption{Tampilan Admin Kelola Review Cabang}
+%     \label{fig:halaman-admin-kelola-review}
+% \end{figure}
+
+% Setelah \textit{User} menginap pada suatu Pod maka selanjutnya \textit{User} akan melakukan \textit{Checkout} dan meninggalkan \textit{Review} dan \textit{Review} tentang pengalamannya selama menggunakan layanan, oleh karena itu untuk menghindari \textit{Spam} pada gambar \ref{fig:halaman-admin-kelola-review}, Admin dapat mengelola dan mengontrolnya, dari mulai melihat, menghapus, dan moderasi review yang ada pada cabang tersebut. Potongan implementasi kode untuk kelola review yang dilakukan oleh admin dapat dilihat pada gambar \ref{lst:fe-moderasi-review-admin}.
+
+% % \lstinputlisting[
+% %     language=VUE,
+% %     caption={Implementasi Moderasi Review oleh Admin},
+% %     label={lst:fe-moderasi-review-admin},
+% % ]{codes/admin/review.vue}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/review.png}
+%     \caption{Kode Implementasi Moderasi Review oleh Admin}
+%     \label{lst:fe-moderasi-review-admin}
+% \end{figure}
+
+
+% \subsubsection{Operasional Harian Cabang}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/laporan-harian.png}
+%     \caption{Tampilan Halaman Laporan Harian Admin Cabang}
+%     \label{fig:halaman-laporan-harian-admin}
+% \end{figure}
+
+% Untuk mempermudah operasional harian cabang pada gambar \ref{fig:halaman-laporan-harian-admin} admin dapat melihat laporan harian cabang yang dikelola seperti siapa saja yang akan check-in, siapa saja yang sudah check-in, dan siapa saja yang sudah check-out. Hal ini dapat membantu admin dalam mengelola operasional harian cabang dan memastikan bahwa semua diketahui lebih awal oleh admin, potongan implementasi kode untuk mendapatkan data laporan harian cabang yang dikelola oleh admin dapat dilihat pada gambar \ref{lst:be-laporan-harian-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Laporan Harian Admin},
+% %     label={lst:be-laporan-harian-admin},
+% % ]{codes/admin/daily-movement.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/daily-movement.png}
+%     \caption{Kode implementasi Laporan Harian Admin}
+%     \label{lst:be-laporan-harian-admin}
+% \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/lis-checkedin.png}
+%     \caption{Tampilan Halaman Daftar Tamu Check-in Admin Cabang}
+%     \label{fig:halaman-daftar-checkedin-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-daftar-checkedin-admin} adalah tampilan halaman daftar tamu yang sudah check-in. Pada halaman ini, admin dapat melihat daftar tamu yang sudah check-in pada cabang yang dikelola. Admin juga dapat melakukan tindakan seperti memindahkan tamu ke pod lain jika diperlukan. Hal ini dapat membantu admin dalam mengelola tamu yang sudah check-in dan memastikan bahwa semua tamu terlayani dengan baik.
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/proses-pindah-pod.png}
+%     \caption{Tampilan Halaman Proses Pindah Pod User oleh Admin Cabang}
+%     \label{fig:halaman-proses-pindah-pod-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-proses-pindah-pod-admin} adalah tampilan halaman proses pindah pod user oleh admin cabang. Pada halaman ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/log-pindah-pod.png}
+%     \caption{Tampilan Halaman Riwayat Pindah Pod pada Cabang}
+%     \label{fig:halaman-riwayat-pindah-pod-admin}
+% \end{figure}
+
+% Untuk melihat riwayat pindah pod pada cabang, admin dapat mengakses halaman riwayat pindah pod seperti pada gambar \ref{fig:halaman-riwayat-pindah-pod-admin}. Pada halaman ini, admin dapat melihat riwayat pindah pod yang dilakukan oleh admin pada cabang yang dikelola.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Pindah Pod \textit{User} oleh Admin},
+% %     label={lst:be-pindah-pod-admin},
+% % ]{codes/admin/pindahpod.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pindahpod.png}
+%     \caption{Kode implementasi Pindah Pod \textit{User} oleh Admin}
+%     \label{lst:be-pindah-pod-admin}
+% \end{figure}
+
+% Kode \ref{lst:be-pindah-pod-admin} adalah potongan implementasi kode untuk memproses pindah pod yang dilakukan oleh admin pada cabang yang dikelola. pada gambar ini, admin dapat memindahkan tamu ke pod lain jika diperlukan. Status dari pod lama yang ditempati user juga dapat disesuaikan dengan alasan pemindahan tersebut.
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/list-harus-dibersihkan.png}
+%     \caption{Tampilan Halaman Daftar Pod yang Harus Dibersihkan}
+%     \label{fig:halaman-daftar-pod-harus-dibersihkan-admin}
+% \end{figure}
+
+% Setelah tamu check-out, admin dapat melihat daftar pod yang harus dibersihkan pada halaman daftar pod yang harus dibersihkan seperti pada gambar \ref{fig:halaman-daftar-pod-harus-dibersihkan-admin} dan melakukan tindakan seperti membersihkan pod tersebut.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/proses-pembersihan.png}
+%     \caption{Tampilan Halaman Proses Pembersihan Pod oleh Admin Cabang}
+%     \label{fig:halaman-proses-pembersihan-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-proses-pembersihan-admin} adalah tampilan halaman proses pembersihan pod oleh admin cabang.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/selesai-pembersihan.png}
+%     \caption{Tampilan Halaman Pod Selesai Dibersihkan oleh Admin Cabang}
+%     \label{fig:halaman-pod-selesai-dibersihkan-admin}
+% \end{figure}
+
+% Setelah proses pembersihan selesai maka tampilan akan berubah menjadi seperti pada gambar \ref{fig:halaman-pod-selesai-dibersihkan-admin}.
+
+% Saat proses pembersihan dimulai maka Admin akan mendapatkan kunci pod yang sedang dibersihkan, sehingga admin dapat mengakses pod tersebut untuk melakukan pembersihan, kunci tersebut hanya berlaku selama tiga jam dan bila lebih dari itu maka kunci harus diperbarui kembali, berikut potongan implementasi kode untuk mendapatkan kunci pod yang sedang dibersihkan oleh admin pada gambar \ref{lst:be-generate-kunci-pod-admin}.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Generate Kunci Pod Admin},
+% %     label={lst:be-generate-kunci-pod-admin},
+% % ]{codes/admin/bersih.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/bersih.png}
+%     \caption{Kode Implementasi Generate Kunci Pod Admin}
+%     \label{lst:be-generate-kunci-pod-admin}
+% \end{figure}
+
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/hargadinamis.png}
+%     \caption{Tampilan Admin Kelola Harga Dinamis Cabang}
+%     \label{fig:halaman-admin-kelola-harga-dinamis}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-admin-kelola-harga-dinamis} adalah tampilan halaman admin cabang untuk mengelola harga dinamis. Pada halaman ini, admin dapat mengatur harga dinamis untuk cabang yang dikelola. Harga dinamis ini akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu. Hal ini dapat membantu admin dalam mengelola harga reservasi dan memastikan bahwa harga yang ditawarkan sesuai dengan kondisi pasar.
+
+% % \lstinputlisting[
+% %     language=Python,
+% %     caption={Implementasi Harga Dinamis berdasarkan Tanggal},
+% %     label={lst:be-harga-dinamis-admin},
+% % ]{codes/admin/pricing.py}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{codes/admin/pricing.png}
+%     \caption{Kode Implementasi Harga Dinamis berdasarkan Tanggal}
+%     \label{lst:be-harga-dinamis-admin}
+% \end{figure}
+
+% Setelah Admin memasukkan harga dinamis maka harga tersebut akan digunakan untuk menentukan harga reservasi tergantung pada tanggal reservasi dan jenis pod yang dipilih oleh tamu, berikut potongan implementasi kode untuk mendapatkan harga dinamis berdasarkan tanggal pada gambar \ref{lst:be-harga-dinamis-admin}.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/transaksi.png}
+%     \caption{Tampilan Transaksi pada Cabang}
+%     \label{fig:halaman-transaksi-cabang}
+% \end{figure}
+
+% Pada gambar \ref{Tampilan Transaksi pada Cabang} adalah tampilan dimana Admin dapat melihat list dan detail transaksi yang terjadi untuk pod pada cabang yang ia kelola untuk visibilitas operasional yang lebih baik.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/input-ota.png}
+%     \caption{Tampilan Input \textit{OTA} pada Cabang}
+%     \label{fig:halaman-input-ota-admin}
+% \end{figure}
+
+% Integrasi antara \textit{Online Travel Agency} dan sistem Tamu.id belum berjalan secara otomatis sehingga ketika ada yang melakukan reservasi via \textit{Online Travel Agency} maka Admin harus menginputkan data reservasinya secara manual seperti pada gambar \ref{fig:halaman-input-ota-admin}.
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[width=\textwidth]{images/halaman-admin/lis-input-ota.png}
+%     \caption{Tampilan List Input \textit{OTA} pada Cabang}
+%     \label{fig:halaman-list-input-ota-admin}
+% \end{figure}
+
+% Pada gambar \ref{fig:halaman-list-input-ota-admin} merupakan halaman list data untuk reservasi \textit{User} yang dilakukan diluar platform yaitu dari \textit{Online Travel Agency}, untuk visibilitas dan kontrol yang lebih baik tentunya data - data yang sudah dimasukkan harus dapat terlihat dengan detail.
